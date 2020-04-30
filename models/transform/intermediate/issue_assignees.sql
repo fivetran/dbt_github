@@ -8,7 +8,6 @@ with issue_label as (
     select *
     from {{ ref('stg_github_user')}}
 
-
 )
 
 select
