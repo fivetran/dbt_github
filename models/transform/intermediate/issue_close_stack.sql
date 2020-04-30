@@ -6,7 +6,7 @@ with issue as (
 ), issue_closed_history as (
 
     select *
-    from {{ ref('stg_issue_closed_history') }}
+    from {{ ref('stg_github_issue_closed_history') }}
   
 ), close_events_stacked as (
     select
