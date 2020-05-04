@@ -1,4 +1,4 @@
-with issue_label as (
+with issue_assignee as (
 
     select *
     from {{ ref('stg_github_issue_assignee') }}
@@ -13,6 +13,6 @@ with issue_label as (
 select
   issue_id,
   string_agg(login, ', ') as assignees
-from github.issue_assignee
-left join github.user on issue_assignee.user_id = user.id
+from issue_assignee
+left join user on issue_assignee.user_id = user.id
 group by 1

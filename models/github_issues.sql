@@ -43,6 +43,11 @@ with issue as (
     select *
     from {{ ref('issue_inbox_time')}}
 
+), creator as (
+
+    select *
+    from {{ ref('stg_github_user')}}
+
 )
 
 select
@@ -85,4 +90,6 @@ left join issue_bloked_time
   on issue.id = issue_bloked_time.issue_id
 left join issue_inbox_time
   on issue.id = issue_inbox_time.issue_id
+left join github.user as creator on issue.user_id = creator.id
+
 where not issue.pull_request
