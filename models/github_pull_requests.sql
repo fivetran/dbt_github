@@ -28,6 +28,11 @@ with issue as (
     select *
     from {{ ref('stg_github_user')}}
 
+), pull_request_times as (
+
+    select *
+    from {{ ref('pull_request_times')}}
+
 )
 
 select
@@ -47,7 +52,11 @@ select
   labels.labels,
   repository.full_name as repository,
   issue_assignees.assignees,
-  creator.login as created_by
+  creator.login as created_by,
+  hours_first_review_post_request,
+  hours_first_action_post_request,
+  hours_request_review_to_merge,
+  merged_at
 from issue
 left join issue_labels as labels
   on issue.id = labels.issue_id
@@ -57,6 +66,10 @@ left join issue_assignees
   on issue.id = issue_assignees.issue_id
 left join issue_open_length
   on issue.id = issue_open_length.issue_id
-left join creator on issue.user_id = creator.id
-
-where not issue.pull_request
+left join creator 
+  on issue.user_id = creator.id
+left join pull_request
+  on issue.id = pull_request.issue_id
+left join pull_request_times
+  on issue.id = pull_request_times.issue_id
+where issue.pull_request

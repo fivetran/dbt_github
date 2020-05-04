@@ -54,6 +54,7 @@ with pull_request_review as (
 
 select
   first_request_time.issue_id,
+  merged_at,
   timestamp_diff(coalesce(time_of_first_review_post_request, current_timestamp()),time_of_first_request, second)/3600 as hours_first_review_post_request,
   --Finds time between first request for review and the review action, uses current_timestamp is no action yet
   timestamp_diff(
