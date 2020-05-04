@@ -92,5 +92,4 @@ left join issue_bloked_time
 left join issue_inbox_time
   on issue.id = issue_inbox_time.issue_id
 left join creator on issue.user_id = creator.id
-
 where not issue.pull_request
