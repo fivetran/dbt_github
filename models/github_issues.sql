@@ -72,7 +72,8 @@ select
   milestone.due_on as milestone_due_on,
   issue_assignees.assignees,
   issue_bloked_time.days_blocked,
-  issue_inbox_time.inbox_days
+  issue_inbox_time.inbox_days,
+  creator.login as created_by
 from issue
 left join issue_labels as labels
   on issue.id = labels.issue_id
@@ -90,6 +91,6 @@ left join issue_bloked_time
   on issue.id = issue_bloked_time.issue_id
 left join issue_inbox_time
   on issue.id = issue_inbox_time.issue_id
-left join github.user as creator on issue.user_id = creator.id
+left join creator on issue.user_id = creator.id
 
 where not issue.pull_request
