@@ -12,7 +12,9 @@ with github_issues as (
 
    select 
       date_trunc(date(created_at), month) as month, 
-      count(*) as number_issues_opened
+      count(*) as number_issues_opened,
+      avg(days_issue_opened) as average_length_issue_open,
+      max(days_issue_opened) as longest_length_issue_open
     from github_issues
     group by 1
 
@@ -29,7 +31,9 @@ with github_issues as (
 
    select 
       date_trunc(date(created_at), month) as month, 
-      count(*) as number_prs_opened
+      count(*) as number_prs_opened,
+      avg(days_issue_opened) as average_length_pr_open,
+      max(days_issue_opened) as longest_length_pr_open
     from pull_requests
     group by 1
 
@@ -48,7 +52,9 @@ with github_issues as (
         issues_closed_per_month.month
       ) as month,
       number_issues_opened,
-      number_issues_closed
+      number_issues_closed,      
+      average_length_issue_open,
+      longest_length_issue_open
     from issues_opened_per_month.month 
     full outer join issues_closed_per_month on issues_opened_per_month.month = issues_closed_per_month.month
 
@@ -59,7 +65,9 @@ with github_issues as (
         prs_merged_per_month.month
       ) as month,
       number_prs_opened,
-      number_prs_merged
+      number_prs_merged,
+      average_length_pr_open,
+      longest_length_pr_open
     from prs_opened_per_month.month 
     full outer join prs_merged_per_month on prs_opened_per_month.month = prs_merged_per_month.month
 
@@ -71,7 +79,11 @@ select
   ) as month,
   coalesce(number_issues_opened, 0) as number_issues_opened,
   coalesce(number_issues_closed, 0) as number_issues_closed,
+  average_length_issue_open,
+  longest_length_issue_open,
   coalesce(number_prs_opened, 0) as number_prs_opened,
-  coalesce(number_prs_merged, 0) as number_prs_merged
+  coalesce(number_prs_merged, 0) as number_prs_merged,
+  average_length_pr_open,
+  longest_length_pr_open
 from prs_opened_per_month.month 
 full outer join prs_merged_per_month on prs_opened_per_month.month = prs_merged_per_month.month
