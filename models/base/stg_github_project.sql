@@ -6,7 +6,7 @@ with project as (
 ), fields as (
 
     select
-      id,
+      id as project_id,
       name
     from project
 )

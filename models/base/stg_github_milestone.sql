@@ -6,7 +6,7 @@ with milestone as (
 ), fields as (
 
     select 
-      id,
+      id as milestone_id,
       title,
       due_on, 
       repository_id

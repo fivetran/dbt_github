@@ -15,5 +15,5 @@ select
   string_agg(login, ', ') as reviewers,
   count(*) as number_of_reviews
 from pull_request_review
-left join user on pull_request_review.user_id = user.id
+left join user on pull_request_review.user_id = user.user_id
 group by 1

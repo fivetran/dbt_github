@@ -33,6 +33,11 @@ with issue as (
     select *
     from {{ ref('pull_request_times')}}
 
+), pull_request_reviewers as (
+
+    select *
+    from {{ ref('pull_request_reviewers')}}
+
 ), pull_request as (
 
     select *
@@ -61,20 +66,24 @@ select
   hours_first_review_post_request,
   hours_first_action_post_request,
   hours_request_review_to_merge,
-  merged_at
+  merged_at,
+  reviewers,
+  number_of_reviews
 from issue
 left join issue_labels as labels
   on issue.issue_id = labels.issue_id
 left join repository
-  on issue.repository_id = repository.id
+  on issue.repository_id = repository.repository_id
 left join issue_assignees
   on issue.issue_id = issue_assignees.issue_id
 left join issue_open_length
   on issue.issue_id = issue_open_length.issue_id
 left join creator 
-  on issue.user_id = creator.id
+  on issue.user_id = creator.user_id
 left join pull_request
   on issue.issue_id = pull_request.issue_id
 left join pull_request_times
   on issue.issue_id = pull_request_times.issue_id
+left join pull_request_reviewers
+  on pull_request.pull_request_id = pull_request_reviewers.pull_request_id
 where issue.pull_request

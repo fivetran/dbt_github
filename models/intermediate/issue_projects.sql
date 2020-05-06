@@ -36,5 +36,5 @@ select
   issue_id,
   string_agg(project.name, ', ') as projects
 from current_project_issues_with_ids, unnest(projects_array) as project_id
-join project on project_id = project.id
+join project on project_id = project.project_id
 group by 1
