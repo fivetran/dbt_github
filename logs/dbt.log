@@ -26092,3 +26092,3071 @@ full outer join prs_per_month on issues_per_month.month = prs_per_month.month
 Done. PASS=29 WARN=0 ERROR=0 SKIP=0 TOTAL=29
 2020-05-06 00:26:37.465430 (MainThread): Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x109a8b390>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10a958dd0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10aa0fe90>]}
 2020-05-06 00:26:37.465839 (MainThread): Flushing usage events
+2020-05-06 04:57:29.342383 (MainThread): Running with dbt=0.16.0
+2020-05-06 04:57:29.577297 (MainThread): running dbt with arguments Namespace(cls=<class 'dbt.task.run.RunTask'>, debug=False, exclude=None, full_refresh=False, log_cache_events=False, log_format='default', models=None, partial_parse=None, profile=None, profiles_dir='/Users/kristin/.dbt', project_dir=None, record_timing_info=None, rpc_method='run', single_threaded=False, strict=False, target=None, test_new_parser=False, threads=None, use_cache=True, vars='{}', version_check=True, warn_error=False, which='run', write_json=True)
+2020-05-06 04:57:29.578170 (MainThread): Tracking: tracking
+2020-05-06 04:57:29.593729 (MainThread): Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1131c8390>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1131c8590>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1131c89d0>]}
+2020-05-06 04:57:29.612915 (MainThread): Partial parsing not enabled
+2020-05-06 04:57:29.616126 (MainThread): Parsing macros/core.sql
+2020-05-06 04:57:29.620536 (MainThread): Parsing macros/materializations/helpers.sql
+2020-05-06 04:57:29.628581 (MainThread): Parsing macros/materializations/snapshot/snapshot_merge.sql
+2020-05-06 04:57:29.630741 (MainThread): Parsing macros/materializations/snapshot/strategies.sql
+2020-05-06 04:57:29.648905 (MainThread): Parsing macros/materializations/snapshot/snapshot.sql
+2020-05-06 04:57:29.683193 (MainThread): Parsing macros/materializations/seed/seed.sql
+2020-05-06 04:57:29.703385 (MainThread): Parsing macros/materializations/incremental/helpers.sql
+2020-05-06 04:57:29.705455 (MainThread): Parsing macros/materializations/incremental/incremental.sql
+2020-05-06 04:57:29.711449 (MainThread): Parsing macros/materializations/common/merge.sql
+2020-05-06 04:57:29.724710 (MainThread): Parsing macros/materializations/table/table.sql
+2020-05-06 04:57:29.735341 (MainThread): Parsing macros/materializations/view/view.sql
+2020-05-06 04:57:29.743214 (MainThread): Parsing macros/materializations/view/create_or_replace_view.sql
+2020-05-06 04:57:29.748670 (MainThread): Parsing macros/etc/get_custom_alias.sql
+2020-05-06 04:57:29.749820 (MainThread): Parsing macros/etc/query.sql
+2020-05-06 04:57:29.751104 (MainThread): Parsing macros/etc/is_incremental.sql
+2020-05-06 04:57:29.753133 (MainThread): Parsing macros/etc/get_relation_comment.sql
+2020-05-06 04:57:29.755740 (MainThread): Parsing macros/etc/datetime.sql
+2020-05-06 04:57:29.764642 (MainThread): Parsing macros/etc/get_custom_schema.sql
+2020-05-06 04:57:29.766710 (MainThread): Parsing macros/etc/get_custom_database.sql
+2020-05-06 04:57:29.768075 (MainThread): Parsing macros/adapters/common.sql
+2020-05-06 04:57:29.810339 (MainThread): Parsing macros/schema_tests/relationships.sql
+2020-05-06 04:57:29.811616 (MainThread): Parsing macros/schema_tests/not_null.sql
+2020-05-06 04:57:29.812691 (MainThread): Parsing macros/schema_tests/unique.sql
+2020-05-06 04:57:29.813951 (MainThread): Parsing macros/schema_tests/accepted_values.sql
+2020-05-06 04:57:29.816774 (MainThread): Parsing macros/etc.sql
+2020-05-06 04:57:29.818264 (MainThread): Parsing macros/catalog.sql
+2020-05-06 04:57:29.825273 (MainThread): Parsing macros/adapters.sql
+2020-05-06 04:57:29.845244 (MainThread): Parsing macros/materializations/seed.sql
+2020-05-06 04:57:29.847323 (MainThread): Parsing macros/materializations/view.sql
+2020-05-06 04:57:29.848910 (MainThread): Parsing macros/materializations/table.sql
+2020-05-06 04:57:29.858454 (MainThread): Parsing macros/materializations/incremental.sql
+2020-05-06 04:57:29.870566 (MainThread): Parsing macros/materializations/snapshot.sql
+2020-05-06 04:57:29.887027 (MainThread): Partial parsing not enabled
+2020-05-06 04:57:29.917925 (MainThread): Acquiring new bigquery connection "model.github.github_pull_requests".
+2020-05-06 04:57:29.918057 (MainThread): Opening a new connection, currently in state init
+2020-05-06 04:57:29.938824 (MainThread): Acquiring new bigquery connection "model.github.issues_and_prs_per_month".
+2020-05-06 04:57:29.938939 (MainThread): Opening a new connection, currently in state closed
+2020-05-06 04:57:29.944489 (MainThread): Acquiring new bigquery connection "model.github.github_issues".
+2020-05-06 04:57:29.944565 (MainThread): Opening a new connection, currently in state closed
+2020-05-06 04:57:29.956486 (MainThread): Acquiring new bigquery connection "model.github.issue_assignees".
+2020-05-06 04:57:29.956561 (MainThread): Opening a new connection, currently in state closed
+2020-05-06 04:57:29.961877 (MainThread): Acquiring new bigquery connection "model.github.issue_status_windows".
+2020-05-06 04:57:29.962010 (MainThread): Opening a new connection, currently in state closed
+2020-05-06 04:57:29.967526 (MainThread): Acquiring new bigquery connection "model.github.issue_blocked_time".
+2020-05-06 04:57:29.967601 (MainThread): Opening a new connection, currently in state closed
+2020-05-06 04:57:29.973167 (MainThread): Acquiring new bigquery connection "model.github.issue_labels".
+2020-05-06 04:57:29.973243 (MainThread): Opening a new connection, currently in state closed
+2020-05-06 04:57:29.977717 (MainThread): Acquiring new bigquery connection "model.github.pull_request_reviewers".
+2020-05-06 04:57:29.977791 (MainThread): Opening a new connection, currently in state closed
+2020-05-06 04:57:29.983224 (MainThread): Acquiring new bigquery connection "model.github.issue_inbox_time".
+2020-05-06 04:57:29.983298 (MainThread): Opening a new connection, currently in state closed
+2020-05-06 04:57:29.987856 (MainThread): Acquiring new bigquery connection "model.github.issue_projects".
+2020-05-06 04:57:29.987931 (MainThread): Opening a new connection, currently in state closed
+2020-05-06 04:57:29.993302 (MainThread): Acquiring new bigquery connection "model.github.issue_close_stack".
+2020-05-06 04:57:29.993377 (MainThread): Opening a new connection, currently in state closed
+2020-05-06 04:57:29.998774 (MainThread): Acquiring new bigquery connection "model.github.issue_open_length".
+2020-05-06 04:57:29.998849 (MainThread): Opening a new connection, currently in state closed
+2020-05-06 04:57:30.003457 (MainThread): Acquiring new bigquery connection "model.github.pull_request_times".
+2020-05-06 04:57:30.003532 (MainThread): Opening a new connection, currently in state closed
+2020-05-06 04:57:30.011723 (MainThread): Acquiring new bigquery connection "model.github.stg_github_pull_request".
+2020-05-06 04:57:30.011800 (MainThread): Opening a new connection, currently in state closed
+2020-05-06 04:57:30.016379 (MainThread): Acquiring new bigquery connection "model.github.stg_github_requested_reviewer_history".
+2020-05-06 04:57:30.016453 (MainThread): Opening a new connection, currently in state closed
+2020-05-06 04:57:30.021128 (MainThread): Acquiring new bigquery connection "model.github.stg_github_user".
+2020-05-06 04:57:30.021203 (MainThread): Opening a new connection, currently in state closed
+2020-05-06 04:57:30.025757 (MainThread): Acquiring new bigquery connection "model.github.stg_github_issue_label".
+2020-05-06 04:57:30.025835 (MainThread): Opening a new connection, currently in state closed
+2020-05-06 04:57:30.030867 (MainThread): Acquiring new bigquery connection "model.github.stg_github_issue_label_history".
+2020-05-06 04:57:30.030941 (MainThread): Opening a new connection, currently in state closed
+2020-05-06 04:57:30.035458 (MainThread): Acquiring new bigquery connection "model.github.stg_github_project".
+2020-05-06 04:57:30.035533 (MainThread): Opening a new connection, currently in state closed
+2020-05-06 04:57:30.040049 (MainThread): Acquiring new bigquery connection "model.github.stg_github_pull_request_review".
+2020-05-06 04:57:30.040125 (MainThread): Opening a new connection, currently in state closed
+2020-05-06 04:57:30.044649 (MainThread): Acquiring new bigquery connection "model.github.stg_github_issue_closed_history".
+2020-05-06 04:57:30.044723 (MainThread): Opening a new connection, currently in state closed
+2020-05-06 04:57:30.049255 (MainThread): Acquiring new bigquery connection "model.github.stg_github_card".
+2020-05-06 04:57:30.049329 (MainThread): Opening a new connection, currently in state closed
+2020-05-06 04:57:30.054284 (MainThread): Acquiring new bigquery connection "model.github.stg_github_issue_merged".
+2020-05-06 04:57:30.054362 (MainThread): Opening a new connection, currently in state closed
+2020-05-06 04:57:30.058938 (MainThread): Acquiring new bigquery connection "model.github.stg_github_issue_comment".
+2020-05-06 04:57:30.059016 (MainThread): Opening a new connection, currently in state closed
+2020-05-06 04:57:30.064448 (MainThread): Acquiring new bigquery connection "model.github.stg_github_issue_project_history".
+2020-05-06 04:57:30.064545 (MainThread): Opening a new connection, currently in state closed
+2020-05-06 04:57:30.069399 (MainThread): Acquiring new bigquery connection "model.github.stg_github_repository".
+2020-05-06 04:57:30.069484 (MainThread): Opening a new connection, currently in state closed
+2020-05-06 04:57:30.074221 (MainThread): Acquiring new bigquery connection "model.github.stg_github_issue_assignee".
+2020-05-06 04:57:30.074329 (MainThread): Opening a new connection, currently in state closed
+2020-05-06 04:57:30.079540 (MainThread): Acquiring new bigquery connection "model.github.stg_github_issue".
+2020-05-06 04:57:30.079643 (MainThread): Opening a new connection, currently in state closed
+2020-05-06 04:57:30.084951 (MainThread): Acquiring new bigquery connection "model.github.stg_github_milestone".
+2020-05-06 04:57:30.085027 (MainThread): Opening a new connection, currently in state closed
+2020-05-06 04:57:30.154042 (MainThread): Acquiring new bigquery connection "test.github.unique_github_issues_issue_id".
+2020-05-06 04:57:30.154201 (MainThread): Opening a new connection, currently in state closed
+2020-05-06 04:57:30.165474 (MainThread): Acquiring new bigquery connection "test.github.not_null_github_issues_issue_id".
+2020-05-06 04:57:30.165580 (MainThread): Opening a new connection, currently in state closed
+2020-05-06 04:57:30.175220 (MainThread): Acquiring new bigquery connection "test.github.unique_github_pull_requests_issue_id".
+2020-05-06 04:57:30.175318 (MainThread): Opening a new connection, currently in state closed
+2020-05-06 04:57:30.182929 (MainThread): Acquiring new bigquery connection "test.github.not_null_github_pull_requests_issue_id".
+2020-05-06 04:57:30.183036 (MainThread): Opening a new connection, currently in state closed
+2020-05-06 04:57:30.190093 (MainThread): Acquiring new bigquery connection "test.github.unique_issues_and_prs_per_month_month".
+2020-05-06 04:57:30.190176 (MainThread): Opening a new connection, currently in state closed
+2020-05-06 04:57:30.196448 (MainThread): Acquiring new bigquery connection "test.github.not_null_issues_and_prs_per_month_month".
+2020-05-06 04:57:30.196522 (MainThread): Opening a new connection, currently in state closed
+2020-05-06 04:57:30.203100 (MainThread): Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1139a6150>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x11399b250>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1136058d0>]}
+2020-05-06 04:57:30.203251 (MainThread): Flushing usage events
+2020-05-06 04:57:30.818819 (MainThread): Connection 'test.github.not_null_issues_and_prs_per_month_month' was properly closed.
+2020-05-06 04:57:30.819040 (MainThread): Encountered an error:
+2020-05-06 04:57:30.819212 (MainThread): Compilation Error
+  dbt found two schema.yml entries for the same resource named github_issues. Resources and their associated columns may only be described a single time. To fix this, remove the resource entry for github_issues in one of these files:
+    - models/transform/github.yml
+    - models/schema.yml
+2020-05-06 04:57:30.826483 (MainThread): Traceback (most recent call last):
+  File "/usr/local/Cellar/dbt/0.16.0_1/libexec/lib/python3.7/site-packages/dbt/main.py", line 81, in main
+    results, succeeded = handle_and_check(args)
+  File "/usr/local/Cellar/dbt/0.16.0_1/libexec/lib/python3.7/site-packages/dbt/main.py", line 159, in handle_and_check
+    task, res = run_from_args(parsed)
+  File "/usr/local/Cellar/dbt/0.16.0_1/libexec/lib/python3.7/site-packages/dbt/main.py", line 212, in run_from_args
+    results = task.run()
+  File "/usr/local/Cellar/dbt/0.16.0_1/libexec/lib/python3.7/site-packages/dbt/task/runnable.py", line 351, in run
+    self._runtime_initialize()
+  File "/usr/local/Cellar/dbt/0.16.0_1/libexec/lib/python3.7/site-packages/dbt/task/runnable.py", line 107, in _runtime_initialize
+    super()._runtime_initialize()
+  File "/usr/local/Cellar/dbt/0.16.0_1/libexec/lib/python3.7/site-packages/dbt/task/runnable.py", line 75, in _runtime_initialize
+    self.load_manifest()
+  File "/usr/local/Cellar/dbt/0.16.0_1/libexec/lib/python3.7/site-packages/dbt/task/runnable.py", line 63, in load_manifest
+    self.manifest = get_full_manifest(self.config)
+  File "/usr/local/Cellar/dbt/0.16.0_1/libexec/lib/python3.7/site-packages/dbt/perf_utils.py", line 23, in get_full_manifest
+    return load_manifest(config, internal, set_header)
+  File "/usr/local/Cellar/dbt/0.16.0_1/libexec/lib/python3.7/site-packages/dbt/parser/manifest.py", line 646, in load_manifest
+    return ManifestLoader.load_all(config, internal_manifest, macro_hook)
+  File "/usr/local/Cellar/dbt/0.16.0_1/libexec/lib/python3.7/site-packages/dbt/parser/manifest.py", line 336, in load_all
+    loader.load(internal_manifest=internal_manifest)
+  File "/usr/local/Cellar/dbt/0.16.0_1/libexec/lib/python3.7/site-packages/dbt/parser/manifest.py", line 208, in load
+    self.parse_project(project, macro_manifest, old_results)
+  File "/usr/local/Cellar/dbt/0.16.0_1/libexec/lib/python3.7/site-packages/dbt/parser/manifest.py", line 182, in parse_project
+    self.parse_with_cache(path, parser, old_results)
+  File "/usr/local/Cellar/dbt/0.16.0_1/libexec/lib/python3.7/site-packages/dbt/parser/manifest.py", line 138, in parse_with_cache
+    parser.parse_file(block)
+  File "/usr/local/Cellar/dbt/0.16.0_1/libexec/lib/python3.7/site-packages/dbt/parser/schemas.py", line 302, in parse_file
+    for test_block in parser.parse():
+  File "/usr/local/Cellar/dbt/0.16.0_1/libexec/lib/python3.7/site-packages/dbt/parser/schemas.py", line 399, in parse
+    self.parse_patch(node_block, refs)
+  File "/usr/local/Cellar/dbt/0.16.0_1/libexec/lib/python3.7/site-packages/dbt/parser/schemas.py", line 628, in parse_patch
+    self.results.add_patch(self.yaml.file, result)
+  File "/usr/local/Cellar/dbt/0.16.0_1/libexec/lib/python3.7/site-packages/dbt/parser/results.py", line 133, in add_patch
+    raise_duplicate_patch_name(patch, self.patches[patch.name])
+  File "/usr/local/Cellar/dbt/0.16.0_1/libexec/lib/python3.7/site-packages/dbt/exceptions.py", line 739, in raise_duplicate_patch_name
+    f'dbt found two schema.yml entries for the same resource named '
+  File "/usr/local/Cellar/dbt/0.16.0_1/libexec/lib/python3.7/site-packages/dbt/exceptions.py", line 363, in raise_compiler_error
+    raise CompilationException(msg, node)
+dbt.exceptions.CompilationException: Compilation Error
+  dbt found two schema.yml entries for the same resource named github_issues. Resources and their associated columns may only be described a single time. To fix this, remove the resource entry for github_issues in one of these files:
+    - models/transform/github.yml
+    - models/schema.yml
+
+2020-05-06 04:59:18.587475 (MainThread): Running with dbt=0.16.0
+2020-05-06 04:59:18.739109 (MainThread): running dbt with arguments Namespace(cls=<class 'dbt.task.run.RunTask'>, debug=False, exclude=None, full_refresh=False, log_cache_events=False, log_format='default', models=None, partial_parse=None, profile=None, profiles_dir='/Users/kristin/.dbt', project_dir=None, record_timing_info=None, rpc_method='run', single_threaded=False, strict=False, target=None, test_new_parser=False, threads=None, use_cache=True, vars='{}', version_check=True, warn_error=False, which='run', write_json=True)
+2020-05-06 04:59:18.739866 (MainThread): Tracking: tracking
+2020-05-06 04:59:18.744977 (MainThread): Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10d739590>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10d739190>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10dc533d0>]}
+2020-05-06 04:59:18.761692 (MainThread): Partial parsing not enabled
+2020-05-06 04:59:18.763384 (MainThread): Parsing macros/core.sql
+2020-05-06 04:59:18.767205 (MainThread): Parsing macros/materializations/helpers.sql
+2020-05-06 04:59:18.774326 (MainThread): Parsing macros/materializations/snapshot/snapshot_merge.sql
+2020-05-06 04:59:18.775937 (MainThread): Parsing macros/materializations/snapshot/strategies.sql
+2020-05-06 04:59:18.791738 (MainThread): Parsing macros/materializations/snapshot/snapshot.sql
+2020-05-06 04:59:18.822024 (MainThread): Parsing macros/materializations/seed/seed.sql
+2020-05-06 04:59:18.841526 (MainThread): Parsing macros/materializations/incremental/helpers.sql
+2020-05-06 04:59:18.843262 (MainThread): Parsing macros/materializations/incremental/incremental.sql
+2020-05-06 04:59:18.848903 (MainThread): Parsing macros/materializations/common/merge.sql
+2020-05-06 04:59:18.860061 (MainThread): Parsing macros/materializations/table/table.sql
+2020-05-06 04:59:18.866111 (MainThread): Parsing macros/materializations/view/view.sql
+2020-05-06 04:59:18.871710 (MainThread): Parsing macros/materializations/view/create_or_replace_view.sql
+2020-05-06 04:59:18.876086 (MainThread): Parsing macros/etc/get_custom_alias.sql
+2020-05-06 04:59:18.876927 (MainThread): Parsing macros/etc/query.sql
+2020-05-06 04:59:18.877886 (MainThread): Parsing macros/etc/is_incremental.sql
+2020-05-06 04:59:18.879363 (MainThread): Parsing macros/etc/get_relation_comment.sql
+2020-05-06 04:59:18.881205 (MainThread): Parsing macros/etc/datetime.sql
+2020-05-06 04:59:18.889173 (MainThread): Parsing macros/etc/get_custom_schema.sql
+2020-05-06 04:59:18.890934 (MainThread): Parsing macros/etc/get_custom_database.sql
+2020-05-06 04:59:18.891873 (MainThread): Parsing macros/adapters/common.sql
+2020-05-06 04:59:18.928846 (MainThread): Parsing macros/schema_tests/relationships.sql
+2020-05-06 04:59:18.929876 (MainThread): Parsing macros/schema_tests/not_null.sql
+2020-05-06 04:59:18.930705 (MainThread): Parsing macros/schema_tests/unique.sql
+2020-05-06 04:59:18.931680 (MainThread): Parsing macros/schema_tests/accepted_values.sql
+2020-05-06 04:59:18.933735 (MainThread): Parsing macros/etc.sql
+2020-05-06 04:59:18.934332 (MainThread): Parsing macros/catalog.sql
+2020-05-06 04:59:18.940559 (MainThread): Parsing macros/adapters.sql
+2020-05-06 04:59:18.959292 (MainThread): Parsing macros/materializations/seed.sql
+2020-05-06 04:59:18.961068 (MainThread): Parsing macros/materializations/view.sql
+2020-05-06 04:59:18.962361 (MainThread): Parsing macros/materializations/table.sql
+2020-05-06 04:59:18.971227 (MainThread): Parsing macros/materializations/incremental.sql
+2020-05-06 04:59:18.982720 (MainThread): Parsing macros/materializations/snapshot.sql
+2020-05-06 04:59:18.999783 (MainThread): Partial parsing not enabled
+2020-05-06 04:59:19.028061 (MainThread): Acquiring new bigquery connection "model.github.github_pull_requests".
+2020-05-06 04:59:19.028155 (MainThread): Opening a new connection, currently in state init
+2020-05-06 04:59:19.047169 (MainThread): Acquiring new bigquery connection "model.github.issues_and_prs_per_month".
+2020-05-06 04:59:19.047248 (MainThread): Opening a new connection, currently in state closed
+2020-05-06 04:59:19.052880 (MainThread): Acquiring new bigquery connection "model.github.github_issues".
+2020-05-06 04:59:19.052959 (MainThread): Opening a new connection, currently in state closed
+2020-05-06 04:59:19.064682 (MainThread): Acquiring new bigquery connection "model.github.issue_assignees".
+2020-05-06 04:59:19.064761 (MainThread): Opening a new connection, currently in state closed
+2020-05-06 04:59:19.070081 (MainThread): Acquiring new bigquery connection "model.github.issue_status_windows".
+2020-05-06 04:59:19.070158 (MainThread): Opening a new connection, currently in state closed
+2020-05-06 04:59:19.075631 (MainThread): Acquiring new bigquery connection "model.github.issue_blocked_time".
+2020-05-06 04:59:19.075708 (MainThread): Opening a new connection, currently in state closed
+2020-05-06 04:59:19.080591 (MainThread): Acquiring new bigquery connection "model.github.issue_labels".
+2020-05-06 04:59:19.080668 (MainThread): Opening a new connection, currently in state closed
+2020-05-06 04:59:19.085247 (MainThread): Acquiring new bigquery connection "model.github.pull_request_reviewers".
+2020-05-06 04:59:19.085325 (MainThread): Opening a new connection, currently in state closed
+2020-05-06 04:59:19.090638 (MainThread): Acquiring new bigquery connection "model.github.issue_inbox_time".
+2020-05-06 04:59:19.090716 (MainThread): Opening a new connection, currently in state closed
+2020-05-06 04:59:19.095618 (MainThread): Acquiring new bigquery connection "model.github.issue_projects".
+2020-05-06 04:59:19.095703 (MainThread): Opening a new connection, currently in state closed
+2020-05-06 04:59:19.101243 (MainThread): Acquiring new bigquery connection "model.github.issue_close_stack".
+2020-05-06 04:59:19.101327 (MainThread): Opening a new connection, currently in state closed
+2020-05-06 04:59:19.106975 (MainThread): Acquiring new bigquery connection "model.github.issue_open_length".
+2020-05-06 04:59:19.107058 (MainThread): Opening a new connection, currently in state closed
+2020-05-06 04:59:19.111704 (MainThread): Acquiring new bigquery connection "model.github.pull_request_times".
+2020-05-06 04:59:19.111783 (MainThread): Opening a new connection, currently in state closed
+2020-05-06 04:59:19.119763 (MainThread): Acquiring new bigquery connection "model.github.stg_github_pull_request".
+2020-05-06 04:59:19.119844 (MainThread): Opening a new connection, currently in state closed
+2020-05-06 04:59:19.124589 (MainThread): Acquiring new bigquery connection "model.github.stg_github_requested_reviewer_history".
+2020-05-06 04:59:19.124668 (MainThread): Opening a new connection, currently in state closed
+2020-05-06 04:59:19.129256 (MainThread): Acquiring new bigquery connection "model.github.stg_github_user".
+2020-05-06 04:59:19.129338 (MainThread): Opening a new connection, currently in state closed
+2020-05-06 04:59:19.133929 (MainThread): Acquiring new bigquery connection "model.github.stg_github_issue_label".
+2020-05-06 04:59:19.134008 (MainThread): Opening a new connection, currently in state closed
+2020-05-06 04:59:19.139171 (MainThread): Acquiring new bigquery connection "model.github.stg_github_issue_label_history".
+2020-05-06 04:59:19.139250 (MainThread): Opening a new connection, currently in state closed
+2020-05-06 04:59:19.143806 (MainThread): Acquiring new bigquery connection "model.github.stg_github_project".
+2020-05-06 04:59:19.143884 (MainThread): Opening a new connection, currently in state closed
+2020-05-06 04:59:19.148476 (MainThread): Acquiring new bigquery connection "model.github.stg_github_pull_request_review".
+2020-05-06 04:59:19.148555 (MainThread): Opening a new connection, currently in state closed
+2020-05-06 04:59:19.153126 (MainThread): Acquiring new bigquery connection "model.github.stg_github_issue_closed_history".
+2020-05-06 04:59:19.153204 (MainThread): Opening a new connection, currently in state closed
+2020-05-06 04:59:19.160394 (MainThread): Acquiring new bigquery connection "model.github.stg_github_card".
+2020-05-06 04:59:19.160721 (MainThread): Opening a new connection, currently in state closed
+2020-05-06 04:59:19.165669 (MainThread): Acquiring new bigquery connection "model.github.stg_github_issue_merged".
+2020-05-06 04:59:19.165770 (MainThread): Opening a new connection, currently in state closed
+2020-05-06 04:59:19.170836 (MainThread): Acquiring new bigquery connection "model.github.stg_github_issue_comment".
+2020-05-06 04:59:19.170913 (MainThread): Opening a new connection, currently in state closed
+2020-05-06 04:59:19.175574 (MainThread): Acquiring new bigquery connection "model.github.stg_github_issue_project_history".
+2020-05-06 04:59:19.175651 (MainThread): Opening a new connection, currently in state closed
+2020-05-06 04:59:19.180959 (MainThread): Acquiring new bigquery connection "model.github.stg_github_repository".
+2020-05-06 04:59:19.181042 (MainThread): Opening a new connection, currently in state closed
+2020-05-06 04:59:19.185936 (MainThread): Acquiring new bigquery connection "model.github.stg_github_issue_assignee".
+2020-05-06 04:59:19.186014 (MainThread): Opening a new connection, currently in state closed
+2020-05-06 04:59:19.190672 (MainThread): Acquiring new bigquery connection "model.github.stg_github_issue".
+2020-05-06 04:59:19.190749 (MainThread): Opening a new connection, currently in state closed
+2020-05-06 04:59:19.195882 (MainThread): Acquiring new bigquery connection "model.github.stg_github_milestone".
+2020-05-06 04:59:19.195959 (MainThread): Opening a new connection, currently in state closed
+2020-05-06 04:59:19.262702 (MainThread): Acquiring new bigquery connection "test.github.unique_github_issues_issue_id".
+2020-05-06 04:59:19.262851 (MainThread): Opening a new connection, currently in state closed
+2020-05-06 04:59:19.273220 (MainThread): Acquiring new bigquery connection "test.github.not_null_github_issues_issue_id".
+2020-05-06 04:59:19.273323 (MainThread): Opening a new connection, currently in state closed
+2020-05-06 04:59:19.282621 (MainThread): Acquiring new bigquery connection "test.github.unique_pull_request_issue_id".
+2020-05-06 04:59:19.282719 (MainThread): Opening a new connection, currently in state closed
+2020-05-06 04:59:19.290158 (MainThread): Acquiring new bigquery connection "test.github.not_null_pull_request_issue_id".
+2020-05-06 04:59:19.290257 (MainThread): Opening a new connection, currently in state closed
+2020-05-06 04:59:19.296953 (MainThread): Acquiring new bigquery connection "test.github.unique_issues_and_prs_per_month_month".
+2020-05-06 04:59:19.297036 (MainThread): Opening a new connection, currently in state closed
+2020-05-06 04:59:19.303156 (MainThread): Acquiring new bigquery connection "test.github.not_null_issues_and_prs_per_month_month".
+2020-05-06 04:59:19.303235 (MainThread): Opening a new connection, currently in state closed
+2020-05-06 04:59:19.381546 (MainThread): WARNING: Found documentation for resource "pull_request" which was not found or is disabled
+2020-05-06 04:59:19.382297 (MainThread): WARNING: Test 'test.github.unique_pull_request_issue_id' (models/github.yml) depends on a node named 'pull_request' which was not found
+2020-05-06 04:59:19.382457 (MainThread): WARNING: Test 'test.github.not_null_pull_request_issue_id' (models/github.yml) depends on a node named 'pull_request' which was not found
+2020-05-06 04:59:19.484101 (MainThread): WARNING: Configuration paths exist in your dbt_project.yml file which do not apply to any resources.
+There are 1 unused configuration paths:
+- models.github.intermediate
+
+2020-05-06 04:59:19.630154 (MainThread): Found 29 models, 4 tests, 0 snapshots, 0 analyses, 141 macros, 0 operations, 0 seed files, 16 sources
+2020-05-06 04:59:19.660612 (MainThread): 
+2020-05-06 04:59:19.661091 (MainThread): Acquiring new bigquery connection "master".
+2020-05-06 04:59:19.661220 (MainThread): Opening a new connection, currently in state closed
+2020-05-06 04:59:19.695354 (ThreadPoolExecutor-0_0): Acquiring new bigquery connection "list_digital-arbor-400".
+2020-05-06 04:59:19.695667 (ThreadPoolExecutor-0_0): Opening a new connection, currently in state init
+2020-05-06 04:59:21.063772 (ThreadPoolExecutor-1_0): Acquiring new bigquery connection "list_digital-arbor-400_dbt_kristin_test".
+2020-05-06 04:59:21.064107 (ThreadPoolExecutor-1_0): Re-using an available connection from the pool (formerly list_digital-arbor-400).
+2020-05-06 04:59:21.064380 (ThreadPoolExecutor-1_0): Client.dataset is deprecated and will be removed in a future version. Use a string like 'my_project.my_dataset' or a cloud.google.bigquery.DatasetReference object, instead.
+2020-05-06 04:59:21.233381 (MainThread): 21:59:21 | Concurrency: 4 threads (target='dev')
+2020-05-06 04:59:21.233605 (MainThread): 21:59:21 | 
+2020-05-06 04:59:21.237199 (Thread-1): Began running node model.github.stg_github_issue
+2020-05-06 04:59:21.237439 (Thread-2): Began running node model.github.stg_github_card
+2020-05-06 04:59:21.237862 (Thread-1): Acquiring new bigquery connection "model.github.stg_github_issue".
+2020-05-06 04:59:21.238028 (Thread-3): Began running node model.github.stg_github_issue_closed_history
+2020-05-06 04:59:21.238391 (Thread-2): Acquiring new bigquery connection "model.github.stg_github_card".
+2020-05-06 04:59:21.238513 (Thread-4): Began running node model.github.stg_github_issue_project_history
+2020-05-06 04:59:21.238654 (Thread-1): Re-using an available connection from the pool (formerly list_digital-arbor-400_dbt_kristin_test).
+2020-05-06 04:59:21.238945 (Thread-3): Acquiring new bigquery connection "model.github.stg_github_issue_closed_history".
+2020-05-06 04:59:21.239077 (Thread-2): Opening a new connection, currently in state init
+2020-05-06 04:59:21.239371 (Thread-4): Acquiring new bigquery connection "model.github.stg_github_issue_project_history".
+2020-05-06 04:59:21.239525 (Thread-1): Compiling model.github.stg_github_issue
+2020-05-06 04:59:21.239637 (Thread-3): Opening a new connection, currently in state init
+2020-05-06 04:59:21.239754 (Thread-2): Compiling model.github.stg_github_card
+2020-05-06 04:59:21.239897 (Thread-4): Opening a new connection, currently in state init
+2020-05-06 04:59:21.246467 (Thread-3): Compiling model.github.stg_github_issue_closed_history
+2020-05-06 04:59:21.259397 (Thread-1): Writing injected SQL for node "model.github.stg_github_issue"
+2020-05-06 04:59:21.264740 (Thread-4): Compiling model.github.stg_github_issue_project_history
+2020-05-06 04:59:21.268475 (Thread-2): Writing injected SQL for node "model.github.stg_github_card"
+2020-05-06 04:59:21.276913 (Thread-3): Writing injected SQL for node "model.github.stg_github_issue_closed_history"
+2020-05-06 04:59:21.285404 (Thread-4): Writing injected SQL for node "model.github.stg_github_issue_project_history"
+2020-05-06 04:59:21.286103 (Thread-1): finished collecting timing info
+2020-05-06 04:59:21.286605 (Thread-1): Finished running node model.github.stg_github_issue
+2020-05-06 04:59:21.286766 (Thread-1): Began running node model.github.stg_github_user
+2020-05-06 04:59:21.287039 (Thread-1): Acquiring new bigquery connection "model.github.stg_github_user".
+2020-05-06 04:59:21.287151 (Thread-1): Re-using an available connection from the pool (formerly model.github.stg_github_issue).
+2020-05-06 04:59:21.287257 (Thread-1): Compiling model.github.stg_github_user
+2020-05-06 04:59:21.287376 (Thread-2): finished collecting timing info
+2020-05-06 04:59:21.295123 (Thread-1): Writing injected SQL for node "model.github.stg_github_user"
+2020-05-06 04:59:21.295668 (Thread-2): Finished running node model.github.stg_github_card
+2020-05-06 04:59:21.295863 (Thread-3): finished collecting timing info
+2020-05-06 04:59:21.296175 (Thread-4): finished collecting timing info
+2020-05-06 04:59:21.296536 (Thread-2): Began running node model.github.stg_github_issue_assignee
+2020-05-06 04:59:21.296926 (Thread-3): Finished running node model.github.stg_github_issue_closed_history
+2020-05-06 04:59:21.297288 (Thread-4): Finished running node model.github.stg_github_issue_project_history
+2020-05-06 04:59:21.297448 (Thread-1): finished collecting timing info
+2020-05-06 04:59:21.297792 (Thread-2): Acquiring new bigquery connection "model.github.stg_github_issue_assignee".
+2020-05-06 04:59:21.297937 (Thread-3): Began running node model.github.stg_github_issue_label
+2020-05-06 04:59:21.298226 (Thread-4): Began running node model.github.stg_github_pull_request_review
+2020-05-06 04:59:21.298648 (Thread-1): Finished running node model.github.stg_github_user
+2020-05-06 04:59:21.298768 (Thread-2): Opening a new connection, currently in state closed
+2020-05-06 04:59:21.299009 (Thread-3): Acquiring new bigquery connection "model.github.stg_github_issue_label".
+2020-05-06 04:59:21.299260 (Thread-4): Acquiring new bigquery connection "model.github.stg_github_pull_request_review".
+2020-05-06 04:59:21.299404 (Thread-1): Began running node model.github.stg_github_issue_label_history
+2020-05-06 04:59:21.299601 (Thread-2): Compiling model.github.stg_github_issue_assignee
+2020-05-06 04:59:21.299718 (Thread-3): Opening a new connection, currently in state closed
+2020-05-06 04:59:21.299816 (Thread-4): Opening a new connection, currently in state closed
+2020-05-06 04:59:21.300060 (Thread-1): Acquiring new bigquery connection "model.github.stg_github_issue_label_history".
+2020-05-06 04:59:21.307082 (Thread-2): Writing injected SQL for node "model.github.stg_github_issue_assignee"
+2020-05-06 04:59:21.307207 (Thread-3): Compiling model.github.stg_github_issue_label
+2020-05-06 04:59:21.307315 (Thread-4): Compiling model.github.stg_github_pull_request_review
+2020-05-06 04:59:21.307408 (Thread-1): Re-using an available connection from the pool (formerly model.github.stg_github_user).
+2020-05-06 04:59:21.314086 (Thread-3): Writing injected SQL for node "model.github.stg_github_issue_label"
+2020-05-06 04:59:21.320481 (Thread-4): Writing injected SQL for node "model.github.stg_github_pull_request_review"
+2020-05-06 04:59:21.320703 (Thread-1): Compiling model.github.stg_github_issue_label_history
+2020-05-06 04:59:21.320847 (Thread-2): finished collecting timing info
+2020-05-06 04:59:21.327316 (Thread-1): Writing injected SQL for node "model.github.stg_github_issue_label_history"
+2020-05-06 04:59:21.327637 (Thread-2): Finished running node model.github.stg_github_issue_assignee
+2020-05-06 04:59:21.327817 (Thread-3): finished collecting timing info
+2020-05-06 04:59:21.328075 (Thread-2): Began running node model.github.stg_github_issue_merged
+2020-05-06 04:59:21.328667 (Thread-3): Finished running node model.github.stg_github_issue_label
+2020-05-06 04:59:21.328766 (Thread-1): finished collecting timing info
+2020-05-06 04:59:21.328945 (Thread-4): finished collecting timing info
+2020-05-06 04:59:21.329285 (Thread-2): Acquiring new bigquery connection "model.github.stg_github_issue_merged".
+2020-05-06 04:59:21.329415 (Thread-3): Began running node model.github.stg_github_project
+2020-05-06 04:59:21.329660 (Thread-1): Finished running node model.github.stg_github_issue_label_history
+2020-05-06 04:59:21.330051 (Thread-4): Finished running node model.github.stg_github_pull_request_review
+2020-05-06 04:59:21.330161 (Thread-2): Opening a new connection, currently in state closed
+2020-05-06 04:59:21.330376 (Thread-3): Acquiring new bigquery connection "model.github.stg_github_project".
+2020-05-06 04:59:21.330501 (Thread-1): Began running node model.github.stg_github_pull_request
+2020-05-06 04:59:21.330626 (Thread-4): Began running node model.github.stg_github_repository
+2020-05-06 04:59:21.330887 (Thread-2): Compiling model.github.stg_github_issue_merged
+2020-05-06 04:59:21.331081 (Thread-3): Opening a new connection, currently in state closed
+2020-05-06 04:59:21.331307 (Thread-1): Acquiring new bigquery connection "model.github.stg_github_pull_request".
+2020-05-06 04:59:21.331557 (Thread-4): Acquiring new bigquery connection "model.github.stg_github_repository".
+2020-05-06 04:59:21.337140 (Thread-3): Compiling model.github.stg_github_project
+2020-05-06 04:59:21.337948 (Thread-2): Writing injected SQL for node "model.github.stg_github_issue_merged"
+2020-05-06 04:59:21.338055 (Thread-1): Re-using an available connection from the pool (formerly model.github.stg_github_issue_label_history).
+2020-05-06 04:59:21.338164 (Thread-4): Opening a new connection, currently in state closed
+2020-05-06 04:59:21.343792 (Thread-3): Writing injected SQL for node "model.github.stg_github_project"
+2020-05-06 04:59:21.343996 (Thread-1): Compiling model.github.stg_github_pull_request
+2020-05-06 04:59:21.344211 (Thread-4): Compiling model.github.stg_github_repository
+2020-05-06 04:59:21.344339 (Thread-2): finished collecting timing info
+2020-05-06 04:59:21.351892 (Thread-1): Writing injected SQL for node "model.github.stg_github_pull_request"
+2020-05-06 04:59:21.357246 (Thread-3): finished collecting timing info
+2020-05-06 04:59:21.358457 (Thread-4): Writing injected SQL for node "model.github.stg_github_repository"
+2020-05-06 04:59:21.358776 (Thread-2): Finished running node model.github.stg_github_issue_merged
+2020-05-06 04:59:21.359231 (Thread-3): Finished running node model.github.stg_github_project
+2020-05-06 04:59:21.359653 (Thread-2): Began running node model.github.stg_github_requested_reviewer_history
+2020-05-06 04:59:21.359795 (Thread-4): finished collecting timing info
+2020-05-06 04:59:21.360023 (Thread-1): finished collecting timing info
+2020-05-06 04:59:21.360356 (Thread-3): Began running node model.github.stg_github_milestone
+2020-05-06 04:59:21.360708 (Thread-2): Acquiring new bigquery connection "model.github.stg_github_requested_reviewer_history".
+2020-05-06 04:59:21.361108 (Thread-4): Finished running node model.github.stg_github_repository
+2020-05-06 04:59:21.361378 (Thread-1): Finished running node model.github.stg_github_pull_request
+2020-05-06 04:59:21.361630 (Thread-3): Acquiring new bigquery connection "model.github.stg_github_milestone".
+2020-05-06 04:59:21.361736 (Thread-2): Opening a new connection, currently in state closed
+2020-05-06 04:59:21.361864 (Thread-4): Began running node model.github.stg_github_issue_comment
+2020-05-06 04:59:21.362046 (Thread-1): Began running node model.github.issue_close_stack
+2020-05-06 04:59:21.362261 (Thread-3): Opening a new connection, currently in state closed
+2020-05-06 04:59:21.362374 (Thread-2): Compiling model.github.stg_github_requested_reviewer_history
+2020-05-06 04:59:21.362637 (Thread-4): Acquiring new bigquery connection "model.github.stg_github_issue_comment".
+2020-05-06 04:59:21.362878 (Thread-1): 21:59:21 | 1 of 13 START table model dbt_kristin_test.issue_close_stack......... [RUN]
+2020-05-06 04:59:21.363057 (Thread-3): Compiling model.github.stg_github_milestone
+2020-05-06 04:59:21.370014 (Thread-2): Writing injected SQL for node "model.github.stg_github_requested_reviewer_history"
+2020-05-06 04:59:21.370103 (Thread-4): Opening a new connection, currently in state closed
+2020-05-06 04:59:21.376746 (Thread-1): Acquiring new bigquery connection "model.github.issue_close_stack".
+2020-05-06 04:59:21.376935 (Thread-3): Writing injected SQL for node "model.github.stg_github_milestone"
+2020-05-06 04:59:21.377141 (Thread-4): Compiling model.github.stg_github_issue_comment
+2020-05-06 04:59:21.377245 (Thread-1): Re-using an available connection from the pool (formerly model.github.stg_github_pull_request).
+2020-05-06 04:59:21.377459 (Thread-2): finished collecting timing info
+2020-05-06 04:59:21.384221 (Thread-4): Writing injected SQL for node "model.github.stg_github_issue_comment"
+2020-05-06 04:59:21.384393 (Thread-1): Compiling model.github.issue_close_stack
+2020-05-06 04:59:21.384903 (Thread-2): Finished running node model.github.stg_github_requested_reviewer_history
+2020-05-06 04:59:21.385068 (Thread-3): finished collecting timing info
+2020-05-06 04:59:21.390954 (Thread-2): Began running node model.github.issue_status_windows
+2020-05-06 04:59:21.401677 (Thread-3): Finished running node model.github.stg_github_milestone
+2020-05-06 04:59:21.408515 (Thread-1): Writing injected SQL for node "model.github.issue_close_stack"
+2020-05-06 04:59:21.408668 (Thread-2): 21:59:21 | 2 of 13 START table model dbt_kristin_test.issue_status_windows...... [RUN]
+2020-05-06 04:59:21.408826 (Thread-4): finished collecting timing info
+2020-05-06 04:59:21.409047 (Thread-3): Began running node model.github.issue_assignees
+2020-05-06 04:59:21.409688 (Thread-2): Acquiring new bigquery connection "model.github.issue_status_windows".
+2020-05-06 04:59:21.410022 (Thread-4): Finished running node model.github.stg_github_issue_comment
+2020-05-06 04:59:21.410283 (Thread-3): 21:59:21 | 3 of 13 START table model dbt_kristin_test.issue_assignees........... [RUN]
+2020-05-06 04:59:21.410456 (Thread-2): Opening a new connection, currently in state closed
+2020-05-06 04:59:21.410611 (Thread-4): Began running node model.github.issue_labels
+2020-05-06 04:59:21.411169 (Thread-3): Acquiring new bigquery connection "model.github.issue_assignees".
+2020-05-06 04:59:21.411373 (Thread-2): Compiling model.github.issue_status_windows
+2020-05-06 04:59:21.411471 (Thread-1): finished collecting timing info
+2020-05-06 04:59:21.411782 (Thread-4): 21:59:21 | 4 of 13 START table model dbt_kristin_test.issue_labels.............. [RUN]
+2020-05-06 04:59:21.411902 (Thread-3): Opening a new connection, currently in state closed
+2020-05-06 04:59:21.436834 (Thread-4): Acquiring new bigquery connection "model.github.issue_labels".
+2020-05-06 04:59:21.457914 (Thread-2): Writing injected SQL for node "model.github.issue_status_windows"
+2020-05-06 04:59:21.458060 (Thread-3): Compiling model.github.issue_assignees
+2020-05-06 04:59:21.483185 (Thread-4): Opening a new connection, currently in state closed
+2020-05-06 04:59:21.529458 (Thread-3): Writing injected SQL for node "model.github.issue_assignees"
+2020-05-06 04:59:21.529637 (Thread-4): Compiling model.github.issue_labels
+2020-05-06 04:59:21.553428 (Thread-4): Writing injected SQL for node "model.github.issue_labels"
+2020-05-06 04:59:21.553795 (Thread-2): finished collecting timing info
+2020-05-06 04:59:21.560349 (Thread-3): finished collecting timing info
+2020-05-06 04:59:21.626255 (Thread-4): finished collecting timing info
+2020-05-06 04:59:21.667364 (Thread-1): Writing runtime SQL for node "model.github.issue_close_stack"
+2020-05-06 04:59:21.716885 (Thread-2): Writing runtime SQL for node "model.github.issue_status_windows"
+2020-05-06 04:59:21.737342 (Thread-3): Writing runtime SQL for node "model.github.issue_assignees"
+2020-05-06 04:59:21.738378 (Thread-4): Writing runtime SQL for node "model.github.issue_labels"
+2020-05-06 04:59:21.739458 (Thread-1): On model.github.issue_close_stack: /* {"app": "dbt", "dbt_version": "0.16.0", "profile_name": "fivetran", "target_name": "dev", "node_id": "model.github.issue_close_stack"} */
+
+
+  create or replace table `digital-arbor-400`.`dbt_kristin_test`.`issue_close_stack`
+  
+  
+  OPTIONS()
+  as (
+    with  __dbt__CTE__stg_github_issue as (
+with issue as (
+
+    select *
+    from `digital-arbor-400`.`github`.`issue`
+
+), fields as (
+
+    select 
+      id as issue_id,
+      body,
+      closed_at,
+      created_at,
+      locked,
+      milestone_id,
+      number,
+      pull_request,
+      repository_id,
+      state,
+      title,
+      updated_at,
+      user_id
+    from issue
+)
+
+select *
+from fields
+),  __dbt__CTE__stg_github_issue_closed_history as (
+with issue_closed_history as (
+
+    select *
+    from `digital-arbor-400`.`github`.`issue_closed_history`
+
+), fields as (
+
+    select 
+      issue_id,
+      updated_at,
+      closed
+    from issue_closed_history
+)
+
+select *
+from fields
+),issue as (
+    
+    select *
+    from __dbt__CTE__stg_github_issue
+  
+), issue_closed_history as (
+
+    select *
+    from __dbt__CTE__stg_github_issue_closed_history
+  
+), close_events_stacked as (
+    select
+      issue_id,
+      created_at as updated_at,
+      FALSE as closed
+    from issue
+    union all
+    select
+      issue_id,
+      updated_at,
+      closed
+    from issue_closed_history
+    union all
+    select
+      issue_id,
+      closed_at as updated_at,
+      TRUE as closed
+    from issue
+    where closed_at is not null
+
+), close_events_stacked_ordered as (
+    select
+      *,
+      row_number() over (partition by issue_id order by updated_at) as issue_event_order /* to avoid ordering issues when updated_at value is present twice */
+    from close_events_stacked
+)
+
+select
+  issue_id,
+  updated_at as valid_starting,
+  coalesce(lead(updated_at) over (partition by issue_id order by issue_event_order), timestamp_sub(timestamp_add(timestamp(current_date()), interval 1 day), interval 1 millisecond)) as valid_until,
+  closed as is_closed
+from close_events_stacked_ordered
+  );
+    
+2020-05-06 04:59:21.740762 (Thread-4): On model.github.issue_labels: /* {"app": "dbt", "dbt_version": "0.16.0", "profile_name": "fivetran", "target_name": "dev", "node_id": "model.github.issue_labels"} */
+
+
+  create or replace table `digital-arbor-400`.`dbt_kristin_test`.`issue_labels`
+  
+  
+  OPTIONS()
+  as (
+    with  __dbt__CTE__stg_github_issue_label as (
+with issue_label as (
+
+    select *
+    from `digital-arbor-400`.`github`.`issue_label`
+
+), fields as (
+
+    select 
+      issue_id,
+      label
+    from issue_label
+)
+
+select *
+from fields
+),issue_label as (
+
+    select *
+    from __dbt__CTE__stg_github_issue_label
+  
+)
+
+select
+  issue_id,
+  string_agg(label, ', ' order by label) as labels
+from issue_label
+group by issue_id
+  );
+    
+2020-05-06 04:59:21.742506 (Thread-2): On model.github.issue_status_windows: /* {"app": "dbt", "dbt_version": "0.16.0", "profile_name": "fivetran", "target_name": "dev", "node_id": "model.github.issue_status_windows"} */
+
+
+  create or replace table `digital-arbor-400`.`dbt_kristin_test`.`issue_status_windows`
+  
+  
+  OPTIONS()
+  as (
+    with  __dbt__CTE__stg_github_issue_project_history as (
+with issue_project_history as (
+
+    select *
+    from `digital-arbor-400`.`github`.`issue_project_history`
+
+), fields as (
+
+    select 
+      issue_id,
+      project_id,
+      column_name,
+      removed,
+      updated_at,
+      card_id
+    from issue_project_history
+)
+
+select *
+from fields
+),  __dbt__CTE__stg_github_card as (
+with card as (
+
+    select *
+    from `digital-arbor-400`.`github`.`card`
+
+), fields as (
+
+    select 
+      id,
+      archived,
+      updated_at,
+      is_deleted
+    from card
+)
+
+select *
+from fields
+),issue_project_history as (
+
+    select *
+    from __dbt__CTE__stg_github_issue_project_history
+  
+), card as (
+
+    select *
+    from __dbt__CTE__stg_github_card
+  
+)
+
+select
+  issue_project_history.issue_id,
+  issue_project_history.project_id,
+  issue_project_history.column_name,
+  issue_project_history.removed,
+  issue_project_history.updated_at as valid_starting,
+  coalesce(lead(issue_project_history.updated_at) over (partition by issue_project_history.issue_id, issue_project_history.project_id order by issue_project_history.updated_at),
+    if(card.archived, card.updated_at, null),
+    current_timestamp()) as valid_until
+from issue_project_history
+join card on issue_project_history.card_id = card.id
+  and not coalesce(card.is_deleted, false)
+  );
+    
+2020-05-06 04:59:21.743710 (Thread-3): On model.github.issue_assignees: /* {"app": "dbt", "dbt_version": "0.16.0", "profile_name": "fivetran", "target_name": "dev", "node_id": "model.github.issue_assignees"} */
+
+
+  create or replace table `digital-arbor-400`.`dbt_kristin_test`.`issue_assignees`
+  
+  
+  OPTIONS()
+  as (
+    with  __dbt__CTE__stg_github_issue_assignee as (
+with issue_assignee as (
+
+    select *
+    from `digital-arbor-400`.`github`.`issue_assignee`
+
+), fields as (
+
+    select 
+      issue_id,
+      user_id
+    from issue_assignee
+)
+
+select *
+from fields
+),  __dbt__CTE__stg_github_user as (
+with user as (
+
+    select *
+    from `digital-arbor-400`.`github`.`user`
+
+), fields as (
+
+    select
+      id,
+      login
+    from user
+)
+
+select *
+from fields
+),issue_assignee as (
+
+    select *
+    from __dbt__CTE__stg_github_issue_assignee
+  
+), user as (
+
+    select *
+    from __dbt__CTE__stg_github_user
+
+)
+
+select
+  issue_id,
+  string_agg(login, ', ') as assignees
+from issue_assignee
+left join user on issue_assignee.user_id = user.id
+group by 1
+  );
+    
+2020-05-06 04:59:24.270954 (Thread-4): finished collecting timing info
+2020-05-06 04:59:24.271937 (Thread-4): Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '951bce18-448d-4019-bf06-9a2c9d81e78e', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10fd39f50>]}
+2020-05-06 04:59:24.272208 (Thread-4): 21:59:24 | 4 of 13 OK created table model dbt_kristin_test.issue_labels......... [CREATE TABLE (53608) in 2.84s]
+2020-05-06 04:59:24.272367 (Thread-4): Finished running node model.github.issue_labels
+2020-05-06 04:59:24.272525 (Thread-4): Began running node model.github.issue_blocked_time
+2020-05-06 04:59:24.272686 (Thread-4): 21:59:24 | 5 of 13 START table model dbt_kristin_test.issue_blocked_time........ [RUN]
+2020-05-06 04:59:24.273299 (Thread-4): Acquiring new bigquery connection "model.github.issue_blocked_time".
+2020-05-06 04:59:24.273425 (Thread-4): Re-using an available connection from the pool (formerly model.github.issue_labels).
+2020-05-06 04:59:24.273542 (Thread-4): Compiling model.github.issue_blocked_time
+2020-05-06 04:59:24.290812 (Thread-4): Writing injected SQL for node "model.github.issue_blocked_time"
+2020-05-06 04:59:24.292098 (Thread-4): finished collecting timing info
+2020-05-06 04:59:24.298079 (Thread-4): Writing runtime SQL for node "model.github.issue_blocked_time"
+2020-05-06 04:59:24.298643 (Thread-4): On model.github.issue_blocked_time: /* {"app": "dbt", "dbt_version": "0.16.0", "profile_name": "fivetran", "target_name": "dev", "node_id": "model.github.issue_blocked_time"} */
+
+
+  create or replace table `digital-arbor-400`.`dbt_kristin_test`.`issue_blocked_time`
+  
+  
+  OPTIONS()
+  as (
+    with  __dbt__CTE__stg_github_issue_label_history as (
+with issue_label_history as (
+
+    select *
+    from `digital-arbor-400`.`github`.`issue_label_history`
+
+), fields as (
+
+    select 
+      issue_id,
+      updated_at,
+      label,
+      labeled
+    from issue_label_history
+)
+
+select *
+from fields
+),issue_label_history as (
+
+    select *
+    from __dbt__CTE__stg_github_issue_label_history
+  
+), issue_label_times as (
+
+    select
+      issue_id,
+      label,
+      updated_at as valid_starting,
+      lead(issue_label_history.updated_at) over (partition by issue_label_history.issue_id, label order by issue_label_history.updated_at) as valid_until,
+      labeled
+    from issue_label_history
+    order by updated_at
+
+)
+
+select
+  issue_id,
+  sum(timestamp_diff(coalesce(valid_until, current_timestamp()), valid_starting, second)/86400) as days_blocked
+from issue_label_times
+where labeled
+  and lower(label) like '%blocked%'
+group by 1
+  );
+    
+2020-05-06 04:59:24.435020 (Thread-3): finished collecting timing info
+2020-05-06 04:59:24.435915 (Thread-3): Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '951bce18-448d-4019-bf06-9a2c9d81e78e', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10fc6fe50>]}
+2020-05-06 04:59:24.436225 (Thread-3): 21:59:24 | 3 of 13 OK created table model dbt_kristin_test.issue_assignees...... [CREATE TABLE (32712) in 3.02s]
+2020-05-06 04:59:24.436412 (Thread-3): Finished running node model.github.issue_assignees
+2020-05-06 04:59:24.436602 (Thread-3): Began running node model.github.pull_request_reviewers
+2020-05-06 04:59:24.436900 (Thread-3): 21:59:24 | 6 of 13 START table model dbt_kristin_test.pull_request_reviewers.... [RUN]
+2020-05-06 04:59:24.437264 (Thread-3): Acquiring new bigquery connection "model.github.pull_request_reviewers".
+2020-05-06 04:59:24.437397 (Thread-3): Re-using an available connection from the pool (formerly model.github.issue_assignees).
+2020-05-06 04:59:24.437525 (Thread-3): Compiling model.github.pull_request_reviewers
+2020-05-06 04:59:24.452370 (Thread-3): Writing injected SQL for node "model.github.pull_request_reviewers"
+2020-05-06 04:59:24.452866 (Thread-3): finished collecting timing info
+2020-05-06 04:59:24.458262 (Thread-3): Writing runtime SQL for node "model.github.pull_request_reviewers"
+2020-05-06 04:59:24.458643 (Thread-3): On model.github.pull_request_reviewers: /* {"app": "dbt", "dbt_version": "0.16.0", "profile_name": "fivetran", "target_name": "dev", "node_id": "model.github.pull_request_reviewers"} */
+
+
+  create or replace table `digital-arbor-400`.`dbt_kristin_test`.`pull_request_reviewers`
+  
+  
+  OPTIONS()
+  as (
+    with  __dbt__CTE__stg_github_pull_request_review as (
+with pull_request_review as (
+
+    select *
+    from `digital-arbor-400`.`github`.`pull_request_review`
+
+), fields as (
+
+    select 
+      pull_request_id,
+      submitted_at,
+      state,
+      user_id
+    from pull_request_review
+)
+
+select *
+from fields
+),  __dbt__CTE__stg_github_user as (
+with user as (
+
+    select *
+    from `digital-arbor-400`.`github`.`user`
+
+), fields as (
+
+    select
+      id,
+      login
+    from user
+)
+
+select *
+from fields
+),pull_request_review as (
+
+    select *
+    from __dbt__CTE__stg_github_pull_request_review
+  
+), user as (
+
+    select *
+    from __dbt__CTE__stg_github_user
+
+)
+
+select
+  pull_request_id,
+  string_agg(login, ', ') as reviewers,
+  count(*) as number_of_reviews
+from pull_request_review
+left join user on pull_request_review.user_id = user.id
+group by 1
+  );
+    
+2020-05-06 04:59:24.515544 (Thread-2): finished collecting timing info
+2020-05-06 04:59:24.516421 (Thread-2): Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '951bce18-448d-4019-bf06-9a2c9d81e78e', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10fc64750>]}
+2020-05-06 04:59:24.516741 (Thread-2): 21:59:24 | 2 of 13 OK created table model dbt_kristin_test.issue_status_windows. [CREATE TABLE (93459) in 3.11s]
+2020-05-06 04:59:24.516922 (Thread-2): Finished running node model.github.issue_status_windows
+2020-05-06 04:59:24.517106 (Thread-2): Began running node model.github.pull_request_times
+2020-05-06 04:59:24.517291 (Thread-2): 21:59:24 | 7 of 13 START table model dbt_kristin_test.pull_request_times........ [RUN]
+2020-05-06 04:59:24.517626 (Thread-2): Acquiring new bigquery connection "model.github.pull_request_times".
+2020-05-06 04:59:24.517880 (Thread-2): Re-using an available connection from the pool (formerly model.github.issue_status_windows).
+2020-05-06 04:59:24.518183 (Thread-2): Compiling model.github.pull_request_times
+2020-05-06 04:59:24.556702 (Thread-2): Writing injected SQL for node "model.github.pull_request_times"
+2020-05-06 04:59:24.557974 (Thread-2): finished collecting timing info
+2020-05-06 04:59:24.564708 (Thread-2): Writing runtime SQL for node "model.github.pull_request_times"
+2020-05-06 04:59:24.565205 (Thread-2): On model.github.pull_request_times: /* {"app": "dbt", "dbt_version": "0.16.0", "profile_name": "fivetran", "target_name": "dev", "node_id": "model.github.pull_request_times"} */
+
+
+  create or replace table `digital-arbor-400`.`dbt_kristin_test`.`pull_request_times`
+  
+  
+  OPTIONS()
+  as (
+    with  __dbt__CTE__stg_github_pull_request_review as (
+with pull_request_review as (
+
+    select *
+    from `digital-arbor-400`.`github`.`pull_request_review`
+
+), fields as (
+
+    select 
+      pull_request_id,
+      submitted_at,
+      state,
+      user_id
+    from pull_request_review
+)
+
+select *
+from fields
+),  __dbt__CTE__stg_github_pull_request as (
+with pull_request as (
+
+    select *
+    from `digital-arbor-400`.`github`.`pull_request`
+
+), fields as (
+
+    select 
+      issue_id,
+      id,
+      base_repo_id,
+      head_repo_id,
+      head_user_id
+    from pull_request
+)
+
+select *
+from fields
+),  __dbt__CTE__stg_github_requested_reviewer_history as (
+with requested_reviewer_history as (
+
+    select *
+    from `digital-arbor-400`.`github`.`requested_reviewer_history`
+
+), fields as (
+
+    select 
+      pull_request_id,
+      created_at,
+      requested_id
+    from requested_reviewer_history
+)
+
+select *
+from fields
+),  __dbt__CTE__stg_github_issue as (
+with issue as (
+
+    select *
+    from `digital-arbor-400`.`github`.`issue`
+
+), fields as (
+
+    select 
+      id as issue_id,
+      body,
+      closed_at,
+      created_at,
+      locked,
+      milestone_id,
+      number,
+      pull_request,
+      repository_id,
+      state,
+      title,
+      updated_at,
+      user_id
+    from issue
+)
+
+select *
+from fields
+),  __dbt__CTE__stg_github_issue_merged as (
+with issue_merged as (
+
+    select *
+    from `digital-arbor-400`.`github`.`issue_merged`
+
+), fields as (
+
+    select 
+      issue_id,
+      merged_at
+    from issue_merged
+)
+
+select *
+from fields
+),pull_request_review as (
+
+    select *
+    from __dbt__CTE__stg_github_pull_request_review
+  
+), pull_request as (
+
+    select *
+    from __dbt__CTE__stg_github_pull_request
+
+), requested_reviewer_history as (
+
+    select *
+    from __dbt__CTE__stg_github_requested_reviewer_history
+
+), issue as (
+
+    select *
+    from __dbt__CTE__stg_github_issue
+  
+), issue_merged as (
+
+    select
+      issue_id,
+      min(merged_at) as merged_at
+      from __dbt__CTE__stg_github_issue_merged
+    group by 1
+
+), first_request_time as (
+
+    select
+      pull_request.issue_id,
+      pull_request.id,
+      min(requested_reviewer_history.created_at) as time_of_first_request,
+      min(pull_request_review.submitted_at) as time_of_first_review_post_request,
+      -- Finds the first review that is by the requested reviewer and is not a dismissal
+      min(if(
+            requested_reviewer_history.requested_id = pull_request_review.user_id
+            and upper(pull_request_review.state) in ('COMMENTED', 'APPROVED', 'CHANGES_REQUESTED'),
+            pull_request_review.submitted_at,
+            NULL)) as time_of_first_requested_reviewer_review
+    from pull_request
+    join requested_reviewer_history on requested_reviewer_history.pull_request_id = pull_request.id
+    left join pull_request_review on pull_request_review.pull_request_id = pull_request.id
+      and pull_request_review.submitted_at > requested_reviewer_history.created_at
+    group by 1, 2
+
+)
+
+select
+  first_request_time.issue_id,
+  merged_at,
+  timestamp_diff(coalesce(time_of_first_review_post_request, current_timestamp()),time_of_first_request, second)/3600 as hours_first_review_post_request,
+  --Finds time between first request for review and the review action, uses current_timestamp is no action yet
+  timestamp_diff(
+    least(
+    coalesce(time_of_first_requested_reviewer_review, current_timestamp()),
+    coalesce(issue.closed_at, current_timestamp())
+  ),
+  time_of_first_request,
+  second)/3600 as hours_first_action_post_request,
+  timestamp_diff(merged_at, time_of_first_request, second)/3600 as hours_request_review_to_merge
+from first_request_time
+join issue on first_request_time.issue_id = issue.issue_id
+left join issue_merged on first_request_time.issue_id = issue_merged.issue_id
+  );
+    
+2020-05-06 04:59:24.830172 (Thread-1): finished collecting timing info
+2020-05-06 04:59:24.831060 (Thread-1): Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '951bce18-448d-4019-bf06-9a2c9d81e78e', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10fc357d0>]}
+2020-05-06 04:59:24.831368 (Thread-1): 21:59:24 | 1 of 13 OK created table model dbt_kristin_test.issue_close_stack.... [CREATE TABLE (216306) in 3.45s]
+2020-05-06 04:59:24.831552 (Thread-1): Finished running node model.github.issue_close_stack
+2020-05-06 04:59:24.831743 (Thread-1): Began running node model.github.issue_inbox_time
+2020-05-06 04:59:24.831945 (Thread-1): 21:59:24 | 8 of 13 START table model dbt_kristin_test.issue_inbox_time.......... [RUN]
+2020-05-06 04:59:24.832333 (Thread-1): Acquiring new bigquery connection "model.github.issue_inbox_time".
+2020-05-06 04:59:24.832589 (Thread-1): Re-using an available connection from the pool (formerly model.github.issue_close_stack).
+2020-05-06 04:59:24.832878 (Thread-1): Compiling model.github.issue_inbox_time
+2020-05-06 04:59:24.840955 (Thread-1): Writing injected SQL for node "model.github.issue_inbox_time"
+2020-05-06 04:59:24.841554 (Thread-1): finished collecting timing info
+2020-05-06 04:59:24.848637 (Thread-1): Writing runtime SQL for node "model.github.issue_inbox_time"
+2020-05-06 04:59:24.849826 (Thread-1): On model.github.issue_inbox_time: /* {"app": "dbt", "dbt_version": "0.16.0", "profile_name": "fivetran", "target_name": "dev", "node_id": "model.github.issue_inbox_time"} */
+
+
+  create or replace table `digital-arbor-400`.`dbt_kristin_test`.`issue_inbox_time`
+  
+  
+  OPTIONS()
+  as (
+    with issue_status_windows as (
+
+    select *
+    from `digital-arbor-400`.`dbt_kristin_test`.`issue_status_windows`
+  
+)
+
+select
+  issue_id,
+  sum(timestamp_diff(valid_until, valid_starting, second)/86400) as inbox_days
+from issue_status_windows
+where upper(column_name) like '%INBOX%'
+  and not removed
+group by 1
+  );
+    
+2020-05-06 04:59:26.581701 (Thread-3): finished collecting timing info
+2020-05-06 04:59:26.582591 (Thread-3): Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '951bce18-448d-4019-bf06-9a2c9d81e78e', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10e07f510>]}
+2020-05-06 04:59:26.582900 (Thread-3): 21:59:26 | 6 of 13 OK created table model dbt_kristin_test.pull_request_reviewers [CREATE TABLE (17142) in 2.15s]
+2020-05-06 04:59:26.583082 (Thread-3): Finished running node model.github.pull_request_reviewers
+2020-05-06 04:59:26.583269 (Thread-3): Began running node model.github.issue_projects
+2020-05-06 04:59:26.583562 (Thread-3): 21:59:26 | 9 of 13 START table model dbt_kristin_test.issue_projects............ [RUN]
+2020-05-06 04:59:26.583931 (Thread-3): Acquiring new bigquery connection "model.github.issue_projects".
+2020-05-06 04:59:26.584065 (Thread-3): Re-using an available connection from the pool (formerly model.github.pull_request_reviewers).
+2020-05-06 04:59:26.584213 (Thread-3): Compiling model.github.issue_projects
+2020-05-06 04:59:26.608020 (Thread-3): Writing injected SQL for node "model.github.issue_projects"
+2020-05-06 04:59:26.610539 (Thread-1): finished collecting timing info
+2020-05-06 04:59:26.612097 (Thread-1): Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '951bce18-448d-4019-bf06-9a2c9d81e78e', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10df47990>]}
+2020-05-06 04:59:26.614726 (Thread-4): finished collecting timing info
+2020-05-06 04:59:26.615200 (Thread-1): 21:59:26 | 8 of 13 OK created table model dbt_kristin_test.issue_inbox_time..... [CREATE TABLE (10044) in 1.78s]
+2020-05-06 04:59:26.615309 (Thread-3): finished collecting timing info
+2020-05-06 04:59:26.616181 (Thread-4): Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '951bce18-448d-4019-bf06-9a2c9d81e78e', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10e093c10>]}
+2020-05-06 04:59:26.616463 (Thread-1): Finished running node model.github.issue_inbox_time
+2020-05-06 04:59:26.623622 (Thread-3): Writing runtime SQL for node "model.github.issue_projects"
+2020-05-06 04:59:26.623889 (Thread-1): Began running node model.github.issue_open_length
+2020-05-06 04:59:26.624129 (Thread-4): 21:59:26 | 5 of 13 OK created table model dbt_kristin_test.issue_blocked_time... [CREATE TABLE (1070) in 2.34s]
+2020-05-06 04:59:26.624507 (Thread-1): 21:59:26 | 10 of 13 START table model dbt_kristin_test.issue_open_length........ [RUN]
+2020-05-06 04:59:26.624679 (Thread-4): Finished running node model.github.issue_blocked_time
+2020-05-06 04:59:26.625105 (Thread-1): Acquiring new bigquery connection "model.github.issue_open_length".
+2020-05-06 04:59:26.625339 (Thread-3): On model.github.issue_projects: /* {"app": "dbt", "dbt_version": "0.16.0", "profile_name": "fivetran", "target_name": "dev", "node_id": "model.github.issue_projects"} */
+
+
+  create or replace table `digital-arbor-400`.`dbt_kristin_test`.`issue_projects`
+  
+  
+  OPTIONS()
+  as (
+    with  __dbt__CTE__stg_github_project as (
+with project as (
+
+    select *
+    from `digital-arbor-400`.`github`.`project`
+
+), fields as (
+
+    select
+      id,
+      name
+    from project
+)
+
+select *
+from fields
+),issue_status_windows as (
+
+    select *
+    from `digital-arbor-400`.`dbt_kristin_test`.`issue_status_windows`
+  
+), project as (
+
+    select *
+    from __dbt__CTE__stg_github_project
+  
+), current_status as (
+
+    select
+      issue_id,
+      project_id,
+      array_agg(removed order by valid_until desc)[safe_offset(0)] as most_recent_removed_status
+    from issue_status_windows
+    group by 1, 2
+
+), current_project_issues_with_ids as (
+
+    select
+      issue_id,
+      array_agg(distinct project_id) as projects_array
+    from issue_status_windows
+    where concat(issue_id, '-', project_id) not in ( --projects where the issue has not been removed
+      select
+        concat(issue_id, '-', project_id) as issue_project
+      from current_status
+      where most_recent_removed_status = true
+    )
+    group by 1
+
+)
+select
+  issue_id,
+  string_agg(project.name, ', ') as projects
+from current_project_issues_with_ids, unnest(projects_array) as project_id
+join project on project_id = project.id
+group by 1
+  );
+    
+2020-05-06 04:59:26.625489 (Thread-1): Re-using an available connection from the pool (formerly model.github.issue_inbox_time).
+2020-05-06 04:59:26.625733 (Thread-1): Compiling model.github.issue_open_length
+2020-05-06 04:59:26.633443 (Thread-1): Writing injected SQL for node "model.github.issue_open_length"
+2020-05-06 04:59:26.634376 (Thread-1): finished collecting timing info
+2020-05-06 04:59:26.641229 (Thread-1): Writing runtime SQL for node "model.github.issue_open_length"
+2020-05-06 04:59:26.642422 (Thread-1): On model.github.issue_open_length: /* {"app": "dbt", "dbt_version": "0.16.0", "profile_name": "fivetran", "target_name": "dev", "node_id": "model.github.issue_open_length"} */
+
+
+  create or replace table `digital-arbor-400`.`dbt_kristin_test`.`issue_open_length`
+  
+  
+  OPTIONS()
+  as (
+    with issue_close_stack as (
+
+    select *
+    from `digital-arbor-400`.`dbt_kristin_test`.`issue_close_stack`
+  
+)
+
+select
+  issue_id,
+  sum(timestamp_diff(least(valid_until, current_timestamp()), valid_starting, second)/86400) as days_issue_opened
+from issue_close_stack
+  where not is_closed
+group by issue_id
+  );
+    
+2020-05-06 04:59:27.451595 (Thread-2): finished collecting timing info
+2020-05-06 04:59:27.452500 (Thread-2): Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '951bce18-448d-4019-bf06-9a2c9d81e78e', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10e005e50>]}
+2020-05-06 04:59:27.452814 (Thread-2): 21:59:27 | 7 of 13 OK created table model dbt_kristin_test.pull_request_times... [CREATE TABLE (11629) in 2.93s]
+2020-05-06 04:59:27.453000 (Thread-2): Finished running node model.github.pull_request_times
+2020-05-06 04:59:29.100529 (Thread-1): finished collecting timing info
+2020-05-06 04:59:29.101480 (Thread-1): Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '951bce18-448d-4019-bf06-9a2c9d81e78e', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10fc626d0>]}
+2020-05-06 04:59:29.101803 (Thread-1): 21:59:29 | 10 of 13 OK created table model dbt_kristin_test.issue_open_length... [CREATE TABLE (75867) in 2.48s]
+2020-05-06 04:59:29.102034 (Thread-1): Finished running node model.github.issue_open_length
+2020-05-06 04:59:29.102518 (Thread-4): Began running node model.github.github_pull_requests
+2020-05-06 04:59:29.102779 (Thread-4): 21:59:29 | 11 of 13 START table model dbt_kristin_test.github_pull_requests..... [RUN]
+2020-05-06 04:59:29.103178 (Thread-4): Acquiring new bigquery connection "model.github.github_pull_requests".
+2020-05-06 04:59:29.103311 (Thread-4): Re-using an available connection from the pool (formerly model.github.issue_blocked_time).
+2020-05-06 04:59:29.103442 (Thread-4): Compiling model.github.github_pull_requests
+2020-05-06 04:59:29.146638 (Thread-4): Writing injected SQL for node "model.github.github_pull_requests"
+2020-05-06 04:59:29.147123 (Thread-4): finished collecting timing info
+2020-05-06 04:59:29.186783 (Thread-4): Writing runtime SQL for node "model.github.github_pull_requests"
+2020-05-06 04:59:29.187329 (Thread-4): On model.github.github_pull_requests: /* {"app": "dbt", "dbt_version": "0.16.0", "profile_name": "fivetran", "target_name": "dev", "node_id": "model.github.github_pull_requests"} */
+
+
+  create or replace table `digital-arbor-400`.`dbt_kristin_test`.`github_pull_requests`
+  
+  
+  OPTIONS()
+  as (
+    with  __dbt__CTE__stg_github_issue as (
+with issue as (
+
+    select *
+    from `digital-arbor-400`.`github`.`issue`
+
+), fields as (
+
+    select 
+      id as issue_id,
+      body,
+      closed_at,
+      created_at,
+      locked,
+      milestone_id,
+      number,
+      pull_request,
+      repository_id,
+      state,
+      title,
+      updated_at,
+      user_id
+    from issue
+)
+
+select *
+from fields
+),  __dbt__CTE__stg_github_repository as (
+with repository as (
+
+    select *
+    from `digital-arbor-400`.`github`.`repository`
+
+), fields as (
+
+    select 
+      id,
+      full_name
+    from repository
+)
+
+select *
+from fields
+),  __dbt__CTE__stg_github_user as (
+with user as (
+
+    select *
+    from `digital-arbor-400`.`github`.`user`
+
+), fields as (
+
+    select
+      id,
+      login
+    from user
+)
+
+select *
+from fields
+),  __dbt__CTE__stg_github_pull_request as (
+with pull_request as (
+
+    select *
+    from `digital-arbor-400`.`github`.`pull_request`
+
+), fields as (
+
+    select 
+      issue_id,
+      id,
+      base_repo_id,
+      head_repo_id,
+      head_user_id
+    from pull_request
+)
+
+select *
+from fields
+),issue as (
+
+    select *
+    from __dbt__CTE__stg_github_issue
+  
+), issue_labels as (
+
+    select *
+    from `digital-arbor-400`.`dbt_kristin_test`.`issue_labels`
+
+), repository as (
+
+    select *
+    from __dbt__CTE__stg_github_repository
+
+), issue_assignees as (
+
+    select *
+    from `digital-arbor-400`.`dbt_kristin_test`.`issue_assignees`
+
+), issue_open_length as (
+
+    select *
+    from `digital-arbor-400`.`dbt_kristin_test`.`issue_open_length`
+
+), creator as (
+
+    select *
+    from __dbt__CTE__stg_github_user
+
+), pull_request_times as (
+
+    select *
+    from `digital-arbor-400`.`dbt_kristin_test`.`pull_request_times`
+
+), pull_request as (
+
+    select *
+    from __dbt__CTE__stg_github_pull_request
+
+)
+
+select
+  issue.issue_id,
+  issue.body,
+  issue.closed_at,
+  issue.created_at,
+  issue.locked,
+  issue.number,
+  issue.repository_id,
+  issue.state,
+  issue.title,
+  issue.updated_at,
+  issue.user_id,
+  concat('https://github.com/', repository.full_name, '/issues/', cast(issue.number as string)) as url_link,
+  issue_open_length.days_issue_opened,
+  labels.labels,
+  repository.full_name as repository,
+  issue_assignees.assignees,
+  creator.login as created_by,
+  hours_first_review_post_request,
+  hours_first_action_post_request,
+  hours_request_review_to_merge,
+  merged_at
+from issue
+left join issue_labels as labels
+  on issue.issue_id = labels.issue_id
+left join repository
+  on issue.repository_id = repository.id
+left join issue_assignees
+  on issue.issue_id = issue_assignees.issue_id
+left join issue_open_length
+  on issue.issue_id = issue_open_length.issue_id
+left join creator 
+  on issue.user_id = creator.id
+left join pull_request
+  on issue.issue_id = pull_request.issue_id
+left join pull_request_times
+  on issue.issue_id = pull_request_times.issue_id
+where issue.pull_request
+  );
+    
+2020-05-06 04:59:30.265846 (Thread-3): finished collecting timing info
+2020-05-06 04:59:30.266729 (Thread-3): Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '951bce18-448d-4019-bf06-9a2c9d81e78e', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10fd79090>]}
+2020-05-06 04:59:30.267038 (Thread-3): 21:59:30 | 9 of 13 OK created table model dbt_kristin_test.issue_projects....... [CREATE TABLE (17975) in 3.68s]
+2020-05-06 04:59:30.267213 (Thread-3): Finished running node model.github.issue_projects
+2020-05-06 04:59:30.267633 (Thread-1): Began running node model.github.github_issues
+2020-05-06 04:59:30.267838 (Thread-1): 21:59:30 | 12 of 13 START table model dbt_kristin_test.github_issues............ [RUN]
+2020-05-06 04:59:30.268191 (Thread-1): Acquiring new bigquery connection "model.github.github_issues".
+2020-05-06 04:59:30.268308 (Thread-1): Re-using an available connection from the pool (formerly model.github.issue_open_length).
+2020-05-06 04:59:30.268419 (Thread-1): Compiling model.github.github_issues
+2020-05-06 04:59:30.317848 (Thread-1): Writing injected SQL for node "model.github.github_issues"
+2020-05-06 04:59:30.318290 (Thread-1): finished collecting timing info
+2020-05-06 04:59:30.323202 (Thread-1): Writing runtime SQL for node "model.github.github_issues"
+2020-05-06 04:59:30.323527 (Thread-1): On model.github.github_issues: /* {"app": "dbt", "dbt_version": "0.16.0", "profile_name": "fivetran", "target_name": "dev", "node_id": "model.github.github_issues"} */
+
+
+  create or replace table `digital-arbor-400`.`dbt_kristin_test`.`github_issues`
+  
+  
+  OPTIONS()
+  as (
+    with  __dbt__CTE__stg_github_issue as (
+with issue as (
+
+    select *
+    from `digital-arbor-400`.`github`.`issue`
+
+), fields as (
+
+    select 
+      id as issue_id,
+      body,
+      closed_at,
+      created_at,
+      locked,
+      milestone_id,
+      number,
+      pull_request,
+      repository_id,
+      state,
+      title,
+      updated_at,
+      user_id
+    from issue
+)
+
+select *
+from fields
+),  __dbt__CTE__stg_github_repository as (
+with repository as (
+
+    select *
+    from `digital-arbor-400`.`github`.`repository`
+
+), fields as (
+
+    select 
+      id,
+      full_name
+    from repository
+)
+
+select *
+from fields
+),  __dbt__CTE__stg_github_milestone as (
+with milestone as (
+
+    select *
+    from `digital-arbor-400`.`github`.`milestone`
+
+), fields as (
+
+    select 
+      id,
+      title,
+      due_on, 
+      repository_id
+    from milestone
+)
+
+select *
+from fields
+),  __dbt__CTE__stg_github_user as (
+with user as (
+
+    select *
+    from `digital-arbor-400`.`github`.`user`
+
+), fields as (
+
+    select
+      id,
+      login
+    from user
+)
+
+select *
+from fields
+),issue as (
+
+    select *
+    from __dbt__CTE__stg_github_issue
+  
+), issue_labels as (
+
+    select *
+    from `digital-arbor-400`.`dbt_kristin_test`.`issue_labels`
+
+), issue_projects as (
+
+    select *
+    from `digital-arbor-400`.`dbt_kristin_test`.`issue_projects`
+
+), repository as (
+
+    select *
+    from __dbt__CTE__stg_github_repository
+
+), milestone as (
+
+    select *
+    from __dbt__CTE__stg_github_milestone
+
+), issue_assignees as (
+
+    select *
+    from `digital-arbor-400`.`dbt_kristin_test`.`issue_assignees`
+
+), issue_open_length as (
+
+    select *
+    from `digital-arbor-400`.`dbt_kristin_test`.`issue_open_length`
+
+), issue_blocked_time as (
+
+    select *
+    from `digital-arbor-400`.`dbt_kristin_test`.`issue_blocked_time`
+
+), issue_inbox_time as (
+
+    select *
+    from `digital-arbor-400`.`dbt_kristin_test`.`issue_inbox_time`
+
+), creator as (
+
+    select *
+    from __dbt__CTE__stg_github_user
+
+)
+
+select
+  issue.issue_id,
+  issue.body,
+  issue.closed_at,
+  issue.created_at,
+  issue.locked,
+  issue.milestone_id,
+  issue.number,
+  issue.repository_id,
+  issue.state,
+  issue.title,
+  issue.updated_at,
+  issue.user_id,
+  concat('https://github.com/', repository.full_name, '/issues/', cast(issue.number as string)) as url_link,
+  issue_open_length.days_issue_opened,
+  labels.labels,
+  issue_projects.projects,
+  repository.full_name as repository,
+  milestone.title as milestone,
+  milestone.due_on as milestone_due_on,
+  issue_assignees.assignees,
+  issue_blocked_time.days_blocked,
+  issue_inbox_time.inbox_days,
+  creator.login as created_by
+from issue
+left join issue_labels as labels
+  on issue.issue_id = labels.issue_id
+left join issue_projects
+  on issue.issue_id = issue_projects.issue_id
+left join repository
+  on issue.repository_id = repository.id
+left join milestone
+  on issue.milestone_id = milestone.id and issue.repository_id = milestone.repository_id
+left join issue_assignees
+  on issue.issue_id = issue_assignees.issue_id
+left join issue_open_length
+  on issue.issue_id = issue_open_length.issue_id
+left join issue_blocked_time
+  on issue.issue_id = issue_blocked_time.issue_id
+left join issue_inbox_time
+  on issue.issue_id = issue_inbox_time.issue_id
+left join creator on issue.user_id = creator.id
+where not issue.pull_request
+  );
+    
+2020-05-06 04:59:32.840270 (Thread-4): finished collecting timing info
+2020-05-06 04:59:32.841155 (Thread-4): Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '951bce18-448d-4019-bf06-9a2c9d81e78e', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10dce9490>]}
+2020-05-06 04:59:32.841479 (Thread-4): 21:59:32 | 11 of 13 OK created table model dbt_kristin_test.github_pull_requests [CREATE TABLE (18822) in 3.74s]
+2020-05-06 04:59:32.841741 (Thread-4): Finished running node model.github.github_pull_requests
+2020-05-06 04:59:38.225990 (Thread-1): finished collecting timing info
+2020-05-06 04:59:38.226999 (Thread-1): Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '951bce18-448d-4019-bf06-9a2c9d81e78e', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10fdb1650>]}
+2020-05-06 04:59:38.227352 (Thread-1): 21:59:38 | 12 of 13 OK created table model dbt_kristin_test.github_issues....... [CREATE TABLE (57045) in 7.96s]
+2020-05-06 04:59:38.227635 (Thread-1): Finished running node model.github.github_issues
+2020-05-06 04:59:38.228125 (Thread-3): Began running node model.github.issues_and_prs_per_month
+2020-05-06 04:59:38.228343 (Thread-3): 21:59:38 | 13 of 13 START table model dbt_kristin_test.issues_and_prs_per_month. [RUN]
+2020-05-06 04:59:38.228692 (Thread-3): Acquiring new bigquery connection "model.github.issues_and_prs_per_month".
+2020-05-06 04:59:38.228807 (Thread-3): Re-using an available connection from the pool (formerly model.github.issue_projects).
+2020-05-06 04:59:38.228920 (Thread-3): Compiling model.github.issues_and_prs_per_month
+2020-05-06 04:59:38.241233 (Thread-3): Writing injected SQL for node "model.github.issues_and_prs_per_month"
+2020-05-06 04:59:38.241766 (Thread-3): finished collecting timing info
+2020-05-06 04:59:38.249283 (Thread-3): Writing runtime SQL for node "model.github.issues_and_prs_per_month"
+2020-05-06 04:59:38.249935 (Thread-3): On model.github.issues_and_prs_per_month: /* {"app": "dbt", "dbt_version": "0.16.0", "profile_name": "fivetran", "target_name": "dev", "node_id": "model.github.issues_and_prs_per_month"} */
+
+
+  create or replace table `digital-arbor-400`.`dbt_kristin_test`.`issues_and_prs_per_month`
+  
+  
+  OPTIONS()
+  as (
+    with github_issues as (
+
+    select *
+    from `digital-arbor-400`.`dbt_kristin_test`.`github_issues`
+
+), pull_requests as (
+
+    select *
+    from `digital-arbor-400`.`dbt_kristin_test`.`github_pull_requests`
+
+), issues_opened_per_month as (
+
+   select 
+      date_trunc(date(created_at), month) as month, 
+      count(*) as number_issues_opened,
+      avg(days_issue_opened) as average_length_issue_open,
+      max(days_issue_opened) as longest_length_issue_open
+    from github_issues
+    group by 1
+
+), issues_closed_per_month as (
+
+   select 
+      date_trunc(date(closed_at), month) as month, 
+      count(*) as number_issues_closed
+    from github_issues
+    where closed_at is not null
+    group by 1
+
+), prs_opened_per_month as (
+
+   select 
+      date_trunc(date(created_at), month) as month, 
+      count(*) as number_prs_opened,
+      avg(days_issue_opened) as average_length_pr_open,
+      max(days_issue_opened) as longest_length_pr_open
+    from pull_requests
+    group by 1
+
+), prs_merged_per_month as (
+
+   select 
+      date_trunc(date(merged_at), month) as month, 
+      count(*) as number_prs_merged
+    from pull_requests
+    group by 1
+
+), issues_per_month as (
+
+    select 
+      coalesce(issues_opened_per_month.month, 
+        issues_closed_per_month.month
+      ) as month,
+      number_issues_opened,
+      number_issues_closed,      
+      average_length_issue_open,
+      longest_length_issue_open
+    from issues_opened_per_month
+    full outer join issues_closed_per_month on issues_opened_per_month.month = issues_closed_per_month.month
+
+), prs_per_month as (
+
+    select 
+      coalesce(prs_opened_per_month.month, 
+        prs_merged_per_month.month
+      ) as month,
+      number_prs_opened,
+      number_prs_merged,
+      average_length_pr_open,
+      longest_length_pr_open
+    from prs_opened_per_month
+    full outer join prs_merged_per_month on prs_opened_per_month.month = prs_merged_per_month.month
+
+)
+
+select 
+  coalesce(issues_per_month.month, 
+    prs_per_month.month
+  ) as month,
+  coalesce(number_issues_opened, 0) as number_issues_opened,
+  coalesce(number_issues_closed, 0) as number_issues_closed,
+  average_length_issue_open,
+  longest_length_issue_open,
+  coalesce(number_prs_opened, 0) as number_prs_opened,
+  coalesce(number_prs_merged, 0) as number_prs_merged,
+  average_length_pr_open,
+  longest_length_pr_open
+from issues_per_month 
+full outer join prs_per_month on issues_per_month.month = prs_per_month.month
+  );
+    
+2020-05-06 04:59:40.843827 (Thread-3): finished collecting timing info
+2020-05-06 04:59:40.844719 (Thread-3): Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '951bce18-448d-4019-bf06-9a2c9d81e78e', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10dfde610>]}
+2020-05-06 04:59:40.845031 (Thread-3): 21:59:40 | 13 of 13 OK created table model dbt_kristin_test.issues_and_prs_per_month [CREATE TABLE (61) in 2.62s]
+2020-05-06 04:59:40.845210 (Thread-3): Finished running node model.github.issues_and_prs_per_month
+2020-05-06 04:59:40.882090 (MainThread): 21:59:40 | 
+2020-05-06 04:59:40.882382 (MainThread): 21:59:40 | Finished running 13 table models in 21.22s.
+2020-05-06 04:59:40.882538 (MainThread): Connection 'master' was left open.
+2020-05-06 04:59:40.882641 (MainThread): Connection 'model.github.github_issues' was left open.
+2020-05-06 04:59:40.882734 (MainThread): Connection 'model.github.pull_request_times' was left open.
+2020-05-06 04:59:40.882824 (MainThread): Connection 'model.github.issues_and_prs_per_month' was left open.
+2020-05-06 04:59:40.882912 (MainThread): Connection 'model.github.github_pull_requests' was left open.
+2020-05-06 04:59:40.926457 (MainThread): 
+2020-05-06 04:59:40.926640 (MainThread): Completed successfully
+2020-05-06 04:59:40.926774 (MainThread): 
+Done. PASS=13 WARN=0 ERROR=0 SKIP=0 TOTAL=13
+2020-05-06 04:59:40.926971 (MainThread): Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10fd79a50>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10dfeaf90>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10dfeaa10>]}
+2020-05-06 04:59:40.927166 (MainThread): Flushing usage events
+2020-05-06 05:03:48.477213 (MainThread): Running with dbt=0.16.0
+2020-05-06 05:03:48.626835 (MainThread): running dbt with arguments Namespace(cls=<class 'dbt.task.run.RunTask'>, debug=False, exclude=None, full_refresh=False, log_cache_events=False, log_format='default', models=None, partial_parse=None, profile=None, profiles_dir='/Users/kristin/.dbt', project_dir=None, record_timing_info=None, rpc_method='run', single_threaded=False, strict=False, target=None, test_new_parser=False, threads=None, use_cache=True, vars='{}', version_check=True, warn_error=False, which='run', write_json=True)
+2020-05-06 05:03:48.627828 (MainThread): Tracking: tracking
+2020-05-06 05:03:48.633740 (MainThread): Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10c495710>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10bf98810>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10bf98950>]}
+2020-05-06 05:03:48.652647 (MainThread): Partial parsing not enabled
+2020-05-06 05:03:48.654345 (MainThread): Parsing macros/core.sql
+2020-05-06 05:03:48.660157 (MainThread): Parsing macros/materializations/helpers.sql
+2020-05-06 05:03:48.668604 (MainThread): Parsing macros/materializations/snapshot/snapshot_merge.sql
+2020-05-06 05:03:48.670250 (MainThread): Parsing macros/materializations/snapshot/strategies.sql
+2020-05-06 05:03:48.687482 (MainThread): Parsing macros/materializations/snapshot/snapshot.sql
+2020-05-06 05:03:48.720477 (MainThread): Parsing macros/materializations/seed/seed.sql
+2020-05-06 05:03:48.740996 (MainThread): Parsing macros/materializations/incremental/helpers.sql
+2020-05-06 05:03:48.742770 (MainThread): Parsing macros/materializations/incremental/incremental.sql
+2020-05-06 05:03:48.749145 (MainThread): Parsing macros/materializations/common/merge.sql
+2020-05-06 05:03:48.761599 (MainThread): Parsing macros/materializations/table/table.sql
+2020-05-06 05:03:48.767998 (MainThread): Parsing macros/materializations/view/view.sql
+2020-05-06 05:03:48.774133 (MainThread): Parsing macros/materializations/view/create_or_replace_view.sql
+2020-05-06 05:03:48.779126 (MainThread): Parsing macros/etc/get_custom_alias.sql
+2020-05-06 05:03:48.780033 (MainThread): Parsing macros/etc/query.sql
+2020-05-06 05:03:48.781047 (MainThread): Parsing macros/etc/is_incremental.sql
+2020-05-06 05:03:48.782602 (MainThread): Parsing macros/etc/get_relation_comment.sql
+2020-05-06 05:03:48.784534 (MainThread): Parsing macros/etc/datetime.sql
+2020-05-06 05:03:48.793739 (MainThread): Parsing macros/etc/get_custom_schema.sql
+2020-05-06 05:03:48.795865 (MainThread): Parsing macros/etc/get_custom_database.sql
+2020-05-06 05:03:48.796865 (MainThread): Parsing macros/adapters/common.sql
+2020-05-06 05:03:48.837101 (MainThread): Parsing macros/schema_tests/relationships.sql
+2020-05-06 05:03:48.838194 (MainThread): Parsing macros/schema_tests/not_null.sql
+2020-05-06 05:03:48.839050 (MainThread): Parsing macros/schema_tests/unique.sql
+2020-05-06 05:03:48.840069 (MainThread): Parsing macros/schema_tests/accepted_values.sql
+2020-05-06 05:03:48.842206 (MainThread): Parsing macros/etc.sql
+2020-05-06 05:03:48.843169 (MainThread): Parsing macros/catalog.sql
+2020-05-06 05:03:48.849746 (MainThread): Parsing macros/adapters.sql
+2020-05-06 05:03:48.870283 (MainThread): Parsing macros/materializations/seed.sql
+2020-05-06 05:03:48.872160 (MainThread): Parsing macros/materializations/view.sql
+2020-05-06 05:03:48.873537 (MainThread): Parsing macros/materializations/table.sql
+2020-05-06 05:03:48.883470 (MainThread): Parsing macros/materializations/incremental.sql
+2020-05-06 05:03:48.896054 (MainThread): Parsing macros/materializations/snapshot.sql
+2020-05-06 05:03:48.913611 (MainThread): Partial parsing not enabled
+2020-05-06 05:03:48.944780 (MainThread): Acquiring new bigquery connection "model.github.github_pull_requests".
+2020-05-06 05:03:48.944903 (MainThread): Opening a new connection, currently in state init
+2020-05-06 05:03:48.966719 (MainThread): Acquiring new bigquery connection "model.github.issues_and_prs_per_month".
+2020-05-06 05:03:48.966830 (MainThread): Opening a new connection, currently in state closed
+2020-05-06 05:03:48.972951 (MainThread): Acquiring new bigquery connection "model.github.github_issues".
+2020-05-06 05:03:48.973083 (MainThread): Opening a new connection, currently in state closed
+2020-05-06 05:03:48.985701 (MainThread): Acquiring new bigquery connection "model.github.issue_assignees".
+2020-05-06 05:03:48.985798 (MainThread): Opening a new connection, currently in state closed
+2020-05-06 05:03:48.992037 (MainThread): Acquiring new bigquery connection "model.github.issue_status_windows".
+2020-05-06 05:03:48.992133 (MainThread): Opening a new connection, currently in state closed
+2020-05-06 05:03:48.998048 (MainThread): Acquiring new bigquery connection "model.github.issue_blocked_time".
+2020-05-06 05:03:48.998139 (MainThread): Opening a new connection, currently in state closed
+2020-05-06 05:03:49.003362 (MainThread): Acquiring new bigquery connection "model.github.issue_labels".
+2020-05-06 05:03:49.003443 (MainThread): Opening a new connection, currently in state closed
+2020-05-06 05:03:49.009076 (MainThread): Acquiring new bigquery connection "model.github.pull_request_reviewers".
+2020-05-06 05:03:49.009172 (MainThread): Opening a new connection, currently in state closed
+2020-05-06 05:03:49.015693 (MainThread): Acquiring new bigquery connection "model.github.issue_inbox_time".
+2020-05-06 05:03:49.015791 (MainThread): Opening a new connection, currently in state closed
+2020-05-06 05:03:49.020847 (MainThread): Acquiring new bigquery connection "model.github.issue_projects".
+2020-05-06 05:03:49.021007 (MainThread): Opening a new connection, currently in state closed
+2020-05-06 05:03:49.026976 (MainThread): Acquiring new bigquery connection "model.github.issue_close_stack".
+2020-05-06 05:03:49.027067 (MainThread): Opening a new connection, currently in state closed
+2020-05-06 05:03:49.032942 (MainThread): Acquiring new bigquery connection "model.github.issue_open_length".
+2020-05-06 05:03:49.033029 (MainThread): Opening a new connection, currently in state closed
+2020-05-06 05:03:49.038165 (MainThread): Acquiring new bigquery connection "model.github.pull_request_times".
+2020-05-06 05:03:49.038260 (MainThread): Opening a new connection, currently in state closed
+2020-05-06 05:03:49.046776 (MainThread): Acquiring new bigquery connection "model.github.stg_github_pull_request".
+2020-05-06 05:03:49.046874 (MainThread): Opening a new connection, currently in state closed
+2020-05-06 05:03:49.051807 (MainThread): Acquiring new bigquery connection "model.github.stg_github_requested_reviewer_history".
+2020-05-06 05:03:49.051890 (MainThread): Opening a new connection, currently in state closed
+2020-05-06 05:03:49.057040 (MainThread): Acquiring new bigquery connection "model.github.stg_github_user".
+2020-05-06 05:03:49.057128 (MainThread): Opening a new connection, currently in state closed
+2020-05-06 05:03:49.062219 (MainThread): Acquiring new bigquery connection "model.github.stg_github_issue_label".
+2020-05-06 05:03:49.062311 (MainThread): Opening a new connection, currently in state closed
+2020-05-06 05:03:49.067763 (MainThread): Acquiring new bigquery connection "model.github.stg_github_issue_label_history".
+2020-05-06 05:03:49.067851 (MainThread): Opening a new connection, currently in state closed
+2020-05-06 05:03:49.072943 (MainThread): Acquiring new bigquery connection "model.github.stg_github_project".
+2020-05-06 05:03:49.073034 (MainThread): Opening a new connection, currently in state closed
+2020-05-06 05:03:49.077960 (MainThread): Acquiring new bigquery connection "model.github.stg_github_pull_request_review".
+2020-05-06 05:03:49.078051 (MainThread): Opening a new connection, currently in state closed
+2020-05-06 05:03:49.082854 (MainThread): Acquiring new bigquery connection "model.github.stg_github_issue_closed_history".
+2020-05-06 05:03:49.082936 (MainThread): Opening a new connection, currently in state closed
+2020-05-06 05:03:49.087858 (MainThread): Acquiring new bigquery connection "model.github.stg_github_card".
+2020-05-06 05:03:49.087940 (MainThread): Opening a new connection, currently in state closed
+2020-05-06 05:03:49.092774 (MainThread): Acquiring new bigquery connection "model.github.stg_github_issue_merged".
+2020-05-06 05:03:49.092857 (MainThread): Opening a new connection, currently in state closed
+2020-05-06 05:03:49.097811 (MainThread): Acquiring new bigquery connection "model.github.stg_github_issue_comment".
+2020-05-06 05:03:49.097893 (MainThread): Opening a new connection, currently in state closed
+2020-05-06 05:03:49.102857 (MainThread): Acquiring new bigquery connection "model.github.stg_github_issue_project_history".
+2020-05-06 05:03:49.102939 (MainThread): Opening a new connection, currently in state closed
+2020-05-06 05:03:49.107764 (MainThread): Acquiring new bigquery connection "model.github.stg_github_repository".
+2020-05-06 05:03:49.107846 (MainThread): Opening a new connection, currently in state closed
+2020-05-06 05:03:49.112703 (MainThread): Acquiring new bigquery connection "model.github.stg_github_issue_assignee".
+2020-05-06 05:03:49.112785 (MainThread): Opening a new connection, currently in state closed
+2020-05-06 05:03:49.117726 (MainThread): Acquiring new bigquery connection "model.github.stg_github_issue".
+2020-05-06 05:03:49.117811 (MainThread): Opening a new connection, currently in state closed
+2020-05-06 05:03:49.122686 (MainThread): Acquiring new bigquery connection "model.github.stg_github_milestone".
+2020-05-06 05:03:49.122768 (MainThread): Opening a new connection, currently in state closed
+2020-05-06 05:03:49.191925 (MainThread): Acquiring new bigquery connection "test.github.unique_github_issues_issue_id".
+2020-05-06 05:03:49.192084 (MainThread): Opening a new connection, currently in state closed
+2020-05-06 05:03:49.202637 (MainThread): Acquiring new bigquery connection "test.github.not_null_github_issues_issue_id".
+2020-05-06 05:03:49.202749 (MainThread): Opening a new connection, currently in state closed
+2020-05-06 05:03:49.212219 (MainThread): Acquiring new bigquery connection "test.github.unique_pull_request_issue_id".
+2020-05-06 05:03:49.212320 (MainThread): Opening a new connection, currently in state closed
+2020-05-06 05:03:49.219524 (MainThread): Acquiring new bigquery connection "test.github.not_null_pull_request_issue_id".
+2020-05-06 05:03:49.219622 (MainThread): Opening a new connection, currently in state closed
+2020-05-06 05:03:49.226378 (MainThread): Acquiring new bigquery connection "test.github.unique_issues_and_prs_per_month_month".
+2020-05-06 05:03:49.226471 (MainThread): Opening a new connection, currently in state closed
+2020-05-06 05:03:49.232959 (MainThread): Acquiring new bigquery connection "test.github.not_null_issues_and_prs_per_month_month".
+2020-05-06 05:03:49.233044 (MainThread): Opening a new connection, currently in state closed
+2020-05-06 05:03:49.316085 (MainThread): WARNING: Found documentation for resource "pull_request" which was not found or is disabled
+2020-05-06 05:03:49.316858 (MainThread): WARNING: Test 'test.github.unique_pull_request_issue_id' (models/github.yml) depends on a node named 'pull_request' which was not found
+2020-05-06 05:03:49.317001 (MainThread): WARNING: Test 'test.github.not_null_pull_request_issue_id' (models/github.yml) depends on a node named 'pull_request' which was not found
+2020-05-06 05:03:49.556651 (MainThread): Found 29 models, 4 tests, 0 snapshots, 0 analyses, 141 macros, 0 operations, 0 seed files, 16 sources
+2020-05-06 05:03:49.578833 (MainThread): 
+2020-05-06 05:03:49.579303 (MainThread): Acquiring new bigquery connection "master".
+2020-05-06 05:03:49.579456 (MainThread): Opening a new connection, currently in state closed
+2020-05-06 05:03:49.585223 (ThreadPoolExecutor-0_0): Acquiring new bigquery connection "list_digital-arbor-400".
+2020-05-06 05:03:49.585445 (ThreadPoolExecutor-0_0): Opening a new connection, currently in state init
+2020-05-06 05:03:50.709872 (ThreadPoolExecutor-1_0): Acquiring new bigquery connection "list_digital-arbor-400_dbt_kristin_test".
+2020-05-06 05:03:50.710200 (ThreadPoolExecutor-1_0): Re-using an available connection from the pool (formerly list_digital-arbor-400).
+2020-05-06 05:03:50.710483 (ThreadPoolExecutor-1_0): Client.dataset is deprecated and will be removed in a future version. Use a string like 'my_project.my_dataset' or a cloud.google.bigquery.DatasetReference object, instead.
+2020-05-06 05:03:50.864012 (MainThread): 22:03:50 | Concurrency: 4 threads (target='dev')
+2020-05-06 05:03:50.864212 (MainThread): 22:03:50 | 
+2020-05-06 05:03:50.866435 (Thread-1): Began running node model.github.stg_github_issue
+2020-05-06 05:03:50.866655 (Thread-2): Began running node model.github.stg_github_issue_assignee
+2020-05-06 05:03:50.866999 (Thread-1): Acquiring new bigquery connection "model.github.stg_github_issue".
+2020-05-06 05:03:50.867127 (Thread-3): Began running node model.github.stg_github_issue_closed_history
+2020-05-06 05:03:50.867301 (Thread-4): Began running node model.github.stg_github_issue_label
+2020-05-06 05:03:50.867609 (Thread-2): Acquiring new bigquery connection "model.github.stg_github_issue_assignee".
+2020-05-06 05:03:50.867744 (Thread-1): Re-using an available connection from the pool (formerly list_digital-arbor-400_dbt_kristin_test).
+2020-05-06 05:03:50.868023 (Thread-3): Acquiring new bigquery connection "model.github.stg_github_issue_closed_history".
+2020-05-06 05:03:50.868316 (Thread-4): Acquiring new bigquery connection "model.github.stg_github_issue_label".
+2020-05-06 05:03:50.868446 (Thread-2): Opening a new connection, currently in state init
+2020-05-06 05:03:50.868579 (Thread-1): Compiling model.github.stg_github_issue
+2020-05-06 05:03:50.868684 (Thread-3): Opening a new connection, currently in state init
+2020-05-06 05:03:50.868817 (Thread-4): Opening a new connection, currently in state init
+2020-05-06 05:03:50.868953 (Thread-2): Compiling model.github.stg_github_issue_assignee
+2020-05-06 05:03:50.874506 (Thread-3): Compiling model.github.stg_github_issue_closed_history
+2020-05-06 05:03:50.886465 (Thread-1): Writing injected SQL for node "model.github.stg_github_issue"
+2020-05-06 05:03:50.886645 (Thread-4): Compiling model.github.stg_github_issue_label
+2020-05-06 05:03:50.894578 (Thread-2): Writing injected SQL for node "model.github.stg_github_issue_assignee"
+2020-05-06 05:03:50.903023 (Thread-3): Writing injected SQL for node "model.github.stg_github_issue_closed_history"
+2020-05-06 05:03:50.910268 (Thread-4): Writing injected SQL for node "model.github.stg_github_issue_label"
+2020-05-06 05:03:50.910650 (Thread-1): finished collecting timing info
+2020-05-06 05:03:50.911101 (Thread-1): Finished running node model.github.stg_github_issue
+2020-05-06 05:03:50.911250 (Thread-1): Began running node model.github.stg_github_repository
+2020-05-06 05:03:50.911494 (Thread-1): Acquiring new bigquery connection "model.github.stg_github_repository".
+2020-05-06 05:03:50.911593 (Thread-1): Re-using an available connection from the pool (formerly model.github.stg_github_issue).
+2020-05-06 05:03:50.911691 (Thread-1): Compiling model.github.stg_github_repository
+2020-05-06 05:03:50.918319 (Thread-1): Writing injected SQL for node "model.github.stg_github_repository"
+2020-05-06 05:03:50.918592 (Thread-3): finished collecting timing info
+2020-05-06 05:03:50.918976 (Thread-3): Finished running node model.github.stg_github_issue_closed_history
+2020-05-06 05:03:50.919112 (Thread-3): Began running node model.github.stg_github_user
+2020-05-06 05:03:50.919353 (Thread-3): Acquiring new bigquery connection "model.github.stg_github_user".
+2020-05-06 05:03:50.919447 (Thread-3): Opening a new connection, currently in state closed
+2020-05-06 05:03:50.919538 (Thread-3): Compiling model.github.stg_github_user
+2020-05-06 05:03:50.925492 (Thread-2): finished collecting timing info
+2020-05-06 05:03:50.925841 (Thread-2): Finished running node model.github.stg_github_issue_assignee
+2020-05-06 05:03:50.925969 (Thread-2): Began running node model.github.stg_github_card
+2020-05-06 05:03:50.926188 (Thread-2): Acquiring new bigquery connection "model.github.stg_github_card".
+2020-05-06 05:03:50.926279 (Thread-2): Opening a new connection, currently in state closed
+2020-05-06 05:03:50.926368 (Thread-2): Compiling model.github.stg_github_card
+2020-05-06 05:03:50.931932 (Thread-3): Writing injected SQL for node "model.github.stg_github_user"
+2020-05-06 05:03:50.932746 (Thread-2): Writing injected SQL for node "model.github.stg_github_card"
+2020-05-06 05:03:50.933011 (Thread-1): finished collecting timing info
+2020-05-06 05:03:50.933371 (Thread-1): Finished running node model.github.stg_github_repository
+2020-05-06 05:03:50.933491 (Thread-1): Began running node model.github.stg_github_issue_label_history
+2020-05-06 05:03:50.933700 (Thread-1): Acquiring new bigquery connection "model.github.stg_github_issue_label_history".
+2020-05-06 05:03:50.933786 (Thread-1): Re-using an available connection from the pool (formerly model.github.stg_github_repository).
+2020-05-06 05:03:50.933867 (Thread-1): Compiling model.github.stg_github_issue_label_history
+2020-05-06 05:03:50.939375 (Thread-1): Writing injected SQL for node "model.github.stg_github_issue_label_history"
+2020-05-06 05:03:50.939819 (Thread-3): finished collecting timing info
+2020-05-06 05:03:50.940135 (Thread-3): Finished running node model.github.stg_github_user
+2020-05-06 05:03:50.940307 (Thread-3): Began running node model.github.stg_github_issue_merged
+2020-05-06 05:03:50.940540 (Thread-3): Acquiring new bigquery connection "model.github.stg_github_issue_merged".
+2020-05-06 05:03:50.940649 (Thread-3): Opening a new connection, currently in state closed
+2020-05-06 05:03:50.940771 (Thread-3): Compiling model.github.stg_github_issue_merged
+2020-05-06 05:03:50.946203 (Thread-3): Writing injected SQL for node "model.github.stg_github_issue_merged"
+2020-05-06 05:03:50.946730 (Thread-4): finished collecting timing info
+2020-05-06 05:03:50.947044 (Thread-4): Finished running node model.github.stg_github_issue_label
+2020-05-06 05:03:50.947199 (Thread-4): Began running node model.github.stg_github_issue_project_history
+2020-05-06 05:03:50.947391 (Thread-4): Acquiring new bigquery connection "model.github.stg_github_issue_project_history".
+2020-05-06 05:03:50.947470 (Thread-4): Opening a new connection, currently in state closed
+2020-05-06 05:03:50.947546 (Thread-4): Compiling model.github.stg_github_issue_project_history
+2020-05-06 05:03:50.952697 (Thread-4): Writing injected SQL for node "model.github.stg_github_issue_project_history"
+2020-05-06 05:03:50.952967 (Thread-2): finished collecting timing info
+2020-05-06 05:03:50.953265 (Thread-2): Finished running node model.github.stg_github_card
+2020-05-06 05:03:50.953417 (Thread-2): Began running node model.github.stg_github_milestone
+2020-05-06 05:03:50.953608 (Thread-2): Acquiring new bigquery connection "model.github.stg_github_milestone".
+2020-05-06 05:03:50.953686 (Thread-2): Opening a new connection, currently in state closed
+2020-05-06 05:03:50.953762 (Thread-2): Compiling model.github.stg_github_milestone
+2020-05-06 05:03:50.958958 (Thread-2): Writing injected SQL for node "model.github.stg_github_milestone"
+2020-05-06 05:03:50.959386 (Thread-3): finished collecting timing info
+2020-05-06 05:03:50.959700 (Thread-3): Finished running node model.github.stg_github_issue_merged
+2020-05-06 05:03:50.959862 (Thread-3): Began running node model.github.stg_github_project
+2020-05-06 05:03:50.960132 (Thread-3): Acquiring new bigquery connection "model.github.stg_github_project".
+2020-05-06 05:03:50.960241 (Thread-3): Opening a new connection, currently in state closed
+2020-05-06 05:03:50.960380 (Thread-3): Compiling model.github.stg_github_project
+2020-05-06 05:03:50.965560 (Thread-3): Writing injected SQL for node "model.github.stg_github_project"
+2020-05-06 05:03:50.966049 (Thread-1): finished collecting timing info
+2020-05-06 05:03:50.966368 (Thread-1): Finished running node model.github.stg_github_issue_label_history
+2020-05-06 05:03:50.966481 (Thread-1): Began running node model.github.stg_github_pull_request
+2020-05-06 05:03:50.966675 (Thread-1): Acquiring new bigquery connection "model.github.stg_github_pull_request".
+2020-05-06 05:03:50.966756 (Thread-1): Re-using an available connection from the pool (formerly model.github.stg_github_issue_label_history).
+2020-05-06 05:03:50.966834 (Thread-1): Compiling model.github.stg_github_pull_request
+2020-05-06 05:03:50.972179 (Thread-1): Writing injected SQL for node "model.github.stg_github_pull_request"
+2020-05-06 05:03:50.972507 (Thread-2): finished collecting timing info
+2020-05-06 05:03:50.972822 (Thread-2): Finished running node model.github.stg_github_milestone
+2020-05-06 05:03:50.972978 (Thread-2): Began running node model.github.stg_github_pull_request_review
+2020-05-06 05:03:50.973172 (Thread-2): Acquiring new bigquery connection "model.github.stg_github_pull_request_review".
+2020-05-06 05:03:50.973254 (Thread-2): Opening a new connection, currently in state closed
+2020-05-06 05:03:50.973331 (Thread-2): Compiling model.github.stg_github_pull_request_review
+2020-05-06 05:03:50.978470 (Thread-2): Writing injected SQL for node "model.github.stg_github_pull_request_review"
+2020-05-06 05:03:50.978876 (Thread-3): finished collecting timing info
+2020-05-06 05:03:50.979231 (Thread-3): Finished running node model.github.stg_github_project
+2020-05-06 05:03:50.979384 (Thread-3): Began running node model.github.stg_github_requested_reviewer_history
+2020-05-06 05:03:50.979573 (Thread-3): Acquiring new bigquery connection "model.github.stg_github_requested_reviewer_history".
+2020-05-06 05:03:50.979652 (Thread-3): Opening a new connection, currently in state closed
+2020-05-06 05:03:50.979727 (Thread-3): Compiling model.github.stg_github_requested_reviewer_history
+2020-05-06 05:03:50.984814 (Thread-3): Writing injected SQL for node "model.github.stg_github_requested_reviewer_history"
+2020-05-06 05:03:50.985287 (Thread-4): finished collecting timing info
+2020-05-06 05:03:50.985598 (Thread-4): Finished running node model.github.stg_github_issue_project_history
+2020-05-06 05:03:50.985753 (Thread-4): Began running node model.github.stg_github_issue_comment
+2020-05-06 05:03:50.985944 (Thread-4): Acquiring new bigquery connection "model.github.stg_github_issue_comment".
+2020-05-06 05:03:50.986023 (Thread-4): Opening a new connection, currently in state closed
+2020-05-06 05:03:50.986099 (Thread-4): Compiling model.github.stg_github_issue_comment
+2020-05-06 05:03:50.991351 (Thread-4): Writing injected SQL for node "model.github.stg_github_issue_comment"
+2020-05-06 05:03:50.991541 (Thread-1): finished collecting timing info
+2020-05-06 05:03:50.991858 (Thread-1): Finished running node model.github.stg_github_pull_request
+2020-05-06 05:03:50.991970 (Thread-1): Began running node model.github.issue_close_stack
+2020-05-06 05:03:50.992210 (Thread-1): Acquiring new bigquery connection "model.github.issue_close_stack".
+2020-05-06 05:03:50.992292 (Thread-1): Re-using an available connection from the pool (formerly model.github.stg_github_pull_request).
+2020-05-06 05:03:50.992368 (Thread-1): Compiling model.github.issue_close_stack
+2020-05-06 05:03:50.998845 (Thread-2): finished collecting timing info
+2020-05-06 05:03:50.999161 (Thread-2): Finished running node model.github.stg_github_pull_request_review
+2020-05-06 05:03:50.999272 (Thread-2): Began running node model.github.issue_assignees
+2020-05-06 05:03:50.999464 (Thread-2): Acquiring new bigquery connection "model.github.issue_assignees".
+2020-05-06 05:03:50.999544 (Thread-2): Opening a new connection, currently in state closed
+2020-05-06 05:03:50.999620 (Thread-2): Compiling model.github.issue_assignees
+2020-05-06 05:03:51.008571 (Thread-2): Writing injected SQL for node "model.github.issue_assignees"
+2020-05-06 05:03:51.019246 (Thread-1): Writing injected SQL for node "model.github.issue_close_stack"
+2020-05-06 05:03:51.019629 (Thread-4): finished collecting timing info
+2020-05-06 05:03:51.019952 (Thread-4): Finished running node model.github.stg_github_issue_comment
+2020-05-06 05:03:51.020064 (Thread-4): Began running node model.github.issue_labels
+2020-05-06 05:03:51.020257 (Thread-4): Acquiring new bigquery connection "model.github.issue_labels".
+2020-05-06 05:03:51.020337 (Thread-4): Opening a new connection, currently in state closed
+2020-05-06 05:03:51.020414 (Thread-4): Compiling model.github.issue_labels
+2020-05-06 05:03:51.027948 (Thread-4): Writing injected SQL for node "model.github.issue_labels"
+2020-05-06 05:03:51.028142 (Thread-3): finished collecting timing info
+2020-05-06 05:03:51.028925 (Thread-3): Finished running node model.github.stg_github_requested_reviewer_history
+2020-05-06 05:03:51.029093 (Thread-3): Began running node model.github.issue_blocked_time
+2020-05-06 05:03:51.029377 (Thread-3): Acquiring new bigquery connection "model.github.issue_blocked_time".
+2020-05-06 05:03:51.029488 (Thread-3): Opening a new connection, currently in state closed
+2020-05-06 05:03:51.029628 (Thread-3): Compiling model.github.issue_blocked_time
+2020-05-06 05:03:51.036279 (Thread-2): finished collecting timing info
+2020-05-06 05:03:51.036649 (Thread-2): Finished running node model.github.issue_assignees
+2020-05-06 05:03:51.036810 (Thread-2): Began running node model.github.issue_status_windows
+2020-05-06 05:03:51.037009 (Thread-2): Acquiring new bigquery connection "model.github.issue_status_windows".
+2020-05-06 05:03:51.037090 (Thread-2): Opening a new connection, currently in state closed
+2020-05-06 05:03:51.037170 (Thread-2): Compiling model.github.issue_status_windows
+2020-05-06 05:03:51.048959 (Thread-3): Writing injected SQL for node "model.github.issue_blocked_time"
+2020-05-06 05:03:51.055296 (Thread-1): finished collecting timing info
+2020-05-06 05:03:51.055660 (Thread-1): Finished running node model.github.issue_close_stack
+2020-05-06 05:03:51.055777 (Thread-1): Began running node model.github.pull_request_reviewers
+2020-05-06 05:03:51.055975 (Thread-1): Acquiring new bigquery connection "model.github.pull_request_reviewers".
+2020-05-06 05:03:51.056056 (Thread-1): Re-using an available connection from the pool (formerly model.github.issue_close_stack).
+2020-05-06 05:03:51.056206 (Thread-4): finished collecting timing info
+2020-05-06 05:03:51.057819 (Thread-2): Writing injected SQL for node "model.github.issue_status_windows"
+2020-05-06 05:03:51.058042 (Thread-1): Compiling model.github.pull_request_reviewers
+2020-05-06 05:03:51.058145 (Thread-3): finished collecting timing info
+2020-05-06 05:03:51.058457 (Thread-4): Finished running node model.github.issue_labels
+2020-05-06 05:03:51.069129 (Thread-1): Writing injected SQL for node "model.github.pull_request_reviewers"
+2020-05-06 05:03:51.069461 (Thread-3): Finished running node model.github.issue_blocked_time
+2020-05-06 05:03:51.069601 (Thread-4): Began running node model.github.pull_request_times
+2020-05-06 05:03:51.069730 (Thread-2): finished collecting timing info
+2020-05-06 05:03:51.070136 (Thread-3): Began running node model.github.issue_open_length
+2020-05-06 05:03:51.070216 (Thread-1): finished collecting timing info
+2020-05-06 05:03:51.070511 (Thread-4): Acquiring new bigquery connection "model.github.pull_request_times".
+2020-05-06 05:03:51.070757 (Thread-2): Finished running node model.github.issue_status_windows
+2020-05-06 05:03:51.070954 (Thread-3): Acquiring new bigquery connection "model.github.issue_open_length".
+2020-05-06 05:03:51.071158 (Thread-1): Finished running node model.github.pull_request_reviewers
+2020-05-06 05:03:51.071247 (Thread-4): Opening a new connection, currently in state closed
+2020-05-06 05:03:51.071541 (Thread-3): Opening a new connection, currently in state closed
+2020-05-06 05:03:51.071621 (Thread-2): Began running node model.github.issue_inbox_time
+2020-05-06 05:03:51.071752 (Thread-1): Began running node model.github.issue_projects
+2020-05-06 05:03:51.071854 (Thread-4): Compiling model.github.pull_request_times
+2020-05-06 05:03:51.071969 (Thread-3): Compiling model.github.issue_open_length
+2020-05-06 05:03:51.072159 (Thread-2): Acquiring new bigquery connection "model.github.issue_inbox_time".
+2020-05-06 05:03:51.072351 (Thread-1): Acquiring new bigquery connection "model.github.issue_projects".
+2020-05-06 05:03:51.099880 (Thread-3): Writing injected SQL for node "model.github.issue_open_length"
+2020-05-06 05:03:51.107294 (Thread-4): Writing injected SQL for node "model.github.pull_request_times"
+2020-05-06 05:03:51.107364 (Thread-2): Opening a new connection, currently in state closed
+2020-05-06 05:03:51.107450 (Thread-1): Re-using an available connection from the pool (formerly model.github.pull_request_reviewers).
+2020-05-06 05:03:51.107747 (Thread-3): finished collecting timing info
+2020-05-06 05:03:51.107915 (Thread-2): Compiling model.github.issue_inbox_time
+2020-05-06 05:03:51.108065 (Thread-1): Compiling model.github.issue_projects
+2020-05-06 05:03:51.108175 (Thread-4): finished collecting timing info
+2020-05-06 05:03:51.108502 (Thread-3): Finished running node model.github.issue_open_length
+2020-05-06 05:03:51.116715 (Thread-2): Writing injected SQL for node "model.github.issue_inbox_time"
+2020-05-06 05:03:51.123450 (Thread-4): Finished running node model.github.pull_request_times
+2020-05-06 05:03:51.134333 (Thread-1): Writing injected SQL for node "model.github.issue_projects"
+2020-05-06 05:03:51.134965 (Thread-3): Began running node model.github.github_pull_requests
+2020-05-06 05:03:51.135098 (Thread-3): 22:03:51 | 1 of 3 START table model dbt_kristin_test.github_pull_requests....... [RUN]
+2020-05-06 05:03:51.135372 (Thread-3): Acquiring new bigquery connection "model.github.github_pull_requests".
+2020-05-06 05:03:51.135477 (Thread-3): Opening a new connection, currently in state closed
+2020-05-06 05:03:51.135806 (Thread-3): Compiling model.github.github_pull_requests
+2020-05-06 05:03:51.135915 (Thread-2): finished collecting timing info
+2020-05-06 05:03:51.141777 (Thread-1): finished collecting timing info
+2020-05-06 05:03:51.147839 (Thread-2): Finished running node model.github.issue_inbox_time
+2020-05-06 05:03:51.163036 (Thread-1): Finished running node model.github.issue_projects
+2020-05-06 05:03:51.169809 (Thread-3): Writing injected SQL for node "model.github.github_pull_requests"
+2020-05-06 05:03:51.170278 (Thread-4): Began running node model.github.github_issues
+2020-05-06 05:03:51.170521 (Thread-4): 22:03:51 | 2 of 3 START table model dbt_kristin_test.github_issues.............. [RUN]
+2020-05-06 05:03:51.170823 (Thread-4): Acquiring new bigquery connection "model.github.github_issues".
+2020-05-06 05:03:51.170918 (Thread-4): Opening a new connection, currently in state closed
+2020-05-06 05:03:51.171028 (Thread-4): Compiling model.github.github_issues
+2020-05-06 05:03:51.195991 (Thread-3): finished collecting timing info
+2020-05-06 05:03:51.234172 (Thread-4): Writing injected SQL for node "model.github.github_issues"
+2020-05-06 05:03:51.253397 (Thread-4): finished collecting timing info
+2020-05-06 05:03:51.257473 (Thread-3): Client.dataset is deprecated and will be removed in a future version. Use a string like 'my_project.my_dataset' or a cloud.google.bigquery.DatasetReference object, instead.
+2020-05-06 05:03:51.257935 (Thread-4): Client.dataset is deprecated and will be removed in a future version. Use a string like 'my_project.my_dataset' or a cloud.google.bigquery.DatasetReference object, instead.
+2020-05-06 05:03:51.902923 (Thread-3): Writing runtime SQL for node "model.github.github_pull_requests"
+2020-05-06 05:03:51.911032 (Thread-4): Writing runtime SQL for node "model.github.github_issues"
+2020-05-06 05:03:51.911477 (Thread-4): On model.github.github_issues: /* {"app": "dbt", "dbt_version": "0.16.0", "profile_name": "fivetran", "target_name": "dev", "node_id": "model.github.github_issues"} */
+
+
+  create or replace table `digital-arbor-400`.`dbt_kristin_test`.`github_issues`
+  
+  
+  OPTIONS()
+  as (
+    with  __dbt__CTE__stg_github_issue as (
+with issue as (
+
+    select *
+    from `digital-arbor-400`.`github`.`issue`
+
+), fields as (
+
+    select 
+      id as issue_id,
+      body,
+      closed_at,
+      created_at,
+      locked,
+      milestone_id,
+      number,
+      pull_request,
+      repository_id,
+      state,
+      title,
+      updated_at,
+      user_id
+    from issue
+)
+
+select *
+from fields
+),  __dbt__CTE__stg_github_issue_label as (
+with issue_label as (
+
+    select *
+    from `digital-arbor-400`.`github`.`issue_label`
+
+), fields as (
+
+    select 
+      issue_id,
+      label
+    from issue_label
+)
+
+select *
+from fields
+),  __dbt__CTE__issue_labels as (
+with issue_label as (
+
+    select *
+    from __dbt__CTE__stg_github_issue_label
+  
+)
+
+select
+  issue_id,
+  string_agg(label, ', ' order by label) as labels
+from issue_label
+group by issue_id
+),  __dbt__CTE__stg_github_issue_project_history as (
+with issue_project_history as (
+
+    select *
+    from `digital-arbor-400`.`github`.`issue_project_history`
+
+), fields as (
+
+    select 
+      issue_id,
+      project_id,
+      column_name,
+      removed,
+      updated_at,
+      card_id
+    from issue_project_history
+)
+
+select *
+from fields
+),  __dbt__CTE__stg_github_card as (
+-- All staging models:
+-- id fields should be casted as table_id (so, card_id in this example)
+-- timestamp fields should be appended with _at
+-- deleted fields, either _fivetran_deleted or is_deleted should be removed.
+
+with card as (
+
+    select *
+    from `digital-arbor-400`.`github`.`card`
+
+), fields as (
+
+    select 
+      id,
+      archived,
+      updated_at,
+      is_deleted
+    from card
+)
+
+select *
+from fields
+),  __dbt__CTE__issue_status_windows as (
+with issue_project_history as (
+
+    select *
+    from __dbt__CTE__stg_github_issue_project_history
+  
+), card as (
+
+    select *
+    from __dbt__CTE__stg_github_card
+  
+)
+
+select
+  issue_project_history.issue_id,
+  issue_project_history.project_id,
+  issue_project_history.column_name,
+  issue_project_history.removed,
+  issue_project_history.updated_at as valid_starting,
+  coalesce(lead(issue_project_history.updated_at) over (partition by issue_project_history.issue_id, issue_project_history.project_id order by issue_project_history.updated_at),
+    if(card.archived, card.updated_at, null),
+    current_timestamp()) as valid_until
+from issue_project_history
+join card on issue_project_history.card_id = card.id
+  and not coalesce(card.is_deleted, false)
+),  __dbt__CTE__stg_github_project as (
+with project as (
+
+    select *
+    from `digital-arbor-400`.`github`.`project`
+
+), fields as (
+
+    select
+      id,
+      name
+    from project
+)
+
+select *
+from fields
+),  __dbt__CTE__issue_projects as (
+with issue_status_windows as (
+
+    select *
+    from __dbt__CTE__issue_status_windows
+  
+), project as (
+
+    select *
+    from __dbt__CTE__stg_github_project
+  
+), current_status as (
+
+    select
+      issue_id,
+      project_id,
+      array_agg(removed order by valid_until desc)[safe_offset(0)] as most_recent_removed_status
+    from issue_status_windows
+    group by 1, 2
+
+), current_project_issues_with_ids as (
+
+    select
+      issue_id,
+      array_agg(distinct project_id) as projects_array
+    from issue_status_windows
+    where concat(issue_id, '-', project_id) not in ( --projects where the issue has not been removed
+      select
+        concat(issue_id, '-', project_id) as issue_project
+      from current_status
+      where most_recent_removed_status = true
+    )
+    group by 1
+
+)
+select
+  issue_id,
+  string_agg(project.name, ', ') as projects
+from current_project_issues_with_ids, unnest(projects_array) as project_id
+join project on project_id = project.id
+group by 1
+),  __dbt__CTE__stg_github_repository as (
+with repository as (
+
+    select *
+    from `digital-arbor-400`.`github`.`repository`
+
+), fields as (
+
+    select 
+      id,
+      full_name
+    from repository
+)
+
+select *
+from fields
+),  __dbt__CTE__stg_github_milestone as (
+with milestone as (
+
+    select *
+    from `digital-arbor-400`.`github`.`milestone`
+
+), fields as (
+
+    select 
+      id,
+      title,
+      due_on, 
+      repository_id
+    from milestone
+)
+
+select *
+from fields
+),  __dbt__CTE__stg_github_issue_assignee as (
+with issue_assignee as (
+
+    select *
+    from `digital-arbor-400`.`github`.`issue_assignee`
+
+), fields as (
+
+    select 
+      issue_id,
+      user_id
+    from issue_assignee
+)
+
+select *
+from fields
+),  __dbt__CTE__stg_github_user as (
+with user as (
+
+    select *
+    from `digital-arbor-400`.`github`.`user`
+
+), fields as (
+
+    select
+      id,
+      login
+    from user
+)
+
+select *
+from fields
+),  __dbt__CTE__issue_assignees as (
+with issue_assignee as (
+
+    select *
+    from __dbt__CTE__stg_github_issue_assignee
+  
+), user as (
+
+    select *
+    from __dbt__CTE__stg_github_user
+
+)
+
+select
+  issue_id,
+  string_agg(login, ', ') as assignees
+from issue_assignee
+left join user on issue_assignee.user_id = user.id
+group by 1
+),  __dbt__CTE__stg_github_issue_closed_history as (
+with issue_closed_history as (
+
+    select *
+    from `digital-arbor-400`.`github`.`issue_closed_history`
+
+), fields as (
+
+    select 
+      issue_id,
+      updated_at,
+      closed
+    from issue_closed_history
+)
+
+select *
+from fields
+),  __dbt__CTE__issue_close_stack as (
+with issue as (
+    
+    select *
+    from __dbt__CTE__stg_github_issue
+  
+), issue_closed_history as (
+
+    select *
+    from __dbt__CTE__stg_github_issue_closed_history
+  
+), close_events_stacked as (
+    select
+      issue_id,
+      created_at as updated_at,
+      FALSE as closed
+    from issue
+    union all
+    select
+      issue_id,
+      updated_at,
+      closed
+    from issue_closed_history
+    union all
+    select
+      issue_id,
+      closed_at as updated_at,
+      TRUE as closed
+    from issue
+    where closed_at is not null
+
+), close_events_stacked_ordered as (
+    select
+      *,
+      row_number() over (partition by issue_id order by updated_at) as issue_event_order /* to avoid ordering issues when updated_at value is present twice */
+    from close_events_stacked
+)
+
+select
+  issue_id,
+  updated_at as valid_starting,
+  coalesce(lead(updated_at) over (partition by issue_id order by issue_event_order), timestamp_sub(timestamp_add(timestamp(current_date()), interval 1 day), interval 1 millisecond)) as valid_until,
+  closed as is_closed
+from close_events_stacked_ordered
+),  __dbt__CTE__issue_open_length as (
+with issue_close_stack as (
+
+    select *
+    from __dbt__CTE__issue_close_stack
+  
+)
+
+select
+  issue_id,
+  sum(timestamp_diff(least(valid_until, current_timestamp()), valid_starting, second)/86400) as days_issue_opened
+from issue_close_stack
+  where not is_closed
+group by issue_id
+),  __dbt__CTE__stg_github_issue_label_history as (
+with issue_label_history as (
+
+    select *
+    from `digital-arbor-400`.`github`.`issue_label_history`
+
+), fields as (
+
+    select 
+      issue_id,
+      updated_at,
+      label,
+      labeled
+    from issue_label_history
+)
+
+select *
+from fields
+),  __dbt__CTE__issue_blocked_time as (
+with issue_label_history as (
+
+    select *
+    from __dbt__CTE__stg_github_issue_label_history
+  
+), issue_label_times as (
+
+    select
+      issue_id,
+      label,
+      updated_at as valid_starting,
+      lead(issue_label_history.updated_at) over (partition by issue_label_history.issue_id, label order by issue_label_history.updated_at) as valid_until,
+      labeled
+    from issue_label_history
+    order by updated_at
+
+)
+
+select
+  issue_id,
+  sum(timestamp_diff(coalesce(valid_until, current_timestamp()), valid_starting, second)/86400) as days_blocked
+from issue_label_times
+where labeled
+  and lower(label) like '%blocked%'
+group by 1
+),  __dbt__CTE__issue_inbox_time as (
+with issue_status_windows as (
+
+    select *
+    from __dbt__CTE__issue_status_windows
+  
+)
+
+select
+  issue_id,
+  sum(timestamp_diff(valid_until, valid_starting, second)/86400) as inbox_days
+from issue_status_windows
+where upper(column_name) like '%INBOX%'
+  and not removed
+group by 1
+),issue as (
+
+    select *
+    from __dbt__CTE__stg_github_issue
+  
+), issue_labels as (
+
+    select *
+    from __dbt__CTE__issue_labels
+
+), issue_projects as (
+
+    select *
+    from __dbt__CTE__issue_projects
+
+), repository as (
+
+    select *
+    from __dbt__CTE__stg_github_repository
+
+), milestone as (
+
+    select *
+    from __dbt__CTE__stg_github_milestone
+
+), issue_assignees as (
+
+    select *
+    from __dbt__CTE__issue_assignees
+
+), issue_open_length as (
+
+    select *
+    from __dbt__CTE__issue_open_length
+
+), issue_blocked_time as (
+
+    select *
+    from __dbt__CTE__issue_blocked_time
+
+), issue_inbox_time as (
+
+    select *
+    from __dbt__CTE__issue_inbox_time
+
+), creator as (
+
+    select *
+    from __dbt__CTE__stg_github_user
+
+)
+
+select
+  issue.issue_id,
+  issue.body,
+  issue.closed_at,
+  issue.created_at,
+  issue.locked,
+  issue.milestone_id,
+  issue.number,
+  issue.repository_id,
+  issue.state,
+  issue.title,
+  issue.updated_at,
+  issue.user_id,
+  concat('https://github.com/', repository.full_name, '/issues/', cast(issue.number as string)) as url_link,
+  issue_open_length.days_issue_opened,
+  labels.labels,
+  issue_projects.projects,
+  repository.full_name as repository,
+  milestone.title as milestone,
+  milestone.due_on as milestone_due_on,
+  issue_assignees.assignees,
+  issue_blocked_time.days_blocked,
+  issue_inbox_time.inbox_days,
+  creator.login as created_by
+from issue
+left join issue_labels as labels
+  on issue.issue_id = labels.issue_id
+left join issue_projects
+  on issue.issue_id = issue_projects.issue_id
+left join repository
+  on issue.repository_id = repository.id
+left join milestone
+  on issue.milestone_id = milestone.id and issue.repository_id = milestone.repository_id
+left join issue_assignees
+  on issue.issue_id = issue_assignees.issue_id
+left join issue_open_length
+  on issue.issue_id = issue_open_length.issue_id
+left join issue_blocked_time
+  on issue.issue_id = issue_blocked_time.issue_id
+left join issue_inbox_time
+  on issue.issue_id = issue_inbox_time.issue_id
+left join creator on issue.user_id = creator.id
+where not issue.pull_request
+  );
+    
+2020-05-06 05:03:51.912403 (Thread-3): On model.github.github_pull_requests: /* {"app": "dbt", "dbt_version": "0.16.0", "profile_name": "fivetran", "target_name": "dev", "node_id": "model.github.github_pull_requests"} */
+
+
+  create or replace table `digital-arbor-400`.`dbt_kristin_test`.`github_pull_requests`
+  
+  
+  OPTIONS()
+  as (
+    with  __dbt__CTE__stg_github_issue as (
+with issue as (
+
+    select *
+    from `digital-arbor-400`.`github`.`issue`
+
+), fields as (
+
+    select 
+      id as issue_id,
+      body,
+      closed_at,
+      created_at,
+      locked,
+      milestone_id,
+      number,
+      pull_request,
+      repository_id,
+      state,
+      title,
+      updated_at,
+      user_id
+    from issue
+)
+
+select *
+from fields
+),  __dbt__CTE__stg_github_issue_label as (
+with issue_label as (
+
+    select *
+    from `digital-arbor-400`.`github`.`issue_label`
+
+), fields as (
+
+    select 
+      issue_id,
+      label
+    from issue_label
+)
+
+select *
+from fields
+),  __dbt__CTE__issue_labels as (
+with issue_label as (
+
+    select *
+    from __dbt__CTE__stg_github_issue_label
+  
+)
+
+select
+  issue_id,
+  string_agg(label, ', ' order by label) as labels
+from issue_label
+group by issue_id
+),  __dbt__CTE__stg_github_repository as (
+with repository as (
+
+    select *
+    from `digital-arbor-400`.`github`.`repository`
+
+), fields as (
+
+    select 
+      id,
+      full_name
+    from repository
+)
+
+select *
+from fields
+),  __dbt__CTE__stg_github_issue_assignee as (
+with issue_assignee as (
+
+    select *
+    from `digital-arbor-400`.`github`.`issue_assignee`
+
+), fields as (
+
+    select 
+      issue_id,
+      user_id
+    from issue_assignee
+)
+
+select *
+from fields
+),  __dbt__CTE__stg_github_user as (
+with user as (
+
+    select *
+    from `digital-arbor-400`.`github`.`user`
+
+), fields as (
+
+    select
+      id,
+      login
+    from user
+)
+
+select *
+from fields
+),  __dbt__CTE__issue_assignees as (
+with issue_assignee as (
+
+    select *
+    from __dbt__CTE__stg_github_issue_assignee
+  
+), user as (
+
+    select *
+    from __dbt__CTE__stg_github_user
+
+)
+
+select
+  issue_id,
+  string_agg(login, ', ') as assignees
+from issue_assignee
+left join user on issue_assignee.user_id = user.id
+group by 1
+),  __dbt__CTE__stg_github_issue_closed_history as (
+with issue_closed_history as (
+
+    select *
+    from `digital-arbor-400`.`github`.`issue_closed_history`
+
+), fields as (
+
+    select 
+      issue_id,
+      updated_at,
+      closed
+    from issue_closed_history
+)
+
+select *
+from fields
+),  __dbt__CTE__issue_close_stack as (
+with issue as (
+    
+    select *
+    from __dbt__CTE__stg_github_issue
+  
+), issue_closed_history as (
+
+    select *
+    from __dbt__CTE__stg_github_issue_closed_history
+  
+), close_events_stacked as (
+    select
+      issue_id,
+      created_at as updated_at,
+      FALSE as closed
+    from issue
+    union all
+    select
+      issue_id,
+      updated_at,
+      closed
+    from issue_closed_history
+    union all
+    select
+      issue_id,
+      closed_at as updated_at,
+      TRUE as closed
+    from issue
+    where closed_at is not null
+
+), close_events_stacked_ordered as (
+    select
+      *,
+      row_number() over (partition by issue_id order by updated_at) as issue_event_order /* to avoid ordering issues when updated_at value is present twice */
+    from close_events_stacked
+)
+
+select
+  issue_id,
+  updated_at as valid_starting,
+  coalesce(lead(updated_at) over (partition by issue_id order by issue_event_order), timestamp_sub(timestamp_add(timestamp(current_date()), interval 1 day), interval 1 millisecond)) as valid_until,
+  closed as is_closed
+from close_events_stacked_ordered
+),  __dbt__CTE__issue_open_length as (
+with issue_close_stack as (
+
+    select *
+    from __dbt__CTE__issue_close_stack
+  
+)
+
+select
+  issue_id,
+  sum(timestamp_diff(least(valid_until, current_timestamp()), valid_starting, second)/86400) as days_issue_opened
+from issue_close_stack
+  where not is_closed
+group by issue_id
+),  __dbt__CTE__stg_github_pull_request_review as (
+with pull_request_review as (
+
+    select *
+    from `digital-arbor-400`.`github`.`pull_request_review`
+
+), fields as (
+
+    select 
+      pull_request_id,
+      submitted_at,
+      state,
+      user_id
+    from pull_request_review
+)
+
+select *
+from fields
+),  __dbt__CTE__stg_github_pull_request as (
+with pull_request as (
+
+    select *
+    from `digital-arbor-400`.`github`.`pull_request`
+
+), fields as (
+
+    select 
+      issue_id,
+      id,
+      base_repo_id,
+      head_repo_id,
+      head_user_id
+    from pull_request
+)
+
+select *
+from fields
+),  __dbt__CTE__stg_github_requested_reviewer_history as (
+with requested_reviewer_history as (
+
+    select *
+    from `digital-arbor-400`.`github`.`requested_reviewer_history`
+
+), fields as (
+
+    select 
+      pull_request_id,
+      created_at,
+      requested_id
+    from requested_reviewer_history
+)
+
+select *
+from fields
+),  __dbt__CTE__stg_github_issue_merged as (
+with issue_merged as (
+
+    select *
+    from `digital-arbor-400`.`github`.`issue_merged`
+
+), fields as (
+
+    select 
+      issue_id,
+      merged_at
+    from issue_merged
+)
+
+select *
+from fields
+),  __dbt__CTE__pull_request_times as (
+with pull_request_review as (
+
+    select *
+    from __dbt__CTE__stg_github_pull_request_review
+  
+), pull_request as (
+
+    select *
+    from __dbt__CTE__stg_github_pull_request
+
+), requested_reviewer_history as (
+
+    select *
+    from __dbt__CTE__stg_github_requested_reviewer_history
+
+), issue as (
+
+    select *
+    from __dbt__CTE__stg_github_issue
+  
+), issue_merged as (
+
+    select
+      issue_id,
+      min(merged_at) as merged_at
+      from __dbt__CTE__stg_github_issue_merged
+    group by 1
+
+), first_request_time as (
+
+    select
+      pull_request.issue_id,
+      pull_request.id,
+      min(requested_reviewer_history.created_at) as time_of_first_request,
+      min(pull_request_review.submitted_at) as time_of_first_review_post_request,
+      -- Finds the first review that is by the requested reviewer and is not a dismissal
+      min(if(
+            requested_reviewer_history.requested_id = pull_request_review.user_id
+            and upper(pull_request_review.state) in ('COMMENTED', 'APPROVED', 'CHANGES_REQUESTED'),
+            pull_request_review.submitted_at,
+            NULL)) as time_of_first_requested_reviewer_review
+    from pull_request
+    join requested_reviewer_history on requested_reviewer_history.pull_request_id = pull_request.id
+    left join pull_request_review on pull_request_review.pull_request_id = pull_request.id
+      and pull_request_review.submitted_at > requested_reviewer_history.created_at
+    group by 1, 2
+
+)
+
+select
+  first_request_time.issue_id,
+  merged_at,
+  timestamp_diff(coalesce(time_of_first_review_post_request, current_timestamp()),time_of_first_request, second)/3600 as hours_first_review_post_request,
+  --Finds time between first request for review and the review action, uses current_timestamp is no action yet
+  timestamp_diff(
+    least(
+    coalesce(time_of_first_requested_reviewer_review, current_timestamp()),
+    coalesce(issue.closed_at, current_timestamp())
+  ),
+  time_of_first_request,
+  second)/3600 as hours_first_action_post_request,
+  timestamp_diff(merged_at, time_of_first_request, second)/3600 as hours_request_review_to_merge
+from first_request_time
+join issue on first_request_time.issue_id = issue.issue_id
+left join issue_merged on first_request_time.issue_id = issue_merged.issue_id
+),issue as (
+
+    select *
+    from __dbt__CTE__stg_github_issue
+  
+), issue_labels as (
+
+    select *
+    from __dbt__CTE__issue_labels
+
+), repository as (
+
+    select *
+    from __dbt__CTE__stg_github_repository
+
+), issue_assignees as (
+
+    select *
+    from __dbt__CTE__issue_assignees
+
+), issue_open_length as (
+
+    select *
+    from __dbt__CTE__issue_open_length
+
+), creator as (
+
+    select *
+    from __dbt__CTE__stg_github_user
+
+), pull_request_times as (
+
+    select *
+    from __dbt__CTE__pull_request_times
+
+), pull_request as (
+
+    select *
+    from __dbt__CTE__stg_github_pull_request
+
+)
+
+select
+  issue.issue_id,
+  issue.body,
+  issue.closed_at,
+  issue.created_at,
+  issue.locked,
+  issue.number,
+  issue.repository_id,
+  issue.state,
+  issue.title,
+  issue.updated_at,
+  issue.user_id,
+  concat('https://github.com/', repository.full_name, '/issues/', cast(issue.number as string)) as url_link,
+  issue_open_length.days_issue_opened,
+  labels.labels,
+  repository.full_name as repository,
+  issue_assignees.assignees,
+  creator.login as created_by,
+  hours_first_review_post_request,
+  hours_first_action_post_request,
+  hours_request_review_to_merge,
+  merged_at
+from issue
+left join issue_labels as labels
+  on issue.issue_id = labels.issue_id
+left join repository
+  on issue.repository_id = repository.id
+left join issue_assignees
+  on issue.issue_id = issue_assignees.issue_id
+left join issue_open_length
+  on issue.issue_id = issue_open_length.issue_id
+left join creator 
+  on issue.user_id = creator.id
+left join pull_request
+  on issue.issue_id = pull_request.issue_id
+left join pull_request_times
+  on issue.issue_id = pull_request_times.issue_id
+where issue.pull_request
+  );
+    
+2020-05-06 05:03:57.016821 (Thread-3): finished collecting timing info
+2020-05-06 05:03:57.017728 (Thread-3): Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '5c4abbfc-16c7-487d-bc49-129813051ffb', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10ccf7910>]}
+2020-05-06 05:03:57.018041 (Thread-3): 22:03:57 | 1 of 3 OK created table model dbt_kristin_test.github_pull_requests.. [CREATE TABLE (18822) in 5.88s]
+2020-05-06 05:03:57.018231 (Thread-3): Finished running node model.github.github_pull_requests
+2020-05-06 05:04:02.295203 (Thread-4): finished collecting timing info
+2020-05-06 05:04:02.296086 (Thread-4): Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '5c4abbfc-16c7-487d-bc49-129813051ffb', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10cc98890>]}
+2020-05-06 05:04:02.296392 (Thread-4): 22:04:02 | 2 of 3 OK created table model dbt_kristin_test.github_issues......... [CREATE TABLE (57045) in 11.13s]
+2020-05-06 05:04:02.296576 (Thread-4): Finished running node model.github.github_issues
+2020-05-06 05:04:02.296989 (Thread-1): Began running node model.github.issues_and_prs_per_month
+2020-05-06 05:04:02.297217 (Thread-1): 22:04:02 | 3 of 3 START table model dbt_kristin_test.issues_and_prs_per_month... [RUN]
+2020-05-06 05:04:02.297570 (Thread-1): Acquiring new bigquery connection "model.github.issues_and_prs_per_month".
+2020-05-06 05:04:02.297706 (Thread-1): Re-using an available connection from the pool (formerly model.github.issue_projects).
+2020-05-06 05:04:02.297845 (Thread-1): Compiling model.github.issues_and_prs_per_month
+2020-05-06 05:04:02.309335 (Thread-1): Writing injected SQL for node "model.github.issues_and_prs_per_month"
+2020-05-06 05:04:02.309842 (Thread-1): finished collecting timing info
+2020-05-06 05:04:02.314475 (Thread-1): Client.dataset is deprecated and will be removed in a future version. Use a string like 'my_project.my_dataset' or a cloud.google.bigquery.DatasetReference object, instead.
+2020-05-06 05:04:02.475357 (Thread-1): Writing runtime SQL for node "model.github.issues_and_prs_per_month"
+2020-05-06 05:04:02.475945 (Thread-1): On model.github.issues_and_prs_per_month: /* {"app": "dbt", "dbt_version": "0.16.0", "profile_name": "fivetran", "target_name": "dev", "node_id": "model.github.issues_and_prs_per_month"} */
+
+
+  create or replace table `digital-arbor-400`.`dbt_kristin_test`.`issues_and_prs_per_month`
+  
+  
+  OPTIONS()
+  as (
+    with github_issues as (
+
+    select *
+    from `digital-arbor-400`.`dbt_kristin_test`.`github_issues`
+
+), pull_requests as (
+
+    select *
+    from `digital-arbor-400`.`dbt_kristin_test`.`github_pull_requests`
+
+), issues_opened_per_month as (
+
+   select 
+      date_trunc(date(created_at), month) as month, 
+      count(*) as number_issues_opened,
+      avg(days_issue_opened) as average_length_issue_open,
+      max(days_issue_opened) as longest_length_issue_open
+    from github_issues
+    group by 1
+
+), issues_closed_per_month as (
+
+   select 
+      date_trunc(date(closed_at), month) as month, 
+      count(*) as number_issues_closed
+    from github_issues
+    where closed_at is not null
+    group by 1
+
+), prs_opened_per_month as (
+
+   select 
+      date_trunc(date(created_at), month) as month, 
+      count(*) as number_prs_opened,
+      avg(days_issue_opened) as average_length_pr_open,
+      max(days_issue_opened) as longest_length_pr_open
+    from pull_requests
+    group by 1
+
+), prs_merged_per_month as (
+
+   select 
+      date_trunc(date(merged_at), month) as month, 
+      count(*) as number_prs_merged
+    from pull_requests
+    group by 1
+
+), issues_per_month as (
+
+    select 
+      coalesce(issues_opened_per_month.month, 
+        issues_closed_per_month.month
+      ) as month,
+      number_issues_opened,
+      number_issues_closed,      
+      average_length_issue_open,
+      longest_length_issue_open
+    from issues_opened_per_month
+    full outer join issues_closed_per_month on issues_opened_per_month.month = issues_closed_per_month.month
+
+), prs_per_month as (
+
+    select 
+      coalesce(prs_opened_per_month.month, 
+        prs_merged_per_month.month
+      ) as month,
+      number_prs_opened,
+      number_prs_merged,
+      average_length_pr_open,
+      longest_length_pr_open
+    from prs_opened_per_month
+    full outer join prs_merged_per_month on prs_opened_per_month.month = prs_merged_per_month.month
+
+)
+
+select 
+  coalesce(issues_per_month.month, 
+    prs_per_month.month
+  ) as month,
+  coalesce(number_issues_opened, 0) as number_issues_opened,
+  coalesce(number_issues_closed, 0) as number_issues_closed,
+  average_length_issue_open,
+  longest_length_issue_open,
+  coalesce(number_prs_opened, 0) as number_prs_opened,
+  coalesce(number_prs_merged, 0) as number_prs_merged,
+  average_length_pr_open,
+  longest_length_pr_open
+from issues_per_month 
+full outer join prs_per_month on issues_per_month.month = prs_per_month.month
+  );
+    
+2020-05-06 05:04:05.533667 (Thread-1): finished collecting timing info
+2020-05-06 05:04:05.534553 (Thread-1): Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '5c4abbfc-16c7-487d-bc49-129813051ffb', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10c47df10>]}
+2020-05-06 05:04:05.534875 (Thread-1): 22:04:05 | 3 of 3 OK created table model dbt_kristin_test.issues_and_prs_per_month [CREATE TABLE (61) in 3.24s]
+2020-05-06 05:04:05.535061 (Thread-1): Finished running node model.github.issues_and_prs_per_month
+2020-05-06 05:04:05.577044 (MainThread): 22:04:05 | 
+2020-05-06 05:04:05.577336 (MainThread): 22:04:05 | Finished running 3 table models in 16.00s.
+2020-05-06 05:04:05.577533 (MainThread): Connection 'master' was left open.
+2020-05-06 05:04:05.577678 (MainThread): Connection 'model.github.issues_and_prs_per_month' was left open.
+2020-05-06 05:04:05.577819 (MainThread): Connection 'model.github.issue_inbox_time' was properly closed.
+2020-05-06 05:04:05.577951 (MainThread): Connection 'model.github.github_pull_requests' was left open.
+2020-05-06 05:04:05.578080 (MainThread): Connection 'model.github.github_issues' was left open.
+2020-05-06 05:04:05.591524 (MainThread): 
+2020-05-06 05:04:05.591832 (MainThread): Completed successfully
+2020-05-06 05:04:05.591986 (MainThread): 
+Done. PASS=3 WARN=0 ERROR=0 SKIP=0 TOTAL=3
+2020-05-06 05:04:05.592205 (MainThread): Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10c6c00d0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10cca1c90>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10c6953d0>]}
+2020-05-06 05:04:05.592431 (MainThread): Flushing usage events

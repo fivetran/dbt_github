@@ -1,5 +1,5 @@
 name: 'github'
-version: '0.1.0'
+version: '0.0.1'
 profile: fivetran
 
 source-paths: ["models"]
@@ -19,3 +19,8 @@ models:
         vars:
             schema_name: "GITHUB"
             github_schema: "GITHUB"
+        materialized: table
+        base:
+            materialized: ephemeral
+        intermediate:
+            materialized: ephemeral            

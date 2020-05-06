@@ -1,0 +1,50 @@
+version: 2
+
+models:
+  - name: github_issues
+    description: >
+      Basic information about issues as well as additional fields for things like assignees, projects, labels and open time
+    columns:
+      - name: issue_id
+        description: The unique ID of an issue.
+        tests:
+          - unique
+          - not_null
+
+      - name: x
+        description: x
+
+      - name: x
+        description: x
+
+  - name: pull_request
+    description: >
+      Basic information about pull_requests as well as additional fields about reviews and time between actions
+    columns:
+      - name: issue_id
+        description: The unique ID of an issue.
+        tests:
+          - unique
+          - not_null
+
+      - name: x
+        description: x
+
+      - name: x
+        description: x
+
+  - name: issues_and_prs_per_month
+    description: >
+      Summary numbers for issues and pull requests by month
+    columns:
+      - name: month
+        description: The reporting month
+        tests:
+          - unique
+          - not_null
+
+      - name: x
+        description: x
+
+      - name: x
+        description: x

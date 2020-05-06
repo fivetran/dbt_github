@@ -1,3 +1,5 @@
+# Next step here: add column descriptions and column-level testing.  Add in freshness testing on frequently updates tables.
+
 version: 2
 
 sources:
