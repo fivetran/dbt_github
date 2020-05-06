@@ -3,6 +3,11 @@ with issue_status_windows as (
     select *
     from {{ ref('issue_status_windows') }}
   
+), project as (
+
+    select *
+    from {{ ref('stg_github_project') }}
+  
 ), current_status as (
 
     select
@@ -31,5 +36,5 @@ select
   issue_id,
   string_agg(project.name, ', ') as projects
 from current_project_issues_with_ids, unnest(projects_array) as project_id
-join github.project on project_id = project.id
+join project on project_id = project.id
 group by 1

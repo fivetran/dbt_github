@@ -13,13 +13,13 @@ with issue as (
       issue_id,
       created_at as updated_at,
       FALSE as closed
-    from github.issue
+    from issue
     union all
     select
       issue_id,
       updated_at,
       closed
-    from github.issue_closed_history
+    from issue_closed_history
     union all
     select
       issue_id,

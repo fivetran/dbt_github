@@ -10,7 +10,8 @@ with issue_project_history as (
       project_id,
       column_name,
       removed,
-      updated_at
+      updated_at,
+      card_id
     from issue_project_history
 )
 

@@ -8,11 +8,6 @@ with pull_request_review as (
     select *
     from {{ ref('stg_github_pull_request')}}
 
-), pull_request_review as (
-
-    select *
-    from {{ ref('stg_github_pull_request_review')}}
-
 ), requested_reviewer_history as (
 
     select *
@@ -45,8 +40,8 @@ with pull_request_review as (
             pull_request_review.submitted_at,
             NULL)) as time_of_first_requested_reviewer_review
     from pull_request
-    join github.requested_reviewer_history on requested_reviewer_history.pull_request_id = pull_request.id
-    left join github.pull_request_review on pull_request_review.pull_request_id = pull_request.id
+    join requested_reviewer_history on requested_reviewer_history.pull_request_id = pull_request.id
+    left join pull_request_review on pull_request_review.pull_request_id = pull_request.id
       and pull_request_review.submitted_at > requested_reviewer_history.created_at
     group by 1, 2
 
@@ -66,5 +61,5 @@ select
   second)/3600 as hours_first_action_post_request,
   timestamp_diff(merged_at, time_of_first_request, second)/3600 as hours_request_review_to_merge
 from first_request_time
-join issue on first_request_time.issue_id = issue.id
+join issue on first_request_time.issue_id = issue.issue_id
 left join issue_merged on first_request_time.issue_id = issue_merged.issue_id

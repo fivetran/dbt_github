@@ -33,10 +33,15 @@ with issue as (
     select *
     from {{ ref('pull_request_times')}}
 
+), pull_request as (
+
+    select *
+    from {{ ref('stg_github_pull_request')}}
+
 )
 
 select
-  issue.id,
+  issue.issue_id,
   issue.body,
   issue.closed_at,
   issue.created_at,
@@ -59,17 +64,17 @@ select
   merged_at
 from issue
 left join issue_labels as labels
-  on issue.id = labels.issue_id
+  on issue.issue_id = labels.issue_id
 left join repository
   on issue.repository_id = repository.id
 left join issue_assignees
-  on issue.id = issue_assignees.issue_id
+  on issue.issue_id = issue_assignees.issue_id
 left join issue_open_length
-  on issue.id = issue_open_length.issue_id
+  on issue.issue_id = issue_open_length.issue_id
 left join creator 
   on issue.user_id = creator.id
 left join pull_request
-  on issue.id = pull_request.issue_id
+  on issue.issue_id = pull_request.issue_id
 left join pull_request_times
-  on issue.id = pull_request_times.issue_id
+  on issue.issue_id = pull_request_times.issue_id
 where issue.pull_request

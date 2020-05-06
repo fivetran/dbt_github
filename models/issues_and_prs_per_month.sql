@@ -6,7 +6,7 @@ with github_issues as (
 ), pull_requests as (
 
     select *
-    from {{ ref('pull_requests') }}
+    from {{ ref('github_pull_requests') }}
 
 ), issues_opened_per_month as (
 
@@ -42,7 +42,7 @@ with github_issues as (
    select 
       date_trunc(date(merged_at), month) as month, 
       count(*) as number_prs_merged
-    from github_issues
+    from pull_requests
     group by 1
 
 ), issues_per_month as (
@@ -55,7 +55,7 @@ with github_issues as (
       number_issues_closed,      
       average_length_issue_open,
       longest_length_issue_open
-    from issues_opened_per_month.month 
+    from issues_opened_per_month
     full outer join issues_closed_per_month on issues_opened_per_month.month = issues_closed_per_month.month
 
 ), prs_per_month as (
@@ -68,7 +68,7 @@ with github_issues as (
       number_prs_merged,
       average_length_pr_open,
       longest_length_pr_open
-    from prs_opened_per_month.month 
+    from prs_opened_per_month
     full outer join prs_merged_per_month on prs_opened_per_month.month = prs_merged_per_month.month
 
 )
@@ -85,5 +85,5 @@ select
   coalesce(number_prs_merged, 0) as number_prs_merged,
   average_length_pr_open,
   longest_length_pr_open
-from prs_opened_per_month.month 
-full outer join prs_merged_per_month on prs_opened_per_month.month = prs_merged_per_month.month
+from issues_per_month 
+full outer join prs_per_month on issues_per_month.month = prs_per_month.month

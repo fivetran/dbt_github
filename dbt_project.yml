@@ -1,5 +1,6 @@
 name: 'github'
 version: '0.1.0'
+profile: fivetran
 
 source-paths: ["models"]
 analysis-paths: ["analysis"]
@@ -17,4 +18,4 @@ models:
     github:
         vars:
             schema_name: "GITHUB"
-            salesforce_schema: "GITHUB"
+            github_schema: "GITHUB"

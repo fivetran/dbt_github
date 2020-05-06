@@ -1,0 +1,22 @@
+version: 2
+
+sources:
+  - name: github
+
+    tables:
+      - name: card
+      - name: issue_assignee
+      - name: issue_closed_history
+      - name: issue_comment
+      - name: issue_label_history
+      - name: issue_label
+      - name: issue_merged
+      - name: issue_project_history
+      - name: issue
+      - name: milestone
+      - name: project
+      - name: pull_request_review
+      - name: pull_request
+      - name: repository
+      - name: requested_reviewer_history
+      - name: user

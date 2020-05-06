@@ -8,7 +8,7 @@ with card as (
     select 
       id,
       archived,
-      upated_at,
+      updated_at,
       is_deleted
     from card
 )

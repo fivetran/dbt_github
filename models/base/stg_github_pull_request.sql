@@ -7,7 +7,7 @@ with pull_request as (
 
     select 
       issue_id,
-      id as pull_request_id,
+      id,
       base_repo_id,
       head_repo_id,
       head_user_id

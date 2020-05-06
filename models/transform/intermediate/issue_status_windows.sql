@@ -19,7 +19,7 @@ select
   coalesce(lead(issue_project_history.updated_at) over (partition by issue_project_history.issue_id, issue_project_history.project_id order by issue_project_history.updated_at),
     if(card.archived, card.updated_at, null),
     current_timestamp()) as valid_until
-from github.issue_project_history
-join github.card on issue_project_history.card_id = card.id
+from issue_project_history
+join card on issue_project_history.card_id = card.id
   and not coalesce(card.is_deleted, false)
 
