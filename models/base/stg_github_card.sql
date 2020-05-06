@@ -11,11 +11,11 @@ with card as (
 ), fields as (
 
     select 
-      id,
+      id as card_id,
       archived,
-      updated_at,
-      is_deleted
+      updated_at
     from card
+    where not is_deleted
 )
 
 select *

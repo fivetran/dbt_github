@@ -6,7 +6,7 @@ with user as (
 ), fields as (
 
     select
-      id,
+      id as user_id,
       login
     from user
 )

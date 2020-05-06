@@ -6,7 +6,7 @@ with repository as (
 ), fields as (
 
     select 
-      id,
+      id as repository_id,
       full_name
     from repository
 )

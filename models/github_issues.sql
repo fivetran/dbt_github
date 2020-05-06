@@ -80,9 +80,9 @@ left join issue_labels as labels
 left join issue_projects
   on issue.issue_id = issue_projects.issue_id
 left join repository
-  on issue.repository_id = repository.id
+  on issue.repository_id = repository.repository_id
 left join milestone
-  on issue.milestone_id = milestone.id and issue.repository_id = milestone.repository_id
+  on issue.milestone_id = milestone.milestone_id and issue.repository_id = milestone.repository_id
 left join issue_assignees
   on issue.issue_id = issue_assignees.issue_id
 left join issue_open_length
@@ -91,5 +91,5 @@ left join issue_blocked_time
   on issue.issue_id = issue_blocked_time.issue_id
 left join issue_inbox_time
   on issue.issue_id = issue_inbox_time.issue_id
-left join creator on issue.user_id = creator.id
+left join creator on issue.user_id = creator.user_id
 where not issue.pull_request

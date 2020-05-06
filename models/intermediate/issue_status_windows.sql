@@ -20,6 +20,5 @@ select
     if(card.archived, card.updated_at, null),
     current_timestamp()) as valid_until
 from issue_project_history
-join card on issue_project_history.card_id = card.id
-  and not coalesce(card.is_deleted, false)
+join card on issue_project_history.card_id = card.card_id
 
