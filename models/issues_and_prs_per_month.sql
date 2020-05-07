@@ -13,8 +13,8 @@ with github_issues as (
    select 
       date_trunc(date(created_at), month) as month, 
       count(*) as number_issues_opened,
-      avg(days_issue_opened) as average_length_issue_open,
-      max(days_issue_opened) as longest_length_issue_open
+      avg(days_issue_open) as average_length_issue_open,
+      max(days_issue_open) as longest_length_issue_open
     from github_issues
     group by 1
 
@@ -32,8 +32,8 @@ with github_issues as (
    select 
       date_trunc(date(created_at), month) as month, 
       count(*) as number_prs_opened,
-      avg(days_issue_opened) as average_length_pr_open,
-      max(days_issue_opened) as longest_length_pr_open
+      avg(days_pr_open) as average_length_pr_open,
+      max(days_pr_open) as longest_length_pr_open
     from pull_requests
     group by 1
 

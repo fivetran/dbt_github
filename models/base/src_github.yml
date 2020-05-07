@@ -13,7 +13,7 @@ sources:
       - name: issue_closed_history
         description: Table to track when an issue is closed or re-opened
       - name: issue_comment
-        desription: Table that contains comments made on issues
+        description: Table that contains comments made on issues
       - name: issue_label_history
         description: Table that tracks when labels are added and removed from an issue
       - name: issue_label
