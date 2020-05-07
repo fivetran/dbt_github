@@ -11,11 +11,59 @@ models:
           - unique
           - not_null
 
-      - name: x
-        description: x
+      - name: body
+        description: The text body of the issue's main description
 
-      - name: x
-        description: x
+      - name: closed_at
+        description: The timestamp for when an issue was last closed.  NULL for issues that are open
+
+      -name: created_at
+        description: The timestamp for when an issue was created
+
+      -name: number
+        description: The number of the issue.  Is unique within a repository, but not accross
+
+      -name: state
+        description: Whether the issue is open or closed
+
+      -name: title
+        description: The title of the issue
+
+      -name: updated_at
+        description: Timestamp of when the issue was last updated
+
+      -name: url_link
+        description: a link to the issue on github.com
+
+      -name: days_issue_open
+        description: The number of days an issue has been open
+
+      -name: labels
+        description: A list of the labels that are currently applied to the issue
+
+      -name: projects
+        description: A list of project boards that the issue has been assigned to
+
+      -name: repository
+        description: The repository that the issue is applicable to
+
+      -name: milestone
+        description: The planning milestone that the issue is currently included in
+
+      -name: milestone_due_on
+        description: The due date of the milestone that the issue is currently included in
+
+      -name: assignees
+        description: The current list of users assigned to the issue
+
+      -name: days_blocked
+        description: The number of days an issue has had a label the includes the 'blocked'
+
+      -name: inbox_days
+        description: The number of days an issue was in a status including "inbox" within a project
+
+      -name: created_by
+        description: The user who created the issue
 
   - name: pull_request
     description: >
@@ -27,11 +75,59 @@ models:
           - unique
           - not_null
 
-      - name: x
-        description: x
+      - name: body
+        description: the text body of the description of the pull request
 
-      - name: x
-        description: x
+      - name: closed_at
+        description: Timestamp of when the pull request was closed.  NULL for pull requests that are still open
+
+      - name: created_at
+        description: Timestamp of when the pull request was created
+
+      - name: number
+        description: The number of the pull request.  Unique within a repository, but not accross.
+
+      - name: state
+        description: Whether the pull request is open or closed.
+
+      - name: title
+        description: The title of the pull request
+
+      - name: url_link
+        description: A link to the pull request on github.com
+
+      - name: days_pr_open
+        description: The number of days a pull request has been open
+
+      - name: labels
+        description: The labels currently applied to the pull request
+
+      - name: repository
+        description: The repository that the pull request applies to
+
+      - name: assignees
+        description: Users who have been assigned to the pull request
+
+      - name: created_by
+        description: The User who created the pull request
+
+      - name: hours_first_review_post_request
+        description: Number of hours between the first request for review and a review
+
+      - name: hours_first_action_post_request
+        description: Number of hours between the first request for review and any action besides dismissing the request
+
+      - name: hours_request_review_to_merge
+        description: Number of hours between the first request for review and the pull request being merged
+
+      - name: merged_at
+        description: Timestamp of when the pull request was merged
+
+      - name: reviwers
+        description: List of Users who reviewed the pull request
+
+      - name: number_of_reviews
+        description: Number of times a pull request was reviewed
 
   - name: issues_and_prs_per_month
     description: >
@@ -43,8 +139,26 @@ models:
           - unique
           - not_null
 
-      - name: x
-        description: x
+      - name: number_issues_opened
+        description: The total number of issues created during this month
 
-      - name: x
-        description: x
+      - name: number_issues_closed
+        description: The total number of issues closed during this month
+
+      - name: average_length_issue_open
+        description: The average number of days an issue opened during this month was open
+
+      - name: longest_length_issue_open
+        description: The longest number of days an issue opened during this month was open
+
+      - name: number_prs_opened
+        description: The total number of pull requests created during this month
+
+      - name: number_prs_merged
+        description: The total number of pull requests merged during this month
+
+      - name: average_length_pr_open
+        description: The average number of days a pull request opened during this month was open
+
+      - name: longest_length_pr_open
+        description: The longest number of days a pull request opened during this month was open
