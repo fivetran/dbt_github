@@ -7,18 +7,34 @@ sources:
 
     tables:
       - name: card
+        description: A card tracks an issue as it is moved between statuses within a project
       - name: issue_assignee
+        description: Table with the current user(s) assigned to an issue
       - name: issue_closed_history
+        description: Table to track when an issue is closed or re-opened
       - name: issue_comment
+        desription: Table that contains comments made on issues
       - name: issue_label_history
+        description: Table that tracks when labels are added and removed from an issue
       - name: issue_label
+        description: The current labels attached to an issue
       - name: issue_merged
+        description: Table that tracks when an issue (always a pull request) is merged
       - name: issue_project_history
+        description: History table of when an issue is added, moved around within, or removed from a project
       - name: issue
+        description: Table that contains 1 entry for every issue created.  Pull Requests also create an entry in this table, and there is a boolean field to determine if an entry is a pull request.
       - name: milestone
+        description: Table containing milestones, which are user created groups of issues and pull requests to track progress within a project
       - name: project
+        description: A board to track the progress of different issues
       - name: pull_request_review
+        description: Table containing reviews made to pull requests
       - name: pull_request
+        description: A special type of issue that is created when a user wants to merge one branch of code into another
       - name: repository
+        description: Table representing the file structure of a directory under git control
       - name: requested_reviewer_history
+        description: Table containing when a user requests another user to review a pull request
       - name: user
+        description: Table representing contributors to a git project
