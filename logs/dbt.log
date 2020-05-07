@@ -40054,3 +40054,1039 @@ full outer join prs_per_month on issues_per_month.month = prs_per_month.month
 Done. PASS=3 WARN=0 ERROR=0 SKIP=0 TOTAL=3
 2020-05-06 21:35:02.631631 (MainThread): Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x106bef3d0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x106bd5e10>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x107c08250>]}
 2020-05-06 21:35:02.631858 (MainThread): Flushing usage events
+2020-05-07 22:25:27.210207 (MainThread): Running with dbt=0.16.1
+2020-05-07 22:25:27.432932 (MainThread): running dbt with arguments Namespace(cls=<class 'dbt.task.run.RunTask'>, debug=False, exclude=None, full_refresh=False, log_cache_events=False, log_format='default', models=None, partial_parse=None, profile=None, profiles_dir='/Users/erikm/.dbt', project_dir=None, record_timing_info=None, rpc_method='run', single_threaded=False, strict=False, target=None, test_new_parser=False, threads=None, use_cache=True, vars='{}', version_check=True, warn_error=False, which='run', write_json=True)
+2020-05-07 22:25:27.434753 (MainThread): Tracking: tracking
+2020-05-07 22:25:27.452758 (MainThread): Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x109f60710>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10a3c0110>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10a3b1cd0>]}
+2020-05-07 22:25:27.475293 (MainThread): Partial parsing not enabled
+2020-05-07 22:25:27.478316 (MainThread): Parsing macros/core.sql
+2020-05-07 22:25:27.483970 (MainThread): Parsing macros/materializations/helpers.sql
+2020-05-07 22:25:27.493985 (MainThread): Parsing macros/materializations/snapshot/snapshot_merge.sql
+2020-05-07 22:25:27.496510 (MainThread): Parsing macros/materializations/snapshot/strategies.sql
+2020-05-07 22:25:27.515329 (MainThread): Parsing macros/materializations/snapshot/snapshot.sql
+2020-05-07 22:25:27.556769 (MainThread): Parsing macros/materializations/seed/seed.sql
+2020-05-07 22:25:27.580560 (MainThread): Parsing macros/materializations/incremental/helpers.sql
+2020-05-07 22:25:27.583055 (MainThread): Parsing macros/materializations/incremental/incremental.sql
+2020-05-07 22:25:27.590270 (MainThread): Parsing macros/materializations/common/merge.sql
+2020-05-07 22:25:27.605480 (MainThread): Parsing macros/materializations/table/table.sql
+2020-05-07 22:25:27.614442 (MainThread): Parsing macros/materializations/view/view.sql
+2020-05-07 22:25:27.623204 (MainThread): Parsing macros/materializations/view/create_or_replace_view.sql
+2020-05-07 22:25:27.629981 (MainThread): Parsing macros/etc/get_custom_alias.sql
+2020-05-07 22:25:27.631817 (MainThread): Parsing macros/etc/query.sql
+2020-05-07 22:25:27.633339 (MainThread): Parsing macros/etc/is_incremental.sql
+2020-05-07 22:25:27.635397 (MainThread): Parsing macros/etc/get_relation_comment.sql
+2020-05-07 22:25:27.638192 (MainThread): Parsing macros/etc/datetime.sql
+2020-05-07 22:25:27.648073 (MainThread): Parsing macros/etc/get_custom_schema.sql
+2020-05-07 22:25:27.650527 (MainThread): Parsing macros/etc/get_custom_database.sql
+2020-05-07 22:25:27.652106 (MainThread): Parsing macros/adapters/common.sql
+2020-05-07 22:25:27.700227 (MainThread): Parsing macros/schema_tests/relationships.sql
+2020-05-07 22:25:27.701875 (MainThread): Parsing macros/schema_tests/not_null.sql
+2020-05-07 22:25:27.703310 (MainThread): Parsing macros/schema_tests/unique.sql
+2020-05-07 22:25:27.704910 (MainThread): Parsing macros/schema_tests/accepted_values.sql
+2020-05-07 22:25:27.707903 (MainThread): Parsing macros/etc.sql
+2020-05-07 22:25:27.709055 (MainThread): Parsing macros/catalog.sql
+2020-05-07 22:25:27.717824 (MainThread): Parsing macros/adapters.sql
+2020-05-07 22:25:27.741988 (MainThread): Parsing macros/materializations/seed.sql
+2020-05-07 22:25:27.745390 (MainThread): Parsing macros/materializations/view.sql
+2020-05-07 22:25:27.747725 (MainThread): Parsing macros/materializations/table.sql
+2020-05-07 22:25:27.760150 (MainThread): Parsing macros/materializations/incremental.sql
+2020-05-07 22:25:27.774306 (MainThread): Parsing macros/materializations/snapshot.sql
+2020-05-07 22:25:27.797706 (MainThread): Partial parsing not enabled
+2020-05-07 22:25:27.834006 (MainThread): Acquiring new bigquery connection "model.github.github_pull_requests".
+2020-05-07 22:25:27.834150 (MainThread): Opening a new connection, currently in state init
+2020-05-07 22:25:27.858604 (MainThread): Acquiring new bigquery connection "model.github.issues_and_prs_per_month".
+2020-05-07 22:25:27.858768 (MainThread): Opening a new connection, currently in state closed
+2020-05-07 22:25:27.866197 (MainThread): Acquiring new bigquery connection "model.github.github_issues".
+2020-05-07 22:25:27.866325 (MainThread): Opening a new connection, currently in state closed
+2020-05-07 22:25:27.882313 (MainThread): Acquiring new bigquery connection "model.github.issue_assignees".
+2020-05-07 22:25:27.882499 (MainThread): Opening a new connection, currently in state closed
+2020-05-07 22:25:27.891372 (MainThread): Acquiring new bigquery connection "model.github.issue_status_windows".
+2020-05-07 22:25:27.891580 (MainThread): Opening a new connection, currently in state closed
+2020-05-07 22:25:27.901565 (MainThread): Acquiring new bigquery connection "model.github.issue_blocked_time".
+2020-05-07 22:25:27.901744 (MainThread): Opening a new connection, currently in state closed
+2020-05-07 22:25:27.908982 (MainThread): Acquiring new bigquery connection "model.github.issue_labels".
+2020-05-07 22:25:27.909144 (MainThread): Opening a new connection, currently in state closed
+2020-05-07 22:25:27.915557 (MainThread): Acquiring new bigquery connection "model.github.pull_request_reviewers".
+2020-05-07 22:25:27.915667 (MainThread): Opening a new connection, currently in state closed
+2020-05-07 22:25:27.922901 (MainThread): Acquiring new bigquery connection "model.github.issue_inbox_time".
+2020-05-07 22:25:27.923022 (MainThread): Opening a new connection, currently in state closed
+2020-05-07 22:25:27.930062 (MainThread): Acquiring new bigquery connection "model.github.issue_projects".
+2020-05-07 22:25:27.930211 (MainThread): Opening a new connection, currently in state closed
+2020-05-07 22:25:27.937610 (MainThread): Acquiring new bigquery connection "model.github.issue_close_stack".
+2020-05-07 22:25:27.937744 (MainThread): Opening a new connection, currently in state closed
+2020-05-07 22:25:27.944701 (MainThread): Acquiring new bigquery connection "model.github.issue_open_length".
+2020-05-07 22:25:27.944825 (MainThread): Opening a new connection, currently in state closed
+2020-05-07 22:25:27.950843 (MainThread): Acquiring new bigquery connection "model.github.pull_request_times".
+2020-05-07 22:25:27.950975 (MainThread): Opening a new connection, currently in state closed
+2020-05-07 22:25:27.961767 (MainThread): Acquiring new bigquery connection "model.github.stg_github_pull_request".
+2020-05-07 22:25:27.961916 (MainThread): Opening a new connection, currently in state closed
+2020-05-07 22:25:27.969386 (MainThread): Acquiring new bigquery connection "model.github.stg_github_requested_reviewer_history".
+2020-05-07 22:25:27.969569 (MainThread): Opening a new connection, currently in state closed
+2020-05-07 22:25:27.976278 (MainThread): Acquiring new bigquery connection "model.github.stg_github_user".
+2020-05-07 22:25:27.976382 (MainThread): Opening a new connection, currently in state closed
+2020-05-07 22:25:27.983921 (MainThread): Acquiring new bigquery connection "model.github.stg_github_issue_label".
+2020-05-07 22:25:27.984067 (MainThread): Opening a new connection, currently in state closed
+2020-05-07 22:25:27.991881 (MainThread): Acquiring new bigquery connection "model.github.stg_github_issue_label_history".
+2020-05-07 22:25:27.992026 (MainThread): Opening a new connection, currently in state closed
+2020-05-07 22:25:27.999346 (MainThread): Acquiring new bigquery connection "model.github.stg_github_project".
+2020-05-07 22:25:27.999611 (MainThread): Opening a new connection, currently in state closed
+2020-05-07 22:25:28.010889 (MainThread): Acquiring new bigquery connection "model.github.stg_github_pull_request_review".
+2020-05-07 22:25:28.011094 (MainThread): Opening a new connection, currently in state closed
+2020-05-07 22:25:28.020168 (MainThread): Acquiring new bigquery connection "model.github.stg_github_issue_closed_history".
+2020-05-07 22:25:28.020353 (MainThread): Opening a new connection, currently in state closed
+2020-05-07 22:25:28.027789 (MainThread): Acquiring new bigquery connection "model.github.stg_github_card".
+2020-05-07 22:25:28.027946 (MainThread): Opening a new connection, currently in state closed
+2020-05-07 22:25:28.034840 (MainThread): Acquiring new bigquery connection "model.github.stg_github_issue_merged".
+2020-05-07 22:25:28.035006 (MainThread): Opening a new connection, currently in state closed
+2020-05-07 22:25:28.041930 (MainThread): Acquiring new bigquery connection "model.github.stg_github_issue_comment".
+2020-05-07 22:25:28.042094 (MainThread): Opening a new connection, currently in state closed
+2020-05-07 22:25:28.049448 (MainThread): Acquiring new bigquery connection "model.github.stg_github_issue_project_history".
+2020-05-07 22:25:28.049616 (MainThread): Opening a new connection, currently in state closed
+2020-05-07 22:25:28.055857 (MainThread): Acquiring new bigquery connection "model.github.stg_github_repository".
+2020-05-07 22:25:28.055963 (MainThread): Opening a new connection, currently in state closed
+2020-05-07 22:25:28.063250 (MainThread): Acquiring new bigquery connection "model.github.stg_github_issue_assignee".
+2020-05-07 22:25:28.063460 (MainThread): Opening a new connection, currently in state closed
+2020-05-07 22:25:28.070912 (MainThread): Acquiring new bigquery connection "model.github.stg_github_issue".
+2020-05-07 22:25:28.071080 (MainThread): Opening a new connection, currently in state closed
+2020-05-07 22:25:28.078340 (MainThread): Acquiring new bigquery connection "model.github.stg_github_milestone".
+2020-05-07 22:25:28.078450 (MainThread): Opening a new connection, currently in state closed
+2020-05-07 22:25:28.120869 (MainThread): Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10a403c10>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10a403d90>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10a403d10>]}
+2020-05-07 22:25:28.121180 (MainThread): Flushing usage events
+2020-05-07 22:25:28.550817 (MainThread): Connection 'model.github.stg_github_milestone' was properly closed.
+2020-05-07 22:25:28.551157 (MainThread): Encountered an error:
+2020-05-07 22:25:28.551398 (MainThread): Compilation Error
+  Error reading github: github.yml - Runtime Error
+    Syntax error near line 20
+    ------------------------------
+    17 |       - name: closed_at
+    18 |         description: The timestamp for when an issue was last closed.  NULL for issues that are open
+    19 | 
+    20 |       -name: created_at
+    21 |         description: The timestamp for when an issue was created
+    22 | 
+    23 |       -name: number
+    
+    Raw Error:
+    ------------------------------
+    while parsing a block collection
+      in "<unicode string>", line 8, column 7:
+              - name: issue_id
+              ^
+    expected <block end>, but found '?'
+      in "<unicode string>", line 20, column 7:
+              -name: created_at
+              ^
+2020-05-07 22:25:28.563737 (MainThread): Traceback (most recent call last):
+  File "/usr/local/Cellar/dbt/0.16.1_1/libexec/lib/python3.7/site-packages/dbt/clients/yaml_helper.py", line 49, in load_yaml_text
+    return yaml.safe_load(contents)
+  File "/usr/local/Cellar/dbt/0.16.1_1/libexec/lib/python3.7/site-packages/yaml/__init__.py", line 162, in safe_load
+    return load(stream, SafeLoader)
+  File "/usr/local/Cellar/dbt/0.16.1_1/libexec/lib/python3.7/site-packages/yaml/__init__.py", line 114, in load
+    return loader.get_single_data()
+  File "/usr/local/Cellar/dbt/0.16.1_1/libexec/lib/python3.7/site-packages/yaml/constructor.py", line 49, in get_single_data
+    node = self.get_single_node()
+  File "/usr/local/Cellar/dbt/0.16.1_1/libexec/lib/python3.7/site-packages/yaml/composer.py", line 36, in get_single_node
+    document = self.compose_document()
+  File "/usr/local/Cellar/dbt/0.16.1_1/libexec/lib/python3.7/site-packages/yaml/composer.py", line 55, in compose_document
+    node = self.compose_node(None, None)
+  File "/usr/local/Cellar/dbt/0.16.1_1/libexec/lib/python3.7/site-packages/yaml/composer.py", line 84, in compose_node
+    node = self.compose_mapping_node(anchor)
+  File "/usr/local/Cellar/dbt/0.16.1_1/libexec/lib/python3.7/site-packages/yaml/composer.py", line 133, in compose_mapping_node
+    item_value = self.compose_node(node, item_key)
+  File "/usr/local/Cellar/dbt/0.16.1_1/libexec/lib/python3.7/site-packages/yaml/composer.py", line 82, in compose_node
+    node = self.compose_sequence_node(anchor)
+  File "/usr/local/Cellar/dbt/0.16.1_1/libexec/lib/python3.7/site-packages/yaml/composer.py", line 111, in compose_sequence_node
+    node.value.append(self.compose_node(node, index))
+  File "/usr/local/Cellar/dbt/0.16.1_1/libexec/lib/python3.7/site-packages/yaml/composer.py", line 84, in compose_node
+    node = self.compose_mapping_node(anchor)
+  File "/usr/local/Cellar/dbt/0.16.1_1/libexec/lib/python3.7/site-packages/yaml/composer.py", line 133, in compose_mapping_node
+    item_value = self.compose_node(node, item_key)
+  File "/usr/local/Cellar/dbt/0.16.1_1/libexec/lib/python3.7/site-packages/yaml/composer.py", line 82, in compose_node
+    node = self.compose_sequence_node(anchor)
+  File "/usr/local/Cellar/dbt/0.16.1_1/libexec/lib/python3.7/site-packages/yaml/composer.py", line 110, in compose_sequence_node
+    while not self.check_event(SequenceEndEvent):
+  File "/usr/local/Cellar/dbt/0.16.1_1/libexec/lib/python3.7/site-packages/yaml/parser.py", line 98, in check_event
+    self.current_event = self.state()
+  File "/usr/local/Cellar/dbt/0.16.1_1/libexec/lib/python3.7/site-packages/yaml/parser.py", line 393, in parse_block_sequence_entry
+    "expected <block end>, but found %r" % token.id, token.start_mark)
+yaml.parser.ParserError: while parsing a block collection
+  in "<unicode string>", line 8, column 7:
+          - name: issue_id
+          ^
+expected <block end>, but found '?'
+  in "<unicode string>", line 20, column 7:
+          -name: created_at
+          ^
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/Cellar/dbt/0.16.1_1/libexec/lib/python3.7/site-packages/dbt/parser/schemas.py", line 163, in _yaml_from_file
+    return load_yaml_text(source_file.contents)
+  File "/usr/local/Cellar/dbt/0.16.1_1/libexec/lib/python3.7/site-packages/dbt/clients/yaml_helper.py", line 56, in load_yaml_text
+    raise dbt.exceptions.ValidationException(error)
+dbt.exceptions.ValidationException: Runtime Error
+  Syntax error near line 20
+  ------------------------------
+  17 |       - name: closed_at
+  18 |         description: The timestamp for when an issue was last closed.  NULL for issues that are open
+  19 | 
+  20 |       -name: created_at
+  21 |         description: The timestamp for when an issue was created
+  22 | 
+  23 |       -name: number
+  
+  Raw Error:
+  ------------------------------
+  while parsing a block collection
+    in "<unicode string>", line 8, column 7:
+            - name: issue_id
+            ^
+  expected <block end>, but found '?'
+    in "<unicode string>", line 20, column 7:
+            -name: created_at
+            ^
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/Cellar/dbt/0.16.1_1/libexec/lib/python3.7/site-packages/dbt/main.py", line 81, in main
+    results, succeeded = handle_and_check(args)
+  File "/usr/local/Cellar/dbt/0.16.1_1/libexec/lib/python3.7/site-packages/dbt/main.py", line 159, in handle_and_check
+    task, res = run_from_args(parsed)
+  File "/usr/local/Cellar/dbt/0.16.1_1/libexec/lib/python3.7/site-packages/dbt/main.py", line 212, in run_from_args
+    results = task.run()
+  File "/usr/local/Cellar/dbt/0.16.1_1/libexec/lib/python3.7/site-packages/dbt/task/runnable.py", line 351, in run
+    self._runtime_initialize()
+  File "/usr/local/Cellar/dbt/0.16.1_1/libexec/lib/python3.7/site-packages/dbt/task/runnable.py", line 107, in _runtime_initialize
+    super()._runtime_initialize()
+  File "/usr/local/Cellar/dbt/0.16.1_1/libexec/lib/python3.7/site-packages/dbt/task/runnable.py", line 75, in _runtime_initialize
+    self.load_manifest()
+  File "/usr/local/Cellar/dbt/0.16.1_1/libexec/lib/python3.7/site-packages/dbt/task/runnable.py", line 63, in load_manifest
+    self.manifest = get_full_manifest(self.config)
+  File "/usr/local/Cellar/dbt/0.16.1_1/libexec/lib/python3.7/site-packages/dbt/perf_utils.py", line 23, in get_full_manifest
+    return load_manifest(config, internal, set_header)
+  File "/usr/local/Cellar/dbt/0.16.1_1/libexec/lib/python3.7/site-packages/dbt/parser/manifest.py", line 646, in load_manifest
+    return ManifestLoader.load_all(config, internal_manifest, macro_hook)
+  File "/usr/local/Cellar/dbt/0.16.1_1/libexec/lib/python3.7/site-packages/dbt/parser/manifest.py", line 336, in load_all
+    loader.load(internal_manifest=internal_manifest)
+  File "/usr/local/Cellar/dbt/0.16.1_1/libexec/lib/python3.7/site-packages/dbt/parser/manifest.py", line 208, in load
+    self.parse_project(project, macro_manifest, old_results)
+  File "/usr/local/Cellar/dbt/0.16.1_1/libexec/lib/python3.7/site-packages/dbt/parser/manifest.py", line 182, in parse_project
+    self.parse_with_cache(path, parser, old_results)
+  File "/usr/local/Cellar/dbt/0.16.1_1/libexec/lib/python3.7/site-packages/dbt/parser/manifest.py", line 138, in parse_with_cache
+    parser.parse_file(block)
+  File "/usr/local/Cellar/dbt/0.16.1_1/libexec/lib/python3.7/site-packages/dbt/parser/schemas.py", line 283, in parse_file
+    dct = self._yaml_from_file(block.file)
+  File "/usr/local/Cellar/dbt/0.16.1_1/libexec/lib/python3.7/site-packages/dbt/parser/schemas.py", line 168, in _yaml_from_file
+    .format(self.project.project_name, path, reason)
+dbt.exceptions.CompilationException: Compilation Error
+  Error reading github: github.yml - Runtime Error
+    Syntax error near line 20
+    ------------------------------
+    17 |       - name: closed_at
+    18 |         description: The timestamp for when an issue was last closed.  NULL for issues that are open
+    19 | 
+    20 |       -name: created_at
+    21 |         description: The timestamp for when an issue was created
+    22 | 
+    23 |       -name: number
+    
+    Raw Error:
+    ------------------------------
+    while parsing a block collection
+      in "<unicode string>", line 8, column 7:
+              - name: issue_id
+              ^
+    expected <block end>, but found '?'
+      in "<unicode string>", line 20, column 7:
+              -name: created_at
+              ^
+
+2020-05-07 22:52:23.261181 (MainThread): Running with dbt=0.16.1
+2020-05-07 22:52:23.437806 (MainThread): running dbt with arguments Namespace(cls=<class 'dbt.task.run.RunTask'>, debug=False, exclude=None, full_refresh=False, log_cache_events=False, log_format='default', models=None, partial_parse=None, profile=None, profiles_dir='/Users/erikm/.dbt', project_dir=None, record_timing_info=None, rpc_method='run', single_threaded=False, strict=False, target=None, test_new_parser=False, threads=None, use_cache=True, vars='{}', version_check=True, warn_error=False, which='run', write_json=True)
+2020-05-07 22:52:23.439719 (MainThread): Tracking: tracking
+2020-05-07 22:52:23.446205 (MainThread): Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10be56150>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10be27810>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10b91de10>]}
+2020-05-07 22:52:23.468710 (MainThread): Partial parsing not enabled
+2020-05-07 22:52:23.472489 (MainThread): Parsing macros/core.sql
+2020-05-07 22:52:23.477843 (MainThread): Parsing macros/materializations/helpers.sql
+2020-05-07 22:52:23.487230 (MainThread): Parsing macros/materializations/snapshot/snapshot_merge.sql
+2020-05-07 22:52:23.489526 (MainThread): Parsing macros/materializations/snapshot/strategies.sql
+2020-05-07 22:52:23.508412 (MainThread): Parsing macros/materializations/snapshot/snapshot.sql
+2020-05-07 22:52:23.543538 (MainThread): Parsing macros/materializations/seed/seed.sql
+2020-05-07 22:52:23.568079 (MainThread): Parsing macros/materializations/incremental/helpers.sql
+2020-05-07 22:52:23.570624 (MainThread): Parsing macros/materializations/incremental/incremental.sql
+2020-05-07 22:52:23.577582 (MainThread): Parsing macros/materializations/common/merge.sql
+2020-05-07 22:52:23.592285 (MainThread): Parsing macros/materializations/table/table.sql
+2020-05-07 22:52:23.600775 (MainThread): Parsing macros/materializations/view/view.sql
+2020-05-07 22:52:23.608619 (MainThread): Parsing macros/materializations/view/create_or_replace_view.sql
+2020-05-07 22:52:23.620036 (MainThread): Parsing macros/etc/get_custom_alias.sql
+2020-05-07 22:52:23.623006 (MainThread): Parsing macros/etc/query.sql
+2020-05-07 22:52:23.625396 (MainThread): Parsing macros/etc/is_incremental.sql
+2020-05-07 22:52:23.628222 (MainThread): Parsing macros/etc/get_relation_comment.sql
+2020-05-07 22:52:23.631368 (MainThread): Parsing macros/etc/datetime.sql
+2020-05-07 22:52:23.642089 (MainThread): Parsing macros/etc/get_custom_schema.sql
+2020-05-07 22:52:23.644674 (MainThread): Parsing macros/etc/get_custom_database.sql
+2020-05-07 22:52:23.646090 (MainThread): Parsing macros/adapters/common.sql
+2020-05-07 22:52:23.689436 (MainThread): Parsing macros/schema_tests/relationships.sql
+2020-05-07 22:52:23.692599 (MainThread): Parsing macros/schema_tests/not_null.sql
+2020-05-07 22:52:23.695333 (MainThread): Parsing macros/schema_tests/unique.sql
+2020-05-07 22:52:23.698744 (MainThread): Parsing macros/schema_tests/accepted_values.sql
+2020-05-07 22:52:23.704129 (MainThread): Parsing macros/etc.sql
+2020-05-07 22:52:23.705588 (MainThread): Parsing macros/catalog.sql
+2020-05-07 22:52:23.715437 (MainThread): Parsing macros/adapters.sql
+2020-05-07 22:52:23.739989 (MainThread): Parsing macros/materializations/seed.sql
+2020-05-07 22:52:23.743383 (MainThread): Parsing macros/materializations/view.sql
+2020-05-07 22:52:23.745598 (MainThread): Parsing macros/materializations/table.sql
+2020-05-07 22:52:23.756612 (MainThread): Parsing macros/materializations/incremental.sql
+2020-05-07 22:52:23.771581 (MainThread): Parsing macros/materializations/snapshot.sql
+2020-05-07 22:52:23.793604 (MainThread): Partial parsing not enabled
+2020-05-07 22:52:23.828691 (MainThread): Acquiring new bigquery connection "model.github.github_pull_requests".
+2020-05-07 22:52:23.828849 (MainThread): Opening a new connection, currently in state init
+2020-05-07 22:52:23.852876 (MainThread): Acquiring new bigquery connection "model.github.issues_and_prs_per_month".
+2020-05-07 22:52:23.853030 (MainThread): Opening a new connection, currently in state closed
+2020-05-07 22:52:23.862664 (MainThread): Acquiring new bigquery connection "model.github.github_issues".
+2020-05-07 22:52:23.862976 (MainThread): Opening a new connection, currently in state closed
+2020-05-07 22:52:23.883140 (MainThread): Acquiring new bigquery connection "model.github.issue_assignees".
+2020-05-07 22:52:23.883285 (MainThread): Opening a new connection, currently in state closed
+2020-05-07 22:52:23.889686 (MainThread): Acquiring new bigquery connection "model.github.issue_status_windows".
+2020-05-07 22:52:23.889789 (MainThread): Opening a new connection, currently in state closed
+2020-05-07 22:52:23.896792 (MainThread): Acquiring new bigquery connection "model.github.issue_blocked_time".
+2020-05-07 22:52:23.896916 (MainThread): Opening a new connection, currently in state closed
+2020-05-07 22:52:23.902538 (MainThread): Acquiring new bigquery connection "model.github.issue_labels".
+2020-05-07 22:52:23.902662 (MainThread): Opening a new connection, currently in state closed
+2020-05-07 22:52:23.908109 (MainThread): Acquiring new bigquery connection "model.github.pull_request_reviewers".
+2020-05-07 22:52:23.908212 (MainThread): Opening a new connection, currently in state closed
+2020-05-07 22:52:23.914392 (MainThread): Acquiring new bigquery connection "model.github.issue_inbox_time".
+2020-05-07 22:52:23.914491 (MainThread): Opening a new connection, currently in state closed
+2020-05-07 22:52:23.919953 (MainThread): Acquiring new bigquery connection "model.github.issue_projects".
+2020-05-07 22:52:23.920063 (MainThread): Opening a new connection, currently in state closed
+2020-05-07 22:52:23.926335 (MainThread): Acquiring new bigquery connection "model.github.issue_close_stack".
+2020-05-07 22:52:23.926434 (MainThread): Opening a new connection, currently in state closed
+2020-05-07 22:52:23.932766 (MainThread): Acquiring new bigquery connection "model.github.issue_open_length".
+2020-05-07 22:52:23.932905 (MainThread): Opening a new connection, currently in state closed
+2020-05-07 22:52:23.938862 (MainThread): Acquiring new bigquery connection "model.github.pull_request_times".
+2020-05-07 22:52:23.938995 (MainThread): Opening a new connection, currently in state closed
+2020-05-07 22:52:23.948204 (MainThread): Acquiring new bigquery connection "model.github.stg_github_pull_request".
+2020-05-07 22:52:23.948315 (MainThread): Opening a new connection, currently in state closed
+2020-05-07 22:52:23.953975 (MainThread): Acquiring new bigquery connection "model.github.stg_github_requested_reviewer_history".
+2020-05-07 22:52:23.954087 (MainThread): Opening a new connection, currently in state closed
+2020-05-07 22:52:23.959797 (MainThread): Acquiring new bigquery connection "model.github.stg_github_user".
+2020-05-07 22:52:23.959915 (MainThread): Opening a new connection, currently in state closed
+2020-05-07 22:52:23.965909 (MainThread): Acquiring new bigquery connection "model.github.stg_github_issue_label".
+2020-05-07 22:52:23.966016 (MainThread): Opening a new connection, currently in state closed
+2020-05-07 22:52:23.972244 (MainThread): Acquiring new bigquery connection "model.github.stg_github_issue_label_history".
+2020-05-07 22:52:23.972384 (MainThread): Opening a new connection, currently in state closed
+2020-05-07 22:52:23.977814 (MainThread): Acquiring new bigquery connection "model.github.stg_github_project".
+2020-05-07 22:52:23.977913 (MainThread): Opening a new connection, currently in state closed
+2020-05-07 22:52:23.983207 (MainThread): Acquiring new bigquery connection "model.github.stg_github_pull_request_review".
+2020-05-07 22:52:23.983304 (MainThread): Opening a new connection, currently in state closed
+2020-05-07 22:52:23.988640 (MainThread): Acquiring new bigquery connection "model.github.stg_github_issue_closed_history".
+2020-05-07 22:52:23.988739 (MainThread): Opening a new connection, currently in state closed
+2020-05-07 22:52:23.994313 (MainThread): Acquiring new bigquery connection "model.github.stg_github_card".
+2020-05-07 22:52:23.994423 (MainThread): Opening a new connection, currently in state closed
+2020-05-07 22:52:23.999840 (MainThread): Acquiring new bigquery connection "model.github.stg_github_issue_merged".
+2020-05-07 22:52:23.999959 (MainThread): Opening a new connection, currently in state closed
+2020-05-07 22:52:24.006086 (MainThread): Acquiring new bigquery connection "model.github.stg_github_issue_comment".
+2020-05-07 22:52:24.006209 (MainThread): Opening a new connection, currently in state closed
+2020-05-07 22:52:24.011601 (MainThread): Acquiring new bigquery connection "model.github.stg_github_issue_project_history".
+2020-05-07 22:52:24.011699 (MainThread): Opening a new connection, currently in state closed
+2020-05-07 22:52:24.017332 (MainThread): Acquiring new bigquery connection "model.github.stg_github_repository".
+2020-05-07 22:52:24.017437 (MainThread): Opening a new connection, currently in state closed
+2020-05-07 22:52:24.022768 (MainThread): Acquiring new bigquery connection "model.github.stg_github_issue_assignee".
+2020-05-07 22:52:24.022864 (MainThread): Opening a new connection, currently in state closed
+2020-05-07 22:52:24.028254 (MainThread): Acquiring new bigquery connection "model.github.stg_github_issue".
+2020-05-07 22:52:24.028356 (MainThread): Opening a new connection, currently in state closed
+2020-05-07 22:52:24.035404 (MainThread): Acquiring new bigquery connection "model.github.stg_github_milestone".
+2020-05-07 22:52:24.035556 (MainThread): Opening a new connection, currently in state closed
+2020-05-07 22:52:24.076446 (MainThread): Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10be276d0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10be27f50>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10be27750>]}
+2020-05-07 22:52:24.076780 (MainThread): Flushing usage events
+2020-05-07 22:52:24.522455 (MainThread): Connection 'model.github.stg_github_milestone' was properly closed.
+2020-05-07 22:52:24.522810 (MainThread): Encountered an error:
+2020-05-07 22:52:24.523120 (MainThread): Compilation Error
+  Error reading github: github.yml - Runtime Error
+    Syntax error near line 20
+    ------------------------------
+    17 |       - name: closed_at
+    18 |         description: The timestamp for when an issue was last closed.  "null" for issues that are open
+    19 | 
+    20 |       -name: created_at
+    21 |         description: The timestamp for when an issue was created
+    22 | 
+    23 |       -name: number
+    
+    Raw Error:
+    ------------------------------
+    while parsing a block collection
+      in "<unicode string>", line 8, column 7:
+              - name: issue_id
+              ^
+    expected <block end>, but found '?'
+      in "<unicode string>", line 20, column 7:
+              -name: created_at
+              ^
+2020-05-07 22:52:24.527762 (MainThread): Traceback (most recent call last):
+  File "/usr/local/Cellar/dbt/0.16.1_1/libexec/lib/python3.7/site-packages/dbt/clients/yaml_helper.py", line 49, in load_yaml_text
+    return yaml.safe_load(contents)
+  File "/usr/local/Cellar/dbt/0.16.1_1/libexec/lib/python3.7/site-packages/yaml/__init__.py", line 162, in safe_load
+    return load(stream, SafeLoader)
+  File "/usr/local/Cellar/dbt/0.16.1_1/libexec/lib/python3.7/site-packages/yaml/__init__.py", line 114, in load
+    return loader.get_single_data()
+  File "/usr/local/Cellar/dbt/0.16.1_1/libexec/lib/python3.7/site-packages/yaml/constructor.py", line 49, in get_single_data
+    node = self.get_single_node()
+  File "/usr/local/Cellar/dbt/0.16.1_1/libexec/lib/python3.7/site-packages/yaml/composer.py", line 36, in get_single_node
+    document = self.compose_document()
+  File "/usr/local/Cellar/dbt/0.16.1_1/libexec/lib/python3.7/site-packages/yaml/composer.py", line 55, in compose_document
+    node = self.compose_node(None, None)
+  File "/usr/local/Cellar/dbt/0.16.1_1/libexec/lib/python3.7/site-packages/yaml/composer.py", line 84, in compose_node
+    node = self.compose_mapping_node(anchor)
+  File "/usr/local/Cellar/dbt/0.16.1_1/libexec/lib/python3.7/site-packages/yaml/composer.py", line 133, in compose_mapping_node
+    item_value = self.compose_node(node, item_key)
+  File "/usr/local/Cellar/dbt/0.16.1_1/libexec/lib/python3.7/site-packages/yaml/composer.py", line 82, in compose_node
+    node = self.compose_sequence_node(anchor)
+  File "/usr/local/Cellar/dbt/0.16.1_1/libexec/lib/python3.7/site-packages/yaml/composer.py", line 111, in compose_sequence_node
+    node.value.append(self.compose_node(node, index))
+  File "/usr/local/Cellar/dbt/0.16.1_1/libexec/lib/python3.7/site-packages/yaml/composer.py", line 84, in compose_node
+    node = self.compose_mapping_node(anchor)
+  File "/usr/local/Cellar/dbt/0.16.1_1/libexec/lib/python3.7/site-packages/yaml/composer.py", line 133, in compose_mapping_node
+    item_value = self.compose_node(node, item_key)
+  File "/usr/local/Cellar/dbt/0.16.1_1/libexec/lib/python3.7/site-packages/yaml/composer.py", line 82, in compose_node
+    node = self.compose_sequence_node(anchor)
+  File "/usr/local/Cellar/dbt/0.16.1_1/libexec/lib/python3.7/site-packages/yaml/composer.py", line 110, in compose_sequence_node
+    while not self.check_event(SequenceEndEvent):
+  File "/usr/local/Cellar/dbt/0.16.1_1/libexec/lib/python3.7/site-packages/yaml/parser.py", line 98, in check_event
+    self.current_event = self.state()
+  File "/usr/local/Cellar/dbt/0.16.1_1/libexec/lib/python3.7/site-packages/yaml/parser.py", line 393, in parse_block_sequence_entry
+    "expected <block end>, but found %r" % token.id, token.start_mark)
+yaml.parser.ParserError: while parsing a block collection
+  in "<unicode string>", line 8, column 7:
+          - name: issue_id
+          ^
+expected <block end>, but found '?'
+  in "<unicode string>", line 20, column 7:
+          -name: created_at
+          ^
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/Cellar/dbt/0.16.1_1/libexec/lib/python3.7/site-packages/dbt/parser/schemas.py", line 163, in _yaml_from_file
+    return load_yaml_text(source_file.contents)
+  File "/usr/local/Cellar/dbt/0.16.1_1/libexec/lib/python3.7/site-packages/dbt/clients/yaml_helper.py", line 56, in load_yaml_text
+    raise dbt.exceptions.ValidationException(error)
+dbt.exceptions.ValidationException: Runtime Error
+  Syntax error near line 20
+  ------------------------------
+  17 |       - name: closed_at
+  18 |         description: The timestamp for when an issue was last closed.  "null" for issues that are open
+  19 | 
+  20 |       -name: created_at
+  21 |         description: The timestamp for when an issue was created
+  22 | 
+  23 |       -name: number
+  
+  Raw Error:
+  ------------------------------
+  while parsing a block collection
+    in "<unicode string>", line 8, column 7:
+            - name: issue_id
+            ^
+  expected <block end>, but found '?'
+    in "<unicode string>", line 20, column 7:
+            -name: created_at
+            ^
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/Cellar/dbt/0.16.1_1/libexec/lib/python3.7/site-packages/dbt/main.py", line 81, in main
+    results, succeeded = handle_and_check(args)
+  File "/usr/local/Cellar/dbt/0.16.1_1/libexec/lib/python3.7/site-packages/dbt/main.py", line 159, in handle_and_check
+    task, res = run_from_args(parsed)
+  File "/usr/local/Cellar/dbt/0.16.1_1/libexec/lib/python3.7/site-packages/dbt/main.py", line 212, in run_from_args
+    results = task.run()
+  File "/usr/local/Cellar/dbt/0.16.1_1/libexec/lib/python3.7/site-packages/dbt/task/runnable.py", line 351, in run
+    self._runtime_initialize()
+  File "/usr/local/Cellar/dbt/0.16.1_1/libexec/lib/python3.7/site-packages/dbt/task/runnable.py", line 107, in _runtime_initialize
+    super()._runtime_initialize()
+  File "/usr/local/Cellar/dbt/0.16.1_1/libexec/lib/python3.7/site-packages/dbt/task/runnable.py", line 75, in _runtime_initialize
+    self.load_manifest()
+  File "/usr/local/Cellar/dbt/0.16.1_1/libexec/lib/python3.7/site-packages/dbt/task/runnable.py", line 63, in load_manifest
+    self.manifest = get_full_manifest(self.config)
+  File "/usr/local/Cellar/dbt/0.16.1_1/libexec/lib/python3.7/site-packages/dbt/perf_utils.py", line 23, in get_full_manifest
+    return load_manifest(config, internal, set_header)
+  File "/usr/local/Cellar/dbt/0.16.1_1/libexec/lib/python3.7/site-packages/dbt/parser/manifest.py", line 646, in load_manifest
+    return ManifestLoader.load_all(config, internal_manifest, macro_hook)
+  File "/usr/local/Cellar/dbt/0.16.1_1/libexec/lib/python3.7/site-packages/dbt/parser/manifest.py", line 336, in load_all
+    loader.load(internal_manifest=internal_manifest)
+  File "/usr/local/Cellar/dbt/0.16.1_1/libexec/lib/python3.7/site-packages/dbt/parser/manifest.py", line 208, in load
+    self.parse_project(project, macro_manifest, old_results)
+  File "/usr/local/Cellar/dbt/0.16.1_1/libexec/lib/python3.7/site-packages/dbt/parser/manifest.py", line 182, in parse_project
+    self.parse_with_cache(path, parser, old_results)
+  File "/usr/local/Cellar/dbt/0.16.1_1/libexec/lib/python3.7/site-packages/dbt/parser/manifest.py", line 138, in parse_with_cache
+    parser.parse_file(block)
+  File "/usr/local/Cellar/dbt/0.16.1_1/libexec/lib/python3.7/site-packages/dbt/parser/schemas.py", line 283, in parse_file
+    dct = self._yaml_from_file(block.file)
+  File "/usr/local/Cellar/dbt/0.16.1_1/libexec/lib/python3.7/site-packages/dbt/parser/schemas.py", line 168, in _yaml_from_file
+    .format(self.project.project_name, path, reason)
+dbt.exceptions.CompilationException: Compilation Error
+  Error reading github: github.yml - Runtime Error
+    Syntax error near line 20
+    ------------------------------
+    17 |       - name: closed_at
+    18 |         description: The timestamp for when an issue was last closed.  "null" for issues that are open
+    19 | 
+    20 |       -name: created_at
+    21 |         description: The timestamp for when an issue was created
+    22 | 
+    23 |       -name: number
+    
+    Raw Error:
+    ------------------------------
+    while parsing a block collection
+      in "<unicode string>", line 8, column 7:
+              - name: issue_id
+              ^
+    expected <block end>, but found '?'
+      in "<unicode string>", line 20, column 7:
+              -name: created_at
+              ^
+
+2020-05-07 22:57:47.585009 (MainThread): Running with dbt=0.16.1
+2020-05-07 22:57:47.744740 (MainThread): running dbt with arguments Namespace(cls=<class 'dbt.task.run.RunTask'>, debug=False, exclude=None, full_refresh=False, log_cache_events=False, log_format='default', models=None, partial_parse=None, profile=None, profiles_dir='/Users/erikm/.dbt', project_dir=None, record_timing_info=None, rpc_method='run', single_threaded=False, strict=False, target=None, test_new_parser=False, threads=None, use_cache=True, vars='{}', version_check=True, warn_error=False, which='run', write_json=True)
+2020-05-07 22:57:47.745702 (MainThread): Tracking: tracking
+2020-05-07 22:57:47.751634 (MainThread): Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x109e62550>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10a388550>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1078f9550>]}
+2020-05-07 22:57:47.772758 (MainThread): Partial parsing not enabled
+2020-05-07 22:57:47.774686 (MainThread): Parsing macros/core.sql
+2020-05-07 22:57:47.779294 (MainThread): Parsing macros/materializations/helpers.sql
+2020-05-07 22:57:47.788476 (MainThread): Parsing macros/materializations/snapshot/snapshot_merge.sql
+2020-05-07 22:57:47.790471 (MainThread): Parsing macros/materializations/snapshot/strategies.sql
+2020-05-07 22:57:47.808634 (MainThread): Parsing macros/materializations/snapshot/snapshot.sql
+2020-05-07 22:57:47.842841 (MainThread): Parsing macros/materializations/seed/seed.sql
+2020-05-07 22:57:47.866598 (MainThread): Parsing macros/materializations/incremental/helpers.sql
+2020-05-07 22:57:47.868621 (MainThread): Parsing macros/materializations/incremental/incremental.sql
+2020-05-07 22:57:47.875222 (MainThread): Parsing macros/materializations/common/merge.sql
+2020-05-07 22:57:47.889381 (MainThread): Parsing macros/materializations/table/table.sql
+2020-05-07 22:57:47.897231 (MainThread): Parsing macros/materializations/view/view.sql
+2020-05-07 22:57:47.903747 (MainThread): Parsing macros/materializations/view/create_or_replace_view.sql
+2020-05-07 22:57:47.908846 (MainThread): Parsing macros/etc/get_custom_alias.sql
+2020-05-07 22:57:47.909837 (MainThread): Parsing macros/etc/query.sql
+2020-05-07 22:57:47.910988 (MainThread): Parsing macros/etc/is_incremental.sql
+2020-05-07 22:57:47.912746 (MainThread): Parsing macros/etc/get_relation_comment.sql
+2020-05-07 22:57:47.914943 (MainThread): Parsing macros/etc/datetime.sql
+2020-05-07 22:57:47.924938 (MainThread): Parsing macros/etc/get_custom_schema.sql
+2020-05-07 22:57:47.927034 (MainThread): Parsing macros/etc/get_custom_database.sql
+2020-05-07 22:57:47.928294 (MainThread): Parsing macros/adapters/common.sql
+2020-05-07 22:57:47.971015 (MainThread): Parsing macros/schema_tests/relationships.sql
+2020-05-07 22:57:47.972296 (MainThread): Parsing macros/schema_tests/not_null.sql
+2020-05-07 22:57:47.973263 (MainThread): Parsing macros/schema_tests/unique.sql
+2020-05-07 22:57:47.974394 (MainThread): Parsing macros/schema_tests/accepted_values.sql
+2020-05-07 22:57:47.976793 (MainThread): Parsing macros/etc.sql
+2020-05-07 22:57:47.977528 (MainThread): Parsing macros/catalog.sql
+2020-05-07 22:57:47.984821 (MainThread): Parsing macros/adapters.sql
+2020-05-07 22:57:48.007238 (MainThread): Parsing macros/materializations/seed.sql
+2020-05-07 22:57:48.009370 (MainThread): Parsing macros/materializations/view.sql
+2020-05-07 22:57:48.010965 (MainThread): Parsing macros/materializations/table.sql
+2020-05-07 22:57:48.021843 (MainThread): Parsing macros/materializations/incremental.sql
+2020-05-07 22:57:48.035243 (MainThread): Parsing macros/materializations/snapshot.sql
+2020-05-07 22:57:48.055008 (MainThread): Partial parsing not enabled
+2020-05-07 22:57:48.088561 (MainThread): Acquiring new bigquery connection "model.github.github_pull_requests".
+2020-05-07 22:57:48.088724 (MainThread): Opening a new connection, currently in state init
+2020-05-07 22:57:48.111783 (MainThread): Acquiring new bigquery connection "model.github.issues_and_prs_per_month".
+2020-05-07 22:57:48.111926 (MainThread): Opening a new connection, currently in state closed
+2020-05-07 22:57:48.118436 (MainThread): Acquiring new bigquery connection "model.github.github_issues".
+2020-05-07 22:57:48.118566 (MainThread): Opening a new connection, currently in state closed
+2020-05-07 22:57:48.133028 (MainThread): Acquiring new bigquery connection "model.github.issue_assignees".
+2020-05-07 22:57:48.133174 (MainThread): Opening a new connection, currently in state closed
+2020-05-07 22:57:48.140024 (MainThread): Acquiring new bigquery connection "model.github.issue_status_windows".
+2020-05-07 22:57:48.140164 (MainThread): Opening a new connection, currently in state closed
+2020-05-07 22:57:48.147725 (MainThread): Acquiring new bigquery connection "model.github.issue_blocked_time".
+2020-05-07 22:57:48.147869 (MainThread): Opening a new connection, currently in state closed
+2020-05-07 22:57:48.153347 (MainThread): Acquiring new bigquery connection "model.github.issue_labels".
+2020-05-07 22:57:48.153462 (MainThread): Opening a new connection, currently in state closed
+2020-05-07 22:57:48.159726 (MainThread): Acquiring new bigquery connection "model.github.pull_request_reviewers".
+2020-05-07 22:57:48.159845 (MainThread): Opening a new connection, currently in state closed
+2020-05-07 22:57:48.166661 (MainThread): Acquiring new bigquery connection "model.github.issue_inbox_time".
+2020-05-07 22:57:48.166803 (MainThread): Opening a new connection, currently in state closed
+2020-05-07 22:57:48.172249 (MainThread): Acquiring new bigquery connection "model.github.issue_projects".
+2020-05-07 22:57:48.172355 (MainThread): Opening a new connection, currently in state closed
+2020-05-07 22:57:48.178985 (MainThread): Acquiring new bigquery connection "model.github.issue_close_stack".
+2020-05-07 22:57:48.179123 (MainThread): Opening a new connection, currently in state closed
+2020-05-07 22:57:48.185671 (MainThread): Acquiring new bigquery connection "model.github.issue_open_length".
+2020-05-07 22:57:48.185781 (MainThread): Opening a new connection, currently in state closed
+2020-05-07 22:57:48.191958 (MainThread): Acquiring new bigquery connection "model.github.pull_request_times".
+2020-05-07 22:57:48.192096 (MainThread): Opening a new connection, currently in state closed
+2020-05-07 22:57:48.201094 (MainThread): Acquiring new bigquery connection "model.github.stg_github_pull_request".
+2020-05-07 22:57:48.201196 (MainThread): Opening a new connection, currently in state closed
+2020-05-07 22:57:48.206388 (MainThread): Acquiring new bigquery connection "model.github.stg_github_requested_reviewer_history".
+2020-05-07 22:57:48.206482 (MainThread): Opening a new connection, currently in state closed
+2020-05-07 22:57:48.214760 (MainThread): Acquiring new bigquery connection "model.github.stg_github_user".
+2020-05-07 22:57:48.214900 (MainThread): Opening a new connection, currently in state closed
+2020-05-07 22:57:48.221394 (MainThread): Acquiring new bigquery connection "model.github.stg_github_issue_label".
+2020-05-07 22:57:48.221539 (MainThread): Opening a new connection, currently in state closed
+2020-05-07 22:57:48.227211 (MainThread): Acquiring new bigquery connection "model.github.stg_github_issue_label_history".
+2020-05-07 22:57:48.227313 (MainThread): Opening a new connection, currently in state closed
+2020-05-07 22:57:48.233061 (MainThread): Acquiring new bigquery connection "model.github.stg_github_project".
+2020-05-07 22:57:48.233189 (MainThread): Opening a new connection, currently in state closed
+2020-05-07 22:57:48.238555 (MainThread): Acquiring new bigquery connection "model.github.stg_github_pull_request_review".
+2020-05-07 22:57:48.238652 (MainThread): Opening a new connection, currently in state closed
+2020-05-07 22:57:48.243944 (MainThread): Acquiring new bigquery connection "model.github.stg_github_issue_closed_history".
+2020-05-07 22:57:48.244043 (MainThread): Opening a new connection, currently in state closed
+2020-05-07 22:57:48.249651 (MainThread): Acquiring new bigquery connection "model.github.stg_github_card".
+2020-05-07 22:57:48.249766 (MainThread): Opening a new connection, currently in state closed
+2020-05-07 22:57:48.255695 (MainThread): Acquiring new bigquery connection "model.github.stg_github_issue_merged".
+2020-05-07 22:57:48.255830 (MainThread): Opening a new connection, currently in state closed
+2020-05-07 22:57:48.261343 (MainThread): Acquiring new bigquery connection "model.github.stg_github_issue_comment".
+2020-05-07 22:57:48.261445 (MainThread): Opening a new connection, currently in state closed
+2020-05-07 22:57:48.266733 (MainThread): Acquiring new bigquery connection "model.github.stg_github_issue_project_history".
+2020-05-07 22:57:48.266830 (MainThread): Opening a new connection, currently in state closed
+2020-05-07 22:57:48.272127 (MainThread): Acquiring new bigquery connection "model.github.stg_github_repository".
+2020-05-07 22:57:48.272224 (MainThread): Opening a new connection, currently in state closed
+2020-05-07 22:57:48.277492 (MainThread): Acquiring new bigquery connection "model.github.stg_github_issue_assignee".
+2020-05-07 22:57:48.277595 (MainThread): Opening a new connection, currently in state closed
+2020-05-07 22:57:48.282846 (MainThread): Acquiring new bigquery connection "model.github.stg_github_issue".
+2020-05-07 22:57:48.282943 (MainThread): Opening a new connection, currently in state closed
+2020-05-07 22:57:48.289869 (MainThread): Acquiring new bigquery connection "model.github.stg_github_milestone".
+2020-05-07 22:57:48.290019 (MainThread): Opening a new connection, currently in state closed
+2020-05-07 22:57:48.334109 (MainThread): Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10a359710>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10a359d10>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10a359cd0>]}
+2020-05-07 22:57:48.334439 (MainThread): Flushing usage events
+2020-05-07 22:57:48.778243 (MainThread): Connection 'model.github.stg_github_milestone' was properly closed.
+2020-05-07 22:57:48.778607 (MainThread): Encountered an error:
+2020-05-07 22:57:48.778836 (MainThread): Compilation Error
+  Error reading github: github.yml - Runtime Error
+    Syntax error near line 20
+    ------------------------------
+    17 |       - name: closed_at
+    18 |         description: The timestamp for when an issue was last closed.  "null" for issues that are open
+    19 | 
+    20 |       -name: created_at
+    21 |         description: The timestamp for when an issue was created
+    22 | 
+    23 |       -name: number
+    
+    Raw Error:
+    ------------------------------
+    while parsing a block collection
+      in "<unicode string>", line 8, column 7:
+              - name: issue_id
+              ^
+    expected <block end>, but found '?'
+      in "<unicode string>", line 20, column 7:
+              -name: created_at
+              ^
+2020-05-07 22:57:48.782407 (MainThread): Traceback (most recent call last):
+  File "/usr/local/Cellar/dbt/0.16.1_1/libexec/lib/python3.7/site-packages/dbt/clients/yaml_helper.py", line 49, in load_yaml_text
+    return yaml.safe_load(contents)
+  File "/usr/local/Cellar/dbt/0.16.1_1/libexec/lib/python3.7/site-packages/yaml/__init__.py", line 162, in safe_load
+    return load(stream, SafeLoader)
+  File "/usr/local/Cellar/dbt/0.16.1_1/libexec/lib/python3.7/site-packages/yaml/__init__.py", line 114, in load
+    return loader.get_single_data()
+  File "/usr/local/Cellar/dbt/0.16.1_1/libexec/lib/python3.7/site-packages/yaml/constructor.py", line 49, in get_single_data
+    node = self.get_single_node()
+  File "/usr/local/Cellar/dbt/0.16.1_1/libexec/lib/python3.7/site-packages/yaml/composer.py", line 36, in get_single_node
+    document = self.compose_document()
+  File "/usr/local/Cellar/dbt/0.16.1_1/libexec/lib/python3.7/site-packages/yaml/composer.py", line 55, in compose_document
+    node = self.compose_node(None, None)
+  File "/usr/local/Cellar/dbt/0.16.1_1/libexec/lib/python3.7/site-packages/yaml/composer.py", line 84, in compose_node
+    node = self.compose_mapping_node(anchor)
+  File "/usr/local/Cellar/dbt/0.16.1_1/libexec/lib/python3.7/site-packages/yaml/composer.py", line 133, in compose_mapping_node
+    item_value = self.compose_node(node, item_key)
+  File "/usr/local/Cellar/dbt/0.16.1_1/libexec/lib/python3.7/site-packages/yaml/composer.py", line 82, in compose_node
+    node = self.compose_sequence_node(anchor)
+  File "/usr/local/Cellar/dbt/0.16.1_1/libexec/lib/python3.7/site-packages/yaml/composer.py", line 111, in compose_sequence_node
+    node.value.append(self.compose_node(node, index))
+  File "/usr/local/Cellar/dbt/0.16.1_1/libexec/lib/python3.7/site-packages/yaml/composer.py", line 84, in compose_node
+    node = self.compose_mapping_node(anchor)
+  File "/usr/local/Cellar/dbt/0.16.1_1/libexec/lib/python3.7/site-packages/yaml/composer.py", line 133, in compose_mapping_node
+    item_value = self.compose_node(node, item_key)
+  File "/usr/local/Cellar/dbt/0.16.1_1/libexec/lib/python3.7/site-packages/yaml/composer.py", line 82, in compose_node
+    node = self.compose_sequence_node(anchor)
+  File "/usr/local/Cellar/dbt/0.16.1_1/libexec/lib/python3.7/site-packages/yaml/composer.py", line 110, in compose_sequence_node
+    while not self.check_event(SequenceEndEvent):
+  File "/usr/local/Cellar/dbt/0.16.1_1/libexec/lib/python3.7/site-packages/yaml/parser.py", line 98, in check_event
+    self.current_event = self.state()
+  File "/usr/local/Cellar/dbt/0.16.1_1/libexec/lib/python3.7/site-packages/yaml/parser.py", line 393, in parse_block_sequence_entry
+    "expected <block end>, but found %r" % token.id, token.start_mark)
+yaml.parser.ParserError: while parsing a block collection
+  in "<unicode string>", line 8, column 7:
+          - name: issue_id
+          ^
+expected <block end>, but found '?'
+  in "<unicode string>", line 20, column 7:
+          -name: created_at
+          ^
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/Cellar/dbt/0.16.1_1/libexec/lib/python3.7/site-packages/dbt/parser/schemas.py", line 163, in _yaml_from_file
+    return load_yaml_text(source_file.contents)
+  File "/usr/local/Cellar/dbt/0.16.1_1/libexec/lib/python3.7/site-packages/dbt/clients/yaml_helper.py", line 56, in load_yaml_text
+    raise dbt.exceptions.ValidationException(error)
+dbt.exceptions.ValidationException: Runtime Error
+  Syntax error near line 20
+  ------------------------------
+  17 |       - name: closed_at
+  18 |         description: The timestamp for when an issue was last closed.  "null" for issues that are open
+  19 | 
+  20 |       -name: created_at
+  21 |         description: The timestamp for when an issue was created
+  22 | 
+  23 |       -name: number
+  
+  Raw Error:
+  ------------------------------
+  while parsing a block collection
+    in "<unicode string>", line 8, column 7:
+            - name: issue_id
+            ^
+  expected <block end>, but found '?'
+    in "<unicode string>", line 20, column 7:
+            -name: created_at
+            ^
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/Cellar/dbt/0.16.1_1/libexec/lib/python3.7/site-packages/dbt/main.py", line 81, in main
+    results, succeeded = handle_and_check(args)
+  File "/usr/local/Cellar/dbt/0.16.1_1/libexec/lib/python3.7/site-packages/dbt/main.py", line 159, in handle_and_check
+    task, res = run_from_args(parsed)
+  File "/usr/local/Cellar/dbt/0.16.1_1/libexec/lib/python3.7/site-packages/dbt/main.py", line 212, in run_from_args
+    results = task.run()
+  File "/usr/local/Cellar/dbt/0.16.1_1/libexec/lib/python3.7/site-packages/dbt/task/runnable.py", line 351, in run
+    self._runtime_initialize()
+  File "/usr/local/Cellar/dbt/0.16.1_1/libexec/lib/python3.7/site-packages/dbt/task/runnable.py", line 107, in _runtime_initialize
+    super()._runtime_initialize()
+  File "/usr/local/Cellar/dbt/0.16.1_1/libexec/lib/python3.7/site-packages/dbt/task/runnable.py", line 75, in _runtime_initialize
+    self.load_manifest()
+  File "/usr/local/Cellar/dbt/0.16.1_1/libexec/lib/python3.7/site-packages/dbt/task/runnable.py", line 63, in load_manifest
+    self.manifest = get_full_manifest(self.config)
+  File "/usr/local/Cellar/dbt/0.16.1_1/libexec/lib/python3.7/site-packages/dbt/perf_utils.py", line 23, in get_full_manifest
+    return load_manifest(config, internal, set_header)
+  File "/usr/local/Cellar/dbt/0.16.1_1/libexec/lib/python3.7/site-packages/dbt/parser/manifest.py", line 646, in load_manifest
+    return ManifestLoader.load_all(config, internal_manifest, macro_hook)
+  File "/usr/local/Cellar/dbt/0.16.1_1/libexec/lib/python3.7/site-packages/dbt/parser/manifest.py", line 336, in load_all
+    loader.load(internal_manifest=internal_manifest)
+  File "/usr/local/Cellar/dbt/0.16.1_1/libexec/lib/python3.7/site-packages/dbt/parser/manifest.py", line 208, in load
+    self.parse_project(project, macro_manifest, old_results)
+  File "/usr/local/Cellar/dbt/0.16.1_1/libexec/lib/python3.7/site-packages/dbt/parser/manifest.py", line 182, in parse_project
+    self.parse_with_cache(path, parser, old_results)
+  File "/usr/local/Cellar/dbt/0.16.1_1/libexec/lib/python3.7/site-packages/dbt/parser/manifest.py", line 138, in parse_with_cache
+    parser.parse_file(block)
+  File "/usr/local/Cellar/dbt/0.16.1_1/libexec/lib/python3.7/site-packages/dbt/parser/schemas.py", line 283, in parse_file
+    dct = self._yaml_from_file(block.file)
+  File "/usr/local/Cellar/dbt/0.16.1_1/libexec/lib/python3.7/site-packages/dbt/parser/schemas.py", line 168, in _yaml_from_file
+    .format(self.project.project_name, path, reason)
+dbt.exceptions.CompilationException: Compilation Error
+  Error reading github: github.yml - Runtime Error
+    Syntax error near line 20
+    ------------------------------
+    17 |       - name: closed_at
+    18 |         description: The timestamp for when an issue was last closed.  "null" for issues that are open
+    19 | 
+    20 |       -name: created_at
+    21 |         description: The timestamp for when an issue was created
+    22 | 
+    23 |       -name: number
+    
+    Raw Error:
+    ------------------------------
+    while parsing a block collection
+      in "<unicode string>", line 8, column 7:
+              - name: issue_id
+              ^
+    expected <block end>, but found '?'
+      in "<unicode string>", line 20, column 7:
+              -name: created_at
+              ^
+
+2020-05-07 23:05:23.404093 (MainThread): Running with dbt=0.16.1
+2020-05-07 23:05:23.560932 (MainThread): running dbt with arguments Namespace(cls=<class 'dbt.task.run.RunTask'>, debug=False, exclude=None, full_refresh=False, log_cache_events=False, log_format='default', models=None, partial_parse=None, profile=None, profiles_dir='/Users/erikm/.dbt', project_dir=None, record_timing_info=None, rpc_method='run', single_threaded=False, strict=False, target=None, test_new_parser=False, threads=None, use_cache=True, vars='{}', version_check=True, warn_error=False, which='run', write_json=True)
+2020-05-07 23:05:23.561890 (MainThread): Tracking: tracking
+2020-05-07 23:05:23.569105 (MainThread): Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x104671b50>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1046c1110>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1046c1210>]}
+2020-05-07 23:05:23.591122 (MainThread): Partial parsing not enabled
+2020-05-07 23:05:23.593114 (MainThread): Parsing macros/core.sql
+2020-05-07 23:05:23.597555 (MainThread): Parsing macros/materializations/helpers.sql
+2020-05-07 23:05:23.606247 (MainThread): Parsing macros/materializations/snapshot/snapshot_merge.sql
+2020-05-07 23:05:23.608144 (MainThread): Parsing macros/materializations/snapshot/strategies.sql
+2020-05-07 23:05:23.625909 (MainThread): Parsing macros/materializations/snapshot/snapshot.sql
+2020-05-07 23:05:23.659642 (MainThread): Parsing macros/materializations/seed/seed.sql
+2020-05-07 23:05:23.682832 (MainThread): Parsing macros/materializations/incremental/helpers.sql
+2020-05-07 23:05:23.685181 (MainThread): Parsing macros/materializations/incremental/incremental.sql
+2020-05-07 23:05:23.692252 (MainThread): Parsing macros/materializations/common/merge.sql
+2020-05-07 23:05:23.705219 (MainThread): Parsing macros/materializations/table/table.sql
+2020-05-07 23:05:23.712289 (MainThread): Parsing macros/materializations/view/view.sql
+2020-05-07 23:05:23.722040 (MainThread): Parsing macros/materializations/view/create_or_replace_view.sql
+2020-05-07 23:05:23.727283 (MainThread): Parsing macros/etc/get_custom_alias.sql
+2020-05-07 23:05:23.728297 (MainThread): Parsing macros/etc/query.sql
+2020-05-07 23:05:23.729425 (MainThread): Parsing macros/etc/is_incremental.sql
+2020-05-07 23:05:23.731326 (MainThread): Parsing macros/etc/get_relation_comment.sql
+2020-05-07 23:05:23.733627 (MainThread): Parsing macros/etc/datetime.sql
+2020-05-07 23:05:23.743244 (MainThread): Parsing macros/etc/get_custom_schema.sql
+2020-05-07 23:05:23.745377 (MainThread): Parsing macros/etc/get_custom_database.sql
+2020-05-07 23:05:23.746538 (MainThread): Parsing macros/adapters/common.sql
+2020-05-07 23:05:23.790217 (MainThread): Parsing macros/schema_tests/relationships.sql
+2020-05-07 23:05:23.791543 (MainThread): Parsing macros/schema_tests/not_null.sql
+2020-05-07 23:05:23.792503 (MainThread): Parsing macros/schema_tests/unique.sql
+2020-05-07 23:05:23.793628 (MainThread): Parsing macros/schema_tests/accepted_values.sql
+2020-05-07 23:05:23.796015 (MainThread): Parsing macros/etc.sql
+2020-05-07 23:05:23.796701 (MainThread): Parsing macros/catalog.sql
+2020-05-07 23:05:23.804236 (MainThread): Parsing macros/adapters.sql
+2020-05-07 23:05:23.826154 (MainThread): Parsing macros/materializations/seed.sql
+2020-05-07 23:05:23.828264 (MainThread): Parsing macros/materializations/view.sql
+2020-05-07 23:05:23.829759 (MainThread): Parsing macros/materializations/table.sql
+2020-05-07 23:05:23.840322 (MainThread): Parsing macros/materializations/incremental.sql
+2020-05-07 23:05:23.853690 (MainThread): Parsing macros/materializations/snapshot.sql
+2020-05-07 23:05:23.872996 (MainThread): Partial parsing not enabled
+2020-05-07 23:05:23.906231 (MainThread): Acquiring new bigquery connection "model.github.github_pull_requests".
+2020-05-07 23:05:23.906400 (MainThread): Opening a new connection, currently in state init
+2020-05-07 23:05:23.930274 (MainThread): Acquiring new bigquery connection "model.github.issues_and_prs_per_month".
+2020-05-07 23:05:23.930427 (MainThread): Opening a new connection, currently in state closed
+2020-05-07 23:05:23.937194 (MainThread): Acquiring new bigquery connection "model.github.github_issues".
+2020-05-07 23:05:23.937302 (MainThread): Opening a new connection, currently in state closed
+2020-05-07 23:05:23.951979 (MainThread): Acquiring new bigquery connection "model.github.issue_assignees".
+2020-05-07 23:05:23.952131 (MainThread): Opening a new connection, currently in state closed
+2020-05-07 23:05:23.958674 (MainThread): Acquiring new bigquery connection "model.github.issue_status_windows".
+2020-05-07 23:05:23.958790 (MainThread): Opening a new connection, currently in state closed
+2020-05-07 23:05:23.965718 (MainThread): Acquiring new bigquery connection "model.github.issue_blocked_time".
+2020-05-07 23:05:23.965841 (MainThread): Opening a new connection, currently in state closed
+2020-05-07 23:05:23.971328 (MainThread): Acquiring new bigquery connection "model.github.issue_labels".
+2020-05-07 23:05:23.971433 (MainThread): Opening a new connection, currently in state closed
+2020-05-07 23:05:23.976684 (MainThread): Acquiring new bigquery connection "model.github.pull_request_reviewers".
+2020-05-07 23:05:23.976784 (MainThread): Opening a new connection, currently in state closed
+2020-05-07 23:05:23.983036 (MainThread): Acquiring new bigquery connection "model.github.issue_inbox_time".
+2020-05-07 23:05:23.983174 (MainThread): Opening a new connection, currently in state closed
+2020-05-07 23:05:23.989321 (MainThread): Acquiring new bigquery connection "model.github.issue_projects".
+2020-05-07 23:05:23.989455 (MainThread): Opening a new connection, currently in state closed
+2020-05-07 23:05:23.995830 (MainThread): Acquiring new bigquery connection "model.github.issue_close_stack".
+2020-05-07 23:05:23.995932 (MainThread): Opening a new connection, currently in state closed
+2020-05-07 23:05:24.002268 (MainThread): Acquiring new bigquery connection "model.github.issue_open_length".
+2020-05-07 23:05:24.002370 (MainThread): Opening a new connection, currently in state closed
+2020-05-07 23:05:24.007752 (MainThread): Acquiring new bigquery connection "model.github.pull_request_times".
+2020-05-07 23:05:24.007853 (MainThread): Opening a new connection, currently in state closed
+2020-05-07 23:05:24.017025 (MainThread): Acquiring new bigquery connection "model.github.stg_github_pull_request".
+2020-05-07 23:05:24.017293 (MainThread): Opening a new connection, currently in state closed
+2020-05-07 23:05:24.023216 (MainThread): Acquiring new bigquery connection "model.github.stg_github_requested_reviewer_history".
+2020-05-07 23:05:24.023327 (MainThread): Opening a new connection, currently in state closed
+2020-05-07 23:05:24.028693 (MainThread): Acquiring new bigquery connection "model.github.stg_github_user".
+2020-05-07 23:05:24.028791 (MainThread): Opening a new connection, currently in state closed
+2020-05-07 23:05:24.034953 (MainThread): Acquiring new bigquery connection "model.github.stg_github_issue_label".
+2020-05-07 23:05:24.035085 (MainThread): Opening a new connection, currently in state closed
+2020-05-07 23:05:24.040449 (MainThread): Acquiring new bigquery connection "model.github.stg_github_issue_label_history".
+2020-05-07 23:05:24.040546 (MainThread): Opening a new connection, currently in state closed
+2020-05-07 23:05:24.045913 (MainThread): Acquiring new bigquery connection "model.github.stg_github_project".
+2020-05-07 23:05:24.046012 (MainThread): Opening a new connection, currently in state closed
+2020-05-07 23:05:24.051684 (MainThread): Acquiring new bigquery connection "model.github.stg_github_pull_request_review".
+2020-05-07 23:05:24.051877 (MainThread): Opening a new connection, currently in state closed
+2020-05-07 23:05:24.057987 (MainThread): Acquiring new bigquery connection "model.github.stg_github_issue_closed_history".
+2020-05-07 23:05:24.058121 (MainThread): Opening a new connection, currently in state closed
+2020-05-07 23:05:24.063471 (MainThread): Acquiring new bigquery connection "model.github.stg_github_card".
+2020-05-07 23:05:24.063567 (MainThread): Opening a new connection, currently in state closed
+2020-05-07 23:05:24.068855 (MainThread): Acquiring new bigquery connection "model.github.stg_github_issue_merged".
+2020-05-07 23:05:24.068949 (MainThread): Opening a new connection, currently in state closed
+2020-05-07 23:05:24.074229 (MainThread): Acquiring new bigquery connection "model.github.stg_github_issue_comment".
+2020-05-07 23:05:24.074324 (MainThread): Opening a new connection, currently in state closed
+2020-05-07 23:05:24.079587 (MainThread): Acquiring new bigquery connection "model.github.stg_github_issue_project_history".
+2020-05-07 23:05:24.079683 (MainThread): Opening a new connection, currently in state closed
+2020-05-07 23:05:24.085649 (MainThread): Acquiring new bigquery connection "model.github.stg_github_repository".
+2020-05-07 23:05:24.085780 (MainThread): Opening a new connection, currently in state closed
+2020-05-07 23:05:24.091314 (MainThread): Acquiring new bigquery connection "model.github.stg_github_issue_assignee".
+2020-05-07 23:05:24.091413 (MainThread): Opening a new connection, currently in state closed
+2020-05-07 23:05:24.096721 (MainThread): Acquiring new bigquery connection "model.github.stg_github_issue".
+2020-05-07 23:05:24.096813 (MainThread): Opening a new connection, currently in state closed
+2020-05-07 23:05:24.103103 (MainThread): Acquiring new bigquery connection "model.github.stg_github_milestone".
+2020-05-07 23:05:24.103222 (MainThread): Opening a new connection, currently in state closed
+2020-05-07 23:05:24.225618 (MainThread): Acquiring new bigquery connection "test.github.unique_github_issues_issue_id".
+2020-05-07 23:05:24.225775 (MainThread): Opening a new connection, currently in state closed
+2020-05-07 23:05:24.235397 (MainThread): Acquiring new bigquery connection "test.github.not_null_github_issues_issue_id".
+2020-05-07 23:05:24.235563 (MainThread): Opening a new connection, currently in state closed
+2020-05-07 23:05:24.244506 (MainThread): Acquiring new bigquery connection "test.github.unique_pull_request_issue_id".
+2020-05-07 23:05:24.244635 (MainThread): Opening a new connection, currently in state closed
+2020-05-07 23:05:24.252532 (MainThread): Acquiring new bigquery connection "test.github.not_null_pull_request_issue_id".
+2020-05-07 23:05:24.252691 (MainThread): Opening a new connection, currently in state closed
+2020-05-07 23:05:24.259696 (MainThread): Acquiring new bigquery connection "test.github.unique_issues_and_prs_per_month_month".
+2020-05-07 23:05:24.259810 (MainThread): Opening a new connection, currently in state closed
+2020-05-07 23:05:24.266599 (MainThread): Acquiring new bigquery connection "test.github.not_null_issues_and_prs_per_month_month".
+2020-05-07 23:05:24.266702 (MainThread): Opening a new connection, currently in state closed
+2020-05-07 23:05:24.296392 (MainThread): Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x104daf690>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x104a81690>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x104e99e50>]}
+2020-05-07 23:05:24.296672 (MainThread): Flushing usage events
+2020-05-07 23:05:24.783546 (MainThread): Connection 'test.github.not_null_issues_and_prs_per_month_month' was properly closed.
+2020-05-07 23:05:24.783929 (MainThread): Encountered an error:
+2020-05-07 23:05:24.784220 (MainThread): Compilation Error
+  Invalid sources config given in models/base/src_github.yml @ sources: {'name': 'github', 'tables': [{'name': 'card', 'description': 'A card tracks an issue as it is moved between statuses within a project'}, {'name': 'issue_assignee', 'description': 'Table with the current user(s) assigned to an issue'}, {'name': 'issue_closed_history', 'description': 'Table to track when an issue is closed or re-opened'}, {'name': 'issue_comment', 'desription': 'Table that contains comments made on issues'}, {'name': 'issue_label_history', 'description': 'Table that tracks when labels are added and removed from an issue'}, {'name': 'issue_label', 'description': 'The current labels attached to an issue'}, {'name': 'issue_merged', 'description': 'Table that tracks when an issue (always a pull request) is merged'}, {'name': 'issue_project_history', 'description': 'History table of when an issue is added, moved around within, or removed from a project'}, {'name': 'issue', 'description': 'Table that contains 1 entry for every issue created.  Pull Requests also create an entry in this table, and there is a boolean field to determine if an entry is a pull request.'}, {'name': 'milestone', 'description': 'Table containing milestones, which are user created groups of issues and pull requests to track progress within a project'}, {'name': 'project', 'description': 'A board to track the progress of different issues'}, {'name': 'pull_request_review', 'description': 'Table containing reviews made to pull requests'}, {'name': 'pull_request', 'description': 'A special type of issue that is created when a user wants to merge one branch of code into another'}, {'name': 'repository', 'description': 'Table representing the file structure of a directory under git control'}, {'name': 'requested_reviewer_history', 'description': 'Table containing when a user requests another user to review a pull request'}, {'name': 'user', 'description': 'Table representing contributors to a git project'}]} - at path ['tables'][3]: Additional properties are not allowed ('desription' was unexpected)
+2020-05-07 23:05:24.792897 (MainThread): jsonschema.exceptions.ValidationError: Additional properties are not allowed ('desription' was unexpected)
+
+Failed validating 'additionalProperties' in schema['properties']['tables']['items']:
+    {'additionalProperties': False,
+     'description': 'UnparsedSourceTableDefinition(name: str, description: '
+                    "str = '', meta: Dict[str, Any] = <factory>, "
+                    'data_type: Union[str, NoneType] = None, docs: '
+                    'dbt.contracts.graph.unparsed.Docs = <factory>, tests: '
+                    'Union[List[Union[Dict[str, Any], str]], NoneType] = '
+                    'None, columns: '
+                    'Sequence[dbt.contracts.graph.unparsed.UnparsedColumn] '
+                    '= <factory>, loaded_at_field: Union[str, NoneType] = '
+                    'None, identifier: Union[str, NoneType] = None, '
+                    'quoting: dbt.contracts.graph.unparsed.Quoting = '
+                    '<factory>, freshness: '
+                    'Union[dbt.contracts.graph.unparsed.FreshnessThreshold, '
+                    'NoneType] = <factory>, external: '
+                    'Union[dbt.contracts.graph.unparsed.ExternalTable, '
+                    'NoneType] = <factory>, tags: List[str] = <factory>)',
+     'properties': {'columns': {'default': [],
+                                'items': {'$ref': '#/definitions/UnparsedColumn'},
+                                'type': 'array'},
+                    'data_type': {'oneOf': [{'type': 'string'},
+                                            {'type': 'null'}]},
+                    'description': {'default': '', 'type': 'string'},
+                    'docs': {'$ref': '#/definitions/Docs',
+                             'default': {'show': True}},
+                    'external': {'default': {'file_format': None,
+                                             'location': None,
+                                             'partitions': None,
+                                             'row_format': None,
+                                             'tbl_properties': None},
+                                 'oneOf': [{'$ref': '#/definitions/ExternalTable'},
+                                           {'type': 'null'}]},
+                    'freshness': {'default': {'error_after': None,
+                                              'filter': None,
+                                              'warn_after': None},
+                                  'oneOf': [{'$ref': '#/definitions/FreshnessThreshold'},
+                                            {'type': 'null'}]},
+                    'identifier': {'oneOf': [{'type': 'string'},
+                                             {'type': 'null'}]},
+                    'loaded_at_field': {'oneOf': [{'type': 'string'},
+                                                  {'type': 'null'}]},
+                    'meta': {'default': {}, 'type': 'object'},
+                    'name': {'type': 'string'},
+                    'quoting': {'$ref': '#/definitions/Quoting',
+                                'default': {'column': None,
+                                            'database': None,
+                                            'identifier': None,
+                                            'schema': None}},
+                    'tags': {'default': [],
+                             'items': {'type': 'string'},
+                             'type': 'array'},
+                    'tests': {'oneOf': [{'items': {'oneOf': [{'type': 'object'},
+                                                             {'type': 'string'}]},
+                                         'type': 'array'},
+                                        {'type': 'null'}]}},
+     'required': ['name'],
+     'type': 'object'}
+
+On instance['tables'][3]:
+    {'desription': 'Table that contains comments made on issues',
+     'name': 'issue_comment'}
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/Cellar/dbt/0.16.1_1/libexec/lib/python3.7/site-packages/dbt/parser/schemas.py", line 499, in get_unparsed_target
+    source = UnparsedSourceDefinition.from_dict(data)
+  File "/usr/local/Cellar/dbt/0.16.1_1/libexec/lib/python3.7/site-packages/hologram/__init__.py", line 594, in from_dict
+    cls.validate(data)
+  File "/usr/local/Cellar/dbt/0.16.1_1/libexec/lib/python3.7/site-packages/hologram/__init__.py", line 934, in validate
+    raise ValidationError.create_from(error) from error
+hologram.ValidationError: Additional properties are not allowed ('desription' was unexpected)
+
+Failed validating 'additionalProperties' in schema['properties']['tables']['items']:
+    {'additionalProperties': False,
+     'description': 'UnparsedSourceTableDefinition(name: str, description: '
+                    "str = '', meta: Dict[str, Any] = <factory>, "
+                    'data_type: Union[str, NoneType] = None, docs: '
+                    'dbt.contracts.graph.unparsed.Docs = <factory>, tests: '
+                    'Union[List[Union[Dict[str, Any], str]], NoneType] = '
+                    'None, columns: '
+                    'Sequence[dbt.contracts.graph.unparsed.UnparsedColumn] '
+                    '= <factory>, loaded_at_field: Union[str, NoneType] = '
+                    'None, identifier: Union[str, NoneType] = None, '
+                    'quoting: dbt.contracts.graph.unparsed.Quoting = '
+                    '<factory>, freshness: '
+                    'Union[dbt.contracts.graph.unparsed.FreshnessThreshold, '
+                    'NoneType] = <factory>, external: '
+                    'Union[dbt.contracts.graph.unparsed.ExternalTable, '
+                    'NoneType] = <factory>, tags: List[str] = <factory>)',
+     'properties': {'columns': {'default': [],
+                                'items': {'$ref': '#/definitions/UnparsedColumn'},
+                                'type': 'array'},
+                    'data_type': {'oneOf': [{'type': 'string'},
+                                            {'type': 'null'}]},
+                    'description': {'default': '', 'type': 'string'},
+                    'docs': {'$ref': '#/definitions/Docs',
+                             'default': {'show': True}},
+                    'external': {'default': {'file_format': None,
+                                             'location': None,
+                                             'partitions': None,
+                                             'row_format': None,
+                                             'tbl_properties': None},
+                                 'oneOf': [{'$ref': '#/definitions/ExternalTable'},
+                                           {'type': 'null'}]},
+                    'freshness': {'default': {'error_after': None,
+                                              'filter': None,
+                                              'warn_after': None},
+                                  'oneOf': [{'$ref': '#/definitions/FreshnessThreshold'},
+                                            {'type': 'null'}]},
+                    'identifier': {'oneOf': [{'type': 'string'},
+                                             {'type': 'null'}]},
+                    'loaded_at_field': {'oneOf': [{'type': 'string'},
+                                                  {'type': 'null'}]},
+                    'meta': {'default': {}, 'type': 'object'},
+                    'name': {'type': 'string'},
+                    'quoting': {'$ref': '#/definitions/Quoting',
+                                'default': {'column': None,
+                                            'database': None,
+                                            'identifier': None,
+                                            'schema': None}},
+                    'tags': {'default': [],
+                             'items': {'type': 'string'},
+                             'type': 'array'},
+                    'tests': {'oneOf': [{'items': {'oneOf': [{'type': 'object'},
+                                                             {'type': 'string'}]},
+                                         'type': 'array'},
+                                        {'type': 'null'}]}},
+     'required': ['name'],
+     'type': 'object'}
+
+On instance['tables'][3]:
+    {'desription': 'Table that contains comments made on issues',
+     'name': 'issue_comment'}
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/Cellar/dbt/0.16.1_1/libexec/lib/python3.7/site-packages/dbt/main.py", line 81, in main
+    results, succeeded = handle_and_check(args)
+  File "/usr/local/Cellar/dbt/0.16.1_1/libexec/lib/python3.7/site-packages/dbt/main.py", line 159, in handle_and_check
+    task, res = run_from_args(parsed)
+  File "/usr/local/Cellar/dbt/0.16.1_1/libexec/lib/python3.7/site-packages/dbt/main.py", line 212, in run_from_args
+    results = task.run()
+  File "/usr/local/Cellar/dbt/0.16.1_1/libexec/lib/python3.7/site-packages/dbt/task/runnable.py", line 351, in run
+    self._runtime_initialize()
+  File "/usr/local/Cellar/dbt/0.16.1_1/libexec/lib/python3.7/site-packages/dbt/task/runnable.py", line 107, in _runtime_initialize
+    super()._runtime_initialize()
+  File "/usr/local/Cellar/dbt/0.16.1_1/libexec/lib/python3.7/site-packages/dbt/task/runnable.py", line 75, in _runtime_initialize
+    self.load_manifest()
+  File "/usr/local/Cellar/dbt/0.16.1_1/libexec/lib/python3.7/site-packages/dbt/task/runnable.py", line 63, in load_manifest
+    self.manifest = get_full_manifest(self.config)
+  File "/usr/local/Cellar/dbt/0.16.1_1/libexec/lib/python3.7/site-packages/dbt/perf_utils.py", line 23, in get_full_manifest
+    return load_manifest(config, internal, set_header)
+  File "/usr/local/Cellar/dbt/0.16.1_1/libexec/lib/python3.7/site-packages/dbt/parser/manifest.py", line 646, in load_manifest
+    return ManifestLoader.load_all(config, internal_manifest, macro_hook)
+  File "/usr/local/Cellar/dbt/0.16.1_1/libexec/lib/python3.7/site-packages/dbt/parser/manifest.py", line 336, in load_all
+    loader.load(internal_manifest=internal_manifest)
+  File "/usr/local/Cellar/dbt/0.16.1_1/libexec/lib/python3.7/site-packages/dbt/parser/manifest.py", line 208, in load
+    self.parse_project(project, macro_manifest, old_results)
+  File "/usr/local/Cellar/dbt/0.16.1_1/libexec/lib/python3.7/site-packages/dbt/parser/manifest.py", line 182, in parse_project
+    self.parse_with_cache(path, parser, old_results)
+  File "/usr/local/Cellar/dbt/0.16.1_1/libexec/lib/python3.7/site-packages/dbt/parser/manifest.py", line 138, in parse_with_cache
+    parser.parse_file(block)
+  File "/usr/local/Cellar/dbt/0.16.1_1/libexec/lib/python3.7/site-packages/dbt/parser/schemas.py", line 302, in parse_file
+    for test_block in parser.parse():
+  File "/usr/local/Cellar/dbt/0.16.1_1/libexec/lib/python3.7/site-packages/dbt/parser/schemas.py", line 394, in parse
+    for node in self.get_unparsed_target():
+  File "/usr/local/Cellar/dbt/0.16.1_1/libexec/lib/python3.7/site-packages/dbt/parser/schemas.py", line 502, in get_unparsed_target
+    raise CompilationException(msg) from exc
+dbt.exceptions.CompilationException: Compilation Error
+  Invalid sources config given in models/base/src_github.yml @ sources: {'name': 'github', 'tables': [{'name': 'card', 'description': 'A card tracks an issue as it is moved between statuses within a project'}, {'name': 'issue_assignee', 'description': 'Table with the current user(s) assigned to an issue'}, {'name': 'issue_closed_history', 'description': 'Table to track when an issue is closed or re-opened'}, {'name': 'issue_comment', 'desription': 'Table that contains comments made on issues'}, {'name': 'issue_label_history', 'description': 'Table that tracks when labels are added and removed from an issue'}, {'name': 'issue_label', 'description': 'The current labels attached to an issue'}, {'name': 'issue_merged', 'description': 'Table that tracks when an issue (always a pull request) is merged'}, {'name': 'issue_project_history', 'description': 'History table of when an issue is added, moved around within, or removed from a project'}, {'name': 'issue', 'description': 'Table that contains 1 entry for every issue created.  Pull Requests also create an entry in this table, and there is a boolean field to determine if an entry is a pull request.'}, {'name': 'milestone', 'description': 'Table containing milestones, which are user created groups of issues and pull requests to track progress within a project'}, {'name': 'project', 'description': 'A board to track the progress of different issues'}, {'name': 'pull_request_review', 'description': 'Table containing reviews made to pull requests'}, {'name': 'pull_request', 'description': 'A special type of issue that is created when a user wants to merge one branch of code into another'}, {'name': 'repository', 'description': 'Table representing the file structure of a directory under git control'}, {'name': 'requested_reviewer_history', 'description': 'Table containing when a user requests another user to review a pull request'}, {'name': 'user', 'description': 'Table representing contributors to a git project'}]} - at path ['tables'][3]: Additional properties are not allowed ('desription' was unexpected)
+
