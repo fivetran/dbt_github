@@ -8,33 +8,180 @@ sources:
     tables:
       - name: card
         description: A card tracks an issue as it is moved between statuses within a project
+        columns:
+          - name: card_id
+            description: the system generated unqiue id for this table
+          - name: archived
+            description: A binary flag for if the card has been archieved
+          - name: updated_at
+            description: Timestamp for when the card was last updated
+
       - name: issue_assignee
         description: Table with the current user(s) assigned to an issue
+        columns:
+          - name: issue_id
+            description: Foreign key that references the issue table
+          - name: uer_id
+            description: Foreign key that references the user table
+
+
       - name: issue_closed_history
         description: Table to track when an issue is closed or re-opened
+        columns:
+          - name: issue_id
+            description: Foreign key that references the issue table
+          - name: updated_at
+            description: Timestamp of when the action took place
+          - name: closed
+            description: Boolean variable for if the issue was closed (true) or re-opened (false)
+            
       - name: issue_comment
         description: Table that contains comments made on issues
+        columns:
+          - name: issue_id
+            description: Foreign key that references the issue table
+          - name: uer_id
+            description: Foreign key that references the user table
+            
       - name: issue_label_history
         description: Table that tracks when labels are added and removed from an issue
+        columns:
+          - name: issue_id
+            description: Foreign key that references the issue table
+          - name: updated_at
+            description: Timestamp of when the action took place
+          - name: label
+            description: Text of the label
+          - name: labeled
+            description: Boolean variable for if the label was applied (true) or removed (false)
+            
       - name: issue_label
         description: The current labels attached to an issue
+        columns:
+          - name: issue_id
+            description: Foreign key that references the issue table
+          - name: label
+            description: Text of the label
+            
       - name: issue_merged
         description: Table that tracks when an issue (always a pull request) is merged
+        columns:
+          - name: issue_id
+            description: Foreign key that references the issue table.  This table will only refernece issues that are pull requests
+          - name: maerged_at
+            description: Timestamp of when the code merge took place
+            
       - name: issue_project_history
         description: History table of when an issue is added, moved around within, or removed from a project
+        columns:
+          - name: issue_id
+            description: Foreign key that references the issue table.
+          - name: project_id
+            description: Foreign key that references the project table.
+          - name: column_name
+            description: The name of the column within a project that the issue was moved to or removed from.
+          - name: removed
+            description: Boolean for if the issue removed from the column (true) or move to it (false)
+          - name: updated_at
+            description: Timestamp of when the action took place.
+          - name: card_id
+            description: Foreign key that references the card table.
+
       - name: issue
         description: Table that contains 1 entry for every issue created.  Pull Requests also create an entry in this table, and there is a boolean field to determine if an entry is a pull request.
+        columns:
+          - name: issue_id
+            description: System generated unique id for the issue.  This is not the number that appears in the URL.
+          - name: body
+            description: The text of the main description of the issue.
+          - name: closed_at
+            description: Timestamp of when the issue was closed, NULL for issues that are open.
+          - name: created_at
+            description: Timestamp of when the issue was created.
+          - name: milestone_id
+            description: Foreign key that references the milestone table representing the current milestone the issue is in.
+          - name: number
+            description: The issue number within a repository.  Is unique by repository, but not across repositories.
+          - name: pull_request
+            description: Boolean for is the issue is a pull request (true) ot regular issue (false)
+          - name: repository_id
+            description: Foreign key that references the repository table.
+          - name: state
+            description: Whether the issue is open or closed.
+          - name: title
+            description: Title of the issue.
+          - name: updated_at
+            description:  Timestamp of when the last update was made to the issue.
+          - name: user_id
+            description: Foreign key that references the user table, representing the user that created the issue.
+      
       - name: milestone
         description: Table containing milestones, which are user created groups of issues and pull requests to track progress within a project
+        columns:
+          - name: milestone_id
+            description: System generated unique id for the milestone.
+          - name: title
+            description: Title of the milestone.
+          - name: due_ on
+            description: When the milestone is set to be due.
+          - name: repository_id
+            description: Foreign key that references the repository table.
+            
       - name: project
         description: A board to track the progress of different issues
+        columns:
+          - name: project_id
+            description: System generated unique id for the project.
+          - name: name
+            description: The name of the project.
+            
       - name: pull_request_review
         description: Table containing reviews made to pull requests
+        columns:
+          - name: pull_request_id
+            description: Foreign key that references the pull request table.
+          - name: submitted_at
+            description:  Timestamp of when the request for review was submitted.
+          - name: state
+            description: Whether the review was an approval, request for change, comment, dismissal.
+          - name: user_id
+            description: Foreign key that references the user table, representing the user that reviewed the pull request.
+            
       - name: pull_request
         description: A special type of issue that is created when a user wants to merge one branch of code into another
+        columns:
+          - name: pull_request_id
+            description: System generated unique id for the pull request.
+          - name: issue_id
+            description: Foreign key that references the issue table.
+          - name: head_repo_id
+            description: Foreign key that references the repository table, referencing the current branch.
+          - name: head_user_id
+            description: Foreign key that references the user table, referencing who created the current branch.
+            
       - name: repository
         description: Table representing the file structure of a directory under git control
+        columns:
+          - name: repository_id
+            description: System generated unique id for the repository.
+          - name: full_name
+            description: The name of the git repository.
+            
       - name: requested_reviewer_history
         description: Table containing when a user requests another user to review a pull request
+        columns:
+          - name: pull_request_id
+            description: Foreign key that references the pull request table.
+          - name: created_at
+            description:  Timestamp of when the review was submitted.
+          - name: requested_id
+            description: Foreign key that references the user table, representing the user that was requested to review a PR.
+            
       - name: user
         description: Table representing contributors to a git project
+        columns:
+          - name: user_id
+            description: System generated unique id for the user.
+          - name: login
+            description: The alias the user uses to login to github.
+            
