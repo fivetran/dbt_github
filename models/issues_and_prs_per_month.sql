@@ -43,6 +43,17 @@ with github_issues as (
       date_trunc(date(merged_at), month) as month, 
       count(*) as number_prs_merged
     from pull_requests
+    where merged_at is not null
+    group by 1
+
+), prs_closed_without_merge_per_month as (
+
+   select 
+      date_trunc(date(closed_at), month) as month, 
+      count(*) as number_prs_closed_without_merge
+    from pull_requests
+    where closed_at is not null
+      and merged_at is null
     group by 1
 
 ), issues_per_month as (
@@ -66,10 +77,12 @@ with github_issues as (
       ) as month,
       number_prs_opened,
       number_prs_merged,
+      number_prs_closed_without_merge,
       average_length_pr_open,
       longest_length_pr_open
     from prs_opened_per_month
     full outer join prs_merged_per_month on prs_opened_per_month.month = prs_merged_per_month.month
+    full outer join prs_closed_without_merge_per_month on coalesce(prs_opened_per_month.month, prs_merged_per_month.month) = prs_closed_without_merge_per_month.month
 
 )
 
@@ -83,7 +96,9 @@ select
   longest_length_issue_open,
   coalesce(number_prs_opened, 0) as number_prs_opened,
   coalesce(number_prs_merged, 0) as number_prs_merged,
+  coalesce(number_prs_closed_without_merge, 0) as number_prs_closed_without_merge,
   average_length_pr_open,
   longest_length_pr_open
 from issues_per_month 
 full outer join prs_per_month on issues_per_month.month = prs_per_month.month
+order by month desc
