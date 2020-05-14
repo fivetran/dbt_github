@@ -50,13 +50,13 @@ with pull_request_review as (
 select
   first_request_time.issue_id,
   merged_at,
-  timestamp_diff(coalesce(time_of_first_review_post_request, current_timestamp()),time_of_first_request, second)/3600 as hours_first_review_post_request,
+  timestamp_diff(coalesce(time_of_first_review_post_request, current_timestamp()),time_of_first_request, second)/3600 as hours_request_review_to_first_review,
   --Finds time between first request for review and the review action, uses current_timestamp is no action yet
   timestamp_diff(
     least(
     coalesce(time_of_first_requested_reviewer_review, current_timestamp()),
     coalesce(issue.closed_at, current_timestamp())
-  ), time_of_first_request, second)/3600 as hours_first_action_post_request,
+  ), time_of_first_request, second)/3600 as hours_request_review_to_first_action,
   timestamp_diff(merged_at, time_of_first_request, second)/3600 as hours_request_review_to_merge
 from first_request_time
 join issue on first_request_time.issue_id = issue.issue_id

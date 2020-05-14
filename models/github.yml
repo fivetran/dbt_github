@@ -110,11 +110,11 @@ models:
 
       - name: created_by
         description: The User who created the pull request
-
-      - name: hours_first_review_post_request
+        
+      - name: hours_request_review_to_first_review
         description: Number of hours between the first request for review and a review
 
-      - name: hours_first_action_post_request
+      - name: hours_request_review_to_first_action
         description: Number of hours between the first request for review and any action besides dismissing the request
 
       - name: hours_request_review_to_merge
