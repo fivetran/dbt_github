@@ -59,7 +59,9 @@ select
   labels.labels,
   repository.full_name as repository,
   issue_assignees.assignees,
-  creator.login as created_by,
+  creator.login_name as creator_login_name,
+  creator.name as creator_name,
+  creator.company as creator_company,
   hours_first_review_post_request,
   hours_first_action_post_request,
   hours_request_review_to_merge,
@@ -69,7 +71,7 @@ select
 from issue
 left join issue_labels as labels
   on issue.issue_id = labels.issue_id
-left join repository
+join repository
   on issue.repository_id = repository.repository_id
 left join issue_assignees
   on issue.issue_id = issue_assignees.issue_id
