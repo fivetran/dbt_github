@@ -56,6 +56,7 @@ select
   issue.updated_at,
   concat('https://github.com/', repository.full_name, '/pull/', cast(issue.number as string)) as url_link,
   issue_open_length.days_issue_open as days_pr_open,
+  issue_open_length.number_of_times_reopened,
   labels.labels,
   repository.full_name as repository,
   issue_assignees.assignees,
