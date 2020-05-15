@@ -11,8 +11,8 @@ with pull_request_review as (
 )
 
 select
-  pull_request_id,
-  string_agg(login_name, ', ') as reviewers,
+  pull_request_review.pull_request_id,
+  {{ string_agg( 'user.login_name', "', '" )}} as reviewers,
   count(*) as number_of_reviews
 from pull_request_review
 left join user on pull_request_review.user_id = user.user_id
