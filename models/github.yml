@@ -65,7 +65,7 @@ models:
       - name: created_by
         description: The user who created the issue
 
-  - name: pull_request
+  - name: github_pull_requests
     description: >
       Basic information about pull_requests as well as additional fields about reviews and time between actions
     columns:

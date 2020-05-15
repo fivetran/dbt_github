@@ -13,8 +13,8 @@ with github_issues as (
    select 
       date_trunc(date(created_at), month) as month, 
       count(*) as number_issues_opened,
-      avg(days_issue_open) as average_length_issue_open,
-      max(days_issue_open) as longest_length_issue_open
+      avg(days_issue_open) as average_days_issue_open,
+      max(days_issue_open) as longest_days_issue_open
     from github_issues
     group by 1
 
@@ -32,8 +32,8 @@ with github_issues as (
    select 
       date_trunc(date(created_at), month) as month, 
       count(*) as number_prs_opened,
-      avg(days_pr_open) as average_length_pr_open,
-      max(days_pr_open) as longest_length_pr_open
+      avg(days_issue_open) as average_days_pr_open,
+      max(days_issue_open) as longest_days_pr_open
     from pull_requests
     group by 1
 
@@ -64,8 +64,8 @@ with github_issues as (
       ) as month,
       number_issues_opened,
       number_issues_closed,      
-      average_length_issue_open,
-      longest_length_issue_open
+      average_days_issue_open,
+      longest_days_issue_open
     from issues_opened_per_month
     full outer join issues_closed_per_month on issues_opened_per_month.month = issues_closed_per_month.month
 
@@ -78,8 +78,8 @@ with github_issues as (
       number_prs_opened,
       number_prs_merged,
       number_prs_closed_without_merge,
-      average_length_pr_open,
-      longest_length_pr_open
+      average_days_pr_open,
+      longest_days_pr_open
     from prs_opened_per_month
     full outer join prs_merged_per_month on prs_opened_per_month.month = prs_merged_per_month.month
     full outer join prs_closed_without_merge_per_month on coalesce(prs_opened_per_month.month, prs_merged_per_month.month) = prs_closed_without_merge_per_month.month
@@ -92,13 +92,13 @@ select
   ) as month,
   coalesce(number_issues_opened, 0) as number_issues_opened,
   coalesce(number_issues_closed, 0) as number_issues_closed,
-  average_length_issue_open,
-  longest_length_issue_open,
+  average_days_issue_open,
+  longest_days_issue_open,
   coalesce(number_prs_opened, 0) as number_prs_opened,
   coalesce(number_prs_merged, 0) as number_prs_merged,
   coalesce(number_prs_closed_without_merge, 0) as number_prs_closed_without_merge,
-  average_length_pr_open,
-  longest_length_pr_open
+  average_days_pr_open,
+  longest_days_pr_open
 from issues_per_month 
 full outer join prs_per_month on issues_per_month.month = prs_per_month.month
 order by month desc

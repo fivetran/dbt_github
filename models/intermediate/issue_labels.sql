@@ -7,6 +7,6 @@ with issue_label as (
 
 select
   issue_id,
-  string_agg(label, ', ' order by label) as labels
+  {{ string_agg( 'label', "', '" )}} as labels
 from issue_label
 group by issue_id
