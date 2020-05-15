@@ -129,7 +129,80 @@ models:
       - name: number_of_reviews
         description: Number of times a pull request was reviewed
 
-  - name: issues_and_prs_per_month
+  - name: github_daily_metrics
+    description: >
+      Summary numbers for issues and pull requests by day
+    columns:
+      - name: day
+        description: The reporting day
+        tests:
+          - unique
+          - not_null
+      - name: number_issues_opened
+        description: The total number of issues created during this time period
+
+      - name: number_issues_closed
+        description: The total number of issues closed during this time period
+
+      - name: avg_days_issue_open
+        description: The average number of days an issue opened during this time period was open
+
+      - name: longest_days_issue_open
+        description: The longest number of days an issue opened during this time period was open
+
+      - name: number_prs_opened
+        description: The total number of pull requests created during this time period
+
+      - name: number_prs_merged
+        description: The total number of pull requests merged during this time period
+      
+      - name: number_prs_closed_without_merge
+        description: The total number of pull requests closed without a merge during this time period
+
+      - name: avg_days_pr_open
+        description: The average number of days a pull request opened during this time period was open
+
+      - name: longest_days_pr_open
+        description: The longest number of days a pull request opened during this time period was open
+
+
+  - name: github_weekly_metrics
+    description: >
+      Summary numbers for issues and pull requests by week
+    columns:
+      - name: week
+        description: The reporting week
+        tests:
+          - unique
+          - not_null
+      - name: number_issues_opened
+        description: The total number of issues created during this time period
+
+      - name: number_issues_closed
+        description: The total number of issues closed during this time period
+
+      - name: avg_days_issue_open
+        description: The average number of days an issue opened during this time period was open
+
+      - name: longest_days_issue_open
+        description: The longest number of days an issue opened during this time period was open
+
+      - name: number_prs_opened
+        description: The total number of pull requests created during this time period
+
+      - name: number_prs_merged
+        description: The total number of pull requests merged during this time period
+      
+      - name: number_prs_closed_without_merge
+        description: The total number of pull requests closed without a merge during this time period
+
+      - name: avg_days_pr_open
+        description: The average number of days a pull request opened during this time period was open
+
+      - name: longest_days_pr_open
+        description: The longest number of days a pull request opened during this time period was open
+        
+  - name: github_monthly_metrics
     description: >
       Summary numbers for issues and pull requests by month
     columns:
@@ -138,27 +211,66 @@ models:
         tests:
           - unique
           - not_null
-
       - name: number_issues_opened
-        description: The total number of issues created during this month
+        description: The total number of issues created during this time period
 
       - name: number_issues_closed
-        description: The total number of issues closed during this month
+        description: The total number of issues closed during this time period
 
-      - name: average_length_issue_open
-        description: The average number of days an issue opened during this month was open
+      - name: avg_days_issue_open
+        description: The average number of days an issue opened during this time period was open
 
-      - name: longest_length_issue_open
-        description: The longest number of days an issue opened during this month was open
+      - name: longest_days_issue_open
+        description: The longest number of days an issue opened during this time period was open
 
       - name: number_prs_opened
-        description: The total number of pull requests created during this month
+        description: The total number of pull requests created during this time period
 
       - name: number_prs_merged
-        description: The total number of pull requests merged during this month
+        description: The total number of pull requests merged during this time period
+      
+      - name: number_prs_closed_without_merge
+        description: The total number of pull requests closed without a merge during this time period
 
-      - name: average_length_pr_open
-        description: The average number of days a pull request opened during this month was open
+      - name: avg_days_pr_open
+        description: The average number of days a pull request opened during this time period was open
 
-      - name: longest_length_pr_open
-        description: The longest number of days a pull request opened during this month was open
+      - name: longest_days_pr_open
+        description: The longest number of days a pull request opened during this time period was open
+        
+  - name: github_quarterly_metrics
+    description: >
+      Summary numbers for issues and pull requests by quarter
+    columns:
+      - name: quarter
+        description: The reporting quarter
+        tests:
+          - unique
+          - not_null
+      - name: number_issues_opened
+        description: The total number of issues created during this time period
+
+      - name: number_issues_closed
+        description: The total number of issues closed during this time period
+
+      - name: avg_days_issue_open
+        description: The average number of days an issue opened during this time period was open
+
+      - name: longest_days_issue_open
+        description: The longest number of days an issue opened during this time period was open
+
+      - name: number_prs_opened
+        description: The total number of pull requests created during this time period
+
+      - name: number_prs_merged
+        description: The total number of pull requests merged during this time period
+      
+      - name: number_prs_closed_without_merge
+        description: The total number of pull requests closed without a merge during this time period
+
+      - name: avg_days_pr_open
+        description: The average number of days a pull request opened during this time period was open
+
+      - name: longest_days_pr_open
+        description: The longest number of days a pull request opened during this time period was open
+                

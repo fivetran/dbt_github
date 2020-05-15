@@ -4,9 +4,9 @@ This package models Github data from [Fivetran's connector](https://fivetran.com
 
 This package enables you to better understand your Github issues and pull requests.  The main focus is to enhance these two core objects with commonly used metrics. Additonally, the metrics tables allow you to better understand your team's velocity over time.
 
-### Models
+## Models
 
-This package contains transformation models, designed to work simultaneously with our [github source package](https://github.com/fivetran/dbt_github_source). The primary outputs of this package are described below. Intermediate models are used to create these output models.
+This package contains transformation models, designed to work simultaneously with our [github source package](https://github.com/fivetran/dbt_github_source). A depenedency on the source package is declared in this package's `packages.yml` file, so it will automatically download when you run `dbt deps`. The primary outputs of this package are described below. Intermediate models are used to create these output models.
 
 **model**|**description**
 -----|-----
@@ -33,14 +33,14 @@ vars:
     github_schema: your_schema_name 
 ```
 
-### Contributions ###
+## Contributions
 
 Additional contributions to this package are very welcome! Please create issues
 or open PRs against `master`. Check out 
 [this post](https://discourse.getdbt.com/t/contributing-to-a-dbt-package/657) 
 on the best workflow for contributing to a package.
 
-### Resources:
+## Resources:
 - Learn more about Fivetran [here](https://fivetran.com/docs)
 - Check out [Fivetran's blog](https://fivetran.com/blog)
 - Learn more about dbt [in the docs](https://docs.getdbt.com/docs/introduction)

@@ -73,7 +73,8 @@ with github_issues as (
 
     select 
       coalesce(prs_opened_per_day.day, 
-        prs_merged_per_day.day
+        prs_merged_per_day.day,
+        prs_closed_without_merge_per_day.day
       ) as day,
       number_prs_opened,
       number_prs_merged,
