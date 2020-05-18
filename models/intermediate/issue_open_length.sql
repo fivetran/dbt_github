@@ -34,7 +34,7 @@ with issue as (
 
 select
   issue_id,
-  sum({{ dbt_utils.datediff('valid_starting', 'valid_until', 'second') }})/60/60/24 as days_issue_open,
+  sum({{ dbt_utils.datediff('valid_starting', 'valid_until', 'second') }}) /60/60/24 as days_issue_open,
   count(*) - 1 as number_of_times_reopened
 from close_events_with_timestamps
   where not is_closed
