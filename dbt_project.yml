@@ -9,6 +9,4 @@ models:
     github:
         materialized: table
         intermediate:
-            materialized: ephemeral            
-
-profile: fivetran
+            materialized: table            

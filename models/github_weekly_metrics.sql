@@ -7,7 +7,7 @@ with daily_metrics as (
 
 select 
 
-  date_trunc(day, week) as week,
+  {{ dbt_utils.date_trunc('week', 'day') }} as week, 
   sum(number_issues_opened) as number_issues_opened,
   sum(number_issues_closed) as number_issues_closed,
   sum(sum_days_issue_open) / sum(number_issues_opened) as avg_days_issue_open,

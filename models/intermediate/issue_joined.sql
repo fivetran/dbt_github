@@ -52,7 +52,7 @@ with issue as (
 
 select
   issue.*,
-  concat('https://github.com/', repository.full_name, '/pull/', cast(issue.issue_number as string)) as url_link,
+  {{ dbt_utils.concat(["'https://github.com/'",'repository.full_name',"'/pull/'", 'issue.issue_number']) }} as url_link,
   issue_open_length.days_issue_open,
   issue_open_length.number_of_times_reopened,
   labels.labels,
