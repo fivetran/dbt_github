@@ -6,7 +6,7 @@ with issue as (
 ), issue_labels as (
 
     select *
-    from {{ ref('issue_labels')}}
+    from {{ ref('github_issue_labels')}}
 
 ), repository as (
 
@@ -16,17 +16,17 @@ with issue as (
 ), issue_assignees as (
 
     select *
-    from {{ ref('issue_assignees')}}
+    from {{ ref('github_issue_assignees')}}
 
 ), issue_open_length as (
 
     select *
-    from {{ ref('issue_open_length')}}
+    from {{ ref('github_issue_open_length')}}
 
 ), issue_comments as (
 
     select *
-    from {{ ref('issue_comments')}}
+    from {{ ref('github_issue_comments')}}
 
 ), creator as (
 
@@ -36,12 +36,12 @@ with issue as (
 ), pull_request_times as (
 
     select *
-    from {{ ref('pull_request_times')}}
+    from {{ ref('github_pull_request_times')}}
 
 ), pull_request_reviewers as (
 
     select *
-    from {{ ref('pull_request_reviewers')}}
+    from {{ ref('github_pull_request_reviewers')}}
 
 ), pull_request as (
 

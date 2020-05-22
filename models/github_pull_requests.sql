@@ -1,7 +1,7 @@
 with issue_joined as (
 
     select *
-    from {{ ref('issue_joined') }}  
+    from {{ ref('github_issue_joined') }}  
 )
 
 select
