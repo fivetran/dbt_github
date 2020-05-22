@@ -2,7 +2,7 @@
 
 This package models GitHub data from [Fivetran's connector](https://fivetran.com/docs/applications/github). It uses data in the format described by [this ERD](https://docs.google.com/presentation/d/1lx6ez7-x-s-n2JCnCi3SjG4XMmx9ysNUvaNCaWc3I_I/edit).
 
-This package enables you to better understand your GitHub issues and pull requests.  The main focus is to enhance these two core objects with commonly used metrics. Additonally, the metrics tables allow you to better understand your team's velocity over time.  These metrics are available on a daily, weekly, monthly and quarterly level.
+This package enables you to better understand your GitHub issues and pull requests.  The main focus is to enhance these two core objects with commonly used metrics. Additionally, the metrics tables allow you to better understand your team's velocity over time.  These metrics are available on a daily, weekly, monthly and quarterly level.
 
 ## Models
 
