@@ -2,7 +2,7 @@
 
 This package models GitHub data from [Fivetran's connector](https://fivetran.com/docs/applications/github). It uses data in the format described by [this ERD](https://docs.google.com/presentation/d/1lx6ez7-x-s-n2JCnCi3SjG4XMmx9ysNUvaNCaWc3I_I/edit).
 
-This package enables you to better understand your GitHub issues and pull requests.  The main focus is to enhance these two core objects with commonly used metrics. Additionally, the metrics tables allow you to better understand your team's velocity over time.  These metrics are available on a daily, weekly, monthly and quarterly level.
+This package enables you to better understand your GitHub issues and pull requests.  Its main focus is to enhance these two core objects with commonly used metrics. Additionally, the metrics tables let you better understand your team's velocity over time.  These metrics are available on a daily, weekly, monthly and quarterly level.
 
 ## Models
 
@@ -10,8 +10,8 @@ This package contains transformation models, designed to work simultaneously wit
 
 | **model**                  | **description**                                                                                                                                               |
 | -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| github\_issues             | Each record represents a GitHub issue, enriched with data about it's assignees, milestones, and time comparisons.                                             |
-| github\_pull\_requests     | Each record represents a GitHub pull request, enriched with data about it's repository, reviewers, and durations between review requests, merges and reviews. |
+| github\_issues             | Each record represents a GitHub issue, enriched with data about its assignees, milestones, and time comparisons.                                             |
+| github\_pull\_requests     | Each record represents a GitHub pull request, enriched with data about its repository, reviewers, and durations between review requests, merges and reviews. |
 | github\_daily\_metrics     | Each record represents a single day, enriched with metrics about PRs and issues that were created and closed during that period.                              |
 | github\_weekly\_metrics    | Each record represents a single week, enriched with metrics about PRs and issues that were created and closed during that period.                             |
 | github\_monthly\_metrics   | Each record represents a single month, enriched with metrics about PRs and issues that were created and closed during that period.                            |
@@ -19,10 +19,10 @@ This package contains transformation models, designed to work simultaneously wit
 
 
 ## Installation Instructions
-Check [dbt Hub](https://hub.getdbt.com/) for the latest installation instructions, or [read the docs](https://docs.getdbt.com/docs/package-management) for more information on installing packages.
+Check [dbt Hub](https://hub.getdbt.com/) for the latest installation instructions, or [read the dbt docs](https://docs.getdbt.com/docs/package-management) for more information on installing packages.
 
 ## Configuration
-By default this package will look for your GitHub data in the `github` schema of your [target database](https://docs.getdbt.com/docs/running-a-dbt-project/using-the-command-line-interface/configure-your-profile). If this is not where your GitHub data is (perhaps your GitHub schema is `github_fivetran`), please add the following configuration to your `dbt_project.yml` file:
+By default, this package will look for your GitHub data in the `github` schema of your [target database](https://docs.getdbt.com/docs/running-a-dbt-project/using-the-command-line-interface/configure-your-profile). If this is not where your GitHub data is (perhaps your GitHub schema is `github_fivetran`), add the following configuration to your `dbt_project.yml` file:
 
 ```yml
 # dbt_project.yml
@@ -44,10 +44,10 @@ or open PRs against `master`. Check out
 on the best workflow for contributing to a package.
 
 ## Resources:
-- Learn more about Fivetran [here](https://fivetran.com/docs)
+- Learn more about Fivetran [in the Fivetran docs](https://fivetran.com/docs)
 - Check out [Fivetran's blog](https://fivetran.com/blog)
-- Learn more about dbt [in the docs](https://docs.getdbt.com/docs/introduction)
+- Learn more about dbt [in the dbt docs](https://docs.getdbt.com/docs/introduction)
 - Check out [Discourse](https://discourse.getdbt.com/) for commonly asked questions and answers
 - Join the [chat](http://slack.getdbt.com/) on Slack for live discussions and support
 - Find [dbt events](https://events.getdbt.com) near you
-- Check out [the blog](https://blog.getdbt.com/) for the latest news on dbt's development and best practices
+- Check out [the dbt blog](https://blog.getdbt.com/) for the latest news on dbt's development and best practices
