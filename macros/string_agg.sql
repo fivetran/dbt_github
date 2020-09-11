@@ -1,6 +1,6 @@
 {% macro string_agg(field_to_agg, delimiter) -%}
 
-{{ adapter_macro('github.string_agg', field_to_agg, delimiter) }}
+{{ adapter.dispatch('string_agg', packages = github._get_utils_namespaces()) (field_to_agg, delimiter) }}
 
 {%- endmacro %}
 
