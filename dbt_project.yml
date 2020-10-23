@@ -13,5 +13,4 @@ models:
 
 vars:
     dbt_utils_dispatch_list:
-        - github    # likely the name of your root project
-        - dbt_utils 
+        - fivetran_utils
