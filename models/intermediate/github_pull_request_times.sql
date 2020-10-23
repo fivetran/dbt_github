@@ -33,17 +33,17 @@ with pull_request_review as (
       pull_request.issue_id,
       pull_request.pull_request_id,
       -- Finds the first review that is by the requested reviewer and is not a dismissal
-      case when requested_reviewer_history.requested_id = pull_request_review.user_id then
+      min(case when requested_reviewer_history.requested_id = pull_request_review.user_id then
           case when lower(pull_request_review.state) in ('commented', 'approved', 'changes_requested') 
                 then pull_request_review.submitted_at end 
-      else null end as time_of_first_requested_reviewer_review,
+      else null end) as time_of_first_requested_reviewer_review,
       min(requested_reviewer_history.created_at) as time_of_first_request,
       min(pull_request_review.submitted_at) as time_of_first_review_post_request
     from pull_request
     join requested_reviewer_history on requested_reviewer_history.pull_request_id = pull_request.pull_request_id
     left join pull_request_review on pull_request_review.pull_request_id = pull_request.pull_request_id
       and pull_request_review.submitted_at > requested_reviewer_history.created_at
-    group by 1, 2, 3
+    group by 1, 2
 
 )
 
