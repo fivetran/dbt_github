@@ -1,13 +1,10 @@
 with daily_metrics as (
-
     select *
-    from {{ ref('github_daily_metrics') }}
-
+    from {{ ref('github__daily_metrics') }}
 )
 
 select 
-
-  {{ dbt_utils.date_trunc('week', 'day') }} as week, 
+  {{ dbt_utils.date_trunc('quarter', 'day') }} as quarter, 
   sum(number_issues_opened) as number_issues_opened,
   sum(number_issues_closed) as number_issues_closed,
   sum(sum_days_issue_open) / sum(number_issues_opened) as avg_days_issue_open,

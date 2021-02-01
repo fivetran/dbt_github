@@ -1,0 +1,65 @@
+name: 'github_integration_tests'
+version: '0.2.0'
+config-version: 2
+
+profile: 'integration_tests'
+
+vars:
+  github:
+    issue_assignee:                 "{{ ref('stg_github__issue_assignee') }}"
+    issue_closed_history:           "{{ ref('stg_github__issue_closed_history') }}"
+    issue_comment:                  "{{ ref('stg_github__issue_comment') }}"
+    issue_label:                    "{{ ref('stg_github__issue_label') }}"
+    issue_merged:                   "{{ ref('stg_github__issue_merged') }}"
+    issue:                          "{{ ref('stg_github__issue') }}"
+    pull_request_review:            "{{ ref('stg_github__pull_request_review') }}"
+    pull_request:                   "{{ ref('stg_github__pull_request') }}"
+    repository:                     "{{ ref('stg_github__repository') }}"
+    repo_team:                      "{{ ref('stg_github__repo_team') }}"
+    requested_reviewer_history:     "{{ ref('stg_github__requested_reviewer_history') }}"
+    team:                           "{{ ref('stg_github__team') }}"
+    user:                           "{{ ref('stg_github__user') }}"
+
+  github_source:
+    issue_assignee:               "{{ ref('github_issue_assignee_data') }}"
+    issue_closed_history:         "{{ ref('github_issue_closed_history_data') }}"
+    issue_comment:                "{{ ref('github_issue_comment_data') }}"
+    issue_label:                  "{{ ref('github_issue_label_data') }}"
+    issue_merged:                 "{{ ref('github_issue_merged_data') }}"
+    issue:                        "{{ ref('github_issue_data') }}"
+    pull_request_review:          "{{ ref('github_pull_request_review_data') }}"
+    pull_request:                 "{{ ref('github_pull_request_data') }}"
+    repository:                   "{{ ref('github_repository_data') }}"
+    repo_team:                    "{{ ref('github_repo_team_data') }}"
+    requested_reviewer_history:   "{{ ref('github_requested_reviewer_history_data') }}"
+    team:                         "{{ ref('github_team_data') }}"
+    user:                         "{{ ref('github_user_data') }}"
+
+    github_schema: github_integration_tests
+
+seeds:
+  +quote_columns: "{{ true if target.type == 'redshift' else false }}"
+  github_source_integration_tests:
+    +column_types:
+      _fivetran_synced: timestamp
+    github_issue_comment_data:
+      +column_types:
+        id: "{%- if target.type == 'bigquery' -%} INT64 {%- else -%} bigint {%- endif -%}"
+    github_issue_merged_data:
+      +column_types:
+        merged_at: timestamp
+    github_issue_data:
+      +column_types:
+        closed_at: timestamp
+        created_at: timestamp
+        updated_at: timestamp
+    github_pull_request_review_data:
+      +column_types:
+        id: "{%- if target.type == 'bigquery' -%} INT64 {%- else -%} bigint {%- endif -%}"
+        submitted_at: timestamp
+    github_repository_data:
+      +column_types:
+        created_at: timestamp
+    github_requested_reviewer_history_data:
+      +column_types:
+        created_at: timestamp

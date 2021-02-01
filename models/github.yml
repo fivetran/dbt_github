@@ -1,7 +1,7 @@
 version: 2
 
 models:
-  - name: github_issues
+  - name: github__issues
     description: >
       Basic information about issues as well as additional fields for things like assignees, projects, labels and open time
     columns:
@@ -47,6 +47,9 @@ models:
       - name: repository
         description: The repository that the issue is applicable to
 
+      - name: repository_team_names
+        description: An aggreate of the teams associated with the repository
+
       - name: milestone
         description: The planning milestone that the issue is currently included in
 
@@ -65,7 +68,7 @@ models:
       - name: created_by
         description: The user who created the issue
 
-  - name: github_pull_requests
+  - name: github__pull_requests
     description: >
       Basic information about pull_requests as well as additional fields about reviews and time between actions
     columns:
@@ -105,6 +108,9 @@ models:
       - name: repository
         description: The repository that the pull request applies to
 
+      - name: repository_team_names
+        description: An aggreate of the teams associated with the repository
+
       - name: assignees
         description: Users who have been assigned to the pull request
 
@@ -129,7 +135,7 @@ models:
       - name: number_of_reviews
         description: Number of times a pull request was reviewed
 
-  - name: github_daily_metrics
+  - name: github__daily_metrics
     description: >
       Summary numbers for issues and pull requests by day
     columns:
@@ -166,7 +172,7 @@ models:
         description: The longest number of days a pull request opened during this time period was open
 
 
-  - name: github_weekly_metrics
+  - name: github__weekly_metrics
     description: >
       Summary numbers for issues and pull requests by week
     columns:
@@ -202,7 +208,7 @@ models:
       - name: longest_days_pr_open
         description: The longest number of days a pull request opened during this time period was open
         
-  - name: github_monthly_metrics
+  - name: github__monthly_metrics
     description: >
       Summary numbers for issues and pull requests by month
     columns:
@@ -238,7 +244,7 @@ models:
       - name: longest_days_pr_open
         description: The longest number of days a pull request opened during this time period was open
         
-  - name: github_quarterly_metrics
+  - name: github__quarterly_metrics
     description: >
       Summary numbers for issues and pull requests by quarter
     columns:

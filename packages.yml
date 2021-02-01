@@ -1,6 +1,7 @@
 packages:
-  - package: fivetran/github_source
-    version: 0.1.1
+  # - package: fivetran/github_source
+  #   version: 0.2.1
 
-  - git: https://github.com/fivetran/dbt_fivetran_utils.git
+  - git: https://github.com/fivetran/dbt_github_source.git
+    revision: dbt_v19_branch
     warn-unpinned: false

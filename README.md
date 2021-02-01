@@ -1,4 +1,4 @@
-# GitHub 
+# GitHub ([Docs]())
 
 This package models GitHub data from [Fivetran's connector](https://fivetran.com/docs/applications/github). It uses data in the format described by [this ERD](https://docs.google.com/presentation/d/1lx6ez7-x-s-n2JCnCi3SjG4XMmx9ysNUvaNCaWc3I_I/edit).
 
@@ -10,12 +10,12 @@ This package contains transformation models, designed to work simultaneously wit
 
 | **model**                  | **description**                                                                                                                                               |
 | -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| github\_issues             | Each record represents a GitHub issue, enriched with data about its assignees, milestones, and time comparisons.                                             |
-| github\_pull\_requests     | Each record represents a GitHub pull request, enriched with data about its repository, reviewers, and durations between review requests, merges and reviews. |
-| github\_daily\_metrics     | Each record represents a single day, enriched with metrics about PRs and issues that were created and closed during that period.                              |
-| github\_weekly\_metrics    | Each record represents a single week, enriched with metrics about PRs and issues that were created and closed during that period.                             |
-| github\_monthly\_metrics   | Each record represents a single month, enriched with metrics about PRs and issues that were created and closed during that period.                            |
-| github\_quarterly\_metrics | Each record represents a single quarter, enriched with metrics about PRs and issues that were created and closed during that period.                          |
+| [github__issues]()             | Each record represents a GitHub issue, enriched with data about its assignees, milestones, and time comparisons.                                             |
+| [github__pull_requests]()     | Each record represents a GitHub pull request, enriched with data about its repository, reviewers, and durations between review requests, merges and reviews. |
+| [github__daily_metrics]()     | Each record represents a single day, enriched with metrics about PRs and issues that were created and closed during that period.                              |
+| [github__weekly_metrics]()    | Each record represents a single week, enriched with metrics about PRs and issues that were created and closed during that period.                             |
+| [github__monthly_metrics]()   | Each record represents a single month, enriched with metrics about PRs and issues that were created and closed during that period.                            |
+| [github__quarterly_metrics]() | Each record represents a single quarter, enriched with metrics about PRs and issues that were created and closed during that period.                          |
 
 
 ## Installation Instructions

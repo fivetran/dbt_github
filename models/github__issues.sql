@@ -1,7 +1,6 @@
 with issue_joined as (
-
     select *
-    from {{ ref('github_issue_joined') }}  
+    from {{ ref('int_github__issue_joined') }}  
 )
 
 select
@@ -24,6 +23,7 @@ select
   labels,
   number_of_comments,
   repository,
+  repository_team_names,
   assignees,
   creator_login_name,
   creator_name,

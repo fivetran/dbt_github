@@ -1,63 +1,62 @@
 with issue as (
-
     select *
-    from {{ ref('stg_github_issue') }}
-  
-), issue_labels as (
+    from {{ ref('stg_github__issue') }}
+), 
 
+issue_labels as (
     select *
-    from {{ ref('github_issue_labels')}}
+    from {{ ref('int_github__issue_labels')}}
+), 
 
-), repository as (
-
+repository_teams as (
     select *
-    from {{ ref('stg_github_repository')}}
+    from {{ ref('int_github__repository_teams')}}
+), 
 
-), issue_assignees as (
-
+issue_assignees as (
     select *
-    from {{ ref('github_issue_assignees')}}
+    from {{ ref('int_github__issue_assignees')}}
+), 
 
-), issue_open_length as (
-
+issue_open_length as (
     select *
-    from {{ ref('github_issue_open_length')}}
+    from {{ ref('int_github__issue_open_length')}}
+), 
 
-), issue_comments as (
-
+issue_comments as (
     select *
-    from {{ ref('github_issue_comments')}}
+    from {{ ref('int_github__issue_comments')}}
+), 
 
-), creator as (
-
+creator as (
     select *
-    from {{ ref('stg_github_user')}}
+    from {{ ref('stg_github__user')}}
+), 
 
-), pull_request_times as (
-
+pull_request_times as (
     select *
-    from {{ ref('github_pull_request_times')}}
+    from {{ ref('int_github__pull_request_times')}}
+), 
 
-), pull_request_reviewers as (
-
+pull_request_reviewers as (
     select *
-    from {{ ref('github_pull_request_reviewers')}}
+    from {{ ref('int_github__pull_request_reviewers')}}
+), 
 
-), pull_request as (
-
+pull_request as (
     select *
-    from {{ ref('stg_github_pull_request')}}
-
+    from {{ ref('stg_github__pull_request')}}
 )
 
 select
   issue.*,
-  {{ dbt_utils.concat(["'https://github.com/'",'repository.full_name',"'/pull/'", 'issue.issue_number']) }} as url_link,
+  {{ dbt_utils.concat(["'https://github.com/'",'repository_teams.repository',"'/pull/'", 'issue.issue_number']) }} as url_link,
   issue_open_length.days_issue_open,
   issue_open_length.number_of_times_reopened,
   labels.labels,
   issue_comments.number_of_comments,
-  repository.full_name as repository,
+  repository_teams.repository,
+  repository_teams.repository_team_names,
   issue_assignees.assignees,
   creator.login_name as creator_login_name,
   creator.name as creator_name,
@@ -71,8 +70,8 @@ select
 from issue
 left join issue_labels as labels
   on issue.issue_id = labels.issue_id
-join repository
-  on issue.repository_id = repository.repository_id
+join repository_teams
+  on issue.repository_id = repository_teams.repository_id
 left join issue_assignees
   on issue.issue_id = issue_assignees.issue_id
 left join issue_open_length
