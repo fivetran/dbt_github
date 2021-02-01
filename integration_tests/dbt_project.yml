@@ -39,7 +39,7 @@ vars:
 
 seeds:
   +quote_columns: "{{ true if target.type == 'redshift' else false }}"
-  github_source_integration_tests:
+  github_integration_tests:
     +column_types:
       _fivetran_synced: timestamp
     github_issue_comment_data:
@@ -52,6 +52,9 @@ seeds:
       +column_types:
         closed_at: timestamp
         created_at: timestamp
+        updated_at: timestamp
+    github_issue_closed_history_data:
+      +column_types:
         updated_at: timestamp
     github_pull_request_review_data:
       +column_types:

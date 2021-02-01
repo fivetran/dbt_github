@@ -9,7 +9,7 @@ issue_closed_history as (
 ), 
 
 close_events_stacked as (
-    select  
+    select   
       issue_id,
       created_at as updated_at,
       false as is_closed
