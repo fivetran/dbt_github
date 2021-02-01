@@ -4,4 +4,4 @@ packages:
 
   - git: https://github.com/fivetran/dbt_github_source.git
     revision: dbt_v19_branch
-    warn-unpinned: false
+    warn-unpinned: false 
