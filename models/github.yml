@@ -20,8 +20,20 @@ models:
       - name: created_at
         description: The timestamp for when an issue was created
 
-      - name: number
+      - name: is_locked
+        description: Boolean indicating if the issue is locked.
+
+      - name: milestone_id
+        description: Foreign key that references the milestone table representing the current milestone the issue is in
+
+      - name: issue_number
         description: The number of the issue.  Is unique within a repository, but not accross
+
+      - name: is_pull_request
+        description: Boolean indicating whether the issue is a pull request
+
+      - name: repository_id
+        description: Foreign key that references the repository table
 
       - name: state
         description: Whether the issue is open or closed
@@ -32,17 +44,32 @@ models:
       - name: updated_at
         description: Timestamp of when the issue was last updated
 
+      - name: user_id
+        description: Foreign key that references the user table.
+
       - name: url_link
         description: a link to the issue on github.com
 
       - name: days_issue_open
         description: The number of days an issue has been open
 
+      - name: number_of_times_reopened
+        description: Total number of times the issue was reopened
+
       - name: labels
         description: A list of the labels that are currently applied to the issue
 
-      - name: projects
-        description: A list of project boards that the issue has been assigned to
+      - name: number_of_comments
+        description: The total number of comments included in the issue
+
+      - name: creator_login_name
+        description: User that created the issue login name
+
+      - name: creator_name
+        description: User that created the issue name.
+
+      - name: creator_company
+        description: User that created the issue company name.
 
       - name: repository
         description: The repository that the issue is applicable to
@@ -50,23 +77,8 @@ models:
       - name: repository_team_names
         description: An aggreate of the teams associated with the repository
 
-      - name: milestone
-        description: The planning milestone that the issue is currently included in
-
-      - name: milestone_due_on
-        description: The due date of the milestone that the issue is currently included in
-
       - name: assignees
         description: The current list of users assigned to the issue
-
-      - name: days_blocked
-        description: The number of days an issue has had a label the includes the 'blocked'
-
-      - name: inbox_days
-        description: The number of days an issue was in a status including "inbox" within a project
-
-      - name: created_by
-        description: The user who created the issue
 
   - name: github__pull_requests
     description: >
@@ -87,8 +99,44 @@ models:
       - name: created_at
         description: Timestamp of when the pull request was created
 
-      - name: number
+      - name: is_locked
+        description: Boolean indicating whether the issue is locked.
+
+      - name: milestone_id
+        description: Foreign key that references the milestone.
+
+      - name: is_pull_request
+        description: Boolean indiciating whether the issue is a pull request.
+
+      - name: issue_number
         description: The number of the pull request.  Unique within a repository, but not accross.
+
+      - name: repository_id
+        description: Foreign key that references the repository table
+
+      - name: updated_at
+        description: Timestamp of when the issue was last updated
+
+      - name: user_id
+        description: Foreign key that references the user table.
+
+      - name: days_issue_open
+        description: The number of days an issue has been open
+
+      - name: number_of_times_reopened
+        description: Total number of times the issue was reopened
+
+      - name: number_of_comments
+        description: The total number of comments included in the issue
+
+      - name: creator_login_name
+        description: User that created the issue login name
+
+      - name: creator_name
+        description: User that created the issue name.
+
+      - name: creator_company
+        description: User that created the issue company name.
 
       - name: state
         description: Whether the pull request is open or closed.
@@ -98,9 +146,6 @@ models:
 
       - name: url_link
         description: A link to the pull request on github.com
-
-      - name: days_pr_open
-        description: The number of days a pull request has been open
 
       - name: labels
         description: The labels currently applied to the pull request
@@ -113,9 +158,6 @@ models:
 
       - name: assignees
         description: Users who have been assigned to the pull request
-
-      - name: created_by
-        description: The User who created the pull request
         
       - name: hours_request_review_to_first_review
         description: Number of hours between the first request for review and a review
@@ -129,7 +171,7 @@ models:
       - name: merged_at
         description: Timestamp of when the pull request was merged
 
-      - name: reviwers
+      - name: reviewers
         description: List of Users who reviewed the pull request
 
       - name: number_of_reviews
@@ -150,8 +192,8 @@ models:
       - name: number_issues_closed
         description: The total number of issues closed during this time period
 
-      - name: avg_days_issue_open
-        description: The average number of days an issue opened during this time period was open
+      - name: sum_days_issue_open
+        description: The total number of days an issue opened during this time period was open
 
       - name: longest_days_issue_open
         description: The longest number of days an issue opened during this time period was open
@@ -165,8 +207,8 @@ models:
       - name: number_prs_closed_without_merge
         description: The total number of pull requests closed without a merge during this time period
 
-      - name: avg_days_pr_open
-        description: The average number of days a pull request opened during this time period was open
+      - name: sum_days_pr_open
+        description: The total number of days a pull request opened during this time period was open
 
       - name: longest_days_pr_open
         description: The longest number of days a pull request opened during this time period was open

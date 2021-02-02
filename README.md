@@ -1,4 +1,4 @@
-# GitHub ([Docs]())
+# GitHub ([Docs](https://dbt-github.netlify.app/))
 
 This package models GitHub data from [Fivetran's connector](https://fivetran.com/docs/applications/github). It uses data in the format described by [this ERD](https://docs.google.com/presentation/d/1lx6ez7-x-s-n2JCnCi3SjG4XMmx9ysNUvaNCaWc3I_I/edit).
 
@@ -10,12 +10,12 @@ This package contains transformation models, designed to work simultaneously wit
 
 | **model**                  | **description**                                                                                                                                               |
 | -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [github__issues]()             | Each record represents a GitHub issue, enriched with data about its assignees, milestones, and time comparisons.                                             |
-| [github__pull_requests]()     | Each record represents a GitHub pull request, enriched with data about its repository, reviewers, and durations between review requests, merges and reviews. |
-| [github__daily_metrics]()     | Each record represents a single day, enriched with metrics about PRs and issues that were created and closed during that period.                              |
-| [github__weekly_metrics]()    | Each record represents a single week, enriched with metrics about PRs and issues that were created and closed during that period.                             |
-| [github__monthly_metrics]()   | Each record represents a single month, enriched with metrics about PRs and issues that were created and closed during that period.                            |
-| [github__quarterly_metrics]() | Each record represents a single quarter, enriched with metrics about PRs and issues that were created and closed during that period.                          |
+| [github__issues](https://github.com/fivetran/dbt_github/blob/master/models/github__issues.sql)             | Each record represents a GitHub issue, enriched with data about its assignees, milestones, and time comparisons.                                             |
+| [github__pull_requests](https://github.com/fivetran/dbt_github/blob/master/models/github__pull_requests.sql)     | Each record represents a GitHub pull request, enriched with data about its repository, reviewers, and durations between review requests, merges and reviews. |
+| [github__daily_metrics](https://github.com/fivetran/dbt_github/blob/master/models/github__daily_metrics.sql)     | Each record represents a single day, enriched with metrics about PRs and issues that were created and closed during that period.                              |
+| [github__weekly_metrics](https://github.com/fivetran/dbt_github/blob/master/models/github__weekly_metrics.sql)    | Each record represents a single week, enriched with metrics about PRs and issues that were created and closed during that period.                             |
+| [github__monthly_metrics](https://github.com/fivetran/dbt_github/blob/master/models/github__monthly_metrics.sql)   | Each record represents a single month, enriched with metrics about PRs and issues that were created and closed during that period.                            |
+| [github__quarterly_metrics](https://github.com/fivetran/dbt_github/blob/master/models/github__quarterly_metrics.sql) | Each record represents a single quarter, enriched with metrics about PRs and issues that were created and closed during that period.                          |
 
 
 ## Installation Instructions
@@ -35,6 +35,9 @@ vars:
     github_database: your_database_name
     github_schema: your_schema_name 
 ```
+
+## Database support
+This package has been tested on BigQuery, Snowflake and Redshift.
 
 ## Contributions
 
