@@ -9,7 +9,7 @@ models:
     github:
         materialized: table
         intermediate:
-            materialized: table
+            materialized: ephemeral
  
 vars:
     github:
