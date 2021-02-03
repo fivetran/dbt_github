@@ -1,8 +1,6 @@
 with daily_metrics as (
-
     select *
-    from {{ ref('github_daily_metrics') }}
-
+    from {{ ref('github__daily_metrics') }}
 )
 
 select 
@@ -16,7 +14,6 @@ select
   sum(number_prs_closed_without_merge) as number_prs_closed_without_merge,
   sum(sum_days_pr_open) / sum(number_prs_opened) as avg_days_pr_open,
   max(longest_days_pr_open) as longest_days_pr_open
-
 from daily_metrics 
 group by 1
 order by 1 desc

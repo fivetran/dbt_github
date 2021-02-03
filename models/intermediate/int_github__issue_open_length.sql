@@ -1,15 +1,15 @@
 with issue as (
-    
     select *
-    from {{ ref('stg_github_issue') }}
-  
-), issue_closed_history as (
+    from {{ ref('stg_github__issue') }}
+), 
 
+issue_closed_history as (
     select *
-    from {{ ref('stg_github_issue_closed_history') }}
-  
-), close_events_stacked as (
-    select  
+    from {{ ref('stg_github__issue_closed_history') }}
+), 
+
+close_events_stacked as (
+    select   
       issue_id,
       created_at as updated_at,
       false as is_closed
@@ -20,16 +20,15 @@ with issue as (
       updated_at,
       is_closed
     from issue_closed_history
+), 
 
-), close_events_with_timestamps as (
-
+close_events_with_timestamps as (
   select
     issue_id,
     updated_at as valid_starting,
     coalesce(lead(updated_at) over (partition by issue_id order by updated_at), {{ dbt_utils.current_timestamp() }}) as valid_until,
     is_closed
   from close_events_stacked
-
 )
 
 select

@@ -1,8 +1,6 @@
 with issue_label as (
-
     select *
-    from {{ ref('stg_github_issue_label') }}
-  
+    from {{ ref('stg_github__issue_label') }}
 )
 
 select

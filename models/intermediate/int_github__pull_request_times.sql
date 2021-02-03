@@ -1,34 +1,33 @@
 with pull_request_review as (
-
     select *
-    from {{ ref('stg_github_pull_request_review') }}
-  
-), pull_request as (
+    from {{ ref('stg_github__pull_request_review') }}
+), 
 
+pull_request as (
     select *
-    from {{ ref('stg_github_pull_request')}}
+    from {{ ref('stg_github__pull_request')}}
+), 
 
-), requested_reviewer_history as (
-
+requested_reviewer_history as (
     select *
-    from {{ ref('stg_github_requested_reviewer_history')}}
+    from {{ ref('stg_github__requested_reviewer_history')}}
     where not removed
+), 
 
-), issue as (
-
+issue as (
     select *
-    from {{ ref('stg_github_issue') }}
-  
-), issue_merged as (
+    from {{ ref('stg_github__issue') }}
+), 
 
+issue_merged as (
     select
       issue_id,
       min(merged_at) as merged_at
-      from {{ ref('stg_github_issue_merged')}}
+      from {{ ref('stg_github__issue_merged')}}
     group by 1
+), 
 
-), first_request_time as (
-
+first_request_time as (
     select
       pull_request.issue_id,
       pull_request.pull_request_id,
@@ -44,7 +43,6 @@ with pull_request_review as (
     left join pull_request_review on pull_request_review.pull_request_id = pull_request.pull_request_id
       and pull_request_review.submitted_at > requested_reviewer_history.created_at
     group by 1, 2
-
 )
 
 select

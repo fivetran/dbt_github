@@ -1,15 +1,14 @@
 with github_issues as (
-
     select *
-    from {{ ref('github_issues') }}
+    from {{ ref('github__issues') }}
+), 
 
-), pull_requests as (
-
+pull_requests as (
     select *
-    from {{ ref('github_pull_requests') }}
+    from {{ ref('github__pull_requests') }}
+), 
 
-), issues_opened_per_day as (
-
+issues_opened_per_day as (
    select 
       {{ dbt_utils.date_trunc('day', 'created_at') }} as day, 
       count(*) as number_issues_opened,
@@ -17,18 +16,18 @@ with github_issues as (
       max(days_issue_open) as longest_days_issue_open
     from github_issues
     group by 1
+), 
 
-), issues_closed_per_day as (
-
+issues_closed_per_day as (
    select 
       {{ dbt_utils.date_trunc('day', 'closed_at') }} as day, 
       count(*) as number_issues_closed
     from github_issues
     where closed_at is not null
     group by 1
+), 
 
-), prs_opened_per_day as (
-
+prs_opened_per_day as (
    select 
       {{ dbt_utils.date_trunc('day', 'created_at') }} as day, 
       count(*) as number_prs_opened,
@@ -36,18 +35,18 @@ with github_issues as (
       max(days_issue_open) as longest_days_pr_open
     from pull_requests
     group by 1
+), 
 
-), prs_merged_per_day as (
-
+prs_merged_per_day as (
    select 
       {{ dbt_utils.date_trunc('day', 'merged_at') }} as day, 
       count(*) as number_prs_merged
     from pull_requests
     where merged_at is not null
     group by 1
+), 
 
-), prs_closed_without_merge_per_day as (
-
+prs_closed_without_merge_per_day as (
    select 
       {{ dbt_utils.date_trunc('day', 'closed_at') }} as day, 
       count(*) as number_prs_closed_without_merge
@@ -55,9 +54,9 @@ with github_issues as (
     where closed_at is not null
       and merged_at is null
     group by 1
+), 
 
-), issues_per_day as (
-
+issues_per_day as (
     select 
       coalesce(issues_opened_per_day.day, 
         issues_closed_per_day.day
@@ -68,9 +67,9 @@ with github_issues as (
       longest_days_issue_open
     from issues_opened_per_day
     full outer join issues_closed_per_day on issues_opened_per_day.day = issues_closed_per_day.day
+), 
 
-), prs_per_day as (
-
+prs_per_day as (
     select 
       coalesce(prs_opened_per_day.day, 
         prs_merged_per_day.day,
@@ -84,13 +83,10 @@ with github_issues as (
     from prs_opened_per_day
     full outer join prs_merged_per_day on prs_opened_per_day.day = prs_merged_per_day.day
     full outer join prs_closed_without_merge_per_day on coalesce(prs_opened_per_day.day, prs_merged_per_day.day) = prs_closed_without_merge_per_day.day
-
 )
 
 select 
-  coalesce(issues_per_day.day, 
-    prs_per_day.day
-  ) as day,
+  coalesce(issues_per_day.day, prs_per_day.day) as day,
   coalesce(number_issues_opened, 0) as number_issues_opened,
   coalesce(number_issues_closed, 0) as number_issues_closed,
   sum_days_issue_open,
