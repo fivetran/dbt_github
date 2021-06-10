@@ -23,7 +23,9 @@ select
   labels,
   number_of_comments,
   repository,
+  {% if var('github__using_repo_team', true) %}
   repository_team_names,
+  {% endif %}
   assignees,
   creator_login_name,
   creator_name,

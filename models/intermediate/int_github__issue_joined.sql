@@ -9,8 +9,17 @@ issue_labels as (
 ), 
 
 repository_teams as (
-    select *
-    from {{ ref('int_github__repository_teams')}}
+    select 
+    {% if var('github__using_repo_team', true) %}
+      *
+    from {{ ref('int_github__repository_teams') }}
+
+    {% else %}
+      repository_id,
+      full_name as repository
+    from {{ ref('stg_github__repository') }}
+
+    {% endif %}
 ), 
 
 issue_assignees as (
@@ -56,7 +65,9 @@ select
   labels.labels,
   issue_comments.number_of_comments,
   repository_teams.repository,
+  {% if var('github__using_repo_team', true) %}
   repository_teams.repository_team_names,
+  {% endif %}
   issue_assignees.assignees,
   creator.login_name as creator_login_name,
   creator.name as creator_name,
