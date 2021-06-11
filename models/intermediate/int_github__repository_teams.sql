@@ -1,3 +1,5 @@
+{{ config(enabled=var('github__using_repo_team', True)) }}
+
 with repository as (
     select *
     from {{ ref('stg_github__repository')}}

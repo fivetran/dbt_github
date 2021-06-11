@@ -36,6 +36,21 @@ vars:
     github_schema: your_schema_name 
 ```
 
+### Disabling Models
+Your Github connector might not sync every table that this package expects. If your syncs exclude certain tables, it is because you either don't use that functionality in Github or have actively excluded some tables from your syncs.
+
+If you do not have the `REPO_TEAM` table synced, add the following variable to your `dbt_project.yml` file:
+
+```yml
+# dbt_project.yml
+config-version: 2
+
+vars:
+    github__using_repo_team: false # by default this is assumed to be true
+```
+
+*Note: This package only integrates the above variable. If you'd like to disable other models, please create an [issue](https://github.com/fivetran/dbt_github/issues) specifying which ones.*
+
 ## Database support
 This package has been tested on BigQuery, Snowflake and Redshift.
 
