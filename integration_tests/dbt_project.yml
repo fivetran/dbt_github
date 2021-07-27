@@ -1,5 +1,5 @@
 name: 'github_integration_tests'
-version: '0.2.2'
+version: '0.3.0'
 config-version: 2
 
 profile: 'integration_tests'
@@ -38,8 +38,8 @@ vars:
     github_schema: github_integration_tests
 
 seeds:
-  +quote_columns: "{{ true if target.type == 'redshift' else false }}"
   github_integration_tests:
+    +quote_columns: "{{ true if target.type == 'redshift' else false }}"
     +column_types:
       _fivetran_synced: timestamp
     github_issue_comment_data:
