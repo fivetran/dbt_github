@@ -1,3 +1,14 @@
+# dbt_github v0.5.0
+
+## 🚨 Breaking Changes 🚨
+- The addition of the `label` source model results in the reference within `int_github__issue_label` to break. As a result, with the addition of upstream changes within `dbt_github_source` and the new `int_github__issue_label_join` model this issue has been resolved. ([#26](https://github.com/fivetran/dbt_github/pull/26))
+  - Please note: It is important you kick off a historical resync of your connector to account for the [connector changes](https://fivetran.com/docs/applications/github/changelog#april2021) from April 2021.
+
+## Fixes
+- The `int_github__issue_comment` model was referencing the `stg_github__issue_label` model to produce the total count of comments. This has been fixed to correctly reference the `stg_github__issue_comment` model instead. ([#26](https://github.com/fivetran/dbt_github/pull/26))
+
+## Under the Hood
+- All references to the staging models within the package have been updated to refer to the variable instead. This will allow for more dynamic functionality of the package. ([#26](https://github.com/fivetran/dbt_github/pull/26))
 # dbt_github v0.4.0
 🎉 dbt v1.0.0 Compatibility 🎉
 ## 🚨 Breaking Changes 🚨
