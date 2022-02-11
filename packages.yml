@@ -1,3 +1,8 @@
 packages:
-- package: fivetran/github_source
-  version: [">=0.4.0", "<0.5.0"]
+# - package: fivetran/github_source
+#   version: [">=0.5.0", "<0.6.0"]
+
+  ## TO BE REVERTED
+  - git: https://github.com/fivetran/dbt_github_source.git
+    revision: feature/labels-addition
+    warn-unpinned: false

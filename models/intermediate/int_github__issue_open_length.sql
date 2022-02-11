@@ -1,11 +1,11 @@
 with issue as (
     select *
-    from {{ ref('stg_github__issue') }}
+    from {{ var('issue') }}
 ), 
 
 issue_closed_history as (
     select *
-    from {{ ref('stg_github__issue_closed_history') }}
+    from {{ var('issue_closed_history') }}
 ), 
 
 close_events_stacked as (

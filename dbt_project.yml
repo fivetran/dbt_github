@@ -1,6 +1,6 @@
 config-version: 2
 name: 'github'
-version: '0.4.0'
+version: '0.5.0'
 require-dbt-version: [">=1.0.0", "<2.0.0"]
 models:
   github:
@@ -13,10 +13,13 @@ vars:
     issue_closed_history: "{{ ref('stg_github__issue_closed_history') }}"
     issue_comment: "{{ ref('stg_github__issue_comment') }}"
     issue_label: "{{ ref('stg_github__issue_label') }}"
+    label: "{{ ref('stg_github__label') }}"
     issue_merged: "{{ ref('stg_github__issue_merged') }}"
     issue: "{{ ref('stg_github__issue') }}"
     pull_request_review: "{{ ref('stg_github__pull_request_review') }}"
     pull_request: "{{ ref('stg_github__pull_request') }}"
     repository: "{{ ref('stg_github__repository') }}"
+    repo_team: "{{ ref('stg_github__repo_team') }}"
     requested_reviewer_history: "{{ ref('stg_github__requested_reviewer_history') }}"
+    team: "{{ ref('stg_github__team') }}"
     user: "{{ ref('stg_github__user') }}"

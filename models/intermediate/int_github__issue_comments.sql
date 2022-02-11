@@ -1,6 +1,6 @@
 with issue_comment as (
     select *
-    from {{ ref('stg_github__issue_label') }}
+    from {{ var('issue_comment') }}
 )
 
 select

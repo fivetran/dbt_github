@@ -2,17 +2,17 @@
 
 with repository as (
     select *
-    from {{ ref('stg_github__repository')}}
+    from {{ var('repository')}}
 ),
 
 repo_teams as (
     select *
-    from {{ ref('stg_github__repo_team')}}
+    from {{ var('repo_team')}}
 ),
 
 teams as (
     select *
-    from {{ ref('stg_github__team')}}
+    from {{ var('team')}}
 ),
 
 team_repo as (
