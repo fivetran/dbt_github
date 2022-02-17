@@ -1,11 +1,11 @@
 with issue_assignee as (
     select *
-    from {{ ref('stg_github__issue_assignee') }}
+    from {{  var('issue_assignee') }}
 ), 
 
 github_user as (
     select *
-    from {{ ref('stg_github__user')}}
+    from {{ var('user')}}
 )
 
 select

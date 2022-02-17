@@ -1,29 +1,29 @@
 with pull_request_review as (
     select *
-    from {{ ref('stg_github__pull_request_review') }}
+    from {{ var('pull_request_review') }}
 ), 
 
 pull_request as (
     select *
-    from {{ ref('stg_github__pull_request')}}
+    from {{ var('pull_request')}}
 ), 
 
 requested_reviewer_history as (
     select *
-    from {{ ref('stg_github__requested_reviewer_history')}}
+    from {{ var('requested_reviewer_history')}}
     where not removed
 ), 
 
 issue as (
     select *
-    from {{ ref('stg_github__issue') }}
+    from {{ var('issue') }}
 ), 
 
 issue_merged as (
     select
       issue_id,
       min(merged_at) as merged_at
-      from {{ ref('stg_github__issue_merged')}}
+      from {{ var('issue_merged')}}
     group by 1
 ), 
 

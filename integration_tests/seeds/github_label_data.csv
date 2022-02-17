@@ -1,0 +1,16 @@
+id,_fivetran_synced,color,description,is_default,name,url
+2928211862,2022-02-10 18:25:38,5030D6,Customer request for an added feature,FALSE,feature request,https://api.github.com/repos/fivetran/dbt_jira/labels/feature%20request
+2059419264,2022-02-10 18:29:45,0075ca,Improvements or additions to documentation,TRUE,documentation,https://api.github.com/repos/fivetran/dbt_github_source/labels/documentation
+2317462249,2022-02-10 18:25:43,0075ca,Improvements or additions to documentation,TRUE,documentation,https://api.github.com/repos/fivetran/dbt_jira/labels/documentation
+2022377955,2022-02-10 18:28:35,8672,Extra attention is needed,TRUE,help wanted,https://api.github.com/repos/fivetran/dbt_github/labels/help%20wanted
+2022377951,2022-02-10 18:28:34,7057ff,Good for newcomers,TRUE,good first issue,https://api.github.com/repos/fivetran/dbt_github/labels/good%20first%20issue
+2059419268,2022-02-10 18:29:45,a2eeef,New feature or request,TRUE,enhancement,https://api.github.com/repos/fivetran/dbt_github_source/labels/enhancement
+2856837951,2022-02-10 18:23:58,a2eeef,New feature or request,TRUE,enhancement,https://api.github.com/repos/fivetran/dbt_iterable/labels/enhancement
+2022377948,2022-02-10 18:28:31,a2eeef,New feature or request,TRUE,enhancement,https://api.github.com/repos/fivetran/dbt_github/labels/enhancement
+2317462253,2022-02-10 18:25:42,a2eeef,New feature or request,TRUE,enhancement,https://api.github.com/repos/fivetran/dbt_jira/labels/enhancement
+2856837944,2022-02-10 18:24:00,d73a4a,Something isn't working,TRUE,bug,https://api.github.com/repos/fivetran/dbt_iterable/labels/bug
+2022377937,2022-02-10 20:21:07,d73a4a,Something isn't working,TRUE,bug,https://api.github.com/repos/fivetran/dbt_github/labels/bug
+2317462247,2022-02-10 20:21:01,d73a4a,Something isn't working,TRUE,bug,https://api.github.com/repos/fivetran/dbt_jira/labels/bug
+2059419262,2022-02-10 20:21:09,d73a4a,Something isn't working,TRUE,bug,https://api.github.com/repos/fivetran/dbt_github_source/labels/bug
+2856837958,2022-02-10 20:20:59,d876e3,Further information is requested,TRUE,question,https://api.github.com/repos/fivetran/dbt_iterable/labels/question
+2317462258,2022-02-10 18:25:36,d876e3,Further information is requested,TRUE,question,https://api.github.com/repos/fivetran/dbt_jira/labels/question
