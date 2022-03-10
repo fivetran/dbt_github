@@ -1,5 +1,10 @@
-# dbt_github v0.5.0
+# dbt_github v0.5.1
+## Fixes
+- The `url_link` logic within `int_github__issue_joined` was focused on only providing the correct url for pull requests. This update includes a `case when` statement to provide the accurate url logic for both Issues and Pull Requests. ([#31](https://github.com/fivetran/dbt_github/pull/31))
 
+## Contributors
+- [@jackiexsun](https://github.com/jackiexsun) ([#31](https://github.com/fivetran/dbt_github/pull/31))
+# dbt_github v0.5.0
 ## 🚨 Breaking Changes 🚨
 - The addition of the `label` source model results in the reference within `int_github__issue_label` to break. As a result, with the addition of upstream changes within `dbt_github_source` and the new `int_github__issue_label_join` model this issue has been resolved. ([#26](https://github.com/fivetran/dbt_github/pull/26))
   - Please note: It is important you kick off a historical resync of your connector to account for the [connector changes](https://fivetran.com/docs/applications/github/changelog#april2021) from April 2021.
