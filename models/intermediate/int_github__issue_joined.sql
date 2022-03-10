@@ -59,7 +59,7 @@ pull_request as (
 
 select
   issue.*,
-  {{ dbt_utils.concat(["'https://github.com/'",'repository_teams.repository',"'/pull/'", 'issue.issue_number']) }} as url_link,
+  {{ dbt_utils.concat(["'https://github.com/'",'repository_teams.repository',if(issue.pull_request,"'/pull/'", "'/issues/'"), 'issue.issue_number']) }} as url_link,
   issue_open_length.days_issue_open,
   issue_open_length.number_of_times_reopened,
   labels.labels,
