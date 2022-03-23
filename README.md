@@ -116,5 +116,6 @@ These dbt packages are developed by a small team of analytics engineers at Fivet
 
 We highly encourage and welcome contributions to this package. Please refer to the [CONTRIBUTING.md](/CONTRIBUTING.md) doc for details on how to effectively contribute to this open source project!
 
-# 🏪 Resources
-If you encounter any questions or want to reach out for help, please refer to the [GitHub Issue](https://github.com/fivetran/dbt_github_source/issues/new/choose) section to find the right avenue of support for you.
+# 🏪 Resources and Feedback
+- If you encounter any questions or want to reach out for help, please refer to the [GitHub Issue](https://github.com/fivetran/dbt_github_source/issues/new/choose) section to find the right avenue of support for you.
+- If you would like to provide feedback to the dbt package team at Fivetran, or would like to request a future dbt package to be developed, then feel free to fill out our [Feedback Form](https://www.surveymonkey.com/r/DQ7K7WW).
