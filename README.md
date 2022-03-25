@@ -46,7 +46,7 @@ packages:
 > Check [dbt Hub](https://hub.getdbt.com/) for the latest installation instructions or [read the dbt docs](https://docs.getdbt.com/docs/package-management) for more information on installing packages.
 
 ## Step 3: Configure Your Variables
-### Update Schema Variables
+### 3a. Update Schema Variables
 
 By default, this package runs using your target database and the `github` schema. 
 
@@ -65,7 +65,7 @@ By default, this package runs using your target database and the `github` schema
       github_schema: your_schema_name 
   ```
 
-### Disable Model Variables
+### 3b. Disable Model Variables
 Your GitHub connector may not sync every table that this package expects. If your syncs exclude certain tables, it is because you either don't use that functionality in GitHub or have chosen to exclude those tables from your syncs.
 
 If you do not have the `REPO_TEAM` table synced, add the following variable to your `dbt_project.yml` file:
@@ -80,8 +80,8 @@ vars:
 
 > NOTE: This package only integrates the variable above. If you'd like to disable other models, please create an [issue](https://github.com/fivetran/dbt_github_source/issues) specifying which models you want to disable.
 
-## (Optional) Step 4: Additional Configurations
-### Change the Build Schema
+## (Optional) Step 4: Change the Build Schema
+
 By default, this package builds the GitHub staging models within a schema named (<target_schema> + `_stg_github`) and your GitHub transform models within a schema titled (<target_schema> + `_github`) in your target database. If this is not where you would like us to write your GitHub staging data, add the following configuration to your `dbt_project.yml` file:
 
 ```yml
