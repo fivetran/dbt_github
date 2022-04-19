@@ -116,7 +116,7 @@ packages:
     version: [">=0.8.0", "<0.9.0"]
 ```
 
-## 🙌 Contributions and Maintenance
+## 🙌 What else should I know?
 ### Package Maintenance
 The Fivetran team **only** maintains the latest version of the package. We highly recommend you stay up-to-date with the [latest version](https://hub.getdbt.com/fivetran/github_source/latest/) of the package. See the [CHANGELOG file](/CHANGELOG.md) and release notes to read about changes across versions.
 
