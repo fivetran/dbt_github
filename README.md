@@ -15,9 +15,11 @@
 
 # GitHub dbt Package ([Docs](https://fivetran.github.io/dbt_github/))
 # 📣 What does this dbt package do?
-This package cleans, tests, prepares, and models GitHub data from [Fivetran's connector](https://fivetran.com/docs/applications/GitHub) for analysis. It uses data in the format described by [this ERD](https://fivetran.com/docs/applications/github/#schemainformation) and builds off the output of our [GitHub source package](https://github.com/fivetran/dbt_GitHub_source).
-
-This package enables you to better understand your GitHub issues and pull requests.  Its main focus is to enhance these two core objects with commonly used metrics. Additionally, the metrics tables let you better understand your team's velocity over time.  These metrics are available on a daily, weekly, monthly and quarterly level.
+- Produces modeled tables that leverage GitHub data from [Fivetran's connector](https://fivetran.com/docs/applications/github) in the format described by [this ERD](https://docs.google.com/presentation/d/1lx6ez7-x-s-n2JCnCi3SjG4XMmx9ysNUvaNCaWc3I_I/edit#slide=id.g244d368397_0_1) and builds off the output of our [GitHub source package](https://github.com/fivetran/dbt_github_source).
+- The above mentioned models enable you to better understand your GitHub issues and pull requests. It achieves this by:
+  - Enhancing the Issue and Pull Requests objects with commonly used metrics.
+  - Models the Issue and Pull Request data in a way that makes for seamless velocity tracking.
+- Generates a comprehensive data dictionary of your source and modeled GitHub data via the [dbt docs site](https://fivetran.github.io/dbt_github/)
 
 Refer to the table below for a detailed view of all models materialized by default within this package. Additionally, check out our [Docs site](https://fivetran.github.io/dbt_github/#!/overview?g_v=1) for more details about these models. 
 
