@@ -1,28 +1,24 @@
 name: 'github_integration_tests'
-version: '0.5.1'
+version: '0.6.0'
 config-version: 2
-
 profile: 'integration_tests'
-
 vars:
   github_source:
-    issue_assignee:               "{{ ref('github_issue_assignee_data') }}"
-    issue_closed_history:         "{{ ref('github_issue_closed_history_data') }}"
-    issue_comment:                "{{ ref('github_issue_comment_data') }}"
-    issue_label:                  "{{ ref('github_issue_label_data') }}"
-    label:                        "{{ ref('github_label_data') }}"
-    issue_merged:                 "{{ ref('github_issue_merged_data') }}"
-    issue:                        "{{ ref('github_issue_data') }}"
-    pull_request_review:          "{{ ref('github_pull_request_review_data') }}"
-    pull_request:                 "{{ ref('github_pull_request_data') }}"
-    repository:                   "{{ ref('github_repository_data') }}"
-    repo_team:                    "{{ ref('github_repo_team_data') }}"
-    requested_reviewer_history:   "{{ ref('github_requested_reviewer_history_data') }}"
-    team:                         "{{ ref('github_team_data') }}"
-    user:                         "{{ ref('github_user_data') }}"
-
+    issue_assignee: "{{ ref('github_issue_assignee_data') }}"
+    issue_closed_history: "{{ ref('github_issue_closed_history_data') }}"
+    issue_comment: "{{ ref('github_issue_comment_data') }}"
+    issue_label: "{{ ref('github_issue_label_data') }}"
+    label: "{{ ref('github_label_data') }}"
+    issue_merged: "{{ ref('github_issue_merged_data') }}"
+    issue: "{{ ref('github_issue_data') }}"
+    pull_request_review: "{{ ref('github_pull_request_review_data') }}"
+    pull_request: "{{ ref('github_pull_request_data') }}"
+    repository: "{{ ref('github_repository_data') }}"
+    repo_team: "{{ ref('github_repo_team_data') }}"
+    requested_reviewer_history: "{{ ref('github_requested_reviewer_history_data') }}"
+    team: "{{ ref('github_team_data') }}"
+    user: "{{ ref('github_user_data') }}"
     github_schema: github_integration_tests
-
 seeds:
   github_integration_tests:
     +quote_columns: "{{ true if target.type == 'redshift' else false }}"
