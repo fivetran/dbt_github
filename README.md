@@ -86,7 +86,7 @@ packages:
     - package: dbt-labs/dbt_utils
       version: [">=1.0.0", "<2.0.0"]
 
-    - package: fivetran/github
+    - package: fivetran/github_source
       version: [">=0.6.0", "<0.7.0"]
 ```
 ## Contributions
