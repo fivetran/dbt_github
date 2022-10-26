@@ -1,6 +1,6 @@
 # dbt_github v0.6.0
 ## 🚨 Breaking Changes 🚨:
-[PR #26](https://github.com/fivetran/dbt_github_source/pull/26) includes the following breaking changes:
+[PR #35](https://github.com/fivetran/dbt_github/pull/35) includes the following breaking changes:
 - Dispatch update for dbt-utils to dbt-core cross-db macros migration. Specifically `{{ dbt_utils.<macro> }}` have been updated to `{{ dbt.<macro> }}` for the below macros:
     - `any_value`
     - `bool_or`
