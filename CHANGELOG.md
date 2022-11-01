@@ -1,6 +1,6 @@
 # dbt_github v0.6.0
-## 🚨 Breaking Changes 🚨:
 [PR #35](https://github.com/fivetran/dbt_github/pull/35) includes the following breaking changes:
+## 🚨 Breaking Changes 🚨:
 - Dispatch update for dbt-utils to dbt-core cross-db macros migration. Specifically `{{ dbt_utils.<macro> }}` have been updated to `{{ dbt.<macro> }}` for the below macros:
     - `any_value`
     - `bool_or`
@@ -35,6 +35,9 @@
     - `dbt.current_timestamp_backcompat`
     - `dbt.current_timestamp_in_utc_backcompat`
 - Dependencies on `fivetran/fivetran_utils` have been upgraded, previously `[">=0.3.0", "<0.4.0"]` now `[">=0.4.0", "<0.5.0"]`.
+## 🎉 Documentation and Feature Updates 🎉:
+- Updated README documentation for easier navigation and dbt package setup.
+
 # dbt_github v0.5.1
 ## Fixes
 - The `url_link` logic within `int_github__issue_joined` was focused on only providing the correct url for pull requests. This update includes a `case when` statement to provide the accurate url logic for both Issues and Pull Requests. ([#31](https://github.com/fivetran/dbt_github/pull/31))
