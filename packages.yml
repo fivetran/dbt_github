@@ -4,4 +4,4 @@ packages:
 
 # Update before merge
   - git: https://github.com/fivetran/dbt_github_source.git
-    revision: feature/databricks-compat
+    revision: MagicBot/dbt-utils-cross-db-migration
