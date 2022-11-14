@@ -36,7 +36,8 @@
     - `dbt.current_timestamp_in_utc_backcompat`
 - Dependencies on `fivetran/fivetran_utils` have been upgraded, previously `[">=0.3.0", "<0.4.0"]` now `[">=0.4.0", "<0.5.0"]`.
 ## 🎉 Documentation and Feature Updates 🎉:
-- Updated README documentation for easier navigation and dbt package setup.
+- Updated README documentation for easier navigation and dbt package setup. [#35](https://github.com/fivetran/dbt_github/pull/35)
+- Added Databricks compatibility. [#38](https://github.com/fivetran/dbt_github/pull/38)
 
 # dbt_github v0.5.1
 ## Fixes

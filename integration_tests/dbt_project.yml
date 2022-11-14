@@ -55,3 +55,7 @@ seeds:
     github_requested_reviewer_history_data:
       +column_types:
         created_at: timestamp
+
+dispatch:
+  - macro_namespace: dbt_utils
+    search_order: ['spark_utils', 'dbt_utils']
