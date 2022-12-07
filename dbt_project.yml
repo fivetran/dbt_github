@@ -17,6 +17,7 @@ vars:
     issue_merged: "{{ ref('stg_github__issue_merged') }}"
     issue: "{{ ref('stg_github__issue') }}"
     pull_request_review: "{{ ref('stg_github__pull_request_review') }}"
+    pull_request_reviewer_history: "{{ ref('stg_github__requested_reviewer_history'}}"
     pull_request: "{{ ref('stg_github__pull_request') }}"
     repository: "{{ ref('stg_github__repository') }}"
     repo_team: "{{ ref('stg_github__repo_team') }}"

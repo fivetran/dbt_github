@@ -6,6 +6,13 @@ with pull_request_review as (
 github_user as (
     select *
     from {{ var('user')}}
+),
+
+requested_reviewer_history as (
+
+    select *
+    from {{ var('requested_reviewer_history') }}
+    where removed = false
 )
 
 select
@@ -13,5 +20,7 @@ select
   {{ fivetran_utils.string_agg( 'github_user.login_name', "', '" )}} as reviewers,
   count(*) as number_of_reviews
 from pull_request_review
-left join github_user on pull_request_review.user_id = github_user.user_id
+inner join requested_reviewer_history on pull_request_review.pull_request_id = requested_reviewer_history.pull_request_id
+    and pull_request_review.user_id = requested_reviewer_history.requested_id
+left join github_user on requested_reviewer_history.requested_id = github_user.user_id
 group by 1
