@@ -1,5 +1,5 @@
 with pull_request_review as (
-    select *
+    select distinct pull_request_id, user_id
     from {{ var('pull_request_review') }}
 ), 
 
