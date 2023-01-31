@@ -16,5 +16,5 @@ select
   sum(sum_days_pr_open) / sum(number_prs_opened) as avg_days_pr_open,
   max(longest_days_pr_open) as longest_days_pr_open
 from daily_metrics 
-group by 1, repository
+group by 1,2
 order by 1 desc
