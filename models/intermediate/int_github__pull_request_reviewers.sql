@@ -40,5 +40,5 @@ select
   requested_reviewers.requested_reviewers,
   actual_reviewers.number_of_reviews
 from actual_reviewers
-full outer join requested_reviewers 
+left join requested_reviewers 
   on requested_reviewers.pull_request_id = actual_reviewers.pull_request_id
