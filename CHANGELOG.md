@@ -1,3 +1,6 @@
+# dbt_github v0.7.0
+## 🔧 Bug Fix
+- Updated model `int_github__pull_request_reviewers` so that the list of reviewers generated does not contain duplicate usernames.
 # dbt_github v0.6.0
 [PR #35](https://github.com/fivetran/dbt_github/pull/35) includes the following breaking changes:
 ## 🚨 Breaking Changes 🚨:
