@@ -79,7 +79,8 @@ select
   hours_request_review_to_first_action,
   hours_request_review_to_merge,
   merged_at,
-  reviewers,
+  actual_reviewers,
+  requested_reviewers,
   number_of_reviews
 from issue
 left join issue_labels as labels
