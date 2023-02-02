@@ -1,4 +1,7 @@
 # dbt_github v0.7.0
+## 🎉 Features
+- Added column `requested_reviewers` to provide a list of users that were requested to review on a pull request. This is to supplement the column `reviewers`, which provides a list of users that have submitted a reivew, weather or not they were requested to.
+- PostgreSQL compatibility!
 ## 🔧 Bug Fix
 - Updated model `int_github__pull_request_reviewers` so that the list of reviewers generated does not contain duplicate usernames.
 # dbt_github v0.6.0

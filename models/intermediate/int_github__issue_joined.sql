@@ -79,7 +79,7 @@ select
   hours_request_review_to_first_action,
   hours_request_review_to_merge,
   merged_at,
-  actual_reviewers,
+  reviewers, 
   requested_reviewers,
   number_of_reviews
 from issue
