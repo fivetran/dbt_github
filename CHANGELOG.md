@@ -1,12 +1,22 @@
 # dbt_github v0.7.0
+
 ## 🚨 Breaking Change 🚨
 - Updated the following models to aggregate at the repository grain in addition to their time period grain. ([#42](https://github.com/fivetran/dbt_github/pull/42), [#43](https://github.com/fivetran/dbt_github/pull/43))
   - `github__daily_metrics`
   - `github__weekly_metrics`
   - `github__monthly_metrics`
   - `github__quarterly_metrics`
+
+## 🎉 Features
+- Added column `requested_reviewers` to provide a list of users that were requested to review on a pull request. This is to supplement the column `reviewers`, which provides a list of users that have submitted a reivew, weather or not they were requested to.
+- PostgreSQL compatibility!
+
+## 🔧 Bug Fix
+- Updated model `int_github__pull_request_reviewers` so that the list of reviewers generated does not contain duplicate usernames.
+
 ## Contributors 📝
 - @onimsha ([#42](https://github.com/fivetran/dbt_github/pull/42))
+
 # dbt_github v0.6.0
 [PR #35](https://github.com/fivetran/dbt_github/pull/35) includes the following breaking changes:
 ## 🚨 Breaking Changes 🚨:
