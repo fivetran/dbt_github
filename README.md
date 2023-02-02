@@ -55,7 +55,7 @@ Include the following github package version in your `packages.yml` file.
 ```yaml
 packages:
   - package: fivetran/github
-    version: [">=0.6.0", "<0.7.0"]
+    version: [">=0.7.0", "<0.8.0"]
 ```
 
 ## Step 3: Define database and schema variables
