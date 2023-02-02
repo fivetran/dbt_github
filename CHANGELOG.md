@@ -1,3 +1,12 @@
+# dbt_github v0.7.0
+## 🚨 Breaking Change 🚨
+- Updated the following models to aggregate at the repository grain in addition to their time period grain. ([#42](https://github.com/fivetran/dbt_github/pull/42), [#43](https://github.com/fivetran/dbt_github/pull/43))
+  - `github__daily_metrics`
+  - `github__weekly_metrics`
+  - `github__monthly_metrics`
+  - `github__quarterly_metrics`
+## Contributors 📝
+- @onimsha ([#42](https://github.com/fivetran/dbt_github/pull/42))
 # dbt_github v0.6.0
 [PR #35](https://github.com/fivetran/dbt_github/pull/35) includes the following breaking changes:
 ## 🚨 Breaking Changes 🚨:
