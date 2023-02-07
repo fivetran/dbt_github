@@ -27,10 +27,10 @@ The following table provides a detailed list of all models materialized within t
 | -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | [github__issues](https://fivetran.github.io/dbt_github/#!/model/model.github.github__issues)     | Each record represents a GitHub issue, enriched with data about its assignees, milestones, and time comparisons.                                             |
 | [github__pull_requests](https://fivetran.github.io/dbt_github/#!/model/model.github.github__pull_requests)     | Each record represents a GitHub pull request, enriched with data about its repository, reviewers, and durations between review requests, merges and reviews. |
-| [github__daily_metrics](https://fivetran.github.io/dbt_github/#!/model/model.github.github__daily_metrics)     | Each record represents a single day, enriched with metrics about PRs and issues that were created and closed during that period.                              |
-| [github__weekly_metrics](https://fivetran.github.io/dbt_github/#!/model/model.github.github__weekly_metrics)    | Each record represents a single week, enriched with metrics about PRs and issues that were created and closed during that period.                             |
-| [github__monthly_metrics](https://fivetran.github.io/dbt_github/#!/model/model.github.github__monthly_metrics)   | Each record represents a single month, enriched with metrics about PRs and issues that were created and closed during that period.                            |
-| [github__quarterly_metrics](https://fivetran.github.io/dbt_github/#!/model/model.github.github__quarterly_metrics) | Each record represents a single quarter, enriched with metrics about PRs and issues that were created and closed during that period.                          |
+| [github__daily_metrics](https://fivetran.github.io/dbt_github/#!/model/model.github.github__daily_metrics)     | Each record represents a single day and repository, enriched with metrics about PRs and issues that were created and closed during that period.                              |
+| [github__weekly_metrics](https://fivetran.github.io/dbt_github/#!/model/model.github.github__weekly_metrics)    | Each record represents a single week and repository, enriched with metrics about PRs and issues that were created and closed during that period.                             |
+| [github__monthly_metrics](https://fivetran.github.io/dbt_github/#!/model/model.github.github__monthly_metrics)   | Each record represents a single month and repository, enriched with metrics about PRs and issues that were created and closed during that period.                            |
+| [github__quarterly_metrics](https://fivetran.github.io/dbt_github/#!/model/model.github.github__quarterly_metrics) | Each record represents a single quarter and repository, enriched with metrics about PRs and issues that were created and closed during that period.                          |
 <!--section-end-->
 
 # 🎯 How do I use the dbt package?
@@ -38,7 +38,7 @@ The following table provides a detailed list of all models materialized within t
 To use this dbt package, you must have the following:
 
 - At least one Fivetran Github connector syncing data into your destination.
-- A **BigQuery**, **Snowflake**, **Redshift**, or **Databricks** destination.
+- A **BigQuery**, **Snowflake**, **Redshift**, **PostgreSQL**, or **Databricks** destination.
 
 ### Databricks Dispatch Configuration
 If you are using a Databricks destination with this package you will need to add the below (or a variation of the below) dispatch configuration within your `dbt_project.yml`. This is required in order for the package to accurately search for macros within the `dbt-labs/spark_utils` then the `dbt-labs/dbt_utils` packages respectively.
@@ -55,7 +55,7 @@ Include the following github package version in your `packages.yml` file.
 ```yaml
 packages:
   - package: fivetran/github
-    version: [">=0.6.0", "<0.7.0"]
+    version: [">=0.7.0", "<0.8.0"]
 ```
 
 ## Step 3: Define database and schema variables
@@ -125,7 +125,7 @@ packages:
       version: [">=1.0.0", "<2.0.0"]
 
     - package: fivetran/github_source
-      version: [">=0.6.0", "<0.7.0"]
+      version: [">=0.7.0", "<0.8.0"]
     
     - package: dbt-labs/spark_utils
       version: [">=0.3.0", "<0.4.0"]
