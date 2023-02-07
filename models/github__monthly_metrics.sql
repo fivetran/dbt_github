@@ -17,4 +17,3 @@ select
   max(longest_days_pr_open) as longest_days_pr_open
 from daily_metrics 
 group by 1,2
-order by 1 desc

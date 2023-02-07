@@ -18,4 +18,3 @@ select
 
 from daily_metrics 
 group by 1,2
-order by 1 desc

@@ -125,7 +125,7 @@ packages:
       version: [">=1.0.0", "<2.0.0"]
 
     - package: fivetran/github_source
-      version: [">=0.6.0", "<0.7.0"]
+      version: [">=0.7.0", "<0.8.0"]
     
     - package: dbt-labs/spark_utils
       version: [">=0.3.0", "<0.4.0"]

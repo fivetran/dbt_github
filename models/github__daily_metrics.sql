@@ -128,4 +128,3 @@ full outer join prs_per_day
 on
   issues_per_day.day = prs_per_day.day
   and issues_per_day.repository = prs_per_day.repository
-order by day desc
