@@ -6,16 +6,14 @@
   - `github__weekly_metrics`
   - `github__monthly_metrics`
   - `github__quarterly_metrics`
-
 ## 🎉 Features
-- For the metrics models that were updated, added unique-combination-of-column tests for the combination of the time period and repository.
-- Removed uniqueness tests on time period in metrics models in favor of the combo test.
 - Added column `requested_reviewers` to provide a list of users that were requested to review on a pull request. This is to supplement the column `reviewers`, which provides a list of users that have submitted a reivew, weather or not they were requested to. 
 - PostgreSQL compatibility! ([#44](https://github.com/fivetran/dbt_github/pull/44))
-
 ## 🔧 Bug Fix
 - Updated model `int_github__pull_request_reviewers` so that the list of reviewers generated does not contain duplicate usernames. ([#44](https://github.com/fivetran/dbt_github/pull/44))
-
+## Under the Hood
+- For the metrics models that were updated, added unique-combination-of-column tests for the combination of the time period and repository.
+- Removed uniqueness tests on time period in metrics models in favor of the combo test. ([#44](https://github.com/fivetran/dbt_github/pull/44))
 ## Contributors 📝
 - @onimsha ([#42](https://github.com/fivetran/dbt_github/pull/42))
 
