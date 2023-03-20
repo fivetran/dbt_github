@@ -10,7 +10,7 @@ pull_requests as (
 
 issues_opened_per_day as (
    select 
-      {{ dbt.date_trunc('day', 'created_at') }} as day, 
+      {{ dbt_utils.date_trunc('day', 'created_at') }} as day, 
       count(*) as number_issues_opened,
       sum(days_issue_open) as sum_days_issue_open,
       max(days_issue_open) as longest_days_issue_open
@@ -20,7 +20,7 @@ issues_opened_per_day as (
 
 issues_closed_per_day as (
    select 
-      {{ dbt.date_trunc('day', 'closed_at') }} as day, 
+      {{ dbt_utils.date_trunc('day', 'closed_at') }} as day, 
       count(*) as number_issues_closed
     from github_issues
     where closed_at is not null
@@ -29,7 +29,7 @@ issues_closed_per_day as (
 
 prs_opened_per_day as (
    select 
-      {{ dbt.date_trunc('day', 'created_at') }} as day, 
+      {{ dbt_utils.date_trunc('day', 'created_at') }} as day, 
       count(*) as number_prs_opened,
       sum(days_issue_open) as sum_days_pr_open,
       max(days_issue_open) as longest_days_pr_open
@@ -39,7 +39,7 @@ prs_opened_per_day as (
 
 prs_merged_per_day as (
    select 
-      {{ dbt.date_trunc('day', 'merged_at') }} as day, 
+      {{ dbt_utils.date_trunc('day', 'merged_at') }} as day, 
       count(*) as number_prs_merged
     from pull_requests
     where merged_at is not null
@@ -48,7 +48,7 @@ prs_merged_per_day as (
 
 prs_closed_without_merge_per_day as (
    select 
-      {{ dbt.date_trunc('day', 'closed_at') }} as day, 
+      {{ dbt_utils.date_trunc('day', 'closed_at') }} as day, 
       count(*) as number_prs_closed_without_merge
     from pull_requests
     where closed_at is not null

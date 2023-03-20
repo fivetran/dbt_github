@@ -48,19 +48,19 @@ first_request_time as (
 select
   first_request_time.issue_id,
   issue_merged.merged_at,
-  {{ dbt.datediff(
+  {{ dbt_utils.datediff(
                         'time_of_first_request', 
-                        "coalesce(time_of_first_review_post_request, " ~ dbt.current_timestamp_backcompat() ~ ")", 
+                        "coalesce(time_of_first_review_post_request, " ~ dbt_utils.current_timestamp() ~ ")", 
                         'second') 
   }}/ 60/60 as hours_request_review_to_first_review,
-  {{ dbt.datediff(
+  {{ dbt_utils.datediff(
                         'time_of_first_request', 
                         "least(
-                            coalesce(time_of_first_requested_reviewer_review, " ~ dbt.current_timestamp_backcompat() ~ "),
-                            coalesce(issue.closed_at, " ~ dbt.current_timestamp_backcompat() ~ "))", 
+                            coalesce(time_of_first_requested_reviewer_review, " ~ dbt_utils.current_timestamp() ~ "),
+                            coalesce(issue.closed_at, " ~ dbt_utils.current_timestamp() ~ "))", 
                         'second') 
   }} / 60/60 as hours_request_review_to_first_action,
-  {{ dbt.datediff('time_of_first_request', 'merged_at', 'second') }}/ 60/60 as hours_request_review_to_merge
+  {{ dbt_utils.datediff('time_of_first_request', 'merged_at', 'second') }}/ 60/60 as hours_request_review_to_merge
 from first_request_time
 join issue on first_request_time.issue_id = issue.issue_id
 left join issue_merged on first_request_time.issue_id = issue_merged.issue_id
