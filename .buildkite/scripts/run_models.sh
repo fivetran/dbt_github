@@ -21,3 +21,5 @@ dbt run --target "$db" --full-refresh
 dbt test --target "$db"
 dbt run --vars '{github__using_repo_team: false}' --target "$db" --full-refresh
 dbt test --target "$db"
+
+dbt run-operation fivetran_utils.drop_schemas_automation --target "$db"
