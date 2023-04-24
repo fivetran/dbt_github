@@ -58,8 +58,11 @@ Include the following github package version in your `packages.yml` file.
 ```yaml
 packages:
   - package: fivetran/github
-    version: [">=0.7.0", "<0.8.0"]
+    version: [">=0.7.0", "<0.8.0"] # we recommend using ranges to capture non-breaking changes automatically
 ```
+
+Do NOT include the `github_source` package in this file. The transformation package itself has a dependency on it and will install the source package as well.
+
 
 ## Step 3: Define database and schema variables
 By default, this package runs using your [destination](https://docs.getdbt.com/docs/running-a-dbt-project/using-the-command-line-interface/configure-your-profile) and the `github` schema. If this is not where your Github data is (for example, if your github schema is named `github_fivetran`), add the following configuration to your root `dbt_project.yml` file:
