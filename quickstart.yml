@@ -1,0 +1,19 @@
+database_key: github_database
+schema_key: github_schema
+
+dbt_versions: [">=1.3.0", "<2.0.0"]
+
+table_variables:
+  - github__using_repo_team:
+    - repo_team
+    - team
+
+destination_configurations:
+  - databricks:
+    - dispatch:
+      - macro_namespace: dbt_utils
+        search_order: ['spark_utils', 'dbt_utils']
+  - bigquery
+  - snowflake
+  - postgres
+  - redshift
