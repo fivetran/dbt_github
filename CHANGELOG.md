@@ -3,7 +3,7 @@
 ## Under the Hood:
 - Incorporated the new `fivetran_utils.drop_schemas_automation` macro into the end of each Buildkite integration test job. ([PR #49](https://github.com/fivetran/dbt_github/pull/49))
 - Updated the pull request [templates](/.github). ([PR #49](https://github.com/fivetran/dbt_github/pull/49))
-- Updated the `quickstart.yml` file to allow for automated Quickstart data model deployments. 
+- Updated the `quickstart.yml` file to allow for automated Quickstart data model deployments. ([PR #51](https://github.com/fivetran/dbt_github/pull/51))
 
 # dbt_github v0.7.0
 
