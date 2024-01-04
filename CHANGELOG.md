@@ -1,4 +1,4 @@
-# dbt_github v0.NEXT.RELEASE
+# dbt_github NEXT.RELEASE
 
 ## Under the Hood:
 - Incorporated the new `fivetran_utils.drop_schemas_automation` macro into the end of each Buildkite integration test job. ([PR #49](https://github.com/fivetran/dbt_github/pull/49))
