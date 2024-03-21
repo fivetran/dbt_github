@@ -1,4 +1,8 @@
-# dbt_github NEXT.RELEASE
+# dbt_github v0.8.0
+[PR #39](https://github.com/fivetran/dbt_jira/dbt_github/39) contains the following updates:
+
+## Fixes
+- materialized
 
 ## Under the Hood:
 - Incorporated the new `fivetran_utils.drop_schemas_automation` macro into the end of each Buildkite integration test job. ([PR #49](https://github.com/fivetran/dbt_github/pull/49))
