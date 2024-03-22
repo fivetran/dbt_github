@@ -3,6 +3,7 @@
 
 ## 🚨 Breaking Change 🚨
 - For consistency with other Fivetran packages, added default target schemas in `dbt_project.yml`. This is a breaking change since the model outputs will now be stored in a schema called `<your target schema>_github` by default. You will need to update any of your downstream use cases to point to the new schema.
+  - Refer to [the Change the Build Schema section](https://github.com/fivetran/dbt_github/blob/main/README.md#change-the-build-schema) of the README for instructions on how to adjust the output schema.
 
 ## Under the Hood:
 - Updated the maintainer PR template to the current format.
