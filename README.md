@@ -58,7 +58,7 @@ Include the following github package version in your `packages.yml` file.
 ```yaml
 packages:
   - package: fivetran/github
-    version: [">=0.7.0", "<0.8.0"] # we recommend using ranges to capture non-breaking changes automatically
+    version: [">=0.8.0", "<0.9.0"] # we recommend using ranges to capture non-breaking changes automatically
 ```
 
 Do NOT include the `github_source` package in this file. The transformation package itself has a dependency on it and will install the source package as well.
@@ -131,7 +131,7 @@ packages:
       version: [">=1.0.0", "<2.0.0"]
 
     - package: fivetran/github_source
-      version: [">=0.7.0", "<0.8.0"]
+      version: [">=0.8.0", "<0.9.0"]
     
     - package: dbt-labs/spark_utils
       version: [">=0.3.0", "<0.4.0"]
