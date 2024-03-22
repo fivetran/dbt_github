@@ -58,7 +58,7 @@ Include the following github package version in your `packages.yml` file.
 ```yaml
 packages:
   - package: fivetran/github
-    version: [">=0.7.0", "<0.8.0"] # we recommend using ranges to capture non-breaking changes automatically
+    version: [">=0.8.0", "<0.9.0"] # we recommend using ranges to capture non-breaking changes automatically
 ```
 
 Do NOT include the `github_source` package in this file. The transformation package itself has a dependency on it and will install the source package as well.
@@ -88,10 +88,10 @@ vars:
 
 ## (Optional) Step 5: Additional configurations
 
-<details><summary>Expand for configurations</summary>
+<details open><summary>Expand/collapse configurations</summary>
 
 ### Change the build schema
-By default, this package builds the Github staging models within a schema titled (`<target_schema>` + `_stg_github`) and your Github modeling models within a schema titled (`<target_schema>` + `_github`) in your destination. If this is not where you would like your Github data to be written to, add the following configuration to your root `dbt_project.yml` file:
+By default, this package builds the Github staging models within a schema titled (`<target_schema>` + `_github_source`) and your Github modeling models within a schema titled (`<target_schema>` + `_github`) in your destination. If this is not where you would like your Github data to be written to, add the following configuration to your root `dbt_project.yml` file:
 
 ```yml
 models:
@@ -131,7 +131,7 @@ packages:
       version: [">=1.0.0", "<2.0.0"]
 
     - package: fivetran/github_source
-      version: [">=0.7.0", "<0.8.0"]
+      version: [">=0.8.0", "<0.9.0"]
     
     - package: dbt-labs/spark_utils
       version: [">=0.3.0", "<0.4.0"]
