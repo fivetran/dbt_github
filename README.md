@@ -88,10 +88,10 @@ vars:
 
 ## (Optional) Step 5: Additional configurations
 
-<details><summary>Expand for configurations</summary>
+<details open><summary>Expand/collapse configurations</summary>
 
 ### Change the build schema
-By default, this package builds the Github staging models within a schema titled (`<target_schema>` + `_stg_github`) and your Github modeling models within a schema titled (`<target_schema>` + `_github`) in your destination. If this is not where you would like your Github data to be written to, add the following configuration to your root `dbt_project.yml` file:
+By default, this package builds the Github staging models within a schema titled (`<target_schema>` + `_github_source`) and your Github modeling models within a schema titled (`<target_schema>` + `_github`) in your destination. If this is not where you would like your Github data to be written to, add the following configuration to your root `dbt_project.yml` file:
 
 ```yml
 models:

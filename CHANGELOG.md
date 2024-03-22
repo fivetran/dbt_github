@@ -1,8 +1,8 @@
 # dbt_github v0.8.0
 [PR #53](https://github.com/fivetran/dbt_jira/dbt_github/53) contains the following updates:
 
-## Feature updates
-- Added default target schemas in `dbt_project.yml`.
+## 🚨 Breaking Change 🚨
+- For consistency with other Fivetran packages, added default target schemas in `dbt_project.yml`. This is a breaking change since the model outputs will now be stored in a schema called `<your target schema>_github` by default. You will need to update any of your downstream use cases to point to the new schema.
 
 ## Under the Hood:
 - Updated the maintainer PR template to the current format.
