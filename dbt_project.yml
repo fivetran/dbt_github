@@ -8,7 +8,6 @@ models:
     +schema: github
     intermediate:
       +materialized: ephemeral
-      +schema: int_github
 vars:
   github:
     issue_assignee: "{{ ref('stg_github__issue_assignee') }}"
