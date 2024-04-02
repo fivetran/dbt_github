@@ -1,9 +1,17 @@
-# dbt_github NEXT.RELEASE
+# dbt_github v0.8.0
+[PR #53](https://github.com/fivetran/dbt_jira/dbt_github/53) contains the following updates:
+
+## 🚨 Breaking Change 🚨
+- For consistency with other Fivetran packages, added default target schemas in `dbt_project.yml`. This is a breaking change since the model outputs will now be stored in a schema called `<your target schema>_github` by default. You will need to update any of your downstream use cases to point to the new schema.
+  - Refer to [the Change the Build Schema section](https://github.com/fivetran/dbt_github/blob/main/README.md#change-the-build-schema) of the README for instructions on how to adjust the output schema.
 
 ## Under the Hood:
+- Updated the maintainer PR template to the current format.
 - Incorporated the new `fivetran_utils.drop_schemas_automation` macro into the end of each Buildkite integration test job. ([PR #49](https://github.com/fivetran/dbt_github/pull/49))
-- Updated the pull request [templates](/.github). ([PR #49](https://github.com/fivetran/dbt_github/pull/49))
 - Updated the `quickstart.yml` file to allow for automated Quickstart data model deployments. ([PR #51](https://github.com/fivetran/dbt_github/pull/51))
+
+## Contributors
+- [@rajan-lw](https://github.com/rajan-lw) ([PR #48](https://github.com/fivetran/dbt_github/pull/48))
 
 # dbt_github v0.7.0
 
