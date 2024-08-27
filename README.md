@@ -23,10 +23,10 @@
 - Generates a comprehensive data dictionary of your source and modeled github data through the [dbt docs site](https://fivetran.github.io/dbt_github/).
 
 <!--section="github_transformation_model-->
-The following table provides a detailed list of all models materialized within this package by default.
+The following table provides a detailed list of all tables materialized within this package by default.
 > TIP: See more details about these models in the package's [dbt docs site](https://fivetran.github.io/dbt_github/#!/overview?g_v=1&g_e=seeds).
 
-| **Model**                  | **Description**                                                                                                                                               |
+| **Table**                  | **Description**                                                                                                                                               |
 | -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | [github__issues](https://fivetran.github.io/dbt_github/#!/model/model.github.github__issues)     | Each record represents a GitHub issue, enriched with data about its assignees, milestones, and time comparisons.                                             |
 | [github__pull_requests](https://fivetran.github.io/dbt_github/#!/model/model.github.github__pull_requests)     | Each record represents a GitHub pull request, enriched with data about its repository, reviewers, and durations between review requests, merges and reviews. |
