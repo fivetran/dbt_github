@@ -24,7 +24,7 @@
 
 <!--section="github_transformation_model-->
 The following table provides a detailed list of all tables materialized within this package by default.
-> TIP: See more details about these models in the package's [dbt docs site](https://fivetran.github.io/dbt_github/#!/overview?g_v=1&g_e=seeds).
+> TIP: See more details about these tables in the package's [dbt docs site](https://fivetran.github.io/dbt_github/#!/overview?g_v=1&g_e=seeds).
 
 | **Table**                  | **Description**                                                                                                                                               |
 | -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
