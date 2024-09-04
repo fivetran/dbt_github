@@ -13,3 +13,12 @@ destination_configurations:
     dispatch:
       - macro_namespace: dbt_utils
         search_order: [ 'spark_utils', 'dbt_utils' ]
+
+public_models: [
+  "github__weekly_metrics",
+  "github__monthly_metrics",
+  "github__quarterly_metrics",
+  "github__pull_requests",
+  "github__daily_metrics",
+  "github__issues"
+]
