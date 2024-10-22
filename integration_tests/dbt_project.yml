@@ -1,10 +1,10 @@
 name: 'github_integration_tests'
-version: '0.8.0'
+version: '0.8.1'
 config-version: 2
 profile: 'integration_tests'
 vars:
   github_source:
-    github_schema: github_integration_tests
+    github_schema: github_integration_tests_1
     github_issue_assignee_identifier: "github_issue_assignee_data"
     github_issue_closed_history_identifier: "github_issue_closed_history_data"
     github_issue_comment_identifier: "github_issue_comment_data"
@@ -19,6 +19,10 @@ vars:
     github_requested_reviewer_history_identifier: "github_requested_reviewer_history_data"
     github_team_identifier: "github_team_data"
     github_user_identifier: "github_user_data"
+
+models:
+  +schema: "github_{{ var('directed_schema','dev') }}"
+
 seeds:
   github_integration_tests:
     +quote_columns: "{{ true if target.type == 'redshift' else false }}"

@@ -1,5 +1,18 @@
+# dbt_github v0.8.1  
+[PR #58](https://github.com/fivetran/dbt_github/pull/58) contains the following updates:
+
+## Bug Fixes 
+- Replaced the existing `dbt_current_timestamp.backcompat()` with the up-to-date `dbt_current_timestamp` macro to generate the current timestamp for customers. [PR #58](https://github.com/fivetran/dbt_github/pull/58)
+- Updated the join type in `int_github__pull_request_times` to not drop pull requests without explicit reviewers requested. [PR #57](https://github.com/fivetran/dbt_github/pull/57)
+
+## Under the Hood:
+- Added consistency tests for `github__issues` and `github__pull_requests` to ensure new changes don't change the output of either model. There are conditions. [PR #58](https://github.com/fivetran/dbt_github/pull/58)
+
+## Contributors
+- [@samkessaram](https://github.com/samkessaram) ([PR #57](https://github.com/fivetran/dbt_github/pull/57))
+
 # dbt_github v0.8.0
-[PR #53](https://github.com/fivetran/dbt_jira/dbt_github/53) contains the following updates:
+[PR #53](https://github.com/fivetran/dbt_github/pull/53) contains the following updates:
 
 ## 🚨 Breaking Change 🚨
 - For consistency with other Fivetran packages, added default target schemas in `dbt_project.yml`. This is a breaking change since the model outputs will now be stored in a schema called `<your target schema>_github` by default. You will need to update any of your downstream use cases to point to the new schema.
@@ -80,6 +93,7 @@
 
 ## Contributors
 - [@jackiexsun](https://github.com/jackiexsun) ([#31](https://github.com/fivetran/dbt_github/pull/31))
+
 # dbt_github v0.5.0
 ## 🚨 Breaking Changes 🚨
 - The addition of the `label` source model results in the reference within `int_github__issue_label` to break. As a result, with the addition of upstream changes within `dbt_github_source` and the new `int_github__issue_label_join` model this issue has been resolved. ([#26](https://github.com/fivetran/dbt_github/pull/26))
