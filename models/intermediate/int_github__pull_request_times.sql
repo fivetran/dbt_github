@@ -39,7 +39,7 @@ first_request_time as (
       min(requested_reviewer_history.created_at) as time_of_first_request,
       min(pull_request_review.submitted_at) as time_of_first_review_post_request
     from pull_request
-    join requested_reviewer_history on requested_reviewer_history.pull_request_id = pull_request.pull_request_id
+    left join requested_reviewer_history on requested_reviewer_history.pull_request_id = pull_request.pull_request_id
     left join pull_request_review on pull_request_review.pull_request_id = pull_request.pull_request_id
       and pull_request_review.submitted_at > requested_reviewer_history.created_at
     group by 1, 2
@@ -50,14 +50,14 @@ select
   issue_merged.merged_at,
   {{ dbt.datediff(
                         'time_of_first_request', 
-                        "coalesce(time_of_first_review_post_request, " ~ dbt.current_timestamp_backcompat() ~ ")", 
+                        "coalesce(time_of_first_review_post_request, " ~ dbt.current_timestamp() ~ ")", 
                         'second') 
   }}/ 60/60 as hours_request_review_to_first_review,
   {{ dbt.datediff(
                         'time_of_first_request', 
                         "least(
-                            coalesce(time_of_first_requested_reviewer_review, " ~ dbt.current_timestamp_backcompat() ~ "),
-                            coalesce(issue.closed_at, " ~ dbt.current_timestamp_backcompat() ~ "))", 
+                            coalesce(time_of_first_requested_reviewer_review, " ~ dbt.current_timestamp() ~ "),
+                            coalesce(issue.closed_at, " ~ dbt.current_timestamp() ~ "))", 
                         'second') 
   }} / 60/60 as hours_request_review_to_first_action,
   {{ dbt.datediff('time_of_first_request', 'merged_at', 'second') }}/ 60/60 as hours_request_review_to_merge

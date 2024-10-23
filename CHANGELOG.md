@@ -1,5 +1,18 @@
+# dbt_github v0.8.1  
+This release contains the following updates:
+
+## Bug Fixes 
+- Replaced the deprecated `dbt_current_timestamp.backcompat()` macro with the up-to-date `dbt_current_timestamp`. The deprecated macro occasionally returned the system timezone instead of the expected UTC timestamp, leading to incorrect downstream metrics like negative values for `days_issue_open`. [PR #58](https://github.com/fivetran/dbt_github/pull/58)
+- Updated the join type in `int_github__pull_request_times` to ensure pull requests without explicitly requested reviewers are no longer dropped. [PR #57](https://github.com/fivetran/dbt_github/pull/57)
+
+## Under the Hood:
+- Added consistency tests for `github__issues` and `github__pull_requests` to ensure new changes don't change the output of either model. (Some measures are omitted from the comparison tests, since they're measures based on the `current_timestamp`, which differs between validation test runs). [PR #58](https://github.com/fivetran/dbt_github/pull/58)
+
+## Contributors
+- [@samkessaram](https://github.com/samkessaram) ([PR #57](https://github.com/fivetran/dbt_github/pull/57))
+
 # dbt_github v0.8.0
-[PR #53](https://github.com/fivetran/dbt_jira/dbt_github/53) contains the following updates:
+[PR #53](https://github.com/fivetran/dbt_github/pull/53) contains the following updates:
 
 ## 🚨 Breaking Change 🚨
 - For consistency with other Fivetran packages, added default target schemas in `dbt_project.yml`. This is a breaking change since the model outputs will now be stored in a schema called `<your target schema>_github` by default. You will need to update any of your downstream use cases to point to the new schema.
@@ -80,6 +93,7 @@
 
 ## Contributors
 - [@jackiexsun](https://github.com/jackiexsun) ([#31](https://github.com/fivetran/dbt_github/pull/31))
+
 # dbt_github v0.5.0
 ## 🚨 Breaking Changes 🚨
 - The addition of the `label` source model results in the reference within `int_github__issue_label` to break. As a result, with the addition of upstream changes within `dbt_github_source` and the new `int_github__issue_label_join` model this issue has been resolved. ([#26](https://github.com/fivetran/dbt_github/pull/26))
