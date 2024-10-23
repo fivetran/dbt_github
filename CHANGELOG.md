@@ -2,11 +2,11 @@
 This release contains the following updates:
 
 ## Bug Fixes 
-- Replaced the existing `dbt_current_timestamp.backcompat()` with the up-to-date `dbt_current_timestamp` macro. The existing macro was not always returning the system timezone timestamp rather than the expected UTC value, causing negative downstream measures for open issues like `days_issue_open`. [PR #58](https://github.com/fivetran/dbt_github/pull/58)
-- Updated the join type in `int_github__pull_request_times` to not drop pull requests without explicit reviewers requested. [PR #57](https://github.com/fivetran/dbt_github/pull/57)
+- Replaced the deprecated `dbt_current_timestamp.backcompat()` macro with the up-to-date `dbt_current_timestamp`. The deprecated macro occasionally returned the system timezone instead of the expected UTC timestamp, leading to incorrect downstream metrics like negative values for `days_issue_open`. [PR #58](https://github.com/fivetran/dbt_github/pull/58)
+- Updated the join type in `int_github__pull_request_times` to ensure pull requests without explicitly requested reviewers are no longer dropped. [PR #57](https://github.com/fivetran/dbt_github/pull/57)
 
 ## Under the Hood:
-- Added consistency tests for `github__issues` and `github__pull_requests` to ensure new changes don't change the output of either model. There are conditions. [PR #58](https://github.com/fivetran/dbt_github/pull/58)
+- Added consistency tests for `github__issues` and `github__pull_requests` to ensure new changes don't change the output of either model. (Some measures are omitted from the comparison tests, since they're measures based on the `current_timestamp`, which differs between validation test runs). [PR #58](https://github.com/fivetran/dbt_github/pull/58)
 
 ## Contributors
 - [@samkessaram](https://github.com/samkessaram) ([PR #57](https://github.com/fivetran/dbt_github/pull/57))
