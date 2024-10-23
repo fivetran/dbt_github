@@ -1,8 +1,8 @@
 # dbt_github v0.8.1  
-[PR #58](https://github.com/fivetran/dbt_github/pull/58) contains the following updates:
+This release contains the following updates:
 
 ## Bug Fixes 
-- Replaced the existing `dbt_current_timestamp.backcompat()` with the up-to-date `dbt_current_timestamp` macro to generate the current timestamp for customers. [PR #58](https://github.com/fivetran/dbt_github/pull/58)
+- Replaced the existing `dbt_current_timestamp.backcompat()` with the up-to-date `dbt_current_timestamp` macro. The existing macro was not always returning the system timezone timestamp rather than the expected UTC value, causing negative downstream measures for open issues like `days_issue_open`. [PR #58](https://github.com/fivetran/dbt_github/pull/58)
 - Updated the join type in `int_github__pull_request_times` to not drop pull requests without explicit reviewers requested. [PR #57](https://github.com/fivetran/dbt_github/pull/57)
 
 ## Under the Hood:

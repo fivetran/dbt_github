@@ -3,22 +3,24 @@ version: '0.8.1'
 config-version: 2
 profile: 'integration_tests'
 vars:
-  github_source:
-    github_schema: github_integration_tests_1
-    github_issue_assignee_identifier: "github_issue_assignee_data"
-    github_issue_closed_history_identifier: "github_issue_closed_history_data"
-    github_issue_comment_identifier: "github_issue_comment_data"
-    github_issue_label_identifier: "github_issue_label_data"
-    github_label_identifier: "github_label_data"
-    github_issue_merged_identifier: "github_issue_merged_data"
-    github_issue_identifier: "github_issue_data"
-    github_pull_request_review_identifier: "github_pull_request_review_data"
-    github_pull_request_identifier: "github_pull_request_data"
-    github_repository_identifier: "github_repository_data"
-    github_repo_team_identifier: "github_repo_team_data"
-    github_requested_reviewer_history_identifier: "github_requested_reviewer_history_data"
-    github_team_identifier: "github_team_data"
-    github_user_identifier: "github_user_data"
+  github_database: dbt-package-testing
+  github_schema: github_new
+  # github_source:
+  #   github_schema: github_integration_tests
+  #   github_issue_assignee_identifier: "github_issue_assignee_data"
+  #   github_issue_closed_history_identifier: "github_issue_closed_history_data"
+  #   github_issue_comment_identifier: "github_issue_comment_data"
+  #   github_issue_label_identifier: "github_issue_label_data"
+  #   github_label_identifier: "github_label_data"
+  #   github_issue_merged_identifier: "github_issue_merged_data"
+  #   github_issue_identifier: "github_issue_data"
+  #   github_pull_request_review_identifier: "github_pull_request_review_data"
+  #   github_pull_request_identifier: "github_pull_request_data"
+  #   github_repository_identifier: "github_repository_data"
+  #   github_repo_team_identifier: "github_repo_team_data"
+  #   github_requested_reviewer_history_identifier: "github_requested_reviewer_history_data"
+  #   github_team_identifier: "github_team_data"
+  #   github_user_identifier: "github_user_data"
 
 models:
   +schema: "github_{{ var('directed_schema','dev') }}"
