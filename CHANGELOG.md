@@ -1,3 +1,9 @@
+# dbt_github version.version
+
+## Documentation
+- Added Quickstart model counts to README. ([#60](https://github.com/fivetran/dbt_github/pull/60))
+- Corrected references to connectors and connections in the README. ([#60](https://github.com/fivetran/dbt_github/pull/60))
+
 # dbt_github v0.8.1  
 This release contains the following updates:
 

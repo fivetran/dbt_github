@@ -34,13 +34,16 @@ The following table provides a detailed list of all tables materialized within t
 | [github__weekly_metrics](https://fivetran.github.io/dbt_github/#!/model/model.github.github__weekly_metrics)    | Each record represents a single week and repository, enriched with metrics about PRs and issues that were created and closed during that period.                             |
 | [github__monthly_metrics](https://fivetran.github.io/dbt_github/#!/model/model.github.github__monthly_metrics)   | Each record represents a single month and repository, enriched with metrics about PRs and issues that were created and closed during that period.                            |
 | [github__quarterly_metrics](https://fivetran.github.io/dbt_github/#!/model/model.github.github__quarterly_metrics) | Each record represents a single quarter and repository, enriched with metrics about PRs and issues that were created and closed during that period.                          |
+
+### Materialized Models
+Each Quickstart transformation job run materializes 34 models if all components of this data model are enabled. This count includes all staging, intermediate, and final models materialized as `view`, `table`, or `incremental`.
 <!--section-end-->
 
 ## How do I use the dbt package?
 ### Step 1: Prerequisites
 To use this dbt package, you must have the following:
 
-- At least one Fivetran Github connector syncing data into your destination.
+- At least one Fivetran Github connection syncing data into your destination.
 - A **BigQuery**, **Snowflake**, **Redshift**, **PostgreSQL**, or **Databricks** destination.
 
 #### Databricks Dispatch Configuration
@@ -75,7 +78,7 @@ vars:
 ```
 
 ### Step 4: Disable models for non-existent sources
-Your Github connector might not sync every table that this package expects. If your syncs exclude certain tables, it is because you either don't use that functionality in Github or have actively excluded some tables from your syncs.
+Your Github connection might not sync every table that this package expects. If your syncs exclude certain tables, it is because you either don't use that functionality in Github or have actively excluded some tables from your syncs.
 
 If you do not have the `REPO_TEAM` table synced, add the following variable to your `dbt_project.yml` file:
 
