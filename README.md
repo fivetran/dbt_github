@@ -34,6 +34,7 @@ The following table provides a detailed list of all tables materialized within t
 | [github__weekly_metrics](https://fivetran.github.io/dbt_github/#!/model/model.github.github__weekly_metrics)    | Each record represents a single week and repository, enriched with metrics about PRs and issues that were created and closed during that period.                             |
 | [github__monthly_metrics](https://fivetran.github.io/dbt_github/#!/model/model.github.github__monthly_metrics)   | Each record represents a single month and repository, enriched with metrics about PRs and issues that were created and closed during that period.                            |
 | [github__quarterly_metrics](https://fivetran.github.io/dbt_github/#!/model/model.github.github__quarterly_metrics) | Each record represents a single quarter and repository, enriched with metrics about PRs and issues that were created and closed during that period.                          |
+
 ### Materialized Models
 Each Quickstart transformation job run materializes 34 models if all components of this data model are enabled. This count includes all staging, intermediate, and final models materialized as `view`, `table`, or `incremental`.
 <!--section-end-->
