@@ -20,8 +20,8 @@ vars:
     github_team_identifier: "github_team_data"
     github_user_identifier: "github_user_data"
 
-models:
-  +schema: "github_{{ var('directed_schema','dev') }}"
+# models:
+#   +schema: "github_{{ var('directed_schema','dev') }}"
 
 seeds:
   github_integration_tests:
