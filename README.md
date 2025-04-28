@@ -13,10 +13,10 @@
         <img src="https://img.shields.io/badge/Fivetran_Quickstart_Compatible%3F-yes-green.svg" /></a>
 </p>
 
-# Github dbt Package ([Docs](https://fivetran.github.io/dbt_github/))
+# GitHub dbt Package ([Docs](https://fivetran.github.io/dbt_github/))
 ## What does this dbt package do?
 
-- Produces modeled tables that leverage Github data from [Fivetran's connector](https://fivetran.com/docs/applications/github) in the format described by [this ERD](https://fivetran.com/docs/applications/github#schemainformation) and builds off of the output from our [github source package](https://github.com/fivetran/dbt_github_source).
+- Produces modeled tables that leverage GitHub data from [Fivetran's connector](https://fivetran.com/docs/applications/github) in the format described by [this ERD](https://fivetran.com/docs/applications/github#schemainformation) and builds off of the output from our [github source package](https://github.com/fivetran/dbt_github_source).
 
 - Provides insight into GitHub issues and pull requests by enhancing these core objects with commonly used metrics.
 - Produces metrics tables, which increase understanding of your team's velocity over time. Metrics are available on a daily, weekly, monthly, and quarterly level.
@@ -43,7 +43,7 @@ Each Quickstart transformation job run materializes 34 models if all components 
 ### Step 1: Prerequisites
 To use this dbt package, you must have the following:
 
-- At least one Fivetran Github connection syncing data into your destination.
+- At least one Fivetran GitHub connection syncing data into your destination.
 - A **BigQuery**, **Snowflake**, **Redshift**, **PostgreSQL**, or **Databricks** destination.
 
 #### Databricks Dispatch Configuration
@@ -78,7 +78,7 @@ vars:
 ```
 
 ### Step 4: Disable models for non-existent sources
-Your Github connection might not sync every table that this package expects. If your syncs exclude certain tables, it is because you either don't use that functionality in Github or have actively excluded some tables from your syncs.
+Your GitHub connection might not sync every table that this package expects. If your syncs exclude certain tables, it is because you either don't use that functionality in GitHub or have actively excluded some tables from your syncs.
 
 If you do not have the `REPO_TEAM` table synced, add the following variable to your `dbt_project.yml` file:
 
@@ -94,7 +94,7 @@ vars:
 <details open><summary>Expand/collapse configurations</summary>
 
 #### Change the build schema
-By default, this package builds the Github staging models within a schema titled (`<target_schema>` + `_github_source`) and your Github modeling models within a schema titled (`<target_schema>` + `_github`) in your destination. If this is not where you would like your Github data to be written to, add the following configuration to your root `dbt_project.yml` file:
+By default, this package builds the GitHub staging models within a schema titled (`<target_schema>` + `_github_source`) and your GitHub modeling models within a schema titled (`<target_schema>` + `_github`) in your destination. If this is not where you would like your GitHub data to be written to, add the following configuration to your root `dbt_project.yml` file:
 
 ```yml
 models:
