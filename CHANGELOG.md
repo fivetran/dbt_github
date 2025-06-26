@@ -1,6 +1,6 @@
 # dbt_github v0.9.0
 
-[PR #61](https://github.com/fivetran/dbt_github/pull/61) includes the following updates:
+[PR #63](https://github.com/fivetran/dbt_github/pull/63) includes the following updates:
 
 ## Breaking Change for dbt Core < 1.9.6
 
