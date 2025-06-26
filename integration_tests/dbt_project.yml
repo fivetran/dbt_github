@@ -1,5 +1,5 @@
 name: 'github_integration_tests'
-version: '0.8.1'
+version: '0.9.0'
 config-version: 2
 profile: 'integration_tests'
 vars:
@@ -63,3 +63,6 @@ seeds:
 dispatch:
   - macro_namespace: dbt_utils
     search_order: ['spark_utils', 'dbt_utils']
+
+flags:
+  send_anonymous_usage_stats: False
