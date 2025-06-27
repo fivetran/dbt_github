@@ -1,5 +1,5 @@
 name: 'github_integration_tests'
-version: '0.9.0'
+version: '0.9.1'
 config-version: 2
 profile: 'integration_tests'
 vars:
@@ -20,10 +20,12 @@ vars:
     github_team_identifier: "github_team_data"
     github_user_identifier: "github_user_data"
 
-# models:
-#   +schema: "github_{{ var('directed_schema','dev') }}"
+models:
+  +schema: "github_{{ var('directed_schema','dev') }}"
 
 seeds:
+  +docs:
+    show: false
   github_integration_tests:
     +quote_columns: "{{ true if target.type == 'redshift' else false }}"
     +column_types:

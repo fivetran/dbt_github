@@ -1,20 +1,4 @@
-with pull_request_review as (
-    select *
-    from {{ var('pull_request_review') }}
-), 
-
-pull_request as (
-    select *
-    from {{ var('pull_request')}}
-), 
-
-requested_reviewer_history as (
-    select *
-    from {{ var('requested_reviewer_history')}}
-    where not removed
-), 
-
-issue as (
+with issue as (
     select *
     from {{ var('issue') }}
 ), 
@@ -25,6 +9,25 @@ issue_merged as (
       min(merged_at) as merged_at
       from {{ var('issue_merged')}}
     group by 1
+)
+
+{% if var('github__using_requested_reviewer_history', True) %}
+{# This is only used in conjunction with requested_reviewer_history #}
+, pull_request_review as (
+    select *
+    from {{ var('pull_request_review') }}
+), 
+
+{# This is only used in conjunction with requested_reviewer_history #}
+pull_request as (
+    select *
+    from {{ var('pull_request')}}
+), 
+
+requested_reviewer_history as (
+    select *
+    from {{ var('requested_reviewer_history')}}
+    where not removed
 ), 
 
 first_request_time as (
@@ -64,3 +67,12 @@ select
 from first_request_time
 join issue on first_request_time.issue_id = issue.issue_id
 left join issue_merged on first_request_time.issue_id = issue_merged.issue_id
+
+{%- else %}
+{# Just select the issue and merge date if requested reviewer data is not available #}
+select 
+  issue.issue_id,
+  issue_merged.merged_at
+from issue 
+left join issue_merged on issue_merged.issue_id = issue.issue_id
+{% endif -%}

@@ -3,10 +3,12 @@ with issue as (
     from {{ var('issue') }}
 ), 
 
+{%- if var('github__using_issue_label', True) and var('github__using_label', True) %}
 issue_labels as (
     select *
     from {{ ref('int_github__issue_labels')}}
 ), 
+{% endif -%}
 
 repository_teams as (
     select 
@@ -22,10 +24,12 @@ repository_teams as (
     {% endif %}
 ), 
 
+{%- if var('github__using_issue_assignee', True) %}
 issue_assignees as (
     select *
     from {{ ref('int_github__issue_assignees')}}
 ), 
+{% endif -%}
 
 issue_open_length as (
     select *
@@ -65,30 +69,54 @@ select
   end as url_link,
   issue_open_length.days_issue_open,
   issue_open_length.number_of_times_reopened,
+
+  {%- if var('github__using_issue_label', True) and var('github__using_label', True) -%}
   labels.labels,
+  {%- else %}
+  cast(null as {{ dbt.type_string() }}) as labels,
+  {% endif -%}
+
   issue_comments.number_of_comments,
   repository_teams.repository,
-  {% if var('github__using_repo_team', true) %}
+
+  {%- if var('github__using_repo_team', true) %}
   repository_teams.repository_team_names,
-  {% endif %}
+  {% endif -%}
+
+  {%- if var('github__using_issue_assignee', True) -%}
   issue_assignees.assignees,
+  {%- else -%}
+  cast(null as {{ dbt.type_string() }}) as assignees,
+  {% endif -%}
+
   creator.login_name as creator_login_name,
   creator.name as creator_name,
   creator.company as creator_company,
+
+  {%- if var('github__using_requested_reviewer_history', True) -%}
   hours_request_review_to_first_review,
   hours_request_review_to_first_action,
   hours_request_review_to_merge,
+  {% endif %}
+
   merged_at,
   reviewers, 
+  {# will be null if requested_reviewer_history is not used. See int_github__pull_request_reviewers #}
   requested_reviewers,
+  
   number_of_reviews
+  
 from issue
+{%- if var('github__using_issue_label', True) and var('github__using_label', True) %}
 left join issue_labels as labels
   on issue.issue_id = labels.issue_id
+{%- endif %}
 join repository_teams
   on issue.repository_id = repository_teams.repository_id
+{%- if var('github__using_issue_assignee', True) %}
 left join issue_assignees
   on issue.issue_id = issue_assignees.issue_id
+{%- endif %}
 left join issue_open_length
   on issue.issue_id = issue_open_length.issue_id
 left join issue_comments 

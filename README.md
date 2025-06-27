@@ -1,4 +1,6 @@
-<p align="center">
+# Github dbt Package ([Docs](https://fivetran.github.io/dbt_github/))
+
+<p align="left">
     <a alt="License"
         href="https://github.com/fivetran/dbt_github/blob/main/LICENSE">
         <img src="https://img.shields.io/badge/License-Apache%202.0-blue.svg" /></a>
@@ -13,7 +15,6 @@
         <img src="https://img.shields.io/badge/Fivetran_Quickstart_Compatible%3F-yes-green.svg" /></a>
 </p>
 
-# Github dbt Package ([Docs](https://fivetran.github.io/dbt_github/))
 ## What does this dbt package do?
 
 - Produces modeled tables that leverage Github data from [Fivetran's connector](https://fivetran.com/docs/applications/github) in the format described by [this ERD](https://fivetran.com/docs/applications/github#schemainformation) and builds off of the output from our [github source package](https://github.com/fivetran/dbt_github_source).
@@ -85,9 +86,13 @@ If you do not have the `REPO_TEAM` table synced, add the following variable to y
 ```yml
 vars:
     github__using_repo_team: false # by default this is assumed to be true
+    github__using_issue_assignee: false # by default this is assumed to be true
+    github__using_issue_label: false # by default this is assumed to be true
+    github__using_label: false # by default this is assumed to be true
+    github__using_requested_reviewer_history: false # by default this is assumed to be true
 ```
 
-*Note: This package only integrates the above variable. If you'd like to disable other models, please create an [issue](https://github.com/fivetran/dbt_github/issues) specifying which ones.*
+*Note: This package only integrates the above variables. If you'd like to disable other models, please create an [issue](https://github.com/fivetran/dbt_github/issues) specifying which ones.*
 
 ### (Optional) Step 5: Additional configurations
 

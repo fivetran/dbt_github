@@ -18,9 +18,9 @@ cd integration_tests
 dbt deps
 dbt seed --target "$db" --full-refresh
 dbt source freshness --target "$db" || echo "...Only verifying freshness runs…"
-dbt run --target "$db" --full-refresh
+dbt run --vars '{github__using_repo_team: false, github__using_issue_assignee: false, github__using_issue_label: false, github__using_requested_reviewer_history: false}' --target "$db" --full-refresh
 dbt test --target "$db"
-dbt run --vars '{github__using_repo_team: false}' --target "$db" --full-refresh
+dbt run --target "$db" --full-refresh
 dbt test --target "$db"
 
 dbt run-operation fivetran_utils.drop_schemas_automation --target "$db"

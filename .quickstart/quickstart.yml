@@ -4,9 +4,17 @@ schema_key: github_schema
 dbt_versions: ">=1.3.0 <2.0.0"
 
 table_variables:
+  github__using_issue_assignee:
+    - issue_assignee
+  github__using_issue_label:
+    - issue_label
+  github__using_label:
+    - label
   github__using_repo_team:
     - repo_team
     - team
+  github__using_requested_reviewer_history:
+    - requested_reviewer_history
 
 destination_configurations:
   databricks:

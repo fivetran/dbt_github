@@ -1,3 +1,6 @@
 packages:
-- package: fivetran/github_source
-  version: [">=0.9.0", "<0.10.0"]
+# - package: fivetran/github_source
+#   version: [">=0.9.0", "<0.10.0"]
+  # - local: ../Velocity/Github/dbt_github_source
+- git: https://github.com/fivetran/dbt_github_source.git
+  revision: feature/add-more-table-vars
