@@ -12,7 +12,7 @@
 ## Under the Hood
 - Updated package maintainer PR template.
 - Added new variables to the `quickstart.yml` file.
-- Added consistency validation tests for the `github__daily/weeky/monthly_metrics` models.
+- Added consistency validation tests for the `github__daily/weeky/monthly/quarterly_metrics` models.
 
 # dbt_github v0.9.0
 
