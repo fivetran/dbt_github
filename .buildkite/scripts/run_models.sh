@@ -19,7 +19,7 @@ dbt deps
 dbt seed --target "$db" --full-refresh
 dbt source freshness --target "$db" || echo "...Only verifying freshness runs…"
 dbt run --vars '{github__using_repo_team: false, github__using_issue_assignee: false, github__using_issue_label: false, github__using_requested_reviewer_history: false}' --target "$db" --full-refresh
-dbt test --target "$db"
+dbt test --vars '{github__using_repo_team: false, github__using_issue_assignee: false, github__using_issue_label: false, github__using_requested_reviewer_history: false}' --target "$db"
 dbt run --target "$db" --full-refresh
 dbt test --target "$db"
 
