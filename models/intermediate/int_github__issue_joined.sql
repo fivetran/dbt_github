@@ -94,17 +94,16 @@ select
   creator.company as creator_company,
 
   {%- if var('github__using_requested_reviewer_history', True) -%}
-  hours_request_review_to_first_review,
-  hours_request_review_to_first_action,
-  hours_request_review_to_merge,
+  pull_request_times.hours_request_review_to_first_review,
+  pull_request_times.hours_request_review_to_first_action,
+  pull_request_times.hours_request_review_to_merge,
   {% endif %}
 
-  merged_at,
-  reviewers, 
-  {# will be null if requested_reviewer_history is not used. See int_github__pull_request_reviewers #}
-  requested_reviewers,
-  
-  number_of_reviews
+  pull_request_times.merged_at,
+  pull_request_reviewers.reviewers, 
+  {# requested_reviewers will be null if requested_reviewer_history is not used. See int_github__pull_request_reviewers #}
+  pull_request_reviewers.requested_reviewers,
+  pull_request_reviewers.number_of_reviews
   
 from issue
 {%- if var('github__using_issue_label', True) and var('github__using_label', True) %}

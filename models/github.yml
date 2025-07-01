@@ -160,13 +160,19 @@ models:
         description: Users who have been assigned to the pull request
         
       - name: hours_request_review_to_first_review
-        description: Number of hours between the first request for review and a review
+        description: >
+          Number of hours between the first request for review and a review. Not present if the `requested_reviewer_history` table is missing (Fivetran Quickstart)
+          or if the `github__using_requested_reviewer_history` variable is set to `False` (dbt Core).
 
       - name: hours_request_review_to_first_action
-        description: Number of hours between the first request for review and any action besides dismissing the request
+        description: >
+          Number of hours between the first request for review and any action besides dismissing the request. Not present if the `requested_reviewer_history` table is missing (Fivetran Quickstart)
+          or if the `github__using_requested_reviewer_history` variable is set to `False` (dbt Core).
 
       - name: hours_request_review_to_merge
-        description: Number of hours between the first request for review and the pull request being merged
+        description: >
+          Number of hours between the first request for review and the pull request being merged. Not present if the `requested_reviewer_history` table is missing (Fivetran Quickstart)
+          or if the `github__using_requested_reviewer_history` variable is set to `False` (dbt Core).
 
       - name: merged_at
         description: Timestamp of when the pull request was merged
