@@ -81,11 +81,11 @@ vars:
 ### Step 4: Disable models for non-existent sources
 Your Github connection might not sync every table that this package expects. If your syncs exclude certain tables, it is because you either don't use that functionality in Github or have actively excluded some tables from your syncs.
 
-If you do not have the `REPO_TEAM` table synced, add the following variable to your `dbt_project.yml` file:
+If you do not have the `TEAM`, `REPO_TEAM`, `ISSUE_ASSIGNEE`, `ISSUE_LABEL`, `LABEL`, or `REQUESTED_REVIEWER_HISTORY` tables synced and are not running the package via Fivetran Quickstart, add the following variables to your `dbt_project.yml` file:
 
 ```yml
 vars:
-    github__using_repo_team: false # by default this is assumed to be true
+    github__using_repo_team: false # by default this is assumed to be true. Set to false if missing TEAM or REPO_TEAM
     github__using_issue_assignee: false # by default this is assumed to be true
     github__using_issue_label: false # by default this is assumed to be true
     github__using_label: false # by default this is assumed to be true
