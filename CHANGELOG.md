@@ -1,3 +1,19 @@
+# dbt_github v0.9.1
+
+[PR #64](https://github.com/fivetran/dbt_github/pull/64) includes the following updates:
+
+## Feature Updates
+- Added the following variables to account for potentially missing tables. For dbt Core users, each is `True` by default and will need to be set to `False` in the root project's `dbt_project.yml`. For Fivetran Quickstart users, they will be dynamically enabled/disabled based on the presence of the associated source table.
+  - `github__using_issue_assignee`: Disable if missing `ISSUE_ASSIGNEE`
+  - `github__using_issue_label`: Disable if missing `ISSUE_LABEL`
+  - `github__using_label`: Disable if missing `LABEL`
+  - `github__using_requested_reviewer_history`: Disable if missing `REQUESTED_REVIEWER_HISTORY`
+
+## Under the Hood
+- Updated package maintainer PR template.
+- Added new variables to the `quickstart.yml` file.
+- Added consistency validation tests for the `github__daily/weeky/monthly/quarterly_metrics` models.
+
 # dbt_github v0.9.0
 
 [PR #63](https://github.com/fivetran/dbt_github/pull/63) includes the following updates:

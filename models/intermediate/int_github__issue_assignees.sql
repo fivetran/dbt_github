@@ -1,3 +1,5 @@
+{{ config(enabled=var('github__using_issue_assignee', True)) }}
+
 with issue_assignee as (
     select *
     from {{  var('issue_assignee') }}

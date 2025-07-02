@@ -1,4 +1,6 @@
-<p align="center">
+# Github dbt Package ([Docs](https://fivetran.github.io/dbt_github/))
+
+<p align="left">
     <a alt="License"
         href="https://github.com/fivetran/dbt_github/blob/main/LICENSE">
         <img src="https://img.shields.io/badge/License-Apache%202.0-blue.svg" /></a>
@@ -13,7 +15,6 @@
         <img src="https://img.shields.io/badge/Fivetran_Quickstart_Compatible%3F-yes-green.svg" /></a>
 </p>
 
-# Github dbt Package ([Docs](https://fivetran.github.io/dbt_github/))
 ## What does this dbt package do?
 
 - Produces modeled tables that leverage Github data from [Fivetran's connector](https://fivetran.com/docs/applications/github) in the format described by [this ERD](https://fivetran.com/docs/applications/github#schemainformation) and builds off of the output from our [github source package](https://github.com/fivetran/dbt_github_source).
@@ -80,14 +81,18 @@ vars:
 ### Step 4: Disable models for non-existent sources
 Your Github connection might not sync every table that this package expects. If your syncs exclude certain tables, it is because you either don't use that functionality in Github or have actively excluded some tables from your syncs.
 
-If you do not have the `REPO_TEAM` table synced, add the following variable to your `dbt_project.yml` file:
+If you do not have the `TEAM`, `REPO_TEAM`, `ISSUE_ASSIGNEE`, `ISSUE_LABEL`, `LABEL`, or `REQUESTED_REVIEWER_HISTORY` tables synced and are not running the package via Fivetran Quickstart, add the following variables to your `dbt_project.yml` file:
 
 ```yml
 vars:
-    github__using_repo_team: false # by default this is assumed to be true
+    github__using_repo_team: false # by default this is assumed to be true. Set to false if missing TEAM or REPO_TEAM
+    github__using_issue_assignee: false # by default this is assumed to be true
+    github__using_issue_label: false # by default this is assumed to be true
+    github__using_label: false # by default this is assumed to be true
+    github__using_requested_reviewer_history: false # by default this is assumed to be true
 ```
 
-*Note: This package only integrates the above variable. If you'd like to disable other models, please create an [issue](https://github.com/fivetran/dbt_github/issues) specifying which ones.*
+*Note: This package only integrates the above variables. If you'd like to disable other models, please create an [issue](https://github.com/fivetran/dbt_github/issues) specifying which ones.*
 
 ### (Optional) Step 5: Additional configurations
 

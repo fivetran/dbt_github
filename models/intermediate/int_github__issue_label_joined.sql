@@ -1,3 +1,5 @@
+{{ config(enabled=(var('github__using_issue_label', True) and var('github__using_label', True))) }}
+
 with issue_label as (
 
     select *
