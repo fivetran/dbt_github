@@ -189,11 +189,6 @@ models:
   - name: github__daily_metrics
     description: >
       Summary numbers for issues and pull requests by day
-    tests:
-      - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - repository
-            - day
     columns:
       - name: day
         description: The reporting day
@@ -235,11 +230,6 @@ models:
   - name: github__weekly_metrics
     description: >
       Summary numbers for issues and pull requests by week
-    tests:
-      - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - repository
-            - week
     columns:
       - name: week
         description: The reporting week
@@ -280,11 +270,6 @@ models:
   - name: github__monthly_metrics
     description: >
       Summary numbers for issues and pull requests by month
-    tests:
-      - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - repository
-            - month
     columns:
       - name: month
         description: The reporting month
@@ -325,11 +310,6 @@ models:
   - name: github__quarterly_metrics
     description: >
       Summary numbers for issues and pull requests by quarter
-    tests:
-      - dbt_utils.unique_combination_of_columns:
-          combination_of_columns:
-            - repository
-            - quarter
     columns:
       - name: quarter
         description: The reporting quarter

@@ -1,13 +1,13 @@
 with issue as (
     select *
-    from {{ var('issue') }}
+    from {{ ref('stg_github__issue') }}
 ), 
 
 issue_merged as (
     select
       issue_id,
       min(merged_at) as merged_at
-      from {{ var('issue_merged')}}
+      from {{ ref('stg_github__issue_merged') }}
     group by 1
 )
 
@@ -15,18 +15,18 @@ issue_merged as (
 {# This is only used in conjunction with requested_reviewer_history #}
 , pull_request_review as (
     select *
-    from {{ var('pull_request_review') }}
+    from {{ ref('stg_github__pull_request_review') }}
 ), 
 
 {# This is only used in conjunction with requested_reviewer_history #}
 pull_request as (
     select *
-    from {{ var('pull_request')}}
+    from {{ ref('stg_github__pull_request') }}
 ), 
 
 requested_reviewer_history as (
     select *
-    from {{ var('requested_reviewer_history')}}
+    from {{ ref('stg_github__requested_reviewer_history') }}
     where not removed
 ), 
 
