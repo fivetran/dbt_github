@@ -3,12 +3,12 @@
 with issue_label as (
 
     select *
-    from {{ var('issue_label') }}
+    from {{ ref('stg_github__issue_label') }}
 
 ), label as (
 
     select *
-    from {{ var('label') }}
+    from {{ ref('stg_github__label') }}
 
 ), joined as (
 

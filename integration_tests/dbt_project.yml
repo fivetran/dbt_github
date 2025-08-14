@@ -1,9 +1,9 @@
 name: 'github_integration_tests'
-version: '0.9.1'
+version: '1.0.0'
 config-version: 2
 profile: 'integration_tests'
 vars:
-  github_source:
+  github:
     github_schema: github_integration_tests_1
     github_issue_assignee_identifier: "github_issue_assignee_data"
     github_issue_closed_history_identifier: "github_issue_closed_history_data"
@@ -68,3 +68,4 @@ dispatch:
 
 flags:
   send_anonymous_usage_stats: False
+  use_colors: True

@@ -1,11 +1,11 @@
 with pull_request_review as (
     select *
-    from {{ var('pull_request_review') }}
+    from {{ ref('stg_github__pull_request_review') }}
 ), 
 
 github_user as (
     select *
-    from {{ var('user')}}
+    from {{ ref('stg_github__user') }}
 ),
 
 actual_reviewers as (
@@ -22,7 +22,7 @@ group by 1
 requested_reviewer_history as (
 
     select *
-    from {{ var('requested_reviewer_history') }}
+    from {{ ref('stg_github__requested_reviewer_history') }}
     where removed = false
 ),
 

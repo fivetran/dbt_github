@@ -1,11 +1,11 @@
-# Github dbt Package ([Docs](https://fivetran.github.io/dbt_github/))
+# GitHub dbt Package ([Docs](https://fivetran.github.io/dbt_github/))
 
 <p align="left">
     <a alt="License"
         href="https://github.com/fivetran/dbt_github/blob/main/LICENSE">
         <img src="https://img.shields.io/badge/License-Apache%202.0-blue.svg" /></a>
     <a alt="dbt-core">
-        <img src="https://img.shields.io/badge/dbt_Core™_version->=1.3.0_<2.0.0-orange.svg" /></a>
+        <img src="https://img.shields.io/badge/dbt_Core™_version->=1.3.0_,<2.0.0-orange.svg" /></a>
     <a alt="Maintained?">
         <img src="https://img.shields.io/badge/Maintained%3F-yes-green.svg" /></a>
     <a alt="PRs">
@@ -16,9 +16,7 @@
 </p>
 
 ## What does this dbt package do?
-
-- Produces modeled tables that leverage Github data from [Fivetran's connector](https://fivetran.com/docs/applications/github) in the format described by [this ERD](https://fivetran.com/docs/applications/github#schemainformation) and builds off of the output from our [github source package](https://github.com/fivetran/dbt_github_source).
-
+- Produces modeled tables that leverage GitHub data from [Fivetran's connector](https://fivetran.com/docs/applications/github) in the format described by [this ERD](https://fivetran.com/docs/applications/github#schemainformation).
 - Provides insight into GitHub issues and pull requests by enhancing these core objects with commonly used metrics.
 - Produces metrics tables, which increase understanding of your team's velocity over time. Metrics are available on a daily, weekly, monthly, and quarterly level.
 - Generates a comprehensive data dictionary of your source and modeled github data through the [dbt docs site](https://fivetran.github.io/dbt_github/).
@@ -44,7 +42,7 @@ Each Quickstart transformation job run materializes 34 models if all components 
 ### Step 1: Prerequisites
 To use this dbt package, you must have the following:
 
-- At least one Fivetran Github connection syncing data into your destination.
+- At least one Fivetran GitHub connection syncing data into your destination.
 - A **BigQuery**, **Snowflake**, **Redshift**, **PostgreSQL**, or **Databricks** destination.
 
 #### Databricks Dispatch Configuration
@@ -62,24 +60,23 @@ Include the following github package version in your `packages.yml` file.
 ```yaml
 packages:
   - package: fivetran/github
-    version: [">=0.9.0", "<0.10.0"] # we recommend using ranges to capture non-breaking changes automatically
+    version: [">=1.0.0", "<1.1.0"] # we recommend using ranges to capture non-breaking changes automatically
 ```
 
-Do NOT include the `github_source` package in this file. The transformation package itself has a dependency on it and will install the source package as well.
-
+> All required sources and staging models are now bundled into this transformation package. Do not include `fivetran/github_source` in your `packages.yml` since this package has been deprecated.
 
 ### Step 3: Define database and schema variables
-By default, this package runs using your [destination](https://docs.getdbt.com/docs/running-a-dbt-project/using-the-command-line-interface/configure-your-profile) and the `github` schema. If this is not where your Github data is (for example, if your github schema is named `github_fivetran`), add the following configuration to your root `dbt_project.yml` file:
+By default, this package runs using your [destination](https://docs.getdbt.com/docs/running-a-dbt-project/using-the-command-line-interface/configure-your-profile) and the `github` schema. If this is not where your GitHub data is (for example, if your github schema is named `github_fivetran`), add the following configuration to your root `dbt_project.yml` file:
 
 ```yml
 vars:
-  github_source:
+  github:
     github_database: your_database_name
     github_schema: your_schema_name 
 ```
 
 ### Step 4: Disable models for non-existent sources
-Your Github connection might not sync every table that this package expects. If your syncs exclude certain tables, it is because you either don't use that functionality in Github or have actively excluded some tables from your syncs.
+Your GitHub connection might not sync every table that this package expects. If your syncs exclude certain tables, it is because you either don't use that functionality in GitHub or have actively excluded some tables from your syncs.
 
 If you do not have the `TEAM`, `REPO_TEAM`, `ISSUE_ASSIGNEE`, `ISSUE_LABEL`, `LABEL`, or `REQUESTED_REVIEWER_HISTORY` tables synced and are not running the package via Fivetran Quickstart, add the following variables to your `dbt_project.yml` file:
 
@@ -99,19 +96,19 @@ vars:
 <details open><summary>Expand/collapse configurations</summary>
 
 #### Change the build schema
-By default, this package builds the Github staging models within a schema titled (`<target_schema>` + `_github_source`) and your Github modeling models within a schema titled (`<target_schema>` + `_github`) in your destination. If this is not where you would like your Github data to be written to, add the following configuration to your root `dbt_project.yml` file:
+By default, this package builds the GitHub staging models within a schema titled (`<target_schema>` + `_github_source`) and your GitHub modeling models within a schema titled (`<target_schema>` + `_github`) in your destination. If this is not where you would like your GitHub data to be written to, add the following configuration to your root `dbt_project.yml` file:
 
 ```yml
 models:
-    github_source:
-      +schema: my_new_schema_name # leave blank for just the target_schema
     github:
-      +schema: my_new_schema_name # leave blank for just the target_schema
+      +schema: my_new_schema_name # Leave +schema: blank to use the default target_schema.
+      staging:
+        +schema: my_new_schema_name # Leave +schema: blank to use the default target_schema.
 ```
 #### Change the source table references
 If an individual source table has a different name than the package expects, add the table name as it appears in your destination to the respective variable:
 
-> IMPORTANT: See this project's [`dbt_project.yml`](https://github.com/fivetran/dbt_github_source/blob/main/dbt_project.yml) variable declarations to see the expected names.
+> IMPORTANT: See this project's [`dbt_project.yml`](https://github.com/fivetran/dbt_github/blob/main/dbt_project.yml) variable declarations to see the expected names.
 
 ```yml
 vars:
@@ -129,7 +126,7 @@ Fivetran offers the ability for you to orchestrate your dbt project through [Fiv
 ## Does this package have dependencies?
 This dbt package is dependent on the following dbt packages. These dependencies are installed by default within this package. For more information on the following packages, refer to the [dbt hub](https://hub.getdbt.com/) site.
 > IMPORTANT: If you have any of these dependent packages in your own `packages.yml` file, we highly recommend that you remove them from your root `packages.yml` to avoid package version conflicts.
-    
+
 ```yml
 packages:
     - package: fivetran/fivetran_utils
@@ -138,9 +135,6 @@ packages:
     - package: dbt-labs/dbt_utils
       version: [">=1.0.0", "<2.0.0"]
 
-    - package: fivetran/github_source
-      version: [">=0.9.0", "<0.10.0"]
-    
     - package: dbt-labs/spark_utils
       version: [">=0.3.0", "<0.4.0"]
 ```
