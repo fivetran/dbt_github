@@ -1,8 +1,74 @@
-# dbt_github version.version
+# dbt_github v1.0.0
+
+[PR #67](https://github.com/fivetran/dbt_github/pull/67) includes the following updates:
+
+## Breaking Changes
+
+### Source Package Consolidation
+- Removed the dependency on the `fivetran/github_source` package.
+  - All functionality from the source package has been merged into this transformation package for improved maintainability and clarity.
+  - If you reference `fivetran/github_source` in your `packages.yml`, you must remove this dependency to avoid conflicts.
+  - Any source overrides referencing the `fivetran/github_source` package will also need to be removed or updated to reference this package.
+  - Update any github_source-scoped variables to be scoped to only under this package. See the [README](https://github.com/fivetran/dbt_github/blob/main/README.md) for how to configure the build schema of staging models.
+- As part of the consolidation, vars are no longer used to reference staging models, and only sources are represented by vars. Staging models are now referenced directly with `ref()` in downstream models.
+
+### dbt Fusion Compatibility Updates
+- Updated package to maintain compatibility with dbt-core versions both before and after v1.10.6, which introduced a breaking change to multi-argument test syntax (e.g., `unique_combination_of_columns`).
+- Temporarily removed unsupported tests to avoid errors and ensure smoother upgrades across different dbt-core versions. These tests will be reintroduced once a safe migration path is available.
+  - Removed all `dbt_utils.unique_combination_of_columns` tests.
+  - Removed all `accepted_values` tests.
+  - Moved `loaded_at_field: _fivetran_synced` under the `config:` block in `src_github.yml`.
+
+### Under the Hood
+- Updated conditions in `.github/workflows/auto-release.yml`.
+- Added `.github/workflows/generate-docs.yml`.
+
+# dbt_github v0.9.1
+
+[PR #64](https://github.com/fivetran/dbt_github/pull/64) includes the following updates:
+
+## Feature Updates
+- Added the following variables to account for potentially missing tables. For dbt Core users, each is `True` by default and will need to be set to `False` in the root project's `dbt_project.yml`. For Fivetran Quickstart users, they will be dynamically enabled/disabled based on the presence of the associated source table.
+  - `github__using_issue_assignee`: Disable if missing `ISSUE_ASSIGNEE`
+  - `github__using_issue_label`: Disable if missing `ISSUE_LABEL`
+  - `github__using_label`: Disable if missing `LABEL`
+  - `github__using_requested_reviewer_history`: Disable if missing `REQUESTED_REVIEWER_HISTORY`
+
+## Under the Hood
+- Updated package maintainer PR template.
+- Added new variables to the `quickstart.yml` file.
+- Added consistency validation tests for the `github__daily/weeky/monthly/quarterly_metrics` models.
+
+# dbt_github v0.9.0
+
+[PR #63](https://github.com/fivetran/dbt_github/pull/63) includes the following updates:
+
+## Breaking Change for dbt Core < 1.9.6
+
+> *Note: This is not relevant to Fivetran Quickstart users.*
+
+Migrated `freshness` from a top-level source property to a source `config` in alignment with [recent updates](https://github.com/dbt-labs/dbt-core/issues/11506) from dbt Core ([GitHub Source v0.9.0](https://github.com/fivetran/dbt_github_source/releases/tag/v0.9.0)). This will resolve the following deprecation warning that users running dbt >= 1.9.6 may have received:
+
+```
+[WARNING]: Deprecated functionality
+Found `freshness` as a top-level property of `github` in file
+`models/src_github.yml`. The `freshness` top-level property should be moved
+into the `config` of `github`.
+```
+
+**IMPORTANT:** Users running dbt Core < 1.9.6 will not be able to utilize freshness tests in this release or any subsequent releases, as older versions of dbt will not recognize freshness as a source `config` and therefore not run the tests.
+
+If you are using dbt Core < 1.9.6 and want to continue running GitHub freshness tests, please elect **one** of the following options:
+  1. (Recommended) Upgrade to dbt Core >= 1.9.6
+  2. Do not upgrade your installed version of the `github` package. Pin your dependency on v0.8.1 in your `packages.yml` file.
+  3. Utilize a dbt [override](https://docs.getdbt.com/reference/resource-properties/overrides) to overwrite the package's `github` source and apply freshness via the previous release top-level property route. This will require you to copy and paste the entirety of the previous release `src_github.yml` file and add an `overrides: github_source` property.
 
 ## Documentation
 - Added Quickstart model counts to README. ([#60](https://github.com/fivetran/dbt_github/pull/60))
 - Corrected references to connectors and connections in the README. ([#60](https://github.com/fivetran/dbt_github/pull/60))
+
+## Under the Hood:
+- Updates to ensure integration tests use latest version of dbt.
 
 # dbt_github v0.8.1  
 This release contains the following updates:

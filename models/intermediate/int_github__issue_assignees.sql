@@ -1,11 +1,13 @@
+{{ config(enabled=var('github__using_issue_assignee', True)) }}
+
 with issue_assignee as (
     select *
-    from {{  var('issue_assignee') }}
+    from {{ ref('stg_github__issue_assignee') }}
 ), 
 
 github_user as (
     select *
-    from {{ var('user')}}
+    from {{ ref('stg_github__user') }}
 )
 
 select

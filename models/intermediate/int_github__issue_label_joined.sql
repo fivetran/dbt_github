@@ -1,12 +1,14 @@
+{{ config(enabled=(var('github__using_issue_label', True) and var('github__using_label', True))) }}
+
 with issue_label as (
 
     select *
-    from {{ var('issue_label') }}
+    from {{ ref('stg_github__issue_label') }}
 
 ), label as (
 
     select *
-    from {{ var('label') }}
+    from {{ ref('stg_github__label') }}
 
 ), joined as (
 
