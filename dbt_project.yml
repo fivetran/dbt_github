@@ -10,7 +10,9 @@ models:
       +materialized: ephemeral
     staging:
       +schema: github_source
-      +materialized: view
+      +materialized: table
+      tmp:
+        +materialized: view
 vars:
   github:
     issue_assignee: "{{ source('github', 'issue_assignee') }}"

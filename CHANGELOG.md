@@ -20,7 +20,6 @@
   - Moved `loaded_at_field: _fivetran_synced` under the `config:` block in `src_github.yml`.
 
 ### Under the Hood
-
 - Updated conditions in `.github/workflows/auto-release.yml`.
 - Added `.github/workflows/generate-docs.yml`.
 
