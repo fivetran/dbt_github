@@ -17,7 +17,6 @@
 
 ## What does this dbt package do?
 - Produces modeled tables that leverage GitHub data from [Fivetran's connector](https://fivetran.com/docs/applications/github) in the format described by [this ERD](https://fivetran.com/docs/applications/github#schemainformation).
-
 - Provides insight into GitHub issues and pull requests by enhancing these core objects with commonly used metrics.
 - Produces metrics tables, which increase understanding of your team's velocity over time. Metrics are available on a daily, weekly, monthly, and quarterly level.
 - Generates a comprehensive data dictionary of your source and modeled github data through the [dbt docs site](https://fivetran.github.io/dbt_github/).
