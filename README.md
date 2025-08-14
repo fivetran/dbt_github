@@ -5,7 +5,7 @@
         href="https://github.com/fivetran/dbt_github/blob/main/LICENSE">
         <img src="https://img.shields.io/badge/License-Apache%202.0-blue.svg" /></a>
     <a alt="dbt-core">
-        <img src="https://img.shields.io/badge/dbt_Core™_version->=1.3.0_<2.0.0-orange.svg" /></a>
+        <img src="https://img.shields.io/badge/dbt_Core™_version->=1.3.0_,<2.0.0-orange.svg" /></a>
     <a alt="Maintained?">
         <img src="https://img.shields.io/badge/Maintained%3F-yes-green.svg" /></a>
     <a alt="PRs">
@@ -66,7 +66,6 @@ packages:
 ```
 
 > All required sources and staging models are now bundled into this transformation package. Do not include `fivetran/github_source` in your `packages.yml` since this package has been deprecated.
-
 
 ### Step 3: Define database and schema variables
 By default, this package runs using your [destination](https://docs.getdbt.com/docs/running-a-dbt-project/using-the-command-line-interface/configure-your-profile) and the `github` schema. If this is not where your Github data is (for example, if your github schema is named `github_fivetran`), add the following configuration to your root `dbt_project.yml` file:
@@ -129,7 +128,7 @@ Fivetran offers the ability for you to orchestrate your dbt project through [Fiv
 ## Does this package have dependencies?
 This dbt package is dependent on the following dbt packages. These dependencies are installed by default within this package. For more information on the following packages, refer to the [dbt hub](https://hub.getdbt.com/) site.
 > IMPORTANT: If you have any of these dependent packages in your own `packages.yml` file, we highly recommend that you remove them from your root `packages.yml` to avoid package version conflicts.
-    
+
 ```yml
 packages:
     - package: fivetran/fivetran_utils
@@ -138,7 +137,6 @@ packages:
     - package: dbt-labs/dbt_utils
       version: [">=1.0.0", "<2.0.0"]
 
-    
     - package: dbt-labs/spark_utils
       version: [">=0.3.0", "<0.4.0"]
 ```

@@ -19,6 +19,11 @@
   - Removed all `accepted_values` tests.
   - Moved `loaded_at_field: _fivetran_synced` under the `config:` block in `src_github.yml`.
 
+### Under the Hood
+
+- Updated conditions in `.github/workflows/auto-release.yml`.
+- Added `.github/workflows/generate-docs.yml`.
+
 # dbt_github v0.9.1
 
 [PR #64](https://github.com/fivetran/dbt_github/pull/64) includes the following updates:
