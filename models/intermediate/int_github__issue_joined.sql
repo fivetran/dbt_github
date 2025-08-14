@@ -1,6 +1,6 @@
 with issue as (
     select *
-    from {{ var('issue') }}
+    from {{ ref('stg_github__issue') }}
 ), 
 
 {%- if var('github__using_issue_label', True) and var('github__using_label', True) %}
@@ -19,7 +19,7 @@ repository_teams as (
     {% else %}
       repository_id,
       full_name as repository
-    from {{ var('repository') }}
+    from {{ ref('stg_github__repository') }}
 
     {% endif %}
 ), 
@@ -43,7 +43,7 @@ issue_comments as (
 
 creator as (
     select *
-    from {{ var('user')}}
+    from {{ ref('stg_github__user') }}
 ), 
 
 pull_request_times as (
@@ -58,7 +58,7 @@ pull_request_reviewers as (
 
 pull_request as (
     select *
-    from {{ var('pull_request')}}
+    from {{ ref('stg_github__pull_request') }}
 )
 
 select

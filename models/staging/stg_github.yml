@@ -1,0 +1,208 @@
+version: 2
+
+models:
+  - name: stg_github__issue_assignee
+    description: Table with the current user(s) assigned to an issue
+    columns:
+      - name: issue_id
+        description: Foreign key that references the issue table
+      - name: user_id
+        description: Foreign key that references the user table
+
+  - name: stg_github__label
+    description: Table that contains labels that are used across your Github account within individual repositories.
+    columns:
+      - name: label_id
+        description: Unique identifier of the Github label
+        tests: 
+          - not_null
+          - unique
+      - name: _fivetran_synced
+        description: Timestamp of the record being synced by Fivetran
+      - name: color
+        description: The color of the label
+      - name: description
+        description: The description of the label indicating the purpose
+      - name: is_default
+        description: Boolean flagging if the label is default on creation
+      - name: label
+        description: Name of the label
+      - name: url
+        description: Url where the label was used
+
+  - name: stg_github__issue_closed_history
+    description: Table to track when an issue is closed or re-opened
+    columns:
+      - name: issue_id
+        description: Foreign key that references the issue table
+      - name: updated_at
+        description: Timestamp of when the action took place
+      - name: is_closed
+        description: Boolean variable for if the issue was closed (true) or re-opened (false)
+
+  - name: stg_github__issue_label
+    description: The current labels attached to an issue
+    columns:
+      - name: issue_id
+        description: Foreign key that references the issue table
+      - name: label_id
+        description: Unique identifier of the used label
+
+  - name: stg_github__issue_comment
+    description: Table that contains comments made on issues
+    columns:
+      - name: issue_comment_id
+        description: System generated unique id for the issue comment.
+        tests:
+          - unique
+          - not_null
+      - name: issue_id
+        description: Foreign key that references the issue table
+      - name: user_id
+        description: Foreign key that references the user table
+      - name: created_at
+        description: Timestamp of when the issue comment was created.
+
+  - name: stg_github__issue_merged
+    description: Table that tracks when an issue (always a pull request) is merged
+    columns:
+      - name: issue_id
+        description: Foreign key that references the issue table.  This table will only reference issues that are pull requests
+      - name: merged_at
+        description: Timestamp of when the code merge took place
+
+  - name: stg_github__issue
+    description: Table that contains 1 entry for every issue created.  Pull Requests also create an entry in this table, and there is a boolean field to determine if an entry is a pull request.
+    columns:
+      - name: issue_id
+        description: System generated unique id for the issue.  This is not the number that appears in the URL.
+        tests:
+            - unique
+            - not_null
+      - name: body
+        description: The text of the main description of the issue.
+      - name: closed_at
+        description: Timestamp of when the issue was closed, NULL for issues that are open.
+      - name: is_locked
+        description: Boolean indicating whether the issue is locked.
+      - name: created_at
+        description: Timestamp of when the issue was created.
+      - name: milestone_id
+        description: Foreign key that references the milestone table representing the current milestone the issue is in.
+      - name: issue_number
+        description: The issue number within a repository.  Is unique by repository, but not across repositories.
+      - name: is_pull_request
+        description: Boolean for is the issue is a pull request (true) ot regular issue (false)
+      - name: repository_id
+        description: Foreign key that references the repository table.
+      - name: state
+        description: Whether the issue is open or closed.
+      - name: title
+        description: Title of the issue.
+      - name: updated_at
+        description:  Timestamp of when the last update was made to the issue.
+      - name: user_id
+        description: Foreign key that references the user table, representing the user that created the issue.
+
+  - name: stg_github__pull_request_review
+    description: Table containing reviews made to pull requests
+    columns:
+      - name: pull_request_review_id
+        description: System generated unique id for the pull request review.
+        tests:
+          - unique
+          - not_null
+      - name: pull_request_id
+        description: Foreign key that references the pull request table.
+      - name: submitted_at
+        description:  Timestamp of when the request for review was submitted.
+      - name: state
+        description: Whether the review was an approval, request for change, comment, dismissal.
+      - name: user_id
+        description: Foreign key that references the user table, representing the user that reviewed the pull request.
+        
+  - name: stg_github__pull_request
+    description: A special type of issue that is created when a user wants to merge one branch of code into another
+    columns:
+      - name: pull_request_id
+        description: System generated unique id for the pull request.
+        tests:
+            - unique
+            - not_null
+      - name: issue_id
+        description: Foreign key that references the issue table.
+      - name: head_repo_id
+        description: Foreign key that references the repository table, referencing the current branch.
+      - name: head_user_id
+        description: Foreign key that references the user table, referencing who created the current branch.
+
+  - name: stg_github__repo_team
+    description: Table representing the mapping relationships between repositories and teams
+    columns:
+      - name: repository_id
+        description: Reference to the respective repository for the record.
+        tests:
+          - not_null
+      - name: team_id
+        description: Reference to the respective team for the record. 
+        tests:
+          - not_null
+        
+  - name: stg_github__repository
+    description: Table representing the file structure of a directory under git control
+    columns:
+      - name: repository_id
+        description: System generated unique id for the repository.
+        tests:
+            - unique
+            - not_null
+      - name: full_name
+        description: The name of the git repository.
+      - name: is_private
+        description: Boolean field indicating whether the repository is private (true) or public (false).
+        
+  - name: stg_github__requested_reviewer_history
+    description: Table containing when a user requests another user to review a pull request
+    columns:
+      - name: pull_request_id
+        description: Foreign key that references the pull request table.
+      - name: created_at
+        description:  Timestamp of when the review was submitted.
+      - name: requested_id
+        description: Foreign key that references the user table, representing the user that was requested to review a PR.
+      - name: removed
+        description: Boolean variable indicating if the requester was removed from the PR (true) or added to the PR (false).
+  
+  - name: stg_github__team
+    description: Table containing teams and team details
+    columns:
+      - name: team_id
+        description: System generated unique id for the team.
+        tests:
+          - unique
+          - not_null
+      - name: description
+        description: User created description of the team.
+      - name: name
+        description: User created name of the team.
+      - name: parent_id
+        description: Reference to the parent team.
+      - name: privacy
+        description: Type of privacy permissions associated with the team.
+      - name: slug
+        description: Url friendly version of the team name.
+
+  - name: stg_github__user
+    description: Table representing contributors to a git project
+    columns:
+      - name: user_id
+        description: System generated unique id for the user.
+        tests:
+            - unique
+            - not_null
+      - name: login_name
+        description: The alias the user uses to login to github.
+      - name: name
+        description: The name of the user
+      - name: company
+        description: The  company of the user.

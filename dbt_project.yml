@@ -1,6 +1,6 @@
 config-version: 2
 name: 'github'
-version: '0.9.1'
+version: '1.0.0'
 require-dbt-version: [">=1.3.0", "<2.0.0"]
 models:
   github:
@@ -8,19 +8,22 @@ models:
     +schema: github
     intermediate:
       +materialized: ephemeral
+    staging:
+      +schema: github_source
+      +materialized: view
 vars:
   github:
-    issue_assignee: "{{ ref('stg_github__issue_assignee') }}"
-    issue_closed_history: "{{ ref('stg_github__issue_closed_history') }}"
-    issue_comment: "{{ ref('stg_github__issue_comment') }}"
-    issue_label: "{{ ref('stg_github__issue_label') }}"
-    label: "{{ ref('stg_github__label') }}"
-    issue_merged: "{{ ref('stg_github__issue_merged') }}"
-    issue: "{{ ref('stg_github__issue') }}"
-    pull_request_review: "{{ ref('stg_github__pull_request_review') }}"
-    pull_request: "{{ ref('stg_github__pull_request') }}"
-    repository: "{{ ref('stg_github__repository') }}"
-    repo_team: "{{ ref('stg_github__repo_team') }}"
-    requested_reviewer_history: "{{ ref('stg_github__requested_reviewer_history') }}"
-    team: "{{ ref('stg_github__team') }}"
-    user: "{{ ref('stg_github__user') }}"
+    issue_assignee: "{{ source('github', 'issue_assignee') }}"
+    issue_closed_history: "{{ source('github', 'issue_closed_history') }}"
+    issue_comment: "{{ source('github', 'issue_comment') }}"
+    issue_label: "{{ source('github', 'issue_label') }}"
+    label: "{{ source('github', 'label') }}"
+    issue_merged: "{{ source('github', 'issue_merged') }}"
+    issue: "{{ source('github', 'issue') }}"
+    pull_request_review: "{{ source('github', 'pull_request_review') }}"
+    pull_request: "{{ source('github', 'pull_request') }}"
+    repository: "{{ source('github', 'repository') }}"
+    repo_team: "{{ source('github', 'repo_team') }}"
+    requested_reviewer_history: "{{ source('github', 'requested_reviewer_history') }}"
+    team: "{{ source('github', 'team') }}"
+    user: "{{ source('github', 'user') }}"
