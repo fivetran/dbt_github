@@ -9,53 +9,58 @@ pull_requests as (
 ), 
 
 issues_opened_per_day as (
-    select 
+    select
+      source_relation,
       {{ dbt.date_trunc('day', 'created_at') }} as day,
       repository as repository,
       count(*) as number_issues_opened,
       sum(days_issue_open) as sum_days_issue_open,
       max(days_issue_open) as longest_days_issue_open
     from github_issues
-    group by 
-      1,2
+    group by
+      1,2,3
 ), 
 
 issues_closed_per_day as (
-    select 
+    select
+      source_relation,
       {{ dbt.date_trunc('day', 'closed_at') }} as day,
       repository as repository,
       count(*) as number_issues_closed
     from github_issues
     where closed_at is not null
-    group by 
-      1,2
+    group by
+      1,2,3
 ), 
 
 prs_opened_per_day as (
-    select 
+    select
+      source_relation,
       {{ dbt.date_trunc('day', 'created_at') }} as day,
       repository as repository,
       count(*) as number_prs_opened,
       sum(days_issue_open) as sum_days_pr_open,
       max(days_issue_open) as longest_days_pr_open
     from pull_requests
-    group by 
-      1,2
+    group by
+      1,2,3
 ), 
 
 prs_merged_per_day as (
-    select 
-      {{ dbt.date_trunc('day', 'merged_at') }} as day, 
+    select
+      source_relation,
+      {{ dbt.date_trunc('day', 'merged_at') }} as day,
       repository as repository,
       count(*) as number_prs_merged
     from pull_requests
     where merged_at is not null
     group by
-      1,2
+      1,2,3
 ), 
 
 prs_closed_without_merge_per_day as (
-    select 
+    select
+      source_relation,
       {{ dbt.date_trunc('day', 'closed_at') }} as day,
       repository as repository,
       count(*) as number_prs_closed_without_merge
@@ -63,35 +68,43 @@ prs_closed_without_merge_per_day as (
     where closed_at is not null
       and merged_at is null
     group by
-      1,2
+      1,2,3
 ), 
 
 issues_per_day as (
-    select 
-      coalesce(issues_opened_per_day.day, 
+    select
+      coalesce(issues_opened_per_day.source_relation,
+        issues_closed_per_day.source_relation
+      ) as source_relation,
+      coalesce(issues_opened_per_day.day,
         issues_closed_per_day.day
       ) as day,
-      coalesce(issues_opened_per_day.repository, 
+      coalesce(issues_opened_per_day.repository,
         issues_closed_per_day.repository
       ) as repository,
       number_issues_opened,
-      number_issues_closed,      
+      number_issues_closed,
       sum_days_issue_open,
       longest_days_issue_open
     from issues_opened_per_day
     full outer join issues_closed_per_day
-    on 
+    on
       issues_opened_per_day.day = issues_closed_per_day.day
+      and issues_opened_per_day.source_relation = issues_closed_per_day.source_relation
       and issues_opened_per_day.repository = issues_closed_per_day.repository
 ), 
 
 prs_per_day as (
-    select 
-      coalesce(prs_opened_per_day.day, 
+    select
+      coalesce(prs_opened_per_day.source_relation,
+        prs_merged_per_day.source_relation,
+        prs_closed_without_merge_per_day.source_relation
+      ) as source_relation,
+      coalesce(prs_opened_per_day.day,
         prs_merged_per_day.day,
         prs_closed_without_merge_per_day.day
       ) as day,
-      coalesce(prs_opened_per_day.repository, 
+      coalesce(prs_opened_per_day.repository,
         prs_merged_per_day.repository,
         prs_closed_without_merge_per_day.repository
       ) as repository,
@@ -101,17 +114,20 @@ prs_per_day as (
       sum_days_pr_open,
       longest_days_pr_open
     from prs_opened_per_day
-    full outer join prs_merged_per_day 
+    full outer join prs_merged_per_day
     on
       prs_opened_per_day.day = prs_merged_per_day.day
+      and prs_opened_per_day.source_relation = prs_merged_per_day.source_relation
       and prs_opened_per_day.repository = prs_merged_per_day.repository
-    full outer join prs_closed_without_merge_per_day 
+    full outer join prs_closed_without_merge_per_day
     on
       coalesce(prs_opened_per_day.day, prs_merged_per_day.day) = prs_closed_without_merge_per_day.day
+      and coalesce(prs_opened_per_day.source_relation, prs_merged_per_day.source_relation) = prs_closed_without_merge_per_day.source_relation
       and coalesce(prs_opened_per_day.repository, prs_merged_per_day.repository) = prs_closed_without_merge_per_day.repository
 )
 
-select 
+select
+  coalesce(issues_per_day.source_relation, prs_per_day.source_relation) as source_relation,
   coalesce(issues_per_day.day, prs_per_day.day) as day,
   coalesce(issues_per_day.repository, prs_per_day.repository) as repository,
   coalesce(number_issues_opened, 0) as number_issues_opened,
@@ -123,8 +139,9 @@ select
   coalesce(number_prs_closed_without_merge, 0) as number_prs_closed_without_merge,
   sum_days_pr_open,
   longest_days_pr_open
-from issues_per_day 
-full outer join prs_per_day 
+from issues_per_day
+full outer join prs_per_day
 on
   issues_per_day.day = prs_per_day.day
+  and issues_per_day.source_relation = prs_per_day.source_relation
   and issues_per_day.repository = prs_per_day.repository

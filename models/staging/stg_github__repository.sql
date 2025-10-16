@@ -18,6 +18,7 @@ with repository as (
                 staging_columns=get_repository_columns()
             )
         }}
+        {{ github.apply_source_relation() }}
 
     from repository
 

@@ -18,6 +18,7 @@ with issue_merged as (
                 staging_columns=get_issue_merged_columns()
             )
         }}
+        {{ github.apply_source_relation() }}
 
     from issue_merged
 

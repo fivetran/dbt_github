@@ -5,6 +5,9 @@ models:
     description: >
       Basic information about issues as well as additional fields for things like assignees, projects, labels and open time
     columns:
+      - name: source_relation
+        description: "{{ doc('source_relation') }}"
+
       - name: issue_id
         description: The unique ID of an issue.
         tests:
@@ -84,6 +87,9 @@ models:
     description: >
       Basic information about pull_requests as well as additional fields about reviews and time between actions
     columns:
+      - name: source_relation
+        description: "{{ doc('source_relation') }}"
+
       - name: issue_id
         description: The unique ID of an issue.
         tests:
@@ -190,10 +196,14 @@ models:
     description: >
       Summary numbers for issues and pull requests by day
     columns:
+      - name: source_relation
+        description: "{{ doc('source_relation') }}"
+
       - name: day
         description: The reporting day
         tests:
           - not_null
+
       - name: number_issues_opened
         description: The total number of issues created during this time period
 
@@ -231,10 +241,14 @@ models:
     description: >
       Summary numbers for issues and pull requests by week
     columns:
+      - name: source_relation
+        description: "{{ doc('source_relation') }}"
+
       - name: week
         description: The reporting week
         tests:
           - not_null
+
       - name: number_issues_opened
         description: The total number of issues created during this time period
 
@@ -271,10 +285,14 @@ models:
     description: >
       Summary numbers for issues and pull requests by month
     columns:
+      - name: source_relation
+        description: "{{ doc('source_relation') }}"
+
       - name: month
         description: The reporting month
         tests:
           - not_null
+
       - name: number_issues_opened
         description: The total number of issues created during this time period
 
@@ -311,10 +329,14 @@ models:
     description: >
       Summary numbers for issues and pull requests by quarter
     columns:
+      - name: source_relation
+        description: "{{ doc('source_relation') }}"
+
       - name: quarter
         description: The reporting quarter
         tests:
           - not_null
+
       - name: number_issues_opened
         description: The total number of issues created during this time period
 

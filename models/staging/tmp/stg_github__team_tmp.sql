@@ -1,4 +1,10 @@
 {{ config(enabled=var('github__using_repo_team', True)) }}
 
-select * 
-from {{ var('team') }}
+{{
+    github.github_union_connections(
+        connection_dictionary=var('github_sources'),
+        single_source_name='github',
+        single_table_name='team',
+        default_identifier='team'
+    )
+}}

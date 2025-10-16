@@ -18,6 +18,7 @@ with issue_closed_history as (
                 staging_columns=get_issue_closed_history_columns()
             )
         }}
+        {{ github.apply_source_relation() }}
 
     from issue_closed_history
 

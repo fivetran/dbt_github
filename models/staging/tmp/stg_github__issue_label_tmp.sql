@@ -1,4 +1,10 @@
 {{ config(enabled=var('github__using_issue_label', True)) }}
 
-select *
-from {{ var('issue_label') }}
+{{
+    github.github_union_connections(
+        connection_dictionary=var('github_sources'),
+        single_source_name='github',
+        single_table_name='issue_label',
+        default_identifier='issue_label'
+    )
+}}

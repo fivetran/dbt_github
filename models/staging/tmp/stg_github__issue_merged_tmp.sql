@@ -1,2 +1,8 @@
-select *
-from {{ var('issue_merged') }}
+{{
+    github.github_union_connections(
+        connection_dictionary=var('github_sources'),
+        single_source_name='github',
+        single_table_name='issue_merged',
+        default_identifier='issue_merged'
+    )
+}}

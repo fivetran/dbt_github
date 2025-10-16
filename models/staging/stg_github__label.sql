@@ -20,6 +20,7 @@ with issue_label as (
                 staging_columns=get_label_columns()
             )
         }}
+        {{ github.apply_source_relation() }}
 
     from issue_label
 

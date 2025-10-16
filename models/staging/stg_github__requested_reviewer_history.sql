@@ -20,6 +20,7 @@ with requested_reviewer_history as (
                 staging_columns=get_requested_reviewer_history_columns()
             )
         }}
+        {{ github.apply_source_relation() }}
 
     from requested_reviewer_history
 

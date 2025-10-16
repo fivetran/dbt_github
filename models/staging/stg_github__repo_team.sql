@@ -23,6 +23,7 @@ fields as (
                 staging_columns=get_repo_team_columns()
             )
         }}
+        {{ github.apply_source_relation() }}
         
     from base
     

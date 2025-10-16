@@ -1,3 +1,8 @@
+# dbt_github v1.1.0
+
+## Feature Update
+- **Union Data Functionality**: This release supports running the package on multiple GitHub source connections. See the [README](https://github.com/fivetran/dbt_github/tree/main?tab=readme-ov-file#step-3-define-database-and-schema-variables) for details on how to leverage this feature.
+
 # dbt_github v1.0.0
 
 [PR #67](https://github.com/fivetran/dbt_github/pull/67) includes the following updates:

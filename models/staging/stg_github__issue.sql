@@ -18,6 +18,7 @@ with issue as (
                 staging_columns=get_issue_columns()
             )
         }}
+        {{ github.apply_source_relation() }}
 
     from issue 
 

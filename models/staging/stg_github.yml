@@ -8,13 +8,15 @@ models:
         description: Foreign key that references the issue table
       - name: user_id
         description: Foreign key that references the user table
+      - name: source_relation
+        description: "{{ doc('source_relation') }}"
 
   - name: stg_github__label
     description: Table that contains labels that are used across your Github account within individual repositories.
     columns:
       - name: label_id
         description: Unique identifier of the Github label
-        tests: 
+        tests:
           - not_null
           - unique
       - name: _fivetran_synced
@@ -29,6 +31,8 @@ models:
         description: Name of the label
       - name: url
         description: Url where the label was used
+      - name: source_relation
+        description: "{{ doc('source_relation') }}"
 
   - name: stg_github__issue_closed_history
     description: Table to track when an issue is closed or re-opened
@@ -39,6 +43,8 @@ models:
         description: Timestamp of when the action took place
       - name: is_closed
         description: Boolean variable for if the issue was closed (true) or re-opened (false)
+      - name: source_relation
+        description: "{{ doc('source_relation') }}"
 
   - name: stg_github__issue_label
     description: The current labels attached to an issue

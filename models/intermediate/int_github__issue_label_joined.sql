@@ -12,12 +12,14 @@ with issue_label as (
 
 ), joined as (
 
-    select 
+    select
+        issue_label.source_relation,
         issue_label.issue_id,
         label.label
     from issue_label
-    left join label 
+    left join label
         on issue_label.label_id = label.label_id
+        and issue_label.source_relation = label.source_relation
 
 )
 

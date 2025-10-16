@@ -4,6 +4,7 @@ with issue_joined as (
 )
 
 select
+  source_relation,
   issue_id,
   body,
   closed_at,

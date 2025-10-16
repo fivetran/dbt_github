@@ -18,6 +18,7 @@ with pull_request_review as (
                 staging_columns=get_pull_request_review_columns()
             )
         }}
+        {{ github.apply_source_relation() }}
 
     from pull_request_review
 

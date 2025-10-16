@@ -109,22 +109,31 @@ from issue
 {%- if var('github__using_issue_label', True) and var('github__using_label', True) %}
 left join issue_labels as labels
   on issue.issue_id = labels.issue_id
+  and issue.source_relation = labels.source_relation
 {%- endif %}
 join repository_teams
   on issue.repository_id = repository_teams.repository_id
+  and issue.source_relation = repository_teams.source_relation
 {%- if var('github__using_issue_assignee', True) %}
 left join issue_assignees
   on issue.issue_id = issue_assignees.issue_id
+  and issue.source_relation = issue_assignees.source_relation
 {%- endif %}
 left join issue_open_length
   on issue.issue_id = issue_open_length.issue_id
-left join issue_comments 
+  and issue.source_relation = issue_open_length.source_relation
+left join issue_comments
   on issue.issue_id = issue_comments.issue_id
-left join creator 
+  and issue.source_relation = issue_comments.source_relation
+left join creator
   on issue.user_id = creator.user_id
+  and issue.source_relation = creator.source_relation
 left join pull_request
   on issue.issue_id = pull_request.issue_id
+  and issue.source_relation = pull_request.source_relation
 left join pull_request_times
   on issue.issue_id = pull_request_times.issue_id
+  and issue.source_relation = pull_request_times.source_relation
 left join pull_request_reviewers
   on pull_request.pull_request_id = pull_request_reviewers.pull_request_id
+  and pull_request.source_relation = pull_request_reviewers.source_relation

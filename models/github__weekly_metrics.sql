@@ -3,9 +3,10 @@ with daily_metrics as (
     from {{ ref('github__daily_metrics') }}
 )
 
-select 
+select
+  source_relation,
   {{ dbt.date_trunc('week', 'day') }} as week,
-  repository as repository, 
+  repository as repository,
   sum(number_issues_opened) as number_issues_opened,
   sum(number_issues_closed) as number_issues_closed,
   sum(sum_days_issue_open) / sum(number_issues_opened) as avg_days_issue_open,
@@ -15,5 +16,5 @@ select
   sum(number_prs_closed_without_merge) as number_prs_closed_without_merge,
   sum(sum_days_pr_open) / sum(number_prs_opened) as avg_days_pr_open,
   max(longest_days_pr_open) as longest_days_pr_open
-from daily_metrics 
-group by 1,2
+from daily_metrics
+group by 1,2,3

@@ -20,6 +20,7 @@ with issue_assignee as (
                 staging_columns=get_issue_assignee_columns()
             )
         }}
+        {{ github.apply_source_relation() }}
 
     from issue_assignee
 

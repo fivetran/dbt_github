@@ -18,6 +18,7 @@ with issue_comment as (
                 staging_columns=get_issue_comment_columns()
             )
         }}
+        {{ github.apply_source_relation() }}
 
     from issue_comment
 

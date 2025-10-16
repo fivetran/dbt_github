@@ -18,6 +18,7 @@ with github_user as (
                 staging_columns=get_user_columns()
             )
         }}
+        {{ github.apply_source_relation() }}
         
         
     from github_user

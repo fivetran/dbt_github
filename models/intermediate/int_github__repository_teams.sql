@@ -16,7 +16,8 @@ teams as (
 ),
 
 team_repo as (
-    select 
+    select
+        repository.source_relation,
         repository.repository_id,
         repository.full_name as repository,
         teams.name as team_name
@@ -24,19 +25,22 @@ team_repo as (
 
     left join repo_teams
         on repository.repository_id = repo_teams.repository_id
+        and repository.source_relation = repo_teams.source_relation
 
     left join teams
         on repo_teams.team_id = teams.team_id
+        and repo_teams.source_relation = teams.source_relation
 ),
 
 final as (
     select
+        source_relation,
         repository_id,
         repository,
         {{ fivetran_utils.string_agg('team_name', "', '" ) }} as repository_team_names
     from team_repo
 
-    group by 1, 2
+    group by 1, 2, 3
 )
 
 select *
