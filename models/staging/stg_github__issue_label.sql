@@ -26,9 +26,10 @@ with issue_label as (
 
 ), fields as (
 
-    select 
-      issue_id,
-      label_id
+    select
+        source_relation,
+        issue_id,
+        label_id
     from macro
 )
 

@@ -26,12 +26,12 @@ with requested_reviewer_history as (
 
 ), fields as (
 
-    select 
-      pull_request_id,
-      cast(created_at as {{ dbt.type_timestamp() }}) as created_at,
-      requested_id,
-      removed
-
+    select
+        source_relation,
+        pull_request_id,
+        cast(created_at as {{ dbt.type_timestamp() }}) as created_at,
+        requested_id,
+        removed
     from macro
 )
 

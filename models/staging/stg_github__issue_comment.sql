@@ -24,7 +24,8 @@ with issue_comment as (
 
 ), fields as (
 
-    select 
+    select
+        source_relation,
         id as issue_comment_id,
         issue_id,
         user_id,

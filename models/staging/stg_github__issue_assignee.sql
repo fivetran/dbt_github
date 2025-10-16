@@ -26,9 +26,10 @@ with issue_assignee as (
 
 ), fields as (
 
-    select 
-      issue_id,
-      user_id
+    select
+        source_relation,
+        issue_id,
+        user_id
     from macro
 )
 

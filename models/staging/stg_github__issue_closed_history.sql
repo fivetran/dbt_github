@@ -24,10 +24,11 @@ with issue_closed_history as (
 
 ), fields as (
 
-    select 
-      issue_id,
-      cast(updated_at as {{ dbt.type_timestamp() }}) as updated_at,
-      closed as is_closed
+    select
+        source_relation,
+        issue_id,
+        cast(updated_at as {{ dbt.type_timestamp() }}) as updated_at,
+        closed as is_closed
 
     from macro
 )

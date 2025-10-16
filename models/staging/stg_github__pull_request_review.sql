@@ -24,13 +24,13 @@ with pull_request_review as (
 
 ), fields as (
 
-    select 
-      id as pull_request_review_id,
-      pull_request_id,
-      cast(submitted_at as {{ dbt.type_timestamp() }}) as submitted_at,
-      state,
-      user_id
-
+    select
+        source_relation,
+        id as pull_request_review_id,
+        pull_request_id,
+        cast(submitted_at as {{ dbt.type_timestamp() }}) as submitted_at,
+        state,
+        user_id
     from macro
 )
 

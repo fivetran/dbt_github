@@ -28,8 +28,9 @@ fields as (
     from base
     
 ), final as (
-    
-    select 
+
+    select
+        source_relation,
         id as team_id,
         description,
         name,

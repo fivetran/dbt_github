@@ -26,9 +26,10 @@ with issue_label as (
 
 ), fields as (
 
-    select 
+    select
+        source_relation,
         id as label_id,
-        _fivetran_synced,	
+        _fivetran_synced,
         color,
         description,
         is_default,

@@ -24,12 +24,12 @@ with pull_request as (
 
 ), fields as (
 
-    select 
-      id as pull_request_id,
-      issue_id,
-      head_repo_id,
-      head_user_id
-
+    select
+        source_relation,
+        id as pull_request_id,
+        issue_id,
+        head_repo_id,
+        head_user_id
     from macro
 )
 

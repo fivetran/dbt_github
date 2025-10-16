@@ -28,8 +28,9 @@ fields as (
     from base
     
 ), final as (
-    
-    select 
+
+    select
+        source_relation,
         repository_id,
         team_id
     from fields

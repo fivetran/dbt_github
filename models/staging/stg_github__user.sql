@@ -26,11 +26,11 @@ with github_user as (
 ), fields as (
 
     select
-      id as user_id,
-      login as login_name,
-      name,
-      company
-
+        source_relation,
+        id as user_id,
+        login as login_name,
+        name,
+        company
     from macro
 )
 

@@ -24,10 +24,10 @@ with issue_merged as (
 
 ), fields as (
 
-    select 
-      issue_id,
-      cast(merged_at as {{ dbt.type_timestamp() }}) as merged_at
-
+    select
+        source_relation,
+        issue_id,
+        cast(merged_at as {{ dbt.type_timestamp() }}) as merged_at
     from macro
 )
 
