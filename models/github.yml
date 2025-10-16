@@ -11,7 +11,6 @@ models:
       - name: issue_id
         description: The unique ID of an issue.
         tests:
-          - unique
           - not_null
 
       - name: body
@@ -30,7 +29,7 @@ models:
         description: Foreign key that references the milestone table representing the current milestone the issue is in
 
       - name: issue_number
-        description: The number of the issue.  Is unique within a repository, but not accross
+        description: The number of the issue.  Is unique within a repository, but not across
 
       - name: is_pull_request
         description: Boolean indicating whether the issue is a pull request
@@ -93,7 +92,6 @@ models:
       - name: issue_id
         description: The unique ID of an issue.
         tests:
-          - unique
           - not_null
 
       - name: body
