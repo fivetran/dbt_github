@@ -10,15 +10,15 @@ issue_closed_history as (
 
 close_events_stacked as (
     select
-      issue_id,
       source_relation,
+      issue_id,
       created_at as updated_at,
       false as is_closed
     from issue -- required because issue_closed_history table does not have a line item for when the issue was opened
     union all
     select
-      issue_id,
       source_relation,
+      issue_id,
       updated_at,
       is_closed
     from issue_closed_history
@@ -26,8 +26,8 @@ close_events_stacked as (
 
 close_events_with_timestamps as (
   select
-    issue_id,
     source_relation,
+    issue_id,
     updated_at as valid_starting,
     coalesce(lead(updated_at) over (partition by issue_id, source_relation order by updated_at), {{ dbt.current_timestamp() }}) as valid_until,
     is_closed

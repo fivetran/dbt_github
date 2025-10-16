@@ -11,12 +11,13 @@ issue_labels as (
 {% endif -%}
 
 repository_teams as (
-    select 
+    select
     {% if var('github__using_repo_team', true) %}
       *
     from {{ ref('int_github__repository_teams') }}
 
     {% else %}
+      source_relation,
       repository_id,
       full_name as repository
     from {{ ref('stg_github__repository') }}
