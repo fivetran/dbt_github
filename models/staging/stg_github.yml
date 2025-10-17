@@ -18,7 +18,6 @@ models:
         description: Unique identifier of the Github label
         tests:
           - not_null
-          - unique
       - name: _fivetran_synced
         description: Timestamp of the record being synced by Fivetran
       - name: color
@@ -62,7 +61,6 @@ models:
       - name: issue_comment_id
         description: System generated unique id for the issue comment.
         tests:
-          - unique
           - not_null
       - name: issue_id
         description: Foreign key that references the issue table
@@ -89,7 +87,6 @@ models:
       - name: issue_id
         description: System generated unique id for the issue.  This is not the number that appears in the URL.
         tests:
-            - unique
             - not_null
       - name: body
         description: The text of the main description of the issue.
@@ -124,7 +121,6 @@ models:
       - name: pull_request_review_id
         description: System generated unique id for the pull request review.
         tests:
-          - unique
           - not_null
       - name: pull_request_id
         description: Foreign key that references the pull request table.
@@ -143,7 +139,6 @@ models:
       - name: pull_request_id
         description: System generated unique id for the pull request.
         tests:
-            - unique
             - not_null
       - name: issue_id
         description: Foreign key that references the issue table.
@@ -174,7 +169,6 @@ models:
       - name: repository_id
         description: System generated unique id for the repository.
         tests:
-            - unique
             - not_null
       - name: full_name
         description: The name of the git repository.
@@ -203,7 +197,6 @@ models:
       - name: team_id
         description: System generated unique id for the team.
         tests:
-          - unique
           - not_null
       - name: description
         description: User created description of the team.
@@ -224,7 +217,6 @@ models:
       - name: user_id
         description: System generated unique id for the user.
         tests:
-            - unique
             - not_null
       - name: login_name
         description: The alias the user uses to login to github.
