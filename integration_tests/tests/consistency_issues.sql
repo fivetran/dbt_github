@@ -3,15 +3,20 @@
     enabled=var('fivetran_validation_tests_enabled', false)
 ) }}
 
+-- the differences in prod/dev run times will lead to discrepancies because it leverages current_timestamp, and string aggs don't always have the same order
+{% set exclude_cols = ['days_issue_open', 'labels', 'repository_team_names', 'assignees'] 
+    + var('gh_consistency_exclude_columns', []) 
+    %}
+
 -- this test ensures the github__issues end model matches the prior version
 with prod as (
-    select * except(days_issue_open, labels, repository_team_names, assignees)  --the differences in prod/dev run times will lead to discrepancies because it leverages current_timestamp, and string aggs don't always have the same order
+    select {{ dbt_utils.star(from=ref('quickbooks__ap_github__issues_enhanced'), except=exclude_cols) }}
     from {{ target.schema }}_github_prod.github__issues
     where date(updated_at) < date({{ dbt.current_timestamp() }})
 ),
 
 dev as (
-    select * except(days_issue_open, labels, repository_team_names, assignees)   --the differences in prod/dev run times will lead to slight discrepancies because it leverages current_timestamp, and string aggs don't always order the same
+    select {{ dbt_utils.star(from=ref('quickbooks__ap_github__issues_enhanced'), except=exclude_cols) }}
     from {{ target.schema }}_github_dev.github__issues
     where date(updated_at) < date({{ dbt.current_timestamp() }})
 ),
