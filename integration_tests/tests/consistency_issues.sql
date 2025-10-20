@@ -10,13 +10,13 @@
 
 -- this test ensures the github__issues end model matches the prior version
 with prod as (
-    select {{ dbt_utils.star(from=ref('quickbooks__ap_github__issues_enhanced'), except=exclude_cols) }}
+    select {{ dbt_utils.star(from=ref('github__issues'), except=exclude_cols) }}
     from {{ target.schema }}_github_prod.github__issues
     where date(updated_at) < date({{ dbt.current_timestamp() }})
 ),
 
 dev as (
-    select {{ dbt_utils.star(from=ref('quickbooks__ap_github__issues_enhanced'), except=exclude_cols) }}
+    select {{ dbt_utils.star(from=ref('github__issues'), except=exclude_cols) }}
     from {{ target.schema }}_github_dev.github__issues
     where date(updated_at) < date({{ dbt.current_timestamp() }})
 ),
