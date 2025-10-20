@@ -4,7 +4,7 @@
 ) }}
 
 -- the differences in prod/dev run times will lead to discrepancies because these fields leverages current_timestamp
-{% set exclude_cols = ['days_issue_open', 'hours_request_review_to_first_review', 'hours_request_review_to_first_action', 'hours_request_review_to_merge'] 
+{% set exclude_cols = ['days_issue_open', 'hours_request_review_to_first_review', 'hours_request_review_to_first_action', 'hours_request_review_to_merge', 'assignees'] 
     + var('gh_consistency_exclude_columns', []) 
     %}
 
