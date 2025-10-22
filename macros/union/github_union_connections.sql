@@ -14,7 +14,7 @@
 {%- if using_unioning %}
 {# For unioning #}
     {%- set relations = [] -%}
-    {%- for connection in connection_dictionary -%}
+    {%- for connection in connections -%}
 
     {% if var('has_defined_sources', false) %}
         {%- set database = source(connection.name, single_table_name).database %}

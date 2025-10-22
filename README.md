@@ -107,6 +107,8 @@ To properly incorporate all of your GitHub connections into your project's DAG:
 
 ```yml
 # a .yml file in your root project
+
+version: 2
 sources:
   - name: <name> # ex: Should match name in github_sources
     schema: <schema_name>
@@ -121,7 +123,7 @@ sources:
     tables: # copy and paste from github/models/staging/src_github.yml - see https://support.atlassian.com/bitbucket-cloud/docs/yaml-anchors/ for how to use anchors to only do so once
 ```
 
-> **Note**: If there are source tables you do not have (see [Step 4](https://github.com/fivetran/dbt_github?tab=readme-ov-file#step-4-disable-models-for-non-existent-sources)), you may still include them, as long as you have set the right variables to `False`. Otherwise, you may remove them from your source definition.
+> **Note**: If there are source tables you do not have (see [Step 4](https://github.com/fivetran/dbt_github?tab=readme-ov-file#step-4-disable-models-for-non-existent-sources)), you may still include them, as long as you have set the right variables to `False`.
 
 2. Set the `has_defined_sources` variable (scoped to the `github` package) to `True`, like such:
 ```yml
