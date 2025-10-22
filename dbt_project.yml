@@ -15,7 +15,6 @@ models:
         +materialized: view
 vars:
   github:
-    github_sources: []
     issue_assignee: "{{ source('github', 'issue_assignee') }}"
     issue_closed_history: "{{ source('github', 'issue_closed_history') }}"
     issue_comment: "{{ source('github', 'issue_comment') }}"

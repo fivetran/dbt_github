@@ -6,7 +6,7 @@
 
 {% macro default__apply_source_relation() -%}
 
-{% if 'github_sources' != [] %}
+{% if var('github_sources', []) != [] %}
 , _dbt_source_relation as source_relation
 {% else %}
 , '{{ var("github_database", target.database) }}' || '.'|| '{{ var("github_schema", "github") }}' as source_relation
