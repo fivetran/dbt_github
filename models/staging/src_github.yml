@@ -19,7 +19,7 @@ sources:
         description: Table with the current user(s) assigned to an issue
         config:
           loaded_at_field: _fivetran_synced
-          enabled: "{{ var('github__using_issue_assignee', true) }}"
+          enabled: "{{ var('github__using_issue_assignee', true) and var('github_sources', []) == [] }}"
         columns:
           - name: issue_id
             description: Foreign key that references the issue table
@@ -31,7 +31,7 @@ sources:
         description: Table that contains labels that are used across your Github account within individual repositories.
         config:
           freshness: null
-          enabled: "{{ var('github__using_label', true) }}"
+          enabled: "{{ var('github__using_label', true) and var('github_sources', []) == [] }}"
         columns:
           - name: id
             description: Unique identifier of the Github label
@@ -64,7 +64,7 @@ sources:
         description: The current labels attached to an issue
         config:
           loaded_at_field: _fivetran_synced
-          enabled: "{{ var('github__using_issue_label', true) }}"
+          enabled: "{{ var('github__using_issue_label', true) and var('github_sources', []) == [] }}"
         columns:
           - name: issue_id
             description: Foreign key that references the issue table
@@ -157,7 +157,7 @@ sources:
         description: Table representing the mapping relationships between repositories and teams
         config:
           loaded_at_field: _fivetran_synced
-          enabled: "{{ var('github__using_repo_team', true) }}"
+          enabled: "{{ var('github__using_repo_team', true) and var('github_sources', []) == [] }}"
         columns:
           - name: repository_id
             description: Reference to the respective repository for the record.
@@ -184,7 +184,7 @@ sources:
         description: Table containing when a user requests another user to review a pull request
         config:
           loaded_at_field: _fivetran_synced
-          enabled: "{{ var('github__using_requested_reviewer_history', true) }}"
+          enabled: "{{ var('github__using_requested_reviewer_history', true) and var('github_sources', []) == [] }}"
         columns:
           - name: pull_request_id
             description: Foreign key that references the pull request table.
