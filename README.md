@@ -80,7 +80,7 @@ vars:
 #### Option B: Union multiple connections
 If you have multiple GitHub connections in Fivetran and would like to use this package on all of them simultaneously, we have provided functionality to do so. For each source table, the package will union all of the data together and pass the unioned table into the transformations. The `source_relation` column in each model indicates the origin of each record.
 
-To use this functionality, you will need to set the github_sources variable in your root dbt_project.yml file:
+To use this functionality, you will need to set the `github_sources` variable in your root `dbt_project.yml` file:
 
 ```yml
 # dbt_project.yml
@@ -109,16 +109,17 @@ To properly incorporate all of your GitHub connections into your project's DAG:
 # a .yml file in your root project
 
 version: 2
+
 sources:
   - name: <name> # ex: Should match name in github_sources
     schema: <schema_name>
     database: <database_name>
     loader: fivetran
-    loaded_at_field: _fivetran_synced
-
-    freshness: # feel free to adjust to your liking
-      warn_after: {count: 72, period: hour}
-      error_after: {count: 168, period: hour}
+    config:
+      loaded_at_field: _fivetran_synced
+      freshness: # feel free to adjust to your liking
+        warn_after: {count: 72, period: hour}
+        error_after: {count: 168, period: hour}
 
     tables: # copy and paste from github/models/staging/src_github.yml - see https://support.atlassian.com/bitbucket-cloud/docs/yaml-anchors/ for how to use anchors to only do so once
 ```
