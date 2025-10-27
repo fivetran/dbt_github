@@ -41,7 +41,7 @@
     {{ '-- full-identifier_var: ' ~ identifier_var }}
     {{ '-- database: ' ~ database }}
     {{ '-- schema: ' ~ schema }}
-    {{ '-- identifier: ' ~ identifier }}
+    {{ '-- identifier: ' ~ identifier ~ '\n' }}
 
     {%- endfor -%}
 
@@ -75,7 +75,7 @@
     {{ '-- full-identifier_var: ' ~ identifier_var }}
     {{ '-- database: ' ~ database }}                            
     {{ '-- schema: ' ~ schema }}
-    {{ '-- identifier: ' ~ identifier }}
+    {{ '-- identifier: ' ~ identifier ~ '\n' }}
 
     {% if relation is not none -%}
         select
