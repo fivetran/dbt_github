@@ -18,12 +18,14 @@ with issue_comment as (
                 staging_columns=get_issue_comment_columns()
             )
         }}
+        {{ github.apply_source_relation() }}
 
     from issue_comment
 
 ), fields as (
 
-    select 
+    select
+        source_relation,
         id as issue_comment_id,
         issue_id,
         user_id,

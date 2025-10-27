@@ -18,15 +18,16 @@ with issue_merged as (
                 staging_columns=get_issue_merged_columns()
             )
         }}
+        {{ github.apply_source_relation() }}
 
     from issue_merged
 
 ), fields as (
 
-    select 
-      issue_id,
-      cast(merged_at as {{ dbt.type_timestamp() }}) as merged_at
-
+    select
+        source_relation,
+        issue_id,
+        cast(merged_at as {{ dbt.type_timestamp() }}) as merged_at
     from macro
 )
 

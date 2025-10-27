@@ -18,15 +18,17 @@ with issue_closed_history as (
                 staging_columns=get_issue_closed_history_columns()
             )
         }}
+        {{ github.apply_source_relation() }}
 
     from issue_closed_history
 
 ), fields as (
 
-    select 
-      issue_id,
-      cast(updated_at as {{ dbt.type_timestamp() }}) as updated_at,
-      closed as is_closed
+    select
+        source_relation,
+        issue_id,
+        cast(updated_at as {{ dbt.type_timestamp() }}) as updated_at,
+        closed as is_closed
 
     from macro
 )

@@ -23,12 +23,14 @@ fields as (
                 staging_columns=get_team_columns()
             )
         }}
+        {{ github.apply_source_relation() }}
         
     from base
     
 ), final as (
-    
-    select 
+
+    select
+        source_relation,
         id as team_id,
         description,
         name,

@@ -20,14 +20,16 @@ with issue_label as (
                 staging_columns=get_issue_label_columns()
             )
         }}
+        {{ github.apply_source_relation() }}
 
     from issue_label
 
 ), fields as (
 
-    select 
-      issue_id,
-      label_id
+    select
+        source_relation,
+        issue_id,
+        label_id
     from macro
 )
 

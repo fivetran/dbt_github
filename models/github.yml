@@ -5,78 +5,56 @@ models:
     description: >
       Basic information about issues as well as additional fields for things like assignees, projects, labels and open time
     columns:
+      - name: source_relation
+        description: "{{ doc('source_relation') }}"
       - name: issue_id
         description: The unique ID of an issue.
         tests:
-          - unique
           - not_null
-
       - name: body
         description: The text body of the issue's main description
-
       - name: closed_at
         description: The timestamp for when an issue was last closed.  "null" for issues that are open
-
       - name: created_at
         description: The timestamp for when an issue was created
-
       - name: is_locked
         description: Boolean indicating if the issue is locked.
-
       - name: milestone_id
         description: Foreign key that references the milestone table representing the current milestone the issue is in
-
       - name: issue_number
-        description: The number of the issue.  Is unique within a repository, but not accross
-
+        description: The number of the issue.  Is unique within a repository, but not across
       - name: is_pull_request
         description: Boolean indicating whether the issue is a pull request
-
       - name: repository_id
         description: Foreign key that references the repository table
-
       - name: state
         description: Whether the issue is open or closed
-
       - name: title
         description: The title of the issue
-
       - name: updated_at
         description: Timestamp of when the issue was last updated
-
       - name: user_id
         description: Foreign key that references the user table.
-
       - name: url_link
         description: a link to the issue on github.com
-
       - name: days_issue_open
         description: The number of days an issue has been open
-
       - name: number_of_times_reopened
         description: Total number of times the issue was reopened
-
       - name: labels
         description: A list of the labels that are currently applied to the issue
-
       - name: number_of_comments
         description: The total number of comments included in the issue
-
       - name: creator_login_name
         description: User that created the issue login name
-
       - name: creator_name
         description: User that created the issue name.
-
       - name: creator_company
         description: User that created the issue company name.
-
       - name: repository
         description: The repository that the issue is applicable to
-
       - name: repository_team_names
         description: An aggreate of the teams associated with the repository
-
       - name: assignees
         description: The current list of users assigned to the issue
 
@@ -84,105 +62,76 @@ models:
     description: >
       Basic information about pull_requests as well as additional fields about reviews and time between actions
     columns:
+      - name: source_relation
+        description: "{{ doc('source_relation') }}"
       - name: issue_id
         description: The unique ID of an issue.
         tests:
-          - unique
           - not_null
-
       - name: body
         description: the text body of the description of the pull request
-
       - name: closed_at
         description: Timestamp of when the pull request was closed.  NULL for pull requests that are still open
-
       - name: created_at
         description: Timestamp of when the pull request was created
-
       - name: is_locked
         description: Boolean indicating whether the issue is locked.
-
       - name: milestone_id
         description: Foreign key that references the milestone.
-
       - name: is_pull_request
         description: Boolean indiciating whether the issue is a pull request.
-
       - name: issue_number
         description: The number of the pull request.  Unique within a repository, but not accross.
-
       - name: repository_id
         description: Foreign key that references the repository table
-
       - name: updated_at
         description: Timestamp of when the issue was last updated
-
       - name: user_id
         description: Foreign key that references the user table.
-
       - name: days_issue_open
         description: The number of days an issue has been open
-
       - name: number_of_times_reopened
         description: Total number of times the issue was reopened
-
       - name: number_of_comments
         description: The total number of comments included in the issue
-
       - name: creator_login_name
         description: User that created the issue login name
-
       - name: creator_name
         description: User that created the issue name.
-
       - name: creator_company
         description: User that created the issue company name.
-
       - name: state
         description: Whether the pull request is open or closed.
-
       - name: title
         description: The title of the pull request
-
       - name: url_link
         description: A link to the pull request on github.com
-
       - name: labels
         description: The labels currently applied to the pull request
-
       - name: repository
         description: The repository that the pull request applies to
-
       - name: repository_team_names
         description: An aggreate of the teams associated with the repository
-
       - name: assignees
         description: Users who have been assigned to the pull request
-        
       - name: hours_request_review_to_first_review
         description: >
           Number of hours between the first request for review and a review. Not present if the `requested_reviewer_history` table is missing (Fivetran Quickstart)
           or if the `github__using_requested_reviewer_history` variable is set to `False` (dbt Core).
-
       - name: hours_request_review_to_first_action
         description: >
           Number of hours between the first request for review and any action besides dismissing the request. Not present if the `requested_reviewer_history` table is missing (Fivetran Quickstart)
           or if the `github__using_requested_reviewer_history` variable is set to `False` (dbt Core).
-
       - name: hours_request_review_to_merge
         description: >
           Number of hours between the first request for review and the pull request being merged. Not present if the `requested_reviewer_history` table is missing (Fivetran Quickstart)
           or if the `github__using_requested_reviewer_history` variable is set to `False` (dbt Core).
-
       - name: merged_at
         description: Timestamp of when the pull request was merged
-
       - name: reviewers
         description: List of Users who reviewed the pull request
-
       - name: requested_reviewers
         description: List of Users who were requested to review the pull request
-
       - name: number_of_reviews
         description: Number of times a pull request was reviewed
 
@@ -190,158 +139,129 @@ models:
     description: >
       Summary numbers for issues and pull requests by day
     columns:
+      - name: source_relation
+        description: "{{ doc('source_relation') }}"
       - name: day
         description: The reporting day
         tests:
           - not_null
       - name: number_issues_opened
         description: The total number of issues created during this time period
-
       - name: number_issues_closed
         description: The total number of issues closed during this time period
-
       - name: sum_days_issue_open
         description: The total number of days an issue opened during this time period was open
-
       - name: longest_days_issue_open
         description: The longest number of days an issue opened during this time period was open
-
       - name: number_prs_opened
         description: The total number of pull requests created during this time period
-
       - name: number_prs_merged
         description: The total number of pull requests merged during this time period
-      
       - name: number_prs_closed_without_merge
         description: The total number of pull requests closed without a merge during this time period
-
       - name: repository
         description: The name of the repository
         tests:
           - not_null
-
       - name: sum_days_pr_open
         description: The total number of days a pull request opened during this time period was open
-
       - name: longest_days_pr_open
         description: The longest number of days a pull request opened during this time period was open
-
 
   - name: github__weekly_metrics
     description: >
       Summary numbers for issues and pull requests by week
     columns:
+      - name: source_relation
+        description: "{{ doc('source_relation') }}"
       - name: week
         description: The reporting week
         tests:
           - not_null
       - name: number_issues_opened
         description: The total number of issues created during this time period
-
       - name: number_issues_closed
         description: The total number of issues closed during this time period
-
       - name: avg_days_issue_open
         description: The average number of days an issue opened during this time period was open
-
       - name: longest_days_issue_open
         description: The longest number of days an issue opened during this time period was open
-
       - name: number_prs_opened
         description: The total number of pull requests created during this time period
-
       - name: number_prs_merged
         description: The total number of pull requests merged during this time period
-      
       - name: number_prs_closed_without_merge
         description: The total number of pull requests closed without a merge during this time period
-
       - name: avg_days_pr_open
         description: The average number of days a pull request opened during this time period was open
-
       - name: longest_days_pr_open
         description: The longest number of days a pull request opened during this time period was open
-
       - name: repository
         description: The name of the repository
         tests:
           - not_null
-        
+
   - name: github__monthly_metrics
     description: >
       Summary numbers for issues and pull requests by month
     columns:
+      - name: source_relation
+        description: "{{ doc('source_relation') }}"
       - name: month
         description: The reporting month
         tests:
           - not_null
       - name: number_issues_opened
         description: The total number of issues created during this time period
-
       - name: number_issues_closed
         description: The total number of issues closed during this time period
-
       - name: avg_days_issue_open
         description: The average number of days an issue opened during this time period was open
-
       - name: longest_days_issue_open
         description: The longest number of days an issue opened during this time period was open
-
       - name: number_prs_opened
         description: The total number of pull requests created during this time period
-
       - name: number_prs_merged
         description: The total number of pull requests merged during this time period
-      
       - name: number_prs_closed_without_merge
         description: The total number of pull requests closed without a merge during this time period
-
       - name: avg_days_pr_open
         description: The average number of days a pull request opened during this time period was open
-
       - name: longest_days_pr_open
         description: The longest number of days a pull request opened during this time period was open
-
       - name: repository
         description: The name of the repository
         tests:
           - not_null
-        
+
   - name: github__quarterly_metrics
     description: >
       Summary numbers for issues and pull requests by quarter
     columns:
+      - name: source_relation
+        description: "{{ doc('source_relation') }}"
       - name: quarter
         description: The reporting quarter
         tests:
           - not_null
       - name: number_issues_opened
         description: The total number of issues created during this time period
-
       - name: number_issues_closed
         description: The total number of issues closed during this time period
-
       - name: avg_days_issue_open
         description: The average number of days an issue opened during this time period was open
-
       - name: longest_days_issue_open
         description: The longest number of days an issue opened during this time period was open
-
       - name: number_prs_opened
         description: The total number of pull requests created during this time period
-
       - name: number_prs_merged
         description: The total number of pull requests merged during this time period
-      
       - name: number_prs_closed_without_merge
         description: The total number of pull requests closed without a merge during this time period
-
       - name: avg_days_pr_open
         description: The average number of days a pull request opened during this time period was open
-
       - name: longest_days_pr_open
         description: The longest number of days a pull request opened during this time period was open
-
       - name: repository
         description: The name of the repository
         tests:

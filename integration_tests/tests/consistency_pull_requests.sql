@@ -3,16 +3,21 @@
     enabled=var('fivetran_validation_tests_enabled', false)
 ) }}
 
+-- the differences in prod/dev run times will lead to discrepancies because these fields leverages current_timestamp
+{% set exclude_cols = ['days_issue_open', 'hours_request_review_to_first_review', 'hours_request_review_to_first_action', 'hours_request_review_to_merge', 'assignees'] 
+    + var('gh_consistency_exclude_columns', []) 
+    %}
+
 -- this test ensures the github__pull_requests end model matches the prior version
 with prod as (
-    select * except(days_issue_open, hours_request_review_to_first_review, hours_request_review_to_first_action, hours_request_review_to_merge)  --the differences in prod/dev run times will lead to discrepancies because these fields leverages current_timestamp
+    select {{ dbt_utils.star(from=ref('github__pull_requests'), except=exclude_cols) }}
     from {{ target.schema }}_github_prod.github__pull_requests    
     where date(updated_at) < date({{ dbt.current_timestamp() }})
 ),
 
 dev as (
-    select * except(days_issue_open, hours_request_review_to_first_review, hours_request_review_to_first_action, hours_request_review_to_merge)  --the differences in prod/dev run times will lead to discrepancies because these fields leverages current_timestamp
-    from {{ target.schema }}_github_prod.github__pull_requests  
+    select {{ dbt_utils.star(from=ref('github__pull_requests'), except=exclude_cols) }}
+    from {{ target.schema }}_github_dev.github__pull_requests  
     where date(updated_at) < date({{ dbt.current_timestamp() }})
 ),
 

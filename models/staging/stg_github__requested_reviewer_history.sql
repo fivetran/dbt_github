@@ -20,17 +20,18 @@ with requested_reviewer_history as (
                 staging_columns=get_requested_reviewer_history_columns()
             )
         }}
+        {{ github.apply_source_relation() }}
 
     from requested_reviewer_history
 
 ), fields as (
 
-    select 
-      pull_request_id,
-      cast(created_at as {{ dbt.type_timestamp() }}) as created_at,
-      requested_id,
-      removed
-
+    select
+        source_relation,
+        pull_request_id,
+        cast(created_at as {{ dbt.type_timestamp() }}) as created_at,
+        requested_id,
+        removed
     from macro
 )
 

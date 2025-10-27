@@ -9,32 +9,36 @@ issue_closed_history as (
 ), 
 
 close_events_stacked as (
-    select   
+    select
+      source_relation,
       issue_id,
       created_at as updated_at,
       false as is_closed
     from issue -- required because issue_closed_history table does not have a line item for when the issue was opened
     union all
     select
+      source_relation,
       issue_id,
       updated_at,
       is_closed
     from issue_closed_history
-), 
+),
 
 close_events_with_timestamps as (
   select
+    source_relation,
     issue_id,
     updated_at as valid_starting,
-    coalesce(lead(updated_at) over (partition by issue_id order by updated_at), {{ dbt.current_timestamp() }}) as valid_until,
+    coalesce(lead(updated_at) over (partition by issue_id, source_relation order by updated_at), {{ dbt.current_timestamp() }}) as valid_until,
     is_closed
   from close_events_stacked
 )
 
 select
+  source_relation,
   issue_id,
   sum({{ dbt.datediff('valid_starting', 'valid_until', 'second') }}) /60/60/24 as days_issue_open,
   count(*) - 1 as number_of_times_reopened
 from close_events_with_timestamps
   where not is_closed
-group by issue_id
+group by issue_id, source_relation

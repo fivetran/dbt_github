@@ -18,17 +18,18 @@ with pull_request as (
                 staging_columns=get_pull_request_columns()
             )
         }}
+        {{ github.apply_source_relation() }}
 
     from pull_request
 
 ), fields as (
 
-    select 
-      id as pull_request_id,
-      issue_id,
-      head_repo_id,
-      head_user_id
-
+    select
+        source_relation,
+        id as pull_request_id,
+        issue_id,
+        head_repo_id,
+        head_user_id
     from macro
 )
 

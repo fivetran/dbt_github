@@ -8,15 +8,16 @@ models:
         description: Foreign key that references the issue table
       - name: user_id
         description: Foreign key that references the user table
+      - name: source_relation
+        description: "{{ doc('source_relation') }}"
 
   - name: stg_github__label
     description: Table that contains labels that are used across your Github account within individual repositories.
     columns:
       - name: label_id
         description: Unique identifier of the Github label
-        tests: 
+        tests:
           - not_null
-          - unique
       - name: _fivetran_synced
         description: Timestamp of the record being synced by Fivetran
       - name: color
@@ -29,6 +30,8 @@ models:
         description: Name of the label
       - name: url
         description: Url where the label was used
+      - name: source_relation
+        description: "{{ doc('source_relation') }}"
 
   - name: stg_github__issue_closed_history
     description: Table to track when an issue is closed or re-opened
@@ -39,6 +42,8 @@ models:
         description: Timestamp of when the action took place
       - name: is_closed
         description: Boolean variable for if the issue was closed (true) or re-opened (false)
+      - name: source_relation
+        description: "{{ doc('source_relation') }}"
 
   - name: stg_github__issue_label
     description: The current labels attached to an issue
@@ -47,6 +52,8 @@ models:
         description: Foreign key that references the issue table
       - name: label_id
         description: Unique identifier of the used label
+      - name: source_relation
+        description: "{{ doc('source_relation') }}"
 
   - name: stg_github__issue_comment
     description: Table that contains comments made on issues
@@ -54,7 +61,6 @@ models:
       - name: issue_comment_id
         description: System generated unique id for the issue comment.
         tests:
-          - unique
           - not_null
       - name: issue_id
         description: Foreign key that references the issue table
@@ -62,6 +68,8 @@ models:
         description: Foreign key that references the user table
       - name: created_at
         description: Timestamp of when the issue comment was created.
+      - name: source_relation
+        description: "{{ doc('source_relation') }}"
 
   - name: stg_github__issue_merged
     description: Table that tracks when an issue (always a pull request) is merged
@@ -70,6 +78,8 @@ models:
         description: Foreign key that references the issue table.  This table will only reference issues that are pull requests
       - name: merged_at
         description: Timestamp of when the code merge took place
+      - name: source_relation
+        description: "{{ doc('source_relation') }}"
 
   - name: stg_github__issue
     description: Table that contains 1 entry for every issue created.  Pull Requests also create an entry in this table, and there is a boolean field to determine if an entry is a pull request.
@@ -77,7 +87,6 @@ models:
       - name: issue_id
         description: System generated unique id for the issue.  This is not the number that appears in the URL.
         tests:
-            - unique
             - not_null
       - name: body
         description: The text of the main description of the issue.
@@ -103,6 +112,8 @@ models:
         description:  Timestamp of when the last update was made to the issue.
       - name: user_id
         description: Foreign key that references the user table, representing the user that created the issue.
+      - name: source_relation
+        description: "{{ doc('source_relation') }}"
 
   - name: stg_github__pull_request_review
     description: Table containing reviews made to pull requests
@@ -110,7 +121,6 @@ models:
       - name: pull_request_review_id
         description: System generated unique id for the pull request review.
         tests:
-          - unique
           - not_null
       - name: pull_request_id
         description: Foreign key that references the pull request table.
@@ -120,14 +130,15 @@ models:
         description: Whether the review was an approval, request for change, comment, dismissal.
       - name: user_id
         description: Foreign key that references the user table, representing the user that reviewed the pull request.
-        
+      - name: source_relation
+        description: "{{ doc('source_relation') }}"
+
   - name: stg_github__pull_request
     description: A special type of issue that is created when a user wants to merge one branch of code into another
     columns:
       - name: pull_request_id
         description: System generated unique id for the pull request.
         tests:
-            - unique
             - not_null
       - name: issue_id
         description: Foreign key that references the issue table.
@@ -135,6 +146,8 @@ models:
         description: Foreign key that references the repository table, referencing the current branch.
       - name: head_user_id
         description: Foreign key that references the user table, referencing who created the current branch.
+      - name: source_relation
+        description: "{{ doc('source_relation') }}"
 
   - name: stg_github__repo_team
     description: Table representing the mapping relationships between repositories and teams
@@ -147,20 +160,23 @@ models:
         description: Reference to the respective team for the record. 
         tests:
           - not_null
-        
+      - name: source_relation
+        description: "{{ doc('source_relation') }}"
+
   - name: stg_github__repository
     description: Table representing the file structure of a directory under git control
     columns:
       - name: repository_id
         description: System generated unique id for the repository.
         tests:
-            - unique
             - not_null
       - name: full_name
         description: The name of the git repository.
       - name: is_private
         description: Boolean field indicating whether the repository is private (true) or public (false).
-        
+      - name: source_relation
+        description: "{{ doc('source_relation') }}"
+
   - name: stg_github__requested_reviewer_history
     description: Table containing when a user requests another user to review a pull request
     columns:
@@ -172,14 +188,15 @@ models:
         description: Foreign key that references the user table, representing the user that was requested to review a PR.
       - name: removed
         description: Boolean variable indicating if the requester was removed from the PR (true) or added to the PR (false).
-  
+      - name: source_relation
+        description: "{{ doc('source_relation') }}"
+
   - name: stg_github__team
     description: Table containing teams and team details
     columns:
       - name: team_id
         description: System generated unique id for the team.
         tests:
-          - unique
           - not_null
       - name: description
         description: User created description of the team.
@@ -191,6 +208,8 @@ models:
         description: Type of privacy permissions associated with the team.
       - name: slug
         description: Url friendly version of the team name.
+      - name: source_relation
+        description: "{{ doc('source_relation') }}"
 
   - name: stg_github__user
     description: Table representing contributors to a git project
@@ -198,7 +217,6 @@ models:
       - name: user_id
         description: System generated unique id for the user.
         tests:
-            - unique
             - not_null
       - name: login_name
         description: The alias the user uses to login to github.
@@ -206,3 +224,5 @@ models:
         description: The name of the user
       - name: company
         description: The  company of the user.
+      - name: source_relation
+        description: "{{ doc('source_relation') }}"

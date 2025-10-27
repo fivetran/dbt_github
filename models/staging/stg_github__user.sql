@@ -18,6 +18,7 @@ with github_user as (
                 staging_columns=get_user_columns()
             )
         }}
+        {{ github.apply_source_relation() }}
         
         
     from github_user
@@ -25,11 +26,11 @@ with github_user as (
 ), fields as (
 
     select
-      id as user_id,
-      login as login_name,
-      name,
-      company
-
+        source_relation,
+        id as user_id,
+        login as login_name,
+        name,
+        company
     from macro
 )
 

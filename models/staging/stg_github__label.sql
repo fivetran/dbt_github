@@ -20,14 +20,16 @@ with issue_label as (
                 staging_columns=get_label_columns()
             )
         }}
+        {{ github.apply_source_relation() }}
 
     from issue_label
 
 ), fields as (
 
-    select 
+    select
+        source_relation,
         id as label_id,
-        _fivetran_synced,	
+        _fivetran_synced,
         color,
         description,
         is_default,

@@ -18,16 +18,17 @@ with repository as (
                 staging_columns=get_repository_columns()
             )
         }}
+        {{ github.apply_source_relation() }}
 
     from repository
 
 ), fields as (
 
-    select 
-      id as repository_id,
-      full_name,
-      private as is_private
-
+    select
+        source_relation,
+        id as repository_id,
+        full_name,
+        private as is_private
     from macro
 )
 
