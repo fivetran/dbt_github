@@ -10,7 +10,7 @@
 ## Feature Update
 - **Union Data Functionality**: This release supports running the package on multiple GitHub source connections. See the [README](https://github.com/fivetran/dbt_github/tree/main?tab=readme-ov-file#step-3-define-database-and-schema-variables) for details on how to leverage this feature.
 
-## Test Update
+## Tests Update
 - Removes uniqueness tests. The new unioning feature requires combination-of-column tests to consider the new `source_relation` column in addition to the existing primary key, but this is not supported across dbt versions. 
   - These tests will be reintroduced once a version-agnostic solution is available.
 
