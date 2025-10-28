@@ -1,3 +1,8 @@
+# dbt_github v1.1.1
+
+## Under the Hood
+- Adds the `partition_by_source_relation` macro to improve window function partition handling and prevent conflicts when the unioned data feature is disabled.
+
 # dbt_github v1.1.0
 
 ## Schema/Data Change
