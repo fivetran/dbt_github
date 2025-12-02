@@ -1,3 +1,9 @@
+# dbt_github v1.2.0
+[PR #75](https://github.com/fivetran/dbt_github/pull/75) includes the following updates:
+
+## Features  
+- Increases the required dbt version upper limit to v3.0.0.
+
 # dbt_github v1.1.0
 
 ## Schema/Data Change
