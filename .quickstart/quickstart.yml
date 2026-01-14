@@ -1,7 +1,7 @@
 database_key: github_database
 schema_key: github_schema
 
-dbt_versions: ">=1.3.0 <2.0.0"
+dbt_versions: ">=1.3.0 <3.0.0"
 
 table_variables:
   github__using_issue_assignee:
@@ -15,6 +15,15 @@ table_variables:
     - team
   github__using_requested_reviewer_history:
     - requested_reviewer_history
+
+  _fivetran_quickstart_issue_closed_history:
+    - issue_closed_history
+  _fivetran_quickstart_issue_comment:
+    - issue_comment
+  _fivetran_quickstart_issue_merged:
+    - issue_merged
+  _fivetran_quickstart_pull_request_review:
+    - pull_request_review
 
 destination_configurations:
   databricks:

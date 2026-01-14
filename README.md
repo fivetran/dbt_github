@@ -1,11 +1,12 @@
-# GitHub dbt Package ([Docs](https://fivetran.github.io/dbt_github/))
+<!--section="github_transformation_model"-->
+# Github dbt Package
 
 <p align="left">
     <a alt="License"
         href="https://github.com/fivetran/dbt_github/blob/main/LICENSE">
         <img src="https://img.shields.io/badge/License-Apache%202.0-blue.svg" /></a>
     <a alt="dbt-core">
-        <img src="https://img.shields.io/badge/dbt_Core™_version->=1.3.0_,<2.0.0-orange.svg" /></a>
+        <img src="https://img.shields.io/badge/dbt_Core™_version->=1.3.0,_<3.0.0-orange.svg" /></a>
     <a alt="Maintained?">
         <img src="https://img.shields.io/badge/Maintained%3F-yes-green.svg" /></a>
     <a alt="PRs">
@@ -15,35 +16,72 @@
         <img src="https://img.shields.io/badge/Fivetran_Quickstart_Compatible%3F-yes-green.svg" /></a>
 </p>
 
+This dbt package transforms data from Fivetran's Github connector into analytics-ready tables.
+
+## Resources
+
+- Number of materialized models¹: 34
+- Connector documentation
+  - [Github connector documentation](https://fivetran.com/docs/connectors/applications/github)
+  - [Github ERD](https://fivetran.com/docs/connectors/applications/github#schemainformation)
+- dbt package documentation
+  - [GitHub repository](https://github.com/fivetran/dbt_github)
+  - [dbt Docs](https://fivetran.github.io/dbt_github/#!/overview)
+  - [DAG](https://fivetran.github.io/dbt_github/#!/overview?g_v=1)
+  - [Changelog](https://github.com/fivetran/dbt_github/blob/main/CHANGELOG.md)
+
 ## What does this dbt package do?
-- Produces modeled tables that leverage GitHub data from [Fivetran's connector](https://fivetran.com/docs/applications/github) in the format described by [this ERD](https://fivetran.com/docs/applications/github#schemainformation).
-- Provides insight into GitHub issues and pull requests by enhancing these core objects with commonly used metrics.
-- Produces metrics tables, which increase understanding of your team's velocity over time. Metrics are available on a daily, weekly, monthly, and quarterly level.
-- Generates a comprehensive data dictionary of your source and modeled github data through the [dbt docs site](https://fivetran.github.io/dbt_github/).
+This package enables you to analyze GitHub issues and pull requests, enhance core objects with commonly used metrics, and produce velocity metrics over time. It creates enriched models with metrics focused on issue and pull request tracking, team performance, and repository activity.
 
-<!--section="github_transformation_model-->
-The following table provides a detailed list of all tables materialized within this package by default.
-> TIP: See more details about these tables in the package's [dbt docs site](https://fivetran.github.io/dbt_github/#!/overview?g_v=1&g_e=seeds).
+### Output schema
+Final output tables are generated in the following target schema:
 
-| **Table**                  | **Description**                                                                                                                                               |
-| -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [github__issues](https://fivetran.github.io/dbt_github/#!/model/model.github.github__issues)     | Each record represents a GitHub issue, enriched with data about its assignees, milestones, and time comparisons.                                             |
-| [github__pull_requests](https://fivetran.github.io/dbt_github/#!/model/model.github.github__pull_requests)     | Each record represents a GitHub pull request, enriched with data about its repository, reviewers, and durations between review requests, merges and reviews. |
-| [github__daily_metrics](https://fivetran.github.io/dbt_github/#!/model/model.github.github__daily_metrics)     | Each record represents a single day and repository, enriched with metrics about PRs and issues that were created and closed during that period.                              |
-| [github__weekly_metrics](https://fivetran.github.io/dbt_github/#!/model/model.github.github__weekly_metrics)    | Each record represents a single week and repository, enriched with metrics about PRs and issues that were created and closed during that period.                             |
-| [github__monthly_metrics](https://fivetran.github.io/dbt_github/#!/model/model.github.github__monthly_metrics)   | Each record represents a single month and repository, enriched with metrics about PRs and issues that were created and closed during that period.                            |
-| [github__quarterly_metrics](https://fivetran.github.io/dbt_github/#!/model/model.github.github__quarterly_metrics) | Each record represents a single quarter and repository, enriched with metrics about PRs and issues that were created and closed during that period.                          |
+```
+<your_database>.<connector/schema_name>_github
+```
 
-### Materialized Models
-Each Quickstart transformation job run materializes 34 models if all components of this data model are enabled. This count includes all staging, intermediate, and final models materialized as `view`, `table`, or `incremental`.
-<!--section-end-->
+### Final output tables
 
-## How do I use the dbt package?
-### Step 1: Prerequisites
+By default, this package materializes the following final tables:
+
+| Table | Description |
+| :---- | :---- |
+| [github__issues](https://fivetran.github.io/dbt_github/#!/model/model.github.github__issues) | Tracks all GitHub issues with creator information, labels, lifecycle metrics, and comment activity to monitor issue resolution times, contributor engagement, and project health. <br></br>**Example Analytics Questions:**<ul><li>Which issues have been open the longest and which contributors are assigned to them?</li><li>What is the average time to close issues by label or milestone?</li><li>How many comments and reactions do issues typically receive before being resolved?</li></ul>|
+| [github__pull_requests](https://fivetran.github.io/dbt_github/#!/model/model.github.github__pull_requests) | Provides comprehensive pull request data including reviewers, approval status, merge times, changed files, and review cycles to analyze code review efficiency and development velocity. <br></br>**Example Analytics Questions:**<ul><li>What is the average time from PR creation to merge by repository or contributor?</li><li>Which pull requests have the most review cycles or requested changes before approval?</li><li>How many comments are typically exchanged per pull request?</li></ul>|
+| [github__daily_metrics](https://fivetran.github.io/dbt_github/#!/model/model.github.github__daily_metrics) | Tracks daily repository activity including pull requests and issues created and closed to monitor development velocity and project health on a day-by-day basis. <br></br>**Example Analytics Questions:**<ul><li>How many pull requests and issues are opened versus closed each day by repository?</li><li>What is the daily velocity of code changes and issue resolution?</li><li>Are there daily patterns in development activity that could inform sprint planning?</li></ul>|
+| [github__weekly_metrics](https://fivetran.github.io/dbt_github/#!/model/model.github.github__weekly_metrics) | Aggregates weekly repository activity to analyze sprint-level productivity, track week-over-week trends, and understand development patterns at the weekly cadence. <br></br>**Example Analytics Questions:**<ul><li>What is the weekly throughput of pull requests and issues by repository?</li><li>How do weekly development metrics trend over time?</li><li>Which weeks show the highest productivity in terms of PRs merged and issues resolved?</li></ul>|
+| [github__monthly_metrics](https://fivetran.github.io/dbt_github/#!/model/model.github.github__monthly_metrics) | Summarizes monthly repository activity to track long-term development trends, measure team productivity over time, and identify seasonal patterns in contribution activity. <br></br>**Example Analytics Questions:**<ul><li>How do monthly pull request and issue volumes trend across repositories?</li><li>What is the month-over-month growth in development activity and code contributions?</li><li>Which months show the highest productivity and how does this align with roadmap milestones?</li></ul>|
+| [github__quarterly_metrics](https://fivetran.github.io/dbt_github/#!/model/model.github.github__quarterly_metrics) | Provides quarterly repository performance metrics to support strategic planning, measure progress against OKRs, and understand high-level development trends by quarter. <br></br>**Example Analytics Questions:**<ul><li>What is the quarterly velocity of feature development and issue resolution by repository?</li><li>How do quarterly metrics align with product roadmap goals and release cycles?</li><li>Which quarters show the strongest team performance and code contribution activity?</li></ul>|
+
+¹ Each Quickstart transformation job run materializes these models if all components of this data model are enabled. This count includes all staging, intermediate, and final models materialized as `view`, `table`, or `incremental`.
+
+---
+
+## Prerequisites
 To use this dbt package, you must have the following:
 
-- At least one Fivetran GitHub connection syncing data into your destination.
+- At least one Fivetran Github connection syncing data into your destination.
 - A **BigQuery**, **Snowflake**, **Redshift**, **PostgreSQL**, or **Databricks** destination.
+
+## How do I use the dbt package?
+You can either add this dbt package in the Fivetran dashboard or import it into your dbt project:
+
+- To add the package in the Fivetran dashboard, follow our [Quickstart guide](https://fivetran.com/docs/transformations/dbt).
+- To add the package to your dbt project, follow the setup instructions in the dbt package's [README file](https://github.com/fivetran/dbt_github/blob/main/README.md#how-do-i-use-the-dbt-package) to use this package.
+
+<!--section-end-->
+
+### Install the package
+Include the following github package version in your `packages.yml` file.
+> TIP: Check [dbt Hub](https://hub.getdbt.com/) for the latest installation instructions, or [read the dbt docs](https://docs.getdbt.com/docs/package-management) for more information on installing packages.
+
+```yaml
+packages:
+  - package: fivetran/github
+    version: [">=1.3.0", "<1.4.0"] # we recommend using ranges to capture non-breaking changes automatically
+```
+
+> All required sources and staging models are now bundled into this transformation package. Do not include `fivetran/github_source` in your `packages.yml` since this package has been deprecated.
 
 #### Databricks Dispatch Configuration
 If you are using a Databricks destination with this package you will need to add the below (or a variation of the below) dispatch configuration within your `dbt_project.yml`. This is required in order for the package to accurately search for macros within the `dbt-labs/spark_utils` then the `dbt-labs/dbt_utils` packages respectively.
@@ -53,19 +91,7 @@ dispatch:
     search_order: ['spark_utils', 'dbt_utils']
 ```
 
-### Step 2: Install the package
-Include the following github package version in your `packages.yml` file.
-> TIP: Check [dbt Hub](https://hub.getdbt.com/) for the latest installation instructions, or [read the dbt docs](https://docs.getdbt.com/docs/package-management) for more information on installing packages.
-
-```yaml
-packages:
-  - package: fivetran/github
-    version: [">=1.1.0", "<1.2.0"] # we recommend using ranges to capture non-breaking changes automatically
-```
-
-> All required sources and staging models are now bundled into this transformation package. Do not include `fivetran/github_source` in your `packages.yml` since this package has been deprecated.
-
-### Step 3: Define database and schema variables
+### Define database and schema variables
 
 #### Option A: Single connection
 By default, this package runs using your [destination](https://docs.getdbt.com/docs/running-a-dbt-project/using-the-command-line-interface/configure-your-profile) and the `github` schema. If this is not where your GitHub data is (for example, if your github schema is named `github_fivetran`), add the following configuration to your root `dbt_project.yml` file:
@@ -103,7 +129,7 @@ vars:
 By default, this package defines one single-connection source, called `github`, which will be disabled if you are unioning multiple connections. This means that your DAG will not include your GitHub sources, though the package will run successfully.
 
 To properly incorporate all of your GitHub connections into your project's DAG:
-1. Define each of your sources in a `.yml` file in your project. Utilize the following template for the `source`-level configurations, and, **most importantly**, copy and paste the table and column-level definitions from the package's `src_github.yml` [file](https://github.com/fivetran/dbt_github/blob/main/models/staging/src_github.yml).
+1. Define each of your sources in a `.yml` file in the `models` directory of your project. Utilize the following template for the `source`-level configurations, and, **most importantly**, copy and paste the table and column-level definitions from the package's `src_github.yml` [file](https://github.com/fivetran/dbt_github/blob/main/models/staging/src_github.yml).
 
 ```yml
 # a .yml file in your root project
@@ -124,7 +150,7 @@ sources:
     tables: # copy and paste from github/models/staging/src_github.yml - see https://support.atlassian.com/bitbucket-cloud/docs/yaml-anchors/ for how to use anchors to only do so once
 ```
 
-> **Note**: If there are source tables you do not have (see [Step 4](https://github.com/fivetran/dbt_github?tab=readme-ov-file#step-4-disable-models-for-non-existent-sources)), you may still include them, as long as you have set the right variables to `False`.
+> **Note**: If there are source tables you do not have (see [Disable models for non-existent sources](https://github.com/fivetran/dbt_github?tab=readme-ov-file#step-4-disable-models-for-non-existent-sources)), you may still include them, as long as you have set the right variables to `False`.
 
 2. Set the `has_defined_sources` variable (scoped to the `github` package) to `True`, like such:
 ```yml
@@ -134,7 +160,7 @@ vars:
     has_defined_sources: true
 ```
 
-### Step 4: Disable models for non-existent sources
+### Disable models for non-existent sources
 Your GitHub connection might not sync every table that this package expects. If your syncs exclude certain tables, it is because you either don't use that functionality in GitHub or have actively excluded some tables from your syncs.
 
 If you do not have the `TEAM`, `REPO_TEAM`, `ISSUE_ASSIGNEE`, `ISSUE_LABEL`, `LABEL`, or `REQUESTED_REVIEWER_HISTORY` tables synced and are not running the package via Fivetran Quickstart, add the following variables to your `dbt_project.yml` file:
@@ -150,7 +176,7 @@ vars:
 
 *Note: This package only integrates the above variables. If you'd like to disable other models, please create an [issue](https://github.com/fivetran/dbt_github/issues) specifying which ones.*
 
-### (Optional) Step 5: Additional configurations
+### (Optional) Additional configurations
 
 <details open><summary>Expand/collapse configurations</summary>
 
@@ -175,7 +201,7 @@ vars:
 ```
 </details>
 
-### (Optional) Step 6: Orchestrate your models with Fivetran Transformations for dbt Core™
+### (Optional) Orchestrate your models with Fivetran Transformations for dbt Core™
 <details><summary>Expand for more details</summary>
 
 Fivetran offers the ability for you to orchestrate your dbt project through [Fivetran Transformations for dbt Core™](https://fivetran.com/docs/transformations/dbt). Learn how to set up your project for orchestration through Fivetran in our [Transformations for dbt Core setup guides](https://fivetran.com/docs/transformations/dbt#setupguide).
@@ -197,14 +223,17 @@ packages:
     - package: dbt-labs/spark_utils
       version: [">=0.3.0", "<0.4.0"]
 ```
+<!--section="github_maintenance"-->
 ## How is this package maintained and can I contribute?
 ### Package Maintenance
-The Fivetran team maintaining this package _only_ maintains the latest version of the package. We highly recommend you stay consistent with the [latest version](https://hub.getdbt.com/fivetran/github/latest/) of the package and refer to the [CHANGELOG](https://github.com/fivetran/dbt_github/blob/main/CHANGELOG.md) and release notes for more information on changes across versions.
+The Fivetran team maintaining this package only maintains the [latest version](https://hub.getdbt.com/fivetran/github/latest/) of the package. We highly recommend you stay consistent with the latest version of the package and refer to the [CHANGELOG](https://github.com/fivetran/dbt_github/blob/main/CHANGELOG.md) and release notes for more information on changes across versions.
 
 ### Contributions
 A small team of analytics engineers at Fivetran develops these dbt packages. However, the packages are made better by community contributions.
 
-We highly encourage and welcome contributions to this package. Check out [this dbt Discourse article](https://discourse.getdbt.com/t/contributing-to-a-dbt-package/657) on the best workflow for contributing to a package.
+We highly encourage and welcome contributions to this package. Learn how to contribute to a package in dbt's [Contributing to an external dbt package article](https://discourse.getdbt.com/t/contributing-to-a-dbt-package/657).
+
+<!--section-end-->
 
 ## Are there any resources available?
 - If you have questions or want to reach out for help, see the [GitHub Issue](https://github.com/fivetran/dbt_github/issues/new/choose) section to find the right avenue of support for you.

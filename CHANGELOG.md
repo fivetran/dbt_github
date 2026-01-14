@@ -1,7 +1,21 @@
-# dbt_github v1.1.1
+# dbt_github v1.3.0
+
+[PR #76](https://github.com/fivetran/dbt_github/pull/76) includes the following updates:
+
+## Documentation
+- Updates README with standardized Fivetran formatting
 
 ## Under the Hood
+- In the `.quickstart.yml` file:
+  - Adds `table_variables` for relevant sources to prevent missing sources from blocking downstream Quickstart models.
+  - Adds `supported_vars` for Quickstart UI customization,
 - Adds the `partition_by_source_relation` macro to improve window function partition handling and prevent conflicts when the unioned data feature is disabled.
+
+# dbt_github v1.2.0
+[PR #75](https://github.com/fivetran/dbt_github/pull/75) includes the following updates:
+
+## Features  
+- Increases the required dbt version upper limit to v3.0.0.
 
 # dbt_github v1.1.0
 
