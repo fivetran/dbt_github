@@ -21,6 +21,9 @@ vars:
     github_user_identifier: "github_user_data"
 
 models:
+  +persist_docs:
+    relation: true
+    columns: "{{ false if target.type in ('databricks') else true }}"
   +schema: "github_{{ var('directed_schema','dev') }}"
 
 seeds:
