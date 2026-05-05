@@ -13,6 +13,12 @@ models:
       +materialized: table
       tmp:
         +materialized: view
+
+quoting:
+  database: false
+  schema: true
+  identifier: true
+
 vars:
   github:
     issue_assignee: "{{ source('github', 'issue_assignee') }}"

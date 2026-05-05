@@ -78,9 +78,23 @@
     {{ '-- identifier: ' ~ identifier ~ '\n' }}
 
     {% if relation is not none -%}
+        {%- set source_rel = source(single_source_name, single_table_name) -%}
+        {%- set source_cols = adapter.get_columns_in_relation(source_rel) -%}
+        {%- set ns = namespace(has_case_sensitive_cols=false) -%}
+        {%- if target.type == 'snowflake' -%}
+            {%- for col in source_cols -%}
+                {%- if col.name != col.name | upper -%}{%- set ns.has_case_sensitive_cols = true -%}{%- endif -%}
+            {%- endfor -%}
+        {%- endif -%}
         select
-            {{ dbt_utils.star(from=source(single_source_name, single_table_name)) }}
-        from {{ source(single_source_name, single_table_name) }} as source_table
+            {% if ns.has_case_sensitive_cols %}
+                {%- for col in source_cols %}
+                {{ adapter.quote(col.name) }} as {{ col.name }}{% if not loop.last %},{% endif %}
+                {% endfor %}
+            {% else %}
+                {{ dbt_utils.star(from=source_rel) }}
+            {% endif %}
+        from {{ source_rel }} as source_table
 
     {% else %}
         {{ exceptions.warn(exception_warning) if using_empty_table_warnings }}
