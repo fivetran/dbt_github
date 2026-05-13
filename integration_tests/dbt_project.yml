@@ -4,7 +4,7 @@ config-version: 2
 profile: 'integration_tests'
 vars:
   github:
-    github_schema: github_integration_tests_1
+    github_schema: github_integration_tests
     github_issue_assignee_identifier: "github_issue_assignee_data"
     github_issue_closed_history_identifier: "github_issue_closed_history_data"
     github_issue_comment_identifier: "github_issue_comment_data"
@@ -31,39 +31,61 @@ seeds:
     show: false
   github_integration_tests:
     +quote_columns: "{{ true if target.type == 'redshift' else false }}"
-    +column_types:
-      _fivetran_synced: timestamp
+    github_issue_assignee_data:
+      +column_types:
+        _fivetran_synced: timestamp
     github_issue_comment_data:
       +column_types:
         id: "{%- if target.type == 'bigquery' -%} INT64 {%- else -%} bigint {%- endif -%}"
+        _fivetran_synced: timestamp
     github_issue_merged_data:
       +column_types:
         merged_at: timestamp
+        _fivetran_synced: timestamp
     github_issue_data:
       +column_types:
         closed_at: timestamp
         created_at: timestamp
         updated_at: timestamp
+        _fivetran_synced: timestamp
     github_issue_label_data:
       +column_types:
         issue_id: "{%- if target.type == 'bigquery' -%} INT64 {%- else -%} bigint {%- endif -%}"
         label_id: "{%- if target.type == 'bigquery' -%} INT64 {%- else -%} bigint {%- endif -%}"
+        _fivetran_synced: timestamp
     github_label_data:
       +column_types:
         id: "{%- if target.type == 'bigquery' -%} INT64 {%- else -%} bigint {%- endif -%}"
+        _fivetran_synced: timestamp
     github_issue_closed_history_data:
       +column_types:
         updated_at: timestamp
+        _fivetran_synced: timestamp
+    github_pull_request_data:
+      +column_types:
+        _fivetran_synced: timestamp
     github_pull_request_review_data:
       +column_types:
         id: "{%- if target.type == 'bigquery' -%} INT64 {%- else -%} bigint {%- endif -%}"
         submitted_at: timestamp
+        _fivetran_synced: timestamp
+    github_repo_team_data:
+      +column_types:
+        _fivetran_synced: timestamp
     github_repository_data:
       +column_types:
         created_at: timestamp
+        _fivetran_synced: timestamp
     github_requested_reviewer_history_data:
       +column_types:
         created_at: timestamp
+        _fivetran_synced: timestamp
+    github_team_data:
+      +column_types:
+        _fivetran_synced: timestamp
+    github_user_data:
+      +column_types:
+        _fivetran_synced: timestamp
 
 dispatch:
   - macro_namespace: dbt_utils
