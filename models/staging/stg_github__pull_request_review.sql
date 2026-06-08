@@ -18,7 +18,7 @@ with pull_request_review as (
                 staging_columns=get_pull_request_review_columns()
             )
         }}
-        {{ github.apply_source_relation() }}
+        {{ fivetran_utils.apply_source_relation(package_name='github') }}
 
     from pull_request_review
 

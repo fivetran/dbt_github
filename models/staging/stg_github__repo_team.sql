@@ -23,7 +23,7 @@ fields as (
                 staging_columns=get_repo_team_columns()
             )
         }}
-        {{ github.apply_source_relation() }}
+        {{ fivetran_utils.apply_source_relation(package_name='github') }}
         
     from base
     

@@ -8,4 +8,4 @@ select
   issue_id,
   count(*) as number_of_comments
 from issue_comment
-group by issue_id, source_relation
+group by issue_id{{ fivetran_utils.partition_by_source_relation(package_name='github') }}

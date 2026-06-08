@@ -25,3 +25,9 @@ test_scenarios:
       github__using_requested_reviewer_history: false
       github__using_label: false
     include_incremental: false
+
+  - name: "MDLS"
+    vars:
+      fivetran_using_source_casing: true
+    include_incremental: false
+    include_dbt_seed: true
