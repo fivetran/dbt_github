@@ -4,7 +4,7 @@ config-version: 2
 profile: 'integration_tests'
 vars:
   github:
-    github_schema: github_integration_tests
+    github_schema: zz_dbt_avinash_seed
     github_issue_assignee_identifier: "github_issue_assignee_data"
     github_issue_closed_history_identifier: "github_issue_closed_history_data"
     github_issue_comment_identifier: "github_issue_comment_data"
