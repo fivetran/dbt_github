@@ -1,14 +1,14 @@
 <!--section="github_transformation_model"-->
-# Github dbt Package
+# GitHub dbt Package
 
-This dbt package transforms data from Fivetran's Github connector into analytics-ready tables.
+This dbt package transforms data from Fivetran's GitHub connector into analytics-ready tables.
 
 ## Resources
 
 - Number of materialized models¹: 34
 - Connector documentation
-  - [Github connector documentation](https://fivetran.com/docs/connectors/applications/github)
-  - [Github ERD](https://fivetran.com/docs/connectors/applications/github#schemainformation)
+  - [GitHub connector documentation](https://fivetran.com/docs/connectors/applications/github)
+  - [GitHub ERD](https://fivetran.com/docs/connectors/applications/github#schemainformation)
 - dbt package documentation
   - [GitHub repository](https://github.com/fivetran/dbt_github)
   - [dbt Docs](https://fivetran.github.io/dbt_github/#!/overview)
@@ -47,7 +47,7 @@ By default, this package materializes the following final tables:
 ## Prerequisites
 To use this dbt package, you must have the following:
 
-- At least one Fivetran Github connection syncing data into your destination.
+- At least one Fivetran GitHub connection syncing data into your destination.
 - A **BigQuery**, **Snowflake**, **Redshift**, **PostgreSQL**, or **Databricks** destination.
 
 ## How do I use the dbt package?
@@ -80,7 +80,7 @@ dispatch:
 
 ### Define database and schema variables
 #### Option A: Single connection
-By default, this package runs using your destination and the `github` schema. If this is not where your Github data is (for example, if your Github schema is named `github_fivetran`), add the following configuration to your root `dbt_project.yml` file:
+By default, this package runs using your destination and the `github` schema. If this is not where your GitHub data is (for example, if your GitHub schema is named `github_fivetran`), add the following configuration to your root `dbt_project.yml` file:
 
 ```yml
 vars:
@@ -89,7 +89,7 @@ vars:
 ```
 
 #### Option B: Union multiple connections
-If you have multiple Github connections in Fivetran and would like to use this package on all of them simultaneously, we have provided functionality to do so. For each source table, the package will union all of the data together and pass the unioned table into the transformations. The `source_relation` column in each model indicates the origin of each record.
+If you have multiple GitHub connections in Fivetran and would like to use this package on all of them simultaneously, we have provided functionality to do so. For each source table, the package will union all of the data together and pass the unioned table into the transformations. The `source_relation` column in each model indicates the origin of each record.
 
 To use this functionality, you will need to set the `github_sources` variable in your root `dbt_project.yml` file:
 
@@ -110,7 +110,7 @@ vars:
 
 #### Optional: Incorporate unioned sources into DAG
 
-If you use [Fivetran Transformations for dbt Core™](https://fivetran.com/docs/transformations/dbt#transformationsfordbtcore) and are unioning multiple Github connections, you can define your sources in a property `.yml` file, [using this as a template](https://github.com/fivetran/dbt_github/blob/main/models/staging/src_github.yml). Set the variable `has_defined_sources: true` under the Github namespace in your `dbt_project.yml`. Otherwise, your Github connections won't appear in your DAG. See the `union_connections` macro [documentation](https://github.com/fivetran/dbt_fivetran_utils/tree/releases/v0.4.latest#optional-union-connections-defined-sources-configuration) for full configuration details.
+If you use [Fivetran Transformations for dbt Core™](https://fivetran.com/docs/transformations/dbt#transformationsfordbtcore) and are unioning multiple GitHub connections, you can define your sources in a property `.yml` file, [using this as a template](https://github.com/fivetran/dbt_github/blob/main/models/staging/src_github.yml). Set the variable `has_defined_sources: true` under the GitHub namespace in your `dbt_project.yml`. Otherwise, your GitHub connections won't appear in your DAG. See the `union_connections` macro [documentation](https://github.com/fivetran/dbt_fivetran_utils/tree/releases/v0.4.latest#optional-union-connections-defined-sources-configuration) for full configuration details.
 
 ### Disable models for non-existent sources
 Your GitHub connection might not sync every table that this package expects. If your syncs exclude certain tables, it is because you either don't use that functionality in GitHub or have actively excluded some tables from your syncs.
