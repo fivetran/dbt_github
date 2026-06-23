@@ -29,7 +29,7 @@ close_events_with_timestamps as (
     source_relation,
     issue_id,
     updated_at as valid_starting,
-    coalesce(lead(updated_at) over (partition by issue_id, source_relation order by updated_at), {{ dbt.current_timestamp() }}) as valid_until,
+    coalesce(lead(updated_at) over (partition by issue_id {{ fivetran_utils.partition_by_source_relation(package_name='github') }} order by updated_at), {{ dbt.current_timestamp() }}) as valid_until,
     is_closed
   from close_events_stacked
 )

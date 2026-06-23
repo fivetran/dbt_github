@@ -18,7 +18,7 @@ with github_user as (
                 staging_columns=get_user_columns()
             )
         }}
-        {{ github.apply_source_relation() }}
+        {{ fivetran_utils.apply_source_relation(package_name='github') }}
         
         
     from github_user

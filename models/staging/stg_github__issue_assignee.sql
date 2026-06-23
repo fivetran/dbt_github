@@ -20,7 +20,7 @@ with issue_assignee as (
                 staging_columns=get_issue_assignee_columns()
             )
         }}
-        {{ github.apply_source_relation() }}
+        {{ fivetran_utils.apply_source_relation(package_name='github') }}
 
     from issue_assignee
 
