@@ -1,3 +1,11 @@
+# dbt_github v1.4.1
+
+[PR #82](https://github.com/fivetran/dbt_github/pull/82) includes the following updates:
+
+## Feature Updates
+- Adds DuckDB as a supported destination.
+
+
 # dbt_github v1.4.0
 
 [PR #80](https://github.com/fivetran/dbt_github/pull/80) includes the following updates:
