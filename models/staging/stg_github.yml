@@ -5,7 +5,7 @@ models:
     description: Table with the current user(s) assigned to an issue
     columns:
       - name: issue_id
-        description: Foreign key that references the issue table
+        description: "{{ doc('issue_id') }}"
       - name: user_id
         description: Foreign key that references the user table
       - name: source_relation
@@ -19,7 +19,7 @@ models:
         tests:
           - not_null
       - name: _fivetran_synced
-        description: Timestamp of the record being synced by Fivetran
+        description: "{{ doc('_fivetran_synced') }}"
       - name: color
         description: The color of the label
       - name: description
@@ -37,7 +37,7 @@ models:
     description: Table to track when an issue is closed or re-opened
     columns:
       - name: issue_id
-        description: Foreign key that references the issue table
+        description: "{{ doc('issue_id') }}"
       - name: updated_at
         description: Timestamp of when the action took place
       - name: is_closed
@@ -49,11 +49,31 @@ models:
     description: The current labels attached to an issue
     columns:
       - name: issue_id
-        description: Foreign key that references the issue table
+        description: "{{ doc('issue_id') }}"
       - name: label_id
-        description: Unique identifier of the used label
+        description: "{{ doc('label_id') }}"
       - name: source_relation
         description: "{{ doc('source_relation') }}"
+
+  - name: stg_github__issue_label_history
+    description: Table that records each time a label is added to or removed from an issue or pull request. One row per issue, label, and event timestamp.
+    columns:
+      - name: source_relation
+        description: "{{ doc('source_relation') }}"
+      - name: issue_id
+        description: "{{ doc('issue_id') }}"
+        tests:
+          - not_null
+      - name: label_id
+        description: "{{ doc('label_id') }}"
+      - name: updated_at
+        description: Timestamp of when the label was added to or removed from the issue.
+      - name: is_labeled
+        description: Boolean indicating whether the label was added to the issue (true) or removed from it (false).
+      - name: actor_id
+        description: Foreign key that references the user table, representing the user who added or removed the label.
+      - name: _fivetran_synced
+        description: "{{ doc('_fivetran_synced') }}"
 
   - name: stg_github__issue_comment
     description: Table that contains comments made on issues
@@ -63,7 +83,7 @@ models:
         tests:
           - not_null
       - name: issue_id
-        description: Foreign key that references the issue table
+        description: "{{ doc('issue_id') }}"
       - name: user_id
         description: Foreign key that references the user table
       - name: created_at
@@ -101,7 +121,7 @@ models:
       - name: issue_number
         description: The issue number within a repository.  Is unique by repository, but not across repositories.
       - name: is_pull_request
-        description: Boolean for is the issue is a pull request (true) ot regular issue (false)
+        description: Boolean for is the issue is a pull request (true) or regular issue (false)
       - name: repository_id
         description: Foreign key that references the repository table.
       - name: state
@@ -141,7 +161,7 @@ models:
         tests:
             - not_null
       - name: issue_id
-        description: Foreign key that references the issue table.
+        description: "{{ doc('issue_id') }}"
       - name: head_repo_id
         description: Foreign key that references the repository table, referencing the current branch.
       - name: head_user_id

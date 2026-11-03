@@ -15,6 +15,8 @@ table_variables:
     - team
   github__using_requested_reviewer_history:
     - requested_reviewer_history
+  github__using_issue_label_history:
+    - issue_label_history
 
   _fivetran_quickstart_issue_closed_history:
     - issue_closed_history
@@ -37,5 +39,6 @@ public_models: [
   "github__quarterly_metrics",
   "github__pull_requests",
   "github__daily_metrics",
-  "github__issues"
+  "github__issues",
+  "github__issue_label_history"
 ]

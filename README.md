@@ -39,6 +39,7 @@ By default, this package materializes the following final tables:
 | [github__weekly_metrics](https://fivetran.github.io/dbt_github/#!/model/model.github.github__weekly_metrics) | Aggregates weekly repository activity to analyze sprint-level productivity, track week-over-week trends, and understand development patterns at the weekly cadence. <br></br>**Example Analytics Questions:**<ul><li>What is the weekly throughput of pull requests and issues by repository?</li><li>How do weekly development metrics trend over time?</li><li>Which weeks show the highest productivity in terms of PRs merged and issues resolved?</li></ul>|
 | [github__monthly_metrics](https://fivetran.github.io/dbt_github/#!/model/model.github.github__monthly_metrics) | Summarizes monthly repository activity to track long-term development trends, measure team productivity over time, and identify seasonal patterns in contribution activity. <br></br>**Example Analytics Questions:**<ul><li>How do monthly pull request and issue volumes trend across repositories?</li><li>What is the month-over-month growth in development activity and code contributions?</li><li>Which months show the highest productivity and how does this align with roadmap milestones?</li></ul>|
 | [github__quarterly_metrics](https://fivetran.github.io/dbt_github/#!/model/model.github.github__quarterly_metrics) | Provides quarterly repository performance metrics to support strategic planning, measure progress against OKRs, and understand high-level development trends by quarter. <br></br>**Example Analytics Questions:**<ul><li>What is the quarterly velocity of feature development and issue resolution by repository?</li><li>How do quarterly metrics align with product roadmap goals and release cycles?</li><li>Which quarters show the strongest team performance and code contribution activity?</li></ul>|
+| [github__issue_label_history](https://fivetran.github.io/dbt_github/#!/model/model.github.github__issue_label_history) | Tracks each period a label is applied to an issue or pull request, including when the label was added and removed and who added and removed it. Disabled by default. See [Enable the issue label history model](#enable-the-issue-label-history-model) to enable it. <br></br>**Example Analytics Questions:**<ul><li>How long do issues typically keep a given label, such as `needs triage` or `blocked`?</li><li>How often is a label removed and re-applied to the same issue?</li><li>Which contributors apply and remove labels most often?</li></ul>|
 
 ¹ Each Quickstart transformation job run materializes these models if all components of this data model are enabled. This count includes all staging, intermediate, and final models materialized as `view`, `table`, or `incremental`.
 
@@ -65,7 +66,7 @@ Include the following github package version in your `packages.yml` file.
 ```yaml
 packages:
   - package: fivetran/github
-    version: [">=1.4.0", "<1.5.0"] # we recommend using ranges to capture non-breaking changes automatically
+    version: [">=1.5.0", "<1.6.0"] # we recommend using ranges to capture non-breaking changes automatically
 ```
 
 > All required sources and staging models are now bundled into this transformation package. Do not include `fivetran/github_source` in your `packages.yml` since this package has been deprecated.
@@ -127,6 +128,14 @@ vars:
 ```
 
 *Note: This package only integrates the above variables. If you'd like to disable other models, please create an [issue](https://github.com/fivetran/dbt_github/issues) specifying which ones.*
+
+### Enable the issue label history model
+The `github__issue_label_history` model is disabled by default. It requires the `ISSUE_LABEL_HISTORY` and `LABEL` tables. If you sync both tables, add the following variable to your `dbt_project.yml` file to enable the model:
+
+```yml
+vars:
+    github__using_issue_label_history: true # by default this is assumed to be false
+```
 
 ### (Optional) Additional configurations
 

@@ -18,7 +18,8 @@ include_dbt_compile: true
 
 test_scenarios:
   - name: "Default"
-    vars: {}
+    vars:
+      github__using_issue_label_history: true
     include_incremental: false
 
   - name: "optional features disabled"
@@ -28,10 +29,12 @@ test_scenarios:
       github__using_issue_label: false
       github__using_requested_reviewer_history: false
       github__using_label: false
+      github__using_issue_label_history: false
     include_incremental: false
 
   - name: "MDLS"
     vars:
       fivetran_using_source_casing: true
+      github__using_issue_label_history: true
     include_incremental: false
     include_dbt_seed: true
