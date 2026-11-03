@@ -1,3 +1,19 @@
+# dbt_github v1.5.0
+
+[PR #85](https://github.com/fivetran/dbt_github/pull/85) includes the following updates:
+
+## Schema/Data Change
+**3 total changes • 0 possible breaking changes**
+
+| Data Model(s) | Change type | Old | New | Notes |
+| ------------- | ----------- | --- | --- | ----- |
+| [github__issue_label_history](https://fivetran.github.io/dbt_github/#!/model/model.github.github__issue_label_history) | New model |  |  | One row per period a label is applied to an issue or pull request, with consecutive duplicate events collapsed. See the [DECISIONLOG](https://github.com/fivetran/dbt_github/blob/main/DECISIONLOG.md) for details. |
+| [stg_github__issue_label_history](https://fivetran.github.io/dbt_github/#!/model/model.github.stg_github__issue_label_history) | New model |  |  | Stages the `ISSUE_LABEL_HISTORY` source table. |
+| [stg_github__issue_label_history_tmp](https://fivetran.github.io/dbt_github/#!/model/model.github.stg_github__issue_label_history_tmp) | New model |  |  | Temporary staging model for the `ISSUE_LABEL_HISTORY` source table. |
+
+## Feature Update
+- Adds the `github__using_issue_label_history` variable, which defaults to `false`. Set it to `true` to enable the new issue label history models. The models also require `github__using_label` to be `true`. See the [README](https://github.com/fivetran/dbt_github/#enable-the-issue-label-history-model) for details.
+
 # dbt_github v1.4.1
 
 [PR #82](https://github.com/fivetran/dbt_github/pull/82) includes the following updates:
