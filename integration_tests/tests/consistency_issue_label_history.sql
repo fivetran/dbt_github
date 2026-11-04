@@ -1,6 +1,6 @@
 {{ config(
     tags="fivetran_validations",
-    enabled=var('fivetran_validation_tests_enabled', false) and var('github__using_issue_label_history', false)
+    enabled=var('fivetran_validation_tests_enabled', false) and var('github__using_issue_label_history', true)
 ) }}
 
 {% set exclude_cols = var('gh_consistency_exclude_columns', []) %}

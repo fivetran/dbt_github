@@ -39,7 +39,7 @@ By default, this package materializes the following final tables:
 | [github__weekly_metrics](https://fivetran.github.io/dbt_github/#!/model/model.github.github__weekly_metrics) | Aggregates weekly repository activity to analyze sprint-level productivity, track week-over-week trends, and understand development patterns at the weekly cadence. <br></br>**Example Analytics Questions:**<ul><li>What is the weekly throughput of pull requests and issues by repository?</li><li>How do weekly development metrics trend over time?</li><li>Which weeks show the highest productivity in terms of PRs merged and issues resolved?</li></ul>|
 | [github__monthly_metrics](https://fivetran.github.io/dbt_github/#!/model/model.github.github__monthly_metrics) | Summarizes monthly repository activity to track long-term development trends, measure team productivity over time, and identify seasonal patterns in contribution activity. <br></br>**Example Analytics Questions:**<ul><li>How do monthly pull request and issue volumes trend across repositories?</li><li>What is the month-over-month growth in development activity and code contributions?</li><li>Which months show the highest productivity and how does this align with roadmap milestones?</li></ul>|
 | [github__quarterly_metrics](https://fivetran.github.io/dbt_github/#!/model/model.github.github__quarterly_metrics) | Provides quarterly repository performance metrics to support strategic planning, measure progress against OKRs, and understand high-level development trends by quarter. <br></br>**Example Analytics Questions:**<ul><li>What is the quarterly velocity of feature development and issue resolution by repository?</li><li>How do quarterly metrics align with product roadmap goals and release cycles?</li><li>Which quarters show the strongest team performance and code contribution activity?</li></ul>|
-| [github__issue_label_history](https://fivetran.github.io/dbt_github/#!/model/model.github.github__issue_label_history) | Tracks each period a label is applied to an issue or pull request, including when the label was added and removed and who added and removed it. Disabled by default. See [Enable the issue label history model](#enable-the-issue-label-history-model) to enable it. <br></br>**Example Analytics Questions:**<ul><li>How long do issues typically keep a given label, such as `needs triage` or `blocked`?</li><li>How often is a label removed and re-applied to the same issue?</li><li>Which contributors apply and remove labels most often?</li></ul>|
+| [github__issue_label_history](https://fivetran.github.io/dbt_github/#!/model/model.github.github__issue_label_history) | Tracks each period a label is applied to an issue or pull request, including when the label was added and removed and who added and removed it. <br></br>**Example Analytics Questions:**<ul><li>How long do issues typically keep a given label, such as `needs triage` or `blocked`?</li><li>How often is a label removed and re-applied to the same issue?</li><li>Which contributors apply and remove labels most often?</li></ul>|
 
 ¹ Each Quickstart transformation job run materializes these models if all components of this data model are enabled. This count includes all staging, intermediate, and final models materialized as `view`, `table`, or `incremental`.
 
@@ -116,26 +116,19 @@ If you use [Fivetran Transformations for dbt Core™](https://fivetran.com/docs/
 ### Disable models for non-existent sources
 Your GitHub connection might not sync every table that this package expects. If your syncs exclude certain tables, it is because you either don't use that functionality in GitHub or have actively excluded some tables from your syncs.
 
-If you do not have the `TEAM`, `REPO_TEAM`, `ISSUE_ASSIGNEE`, `ISSUE_LABEL`, `LABEL`, or `REQUESTED_REVIEWER_HISTORY` tables synced and are not running the package via Fivetran Quickstart, add the following variables to your `dbt_project.yml` file:
+If you do not have the `TEAM`, `REPO_TEAM`, `ISSUE_ASSIGNEE`, `ISSUE_LABEL`, `ISSUE_LABEL_HISTORY`, `LABEL`, or `REQUESTED_REVIEWER_HISTORY` tables synced and are not running the package via Fivetran Quickstart, add the following variables to your `dbt_project.yml` file:
 
 ```yml
 vars:
     github__using_repo_team: false # by default this is assumed to be true. Set to false if missing TEAM or REPO_TEAM
     github__using_issue_assignee: false # by default this is assumed to be true
     github__using_issue_label: false # by default this is assumed to be true
-    github__using_label: false # by default this is assumed to be true
+    github__using_issue_label_history: false # by default this is assumed to be true
+    github__using_label: false # by default this is assumed to be true. Setting this to false also disables github__issue_label_history
     github__using_requested_reviewer_history: false # by default this is assumed to be true
 ```
 
 *Note: This package only integrates the above variables. If you'd like to disable other models, please create an [issue](https://github.com/fivetran/dbt_github/issues) specifying which ones.*
-
-### Enable the issue label history model
-The `github__issue_label_history` model is disabled by default. It requires the `ISSUE_LABEL_HISTORY` and `LABEL` tables. If you sync both tables, add the following variable to your `dbt_project.yml` file to enable the model:
-
-```yml
-vars:
-    github__using_issue_label_history: true # by default this is assumed to be false
-```
 
 ### (Optional) Additional configurations
 

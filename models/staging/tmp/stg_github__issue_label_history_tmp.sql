@@ -1,5 +1,5 @@
---To enable this model, set the github__using_issue_label_history variable within your dbt_project.yml file to True.
-{{ config(enabled=var('github__using_issue_label_history', False)) }}
+--To disable this model, set the github__using_issue_label_history variable within your dbt_project.yml file to False.
+{{ config(enabled=var('github__using_issue_label_history', True)) }}
 
 {{
     fivetran_utils.union_connections(

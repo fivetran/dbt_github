@@ -1,5 +1,5 @@
 -- One row per issue, label, and interval start (valid_from)
-{{ config(enabled=(var('github__using_issue_label_history', False) and var('github__using_label', True))) }}
+{{ config(enabled=(var('github__using_issue_label_history', True) and var('github__using_label', True))) }}
 
 with label_intervals as (
 

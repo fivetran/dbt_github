@@ -1,4 +1,4 @@
-{{ config(enabled=(var('github__using_issue_label_history', False) and var('github__using_label', True))) }}
+{{ config(enabled=(var('github__using_issue_label_history', True) and var('github__using_label', True))) }}
 
 with label_history as (
 

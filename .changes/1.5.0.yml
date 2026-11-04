@@ -18,7 +18,8 @@ schema_data_changes:
     notes: Temporary staging model for the `ISSUE_LABEL_HISTORY` source table.
 new_features:
 - description: Adds the `github__using_issue_label_history` variable, which defaults
-    to `false`. Set it to `true` to enable the new issue label history models. The
-    models also require `github__using_label` to be `true`. See the [README](https://github.com/fivetran/dbt_github/#enable-the-issue-label-history-model)
+    to `true`. Set it to `false` to disable the new issue label history models if you
+    don't sync the `ISSUE_LABEL_HISTORY` table. The models are also disabled when
+    `github__using_label` is `false`. See the [README](https://github.com/fivetran/dbt_github/#disable-models-for-non-existent-sources)
     for details.
 date: '2026-11-03'

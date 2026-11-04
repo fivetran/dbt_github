@@ -75,7 +75,7 @@ sources:
         identifier:  "{{ var('github_issue_label_history_identifier', 'issue_label_history')}}"
         description: Table that records each time a label is added to or removed from an issue or pull request.
         config:
-          enabled: "{{ var('github__using_issue_label_history', false) and var('github_sources', []) == [] }}"
+          enabled: "{{ var('github__using_issue_label_history', true) and var('github_sources', []) == [] }}"
         columns:
           - name: issue_id
             description: "{{ doc('issue_id') }}"

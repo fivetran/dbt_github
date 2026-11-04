@@ -21,8 +21,6 @@ vars:
     github_team_identifier: "github_team_data"
     github_user_identifier: "github_user_data"
 
-    # github__using_issue_label_history: true  # @docs-include
-
 models:
   +persist_docs:
     relation: true
