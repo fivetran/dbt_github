@@ -42,8 +42,13 @@ group by 1, 2
 
 joined as (
   select
+    {% if var('github__using_requested_reviewer_history', True) -%}
+    coalesce(actual_reviewers.source_relation, requested_reviewers.source_relation) as source_relation,
+    coalesce(actual_reviewers.pull_request_id, requested_reviewers.pull_request_id) as pull_request_id,
+    {% else -%}
     actual_reviewers.source_relation,
     actual_reviewers.pull_request_id,
+    {%- endif %}
     actual_reviewers.reviewers,
     {% if var('github__using_requested_reviewer_history', True) -%}
     requested_reviewers.requested_reviewers,
