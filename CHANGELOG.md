@@ -1,3 +1,18 @@
+# dbt_github v1.5.0
+
+[PR #85](https://github.com/fivetran/dbt_github/pull/85) includes the following updates:
+
+## Schema/Data Change
+**2 total changes • 0 possible breaking changes**
+
+| Data Model(s) | Change type | Old | New | Notes |
+| ------------- | ----------- | --- | --- | ----- |
+| [github__issue_label_history](https://fivetran.github.io/dbt_github/#!/model/model.github.github__issue_label_history) | New model |  |  | One row per period a label is applied to an issue or pull request, with consecutive duplicate events collapsed. See the [DECISIONLOG](https://github.com/fivetran/dbt_github/blob/main/DECISIONLOG.md) for details. Requires the `ISSUE_LABEL_HISTORY` and `LABEL` source tables. See the [README](https://github.com/fivetran/dbt_github/#disable-models-for-non-existent-sources) for details. |
+| [stg_github__issue_label_history](https://fivetran.github.io/dbt_github/#!/model/model.github.stg_github__issue_label_history)<br>[stg_github__issue_label_history_tmp](https://fivetran.github.io/dbt_github/#!/model/model.github.stg_github__issue_label_history_tmp) | New staging and tmp models |  |  | Stages the `ISSUE_LABEL_HISTORY` source table. |
+
+## Feature Update
+- Adds the `github__using_issue_label_history` variable, which is dynamically configured in Quickstart and defaults to `true` for self-managed dbt projects. Set to `false` to disable if you don't sync the `ISSUE_LABEL_HISTORY` table.
+
 # dbt_github v1.4.1
 
 [PR #82](https://github.com/fivetran/dbt_github/pull/82) includes the following updates:

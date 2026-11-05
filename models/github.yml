@@ -79,9 +79,9 @@ models:
       - name: milestone_id
         description: Foreign key that references the milestone.
       - name: is_pull_request
-        description: Boolean indiciating whether the issue is a pull request.
+        description: Boolean indicating whether the issue is a pull request.
       - name: issue_number
-        description: The number of the pull request.  Unique within a repository, but not accross.
+        description: The number of the pull request.  Unique within a repository, but not across.
       - name: repository_id
         description: Foreign key that references the repository table
       - name: updated_at
@@ -233,6 +233,61 @@ models:
         description: The name of the repository
         tests:
           - not_null
+
+  - name: github__issue_label_history
+    description: >
+      Each period a label was applied to an issue or pull request, with when it was added, when it was removed, and who added and removed it.
+      One row per issue, label, and interval start (valid_from). Repeated adds or removals in a row are collapsed to the first event,
+      and a removal with no earlier add is dropped because its start is unknown. Events with a null label_id are excluded because
+      they duplicate an event that has the label_id. See the DECISIONLOG for details.
+    columns:
+      - name: issue_label_history_id
+        description: Surrogate key derived from source_relation, issue_id, label_id, and valid_from.
+        tests:
+          - not_null
+          - unique
+      - name: source_relation
+        description: "{{ doc('source_relation') }}"
+      - name: issue_id
+        description: "{{ doc('issue_id') }}"
+        tests:
+          - not_null
+      - name: issue_number
+        description: The number of the issue. Is unique within a repository, but not across repositories.
+      - name: is_pull_request
+        description: Boolean indicating whether the issue is a pull request.
+      - name: repository_id
+        description: Foreign key that references the repository table.
+      - name: repository
+        description: The full name of the repository the issue belongs to.
+      - name: label_id
+        description: "{{ doc('label_id') }}"
+      - name: label_name
+        description: Name of the label.
+      - name: label_description
+        description: Description of the label.
+      - name: is_default_label
+        description: Boolean indicating whether the label is a default label created with the repository.
+      - name: valid_from
+        description: Timestamp of when the label was added to the issue.
+      - name: valid_until
+        description: Timestamp of when the label was removed from the issue. Null if the label is still applied.
+      - name: is_currently_applied
+        description: Boolean indicating whether the label is still applied to the issue.
+      - name: label_application_number
+        description: The number of times this label has been applied to the issue, up to and including this interval. Starts at 1.
+      - name: actor_id
+        description: Foreign key that references the user table, representing the user who added the label.
+      - name: actor_login_name
+        description: Login name of the user who added the label.
+      - name: actor_name
+        description: Name of the user who added the label.
+      - name: removed_by_actor_id
+        description: Foreign key that references the user table, representing the user who removed the label. Null if the label is still applied.
+      - name: removed_by_actor_login_name
+        description: Login name of the user who removed the label.
+      - name: removed_by_actor_name
+        description: Name of the user who removed the label.
 
   - name: github__quarterly_metrics
     description: >

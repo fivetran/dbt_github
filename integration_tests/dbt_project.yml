@@ -1,5 +1,5 @@
 name: 'github_integration_tests'
-version: '1.4.1'
+version: '1.5.0'
 config-version: 2
 profile: 'integration_tests'
 vars:
@@ -9,6 +9,7 @@ vars:
     github_issue_closed_history_identifier: "github_issue_closed_history_data"
     github_issue_comment_identifier: "github_issue_comment_data"
     github_issue_label_identifier: "github_issue_label_data"
+    github_issue_label_history_identifier: "github_issue_label_history_data"
     github_label_identifier: "github_label_data"
     github_issue_merged_identifier: "github_issue_merged_data"
     github_issue_identifier: "github_issue_data"
@@ -52,6 +53,13 @@ seeds:
       +column_types:
         issue_id: "{%- if target.type == 'bigquery' -%} INT64 {%- else -%} bigint {%- endif -%}"
         label_id: "{%- if target.type == 'bigquery' -%} INT64 {%- else -%} bigint {%- endif -%}"
+        _fivetran_synced: timestamp
+    github_issue_label_history_data:
+      +column_types:
+        issue_id: "{%- if target.type == 'bigquery' -%} INT64 {%- else -%} bigint {%- endif -%}"
+        label_id: "{%- if target.type == 'bigquery' -%} INT64 {%- else -%} bigint {%- endif -%}"
+        actor_id: "{%- if target.type == 'bigquery' -%} INT64 {%- else -%} bigint {%- endif -%}"
+        updated_at: timestamp
         _fivetran_synced: timestamp
     github_label_data:
       +column_types:
