@@ -5,7 +5,7 @@ This dbt package transforms data from Fivetran's GitHub connector into analytics
 
 ## Resources
 
-- Number of materialized models¹: 34
+- Number of materialized models¹: 37
 - Connector documentation
   - [GitHub connector documentation](https://fivetran.com/docs/connectors/applications/github)
   - [GitHub ERD](https://fivetran.com/docs/connectors/applications/github#schemainformation)

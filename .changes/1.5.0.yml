@@ -7,19 +7,14 @@ schema_data_changes:
     change_type: New model
     notes: One row per period a label is applied to an issue or pull request, with
       consecutive duplicate events collapsed. See the [DECISIONLOG](https://github.com/fivetran/dbt_github/blob/main/DECISIONLOG.md)
-      for details.
+      for details. Requires the `ISSUE_LABEL_HISTORY` and `LABEL` source tables.
+      See the [README](https://github.com/fivetran/dbt_github/#disable-models-for-non-existent-sources) for details.
   - models:
     - '[stg_github__issue_label_history](https://fivetran.github.io/dbt_github/#!/model/model.github.stg_github__issue_label_history)'
-    change_type: New model
-    notes: Stages the `ISSUE_LABEL_HISTORY` source table.
-  - models:
     - '[stg_github__issue_label_history_tmp](https://fivetran.github.io/dbt_github/#!/model/model.github.stg_github__issue_label_history_tmp)'
-    change_type: New model
-    notes: Temporary staging model for the `ISSUE_LABEL_HISTORY` source table.
+    change_type: New staging and tmp models
+    notes: Stages the `ISSUE_LABEL_HISTORY` source table.
 new_features:
-- description: Adds the `github__using_issue_label_history` variable, which defaults
-    to `true`. Set it to `false` to disable the new issue label history models if you
-    don't sync the `ISSUE_LABEL_HISTORY` table. The models are also disabled when
-    `github__using_label` is `false`. See the [README](https://github.com/fivetran/dbt_github/#disable-models-for-non-existent-sources)
-    for details.
-date: '2026-11-03'
+- description: Adds the `github__using_issue_label_history` variable, which is dynamically configured in Quickstart and defaults
+    to `true` for self-managed dbt projects. Set to `false` to disable if you don't sync the `ISSUE_LABEL_HISTORY` table.
+date: '2026-11-04'
