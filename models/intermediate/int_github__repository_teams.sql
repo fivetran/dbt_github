@@ -37,7 +37,7 @@ final as (
         source_relation,
         repository_id,
         repository,
-        {{ fivetran_utils.string_agg('team_name', "', '" ) }} as repository_team_names
+        {{ dbt.listagg('team_name', "', '" ) }} as repository_team_names
     from team_repo
 
     group by 1, 2, 3

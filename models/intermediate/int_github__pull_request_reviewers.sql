@@ -12,7 +12,7 @@ actual_reviewers as (
   select
     pull_request_review.source_relation,
     pull_request_review.pull_request_id,
-    {{ fivetran_utils.string_agg( 'distinct github_user.login_name', "', '" )}} as reviewers,
+    {{ dbt.listagg( 'distinct github_user.login_name', "', '" )}} as reviewers,
     count(*) as number_of_reviews
 from pull_request_review
 left join github_user on pull_request_review.user_id = github_user.user_id
@@ -32,7 +32,7 @@ requested_reviewers as (
   select
     requested_reviewer_history.source_relation,
     requested_reviewer_history.pull_request_id,
-    {{ fivetran_utils.string_agg( 'distinct github_user.login_name', "', '" )}} as requested_reviewers
+    {{ dbt.listagg( 'distinct github_user.login_name', "', '" )}} as requested_reviewers
 from requested_reviewer_history
 left join github_user on requested_reviewer_history.requested_id = github_user.user_id
   and requested_reviewer_history.source_relation = github_user.source_relation

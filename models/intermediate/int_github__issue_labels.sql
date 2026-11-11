@@ -8,6 +8,6 @@ with issue_label as (
 select
   source_relation,
   issue_id,
-  {{ fivetran_utils.string_agg( 'label', "', '" )}} as labels
+  {{ dbt.listagg( 'label', "', '" )}} as labels
 from issue_label
 group by issue_id, source_relation
