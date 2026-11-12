@@ -3,6 +3,13 @@ version: 2
 models:
   - name: stg_github__issue_assignee
     description: Table with the current user(s) assigned to an issue
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          arguments:
+            combination_of_columns:
+              - source_relation
+              - issue_id
+              - user_id
     columns:
       - name: issue_id
         description: "{{ doc('issue_id') }}"
@@ -13,6 +20,12 @@ models:
 
   - name: stg_github__label
     description: Table that contains labels that are used across your Github account within individual repositories.
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          arguments:
+            combination_of_columns:
+              - source_relation
+              - label_id
     columns:
       - name: label_id
         description: Unique identifier of the Github label
@@ -35,6 +48,13 @@ models:
 
   - name: stg_github__issue_closed_history
     description: Table to track when an issue is closed or re-opened
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          arguments:
+            combination_of_columns:
+              - source_relation
+              - issue_id
+              - updated_at
     columns:
       - name: issue_id
         description: "{{ doc('issue_id') }}"
@@ -47,6 +67,13 @@ models:
 
   - name: stg_github__issue_label
     description: The current labels attached to an issue
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          arguments:
+            combination_of_columns:
+              - source_relation
+              - issue_id
+              - label_id
     columns:
       - name: issue_id
         description: "{{ doc('issue_id') }}"
@@ -57,6 +84,14 @@ models:
 
   - name: stg_github__issue_label_history
     description: Table that records each time a label is added to or removed from an issue or pull request. One row per issue, label, and event timestamp.
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          arguments:
+            combination_of_columns:
+              - source_relation
+              - issue_id
+              - label_id
+              - updated_at
     columns:
       - name: source_relation
         description: "{{ doc('source_relation') }}"
@@ -77,6 +112,12 @@ models:
 
   - name: stg_github__issue_comment
     description: Table that contains comments made on issues
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          arguments:
+            combination_of_columns:
+              - source_relation
+              - issue_comment_id
     columns:
       - name: issue_comment_id
         description: System generated unique id for the issue comment.
@@ -93,6 +134,13 @@ models:
 
   - name: stg_github__issue_merged
     description: Table that tracks when an issue (always a pull request) is merged
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          arguments:
+            combination_of_columns:
+              - source_relation
+              - issue_id
+              - merged_at
     columns:
       - name: issue_id
         description: Foreign key that references the issue table.  This table will only reference issues that are pull requests
@@ -103,6 +151,12 @@ models:
 
   - name: stg_github__issue
     description: Table that contains 1 entry for every issue created.  Pull Requests also create an entry in this table, and there is a boolean field to determine if an entry is a pull request.
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          arguments:
+            combination_of_columns:
+              - source_relation
+              - issue_id
     columns:
       - name: issue_id
         description: System generated unique id for the issue.  This is not the number that appears in the URL.
@@ -137,6 +191,12 @@ models:
 
   - name: stg_github__pull_request_review
     description: Table containing reviews made to pull requests
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          arguments:
+            combination_of_columns:
+              - source_relation
+              - pull_request_review_id
     columns:
       - name: pull_request_review_id
         description: System generated unique id for the pull request review.
@@ -155,6 +215,12 @@ models:
 
   - name: stg_github__pull_request
     description: A special type of issue that is created when a user wants to merge one branch of code into another
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          arguments:
+            combination_of_columns:
+              - source_relation
+              - pull_request_id
     columns:
       - name: pull_request_id
         description: System generated unique id for the pull request.
@@ -171,6 +237,13 @@ models:
 
   - name: stg_github__repo_team
     description: Table representing the mapping relationships between repositories and teams
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          arguments:
+            combination_of_columns:
+              - source_relation
+              - repository_id
+              - team_id
     columns:
       - name: repository_id
         description: Reference to the respective repository for the record.
@@ -185,6 +258,12 @@ models:
 
   - name: stg_github__repository
     description: Table representing the file structure of a directory under git control
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          arguments:
+            combination_of_columns:
+              - source_relation
+              - repository_id
     columns:
       - name: repository_id
         description: System generated unique id for the repository.
@@ -199,6 +278,14 @@ models:
 
   - name: stg_github__requested_reviewer_history
     description: Table containing when a user requests another user to review a pull request
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          arguments:
+            combination_of_columns:
+              - source_relation
+              - pull_request_id
+              - requested_id
+              - created_at
     columns:
       - name: pull_request_id
         description: Foreign key that references the pull request table.
@@ -213,6 +300,12 @@ models:
 
   - name: stg_github__team
     description: Table containing teams and team details
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          arguments:
+            combination_of_columns:
+              - source_relation
+              - team_id
     columns:
       - name: team_id
         description: System generated unique id for the team.
@@ -233,6 +326,12 @@ models:
 
   - name: stg_github__user
     description: Table representing contributors to a git project
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          arguments:
+            combination_of_columns:
+              - source_relation
+              - user_id
     columns:
       - name: user_id
         description: System generated unique id for the user.
