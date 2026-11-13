@@ -4,6 +4,12 @@ models:
   - name: github__issues
     description: >
       Basic information about issues as well as additional fields for things like assignees, projects, labels and open time
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          arguments:
+            combination_of_columns:
+              - source_relation
+              - issue_id
     columns:
       - name: source_relation
         description: "{{ doc('source_relation') }}"
@@ -61,6 +67,12 @@ models:
   - name: github__pull_requests
     description: >
       Basic information about pull_requests as well as additional fields about reviews and time between actions
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          arguments:
+            combination_of_columns:
+              - source_relation
+              - issue_id
     columns:
       - name: source_relation
         description: "{{ doc('source_relation') }}"
@@ -138,6 +150,13 @@ models:
   - name: github__daily_metrics
     description: >
       Summary numbers for issues and pull requests by day
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          arguments:
+            combination_of_columns:
+              - source_relation
+              - repository
+              - day
     columns:
       - name: source_relation
         description: "{{ doc('source_relation') }}"
@@ -171,6 +190,13 @@ models:
   - name: github__weekly_metrics
     description: >
       Summary numbers for issues and pull requests by week
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          arguments:
+            combination_of_columns:
+              - source_relation
+              - repository
+              - week
     columns:
       - name: source_relation
         description: "{{ doc('source_relation') }}"
@@ -204,6 +230,13 @@ models:
   - name: github__monthly_metrics
     description: >
       Summary numbers for issues and pull requests by month
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          arguments:
+            combination_of_columns:
+              - source_relation
+              - repository
+              - month
     columns:
       - name: source_relation
         description: "{{ doc('source_relation') }}"
@@ -292,6 +325,13 @@ models:
   - name: github__quarterly_metrics
     description: >
       Summary numbers for issues and pull requests by quarter
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          arguments:
+            combination_of_columns:
+              - source_relation
+              - repository
+              - quarter
     columns:
       - name: source_relation
         description: "{{ doc('source_relation') }}"
