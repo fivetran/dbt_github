@@ -55,6 +55,7 @@ models:
               - source_relation
               - issue_id
               - updated_at
+              - is_closed
     columns:
       - name: issue_id
         description: "{{ doc('issue_id') }}"
